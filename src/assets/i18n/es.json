@@ -1,0 +1,208 @@
+{
+  "common": {
+    "welcome": "Bienvenido",
+    "home": "Inicio",
+    "about": "Acerca de",
+    "services": "Servicios",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "language": "Idioma",
+    "spanish": "Español",
+    "english": "Inglés"
+  },
+  "header": {
+    "title": "Portafolio",
+    "nav": {
+      "home": "Inicio",
+      "about": "Sobre mí",
+      "services": "Servicios",
+      "projects": "Proyectos",
+      "contact": "Contacto",
+      "workExperience": "Experiencia laboral",
+      "priceQuoteGenerator": "Generador de presupuestos"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Hola, soy Francisco.",
+      "subtitle": "Senior Web UI Engineer / Desarrollador Frontend.",
+      "available": "Disponible para trabajar",
+      "description": "La mayoría de los devs front-end o se mueven rápido y rompen cosas, o hacen código tan \"perfecto\" que nunca se lanza. Yo hago ambas: envío rápido y mantengo el código limpio. Más de <strong>6 años</strong> convirtiendo ideas en aplicaciones web reales. Actualmente vivo en <strong>The Woodlands, Texas</strong> y estoy autorizado para trabajar en Estados Unidos."
+    },
+    "about": {
+      "title": "Sobre mí",
+      "description": "Soy Francisco, ingeniero de interfaces web de Monterrey, México, ahora viviendo en The Woodlands, TX, con autorización para trabajar en USA.<br><br>Lo que realmente hago es esto: tomo frontends desordenados o frágiles y los convierto en sistemas escalables y mantenibles. No se trata solo de \"que se vea bonito\": me enfoco en arquitectura, manejo de estado, rendimiento y experiencia del desarrollador. <strong>Angular</strong> es mi fuerte, también trabajo con <strong>React</strong>, y soy un aprendiz muy rápido: adopto nuevas herramientas, librerías y patrones con facilidad y los llevo a producción de forma segura.<br><br>Muchos desarrolladores entienden el framework, pero no el producto. Yo me preocupo por ambos. Mientras otros discuten sobre la librería de moda, yo estoy lanzando experiencias rápidas, accesibles, optimizadas para SEO y alineadas al negocio.<br><br>He lanzado productos SaaS como <strong>Shelfie</strong> (mejora de fotos de productos con IA para pequeños comercios) además de construir soluciones corporativas para marcas globales a través de <strong>Globant</strong> en sectores como retail, viajes y medios. Mi GitHub y mis proyectos personales son pruebas, no promesas.<br><br>¿El resultado? Frontends fáciles de mantener, agradables de usar y con impacto directo en el negocio.<br><br>Cuando no estoy programando, normalmente estoy probando herramientas nuevas, jugando videojuegos o ayudando a amigos con sus proyectos y configuraciones.<br><br>No solo construyo componentes. Construyo sistemas que permiten a los equipos lanzar más rápido sin perder calidad."
+    }
+  },
+  "workExperience": {
+    "title": "Experiencia laboral",
+    "description": "He lanzado productos SaaS como Shelfie (mejora de fotos de productos con IA para pequeños comercios) e Invitamex (plataforma de invitaciones digitales con analíticas), además de construir soluciones corporativas para marcas globales a través de Globant en sectores como retail, viajes y medios. Mi GitHub y mis proyectos personales son pruebas, no promesas.",
+    "items": [
+      {
+        "title": "Freelance",
+        "role": "Consultor",
+        "at": "en",
+        "date": "2025 - Actualidad",
+        "description": "Ayudo a startups y negocios pequeños a diseñar, arquitectar y lanzar experiencias web modernas."
+      },
+      {
+        "title": "Shelfie",
+        "role": "Fundador",
+        "at": "en",
+        "date": "2025 - Actualidad",
+        "description": "SaaS de IA que ayuda a pequeños negocios a mejorar sus fotos de producto y presencia online, usando React, Supabase y Stripe.",
+        "link": "https://shelfie.com.mx"
+      },
+      {
+        "title": "Globant",
+        "role": "Desarrollador",
+        "at": "en",
+        "date": "2020 - 2025",
+        "description": "Construcción de soluciones corporativas para marcas globales a través de Globant en sectores como retail, viajes y medios.",
+        "link": "https://globant.com"
+      },
+      {
+        "title": "ContralorMX",
+        "role": "Desarrollador",
+        "at": "en",
+        "date": "2019 - 2020",
+        "description": "Desarrollo de la plataforma de control de gastos y presupuestos para la empresa ContralorMX."
+      },
+      {
+        "title": "Handa Systems",
+        "role": "Desarrollador",
+        "at": "en",
+        "date": "2019 - 2019",
+        "description": "Construcción de soluciones corporativas para marcas globales a través de Handa Systems en retail."
+      }
+    ]
+},
+"contact": {
+    "title": "Hablemos",
+    "description": "¿Estás construyendo algo serio y necesitas un frontend sólido, escalable y bien pensado?<br><br>¿Buscas un desarrollador que aprenda rápido tu stack, entienda el impacto en el negocio y ya esté autorizado para trabajar en Estados Unidos?",
+    "sendMessage": "Enviar mensaje",
+    "reachMe": "Contacta conmigo"
+  },
+  "projects": {
+    "title": "Proyectos",
+    "code": "Código",
+    "preview": "Preview",
+    "items": [
+      {
+        "title": "SVGL",
+        "description": "Biblioteca de logos SVG de las marcas más populares. +10k visitas al mes. +2K svgs descargados. Creado desde cero con Next.js, React y Tailwind CSS.",
+        "link": "https://svgl.vercel.app",
+        "code": "https://github.com/pheralb/svgl",
+        "image": "https://porfolio.dev/projects/svgl.webp",
+        "technologies": [
+          {"name": "Next.js", "color": "contrast"},
+          {"name": "React", "color": "info"},
+          {"name": "Tailwind CSS", "color": "success"}
+        ]
+      },
+      {
+        "title": "AdventJS",
+        "description": "Una plataforma con retos de programación.",
+        "link": "https://adventjs.dev",
+        "code": "https://github.com/pheralb/adventjs",
+        "image": "https://porfolio.dev/projects/adventjs.webp",
+        "technologies": [
+          {"name": "Next.js", "color": "contrast"},
+          {"name": "React", "color": "info"},
+          {"name": "Tailwind CSS", "color": "success"}
+        ]
+      }
+    ]
+  },
+  "quote": {
+    "title": "Cotizador Inteligente",
+    "subtitle": "Personaliza tu paquete y obtén una estimación instantánea.",
+    "currency": {
+      "usd": "USD",
+      "mxn": "MXN"
+    },
+    "steps": {
+      "projectType": "ELIGE EL TIPO DE PROYECTO",
+      "scope": "DEFINE EL ALCANCE (MÓDULOS)",
+      "enhancements": "POTENCIA TU PROYECTO"
+    },
+    "selectProjectTypeFirst": "Primero selecciona un tipo de proyecto",
+    "projectTypes": {
+      "landing": {
+        "name": "Landing Page",
+        "description": "Sitio de alto impacto para conversiones.",
+        "price": "DESDE MXN $5,852"
+      },
+      "ecommerce": {
+        "name": "E-commerce",
+        "description": "Tienda completa con pasarela de pagos.",
+        "price": "DESDE MXN $17,374"
+      },
+      "saas": {
+        "name": "SaaS / Web App",
+        "description": "Aplicación compleja con lógica a medida.",
+        "price": "DESDE MXN $32,920"
+      }
+    },
+    "modules": {
+      "label": "MÓDULOS",
+      "basePrice": 3292
+    },
+    "units": {
+      "section": "sección",
+      "product": "producto",
+      "module": "módulo"
+    },
+    "enhancements": {
+      "database": {
+        "name": "Base de Datos",
+        "price": 3292
+      },
+      "adminPanel": {
+        "name": "Panel Admin (CMS)",
+        "price": 7315
+      },
+      "mobileFirst": {
+        "name": "Mobile First",
+        "price": 2195
+      },
+      "seo": {
+        "name": "SEO Avanzado",
+        "price": 2743
+      },
+      "auth": {
+        "name": "Auth & Roles",
+        "price": 4572
+      },
+      "api": {
+        "name": "API Integrations",
+        "price": 7315
+      },
+      "premium": {
+        "name": "UI/UX Premium",
+        "price": 3658
+      },
+      "performance": {
+        "name": "Performance Opt.",
+        "price": 1829
+      },
+      "custom": {
+        "name": "Lógica Custom",
+        "price": 3658
+      }
+    },
+    "budgetToggle": "Tengo un presupuesto límite definido",
+    "summary": {
+      "title": "ESTIMACIÓN",
+      "subtitle": "Resumen",
+      "baseService": "Servicio Base",
+      "modules": "Módulos",
+      "additionals": "Adicionales",
+      "delivery": "Entrega",
+      "total": "TOTAL ESTIMADO",
+      "days": "días",
+      "cta": "Agendar Consultoría →",
+      "disclaimer": "*Esta es una estimación preliminar. El precio final puede variar según requerimientos específicos."
+    }
+  }
+}

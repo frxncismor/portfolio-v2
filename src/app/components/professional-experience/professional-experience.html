@@ -1,0 +1,68 @@
+<div class="space-y-24" id="work-experience">
+  <section class="section undefined scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl">
+    <div class="w-full" style="opacity: 1; transform: none">
+      <section class="w-full mx-auto">
+        <h2 class="text-zinc-900 text-xl md:text-2xl font-semibold leading-relaxed mb-8">
+          {{ 'workExperience.title' | translate }}
+        </h2>
+        <div class="space-y-8 sm:space-y-6 w-full mx-auto">
+          @for (item of items(); track item.title) {
+            <div class="flex flex-col gap-4">
+              <div
+                class="flex flex-col gap-2 sm:gap-0 sm:flex-row items-start sm:items-center justify-between w-full"
+              >
+                <div class="flex justify-start gap-2.5 w-full sm:max-w-[245px] items-baseline">
+                  <div class="text-zinc-600 text-lg font-medium leading-relaxed">
+                    {{ item.role }} {{ item.at }}
+                  </div>
+                  @if (item.link) {
+                    <a target="_blank" rel="noopener noreferrer" href="{{ item.link }}"
+                      ><div
+                        [ngClass]="{
+                          'bg-[#000000] border-[#000000]': item.title === 'Shelfie',
+                          'bg-[#C0d732] border-[#C0d732]': item.title === 'Globant',
+                        }"
+                        class="p-1.5 border rounded-md outline outline-1 outline-offset-[-1px] outline-black/10 flex items-center gap-1.5 hover:opacity-80 transition-opacity cursor-pointer relative group"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-link2 lucide-link-2 size-5 text-white rotate-[-30deg]"
+                          aria-hidden="true"
+                        >
+                          <path d="M9 17H7A5 5 0 0 1 7 7h2"></path>
+                          <path d="M15 7h2a5 5 0 1 1 0 10h-2"></path>
+                          <line x1="8" x2="16" y1="12" y2="12"></line>
+                        </svg>
+                        <div class="text-white text-lg font-bold leading-relaxed">
+                          {{ item.title }}
+                        </div>
+                      </div></a
+                    >
+                  } @else {
+                        <div class="text-zinc-800 text-lg font-bold leading-relaxed">
+                          {{ item.title }}
+                        </div>
+                  }
+                </div>
+                <div class="text-zinc-400 text-base sm:text-base font-medium leading-relaxed">
+                  {{ item.date }}
+                </div>
+              </div>
+              <div class="text-zinc-500 text-base font-medium leading-relaxed">
+                {{ item.description }}
+              </div>
+            </div>
+          }
+        </div>
+      </section>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,16 @@
+.menubar {
+  display: grid;
+  place-self: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  --tw-backdrop-blur: blur(var(--blur-lg));
+  -webkit-backdrop-filter: var(--tw-backdrop-blur,)var(--tw-backdrop-brightness,)var(--tw-backdrop-contrast,)var(--tw-backdrop-grayscale,)var(--tw-backdrop-hue-rotate,)var(--tw-backdrop-invert,)var(--tw-backdrop-opacity,)var(--tw-backdrop-saturate,)var(--tw-backdrop-sepia,);
+  backdrop-filter: var(--tw-backdrop-blur, ) var(--tw-backdrop-brightness, ) var(--tw-backdrop-contrast, ) var(--tw-backdrop-grayscale, ) var(--tw-backdrop-hue-rotate, ) var(--tw-backdrop-invert, ) var(--tw-backdrop-opacity, ) var(--tw-backdrop-saturate, ) var(--tw-backdrop-sepia, );
+}
+
+@media (width <= 768px) {
+  .menubar {
+    display: flex;
+    place-self: start;
+    width: 100%;
+  }
+}

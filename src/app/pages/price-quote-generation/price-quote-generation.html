@@ -1,0 +1,228 @@
+<div class="min-h-screen bg-white dark:bg-gray-900 py-16 md:py-24 px-4">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col lg:flex-row gap-8">
+      <div class="flex-1 lg:w-2/3">
+        <div class="mb-8">
+          <div class="flex items-center gap-3 mb-2">
+            <i class="pi pi-calculator text-2xl text-gray-800 dark:text-white"></i>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">
+              {{ 'quote.title' | translate }}
+            </h1>
+          </div>
+          <p class="text-gray-600 dark:text-gray-400 text-lg">
+            {{ 'quote.subtitle' | translate }}
+          </p>
+        </div>
+
+        <div class="flex justify-end items-center gap-3 mb-6">
+          <span class="text-sm font-medium text-gray-700 dark:text-gray-300" [class.font-bold]="!isUSD()" [class.text-black]="!isUSD()" [class.dark:text-white]="!isUSD()">MXN</span>
+          <p-toggleswitch
+            [ngModel]="isUSD()"
+            (ngModelChange)="toggleCurrency()"
+          ></p-toggleswitch>
+          <span class="text-sm font-medium text-gray-700 dark:text-gray-300" [class.font-bold]="isUSD()" [class.text-black]="isUSD()" [class.dark:text-white]="isUSD()">USD</span>
+        </div>
+
+        <div class="space-y-12">
+          <section>
+            <h2 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-6">
+              {{ 'quote.steps.projectType' | translate }}
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              @for (projectType of projectTypes(); track projectType.id) {
+                <button
+                  type="button"
+                  (click)="selectProjectType(projectType.id)"
+                  [style.border-color]="selectedProjectType() === projectType.id ? '#000000' : ''"
+                  [class.border-4]="selectedProjectType() === projectType.id"
+                  [style.background-color]="selectedProjectType() === projectType.id ? '#000000' : ''"
+                  [ngClass]="{'bg-black': selectedProjectType() === projectType.id, 'dark:bg-black': selectedProjectType() === projectType.id}"
+                  [class.shadow-lg]="selectedProjectType() === projectType.id"
+                  [class.scale-105]="selectedProjectType() === projectType.id"
+                  class="p-6 rounded-xl border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-600 transition-all text-left group"
+                >
+                  <div class="flex items-center gap-3 mb-3">
+                    <i [ngClass]="projectType.icon + ' text-2xl'" [class.text-white]="selectedProjectType() === projectType.id" [class.text-gray-700]="selectedProjectType() !== projectType.id" [class.dark:text-gray-300]="selectedProjectType() !== projectType.id"></i>
+                    <h3 [ngClass]="'text-lg font-semibold'" [class.text-white]="selectedProjectType() === projectType.id" [class.text-gray-800]="selectedProjectType() !== projectType.id" [class.dark:text-white]="selectedProjectType() !== projectType.id">
+                      {{ projectType.name }}
+                    </h3>
+                  </div>
+                  <p [ngClass]="'text-sm mb-4'" [class.text-white]="selectedProjectType() === projectType.id" [class.text-gray-600]="selectedProjectType() !== projectType.id" [class.dark:text-gray-400]="selectedProjectType() !== projectType.id">
+                    {{ projectType.description }}
+                  </p>
+                  <p [ngClass]="'text-sm font-medium'" [class.text-white]="selectedProjectType() === projectType.id" [class.text-gray-800]="selectedProjectType() !== projectType.id" [class.dark:text-white]="selectedProjectType() !== projectType.id">
+                    {{ getProjectTypePriceLabel(projectType.id, projectType.basePriceUSD, projectType.unitPriceUSD) }}
+                  </p>
+                </button>
+              }
+            </div>
+          </section>
+
+          <section>
+            <h2 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-6">
+              {{ 'quote.steps.scope' | translate }}
+            </h2>
+            @if (selectedProjectType()) {
+              <div class="flex items-center gap-4">
+                <button
+                  type="button"
+                  (click)="decrementModules()"
+                  class="w-10 h-10 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 font-semibold"
+                >
+                  -
+                </button>
+                <div class="text-center">
+                  <div class="text-3xl font-bold text-gray-800 dark:text-white">
+                    {{ modulesCount() }}
+                  </div>
+                  <div class="text-sm text-gray-500 dark:text-gray-400 uppercase">
+                    {{ getUnitLabel(selectedProjectType()!) }}
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  (click)="incrementModules()"
+                  class="w-10 h-10 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 font-semibold"
+                >
+                  +
+                </button>
+              </div>
+            } @else {
+              <p class="text-sm text-gray-500 dark:text-gray-400">
+                {{ 'quote.selectProjectTypeFirst' | translate }}
+              </p>
+            }
+          </section>
+
+          <section>
+            <h2 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-6">
+              {{ 'quote.steps.enhancements' | translate }}
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              @for (enhancement of enhancements(); track enhancement.id) {
+                <button
+                  type="button"
+                  (click)="toggleEnhancement(enhancement.id)"
+                  [style.border-color]="isEnhancementSelected(enhancement.id) ? '#000000' : ''"
+                  [class.border-4]="isEnhancementSelected(enhancement.id)"
+                  [style.background-color]="isEnhancementSelected(enhancement.id) ? '#000000' : ''"
+                  [ngClass]="{'bg-black': isEnhancementSelected(enhancement.id), 'dark:bg-black': isEnhancementSelected(enhancement.id)}"
+                  [class.shadow-md]="isEnhancementSelected(enhancement.id)"
+                  [class.scale-105]="isEnhancementSelected(enhancement.id)"
+                  class="p-4 rounded-lg border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-600 transition-all text-left relative"
+                >
+                  @if (isEnhancementSelected(enhancement.id)) {
+                    <div class="absolute top-2 right-2 w-5 h-5 bg-white rounded-full flex items-center justify-center">
+                      <i class="pi pi-check text-black text-[10px] font-bold"></i>
+                    </div>
+                  }
+                  <div class="flex items-start justify-between mb-2 pr-6">
+                    <i [ngClass]="enhancement.icon + ' text-xl'" [class.text-white]="isEnhancementSelected(enhancement.id)" [class.text-gray-700]="!isEnhancementSelected(enhancement.id)" [class.dark:text-gray-300]="!isEnhancementSelected(enhancement.id)"></i>
+                    <span [ngClass]="'text-sm font-medium'" [class.text-white]="isEnhancementSelected(enhancement.id)" [class.text-gray-800]="!isEnhancementSelected(enhancement.id)" [class.dark:text-white]="!isEnhancementSelected(enhancement.id)">
+                      {{ formatEnhancementPrice(enhancement.price) }}
+                    </span>
+                  </div>
+                  <h4 [ngClass]="'text-sm font-semibold'" [class.text-white]="isEnhancementSelected(enhancement.id)" [class.text-gray-800]="!isEnhancementSelected(enhancement.id)" [class.dark:text-white]="!isEnhancementSelected(enhancement.id)">
+                    {{ enhancement.name }}
+                  </h4>
+                </button>
+              }
+            </div>
+          </section>
+
+        </div>
+      </div>
+
+      <div class="lg:w-1/3">
+        <div class="sticky top-20">
+          <div class="bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-2xl p-6 shadow-lg">
+            <div class="flex items-center gap-2 mb-6">
+              <i class="pi pi-bolt text-gray-700 dark:text-gray-300"></i>
+              <h2 class="text-xl font-bold text-gray-800 dark:text-white">
+                {{ 'quote.summary.title' | translate }}
+              </h2>
+              <span class="text-sm text-gray-500 dark:text-gray-400">
+                / {{ 'quote.summary.subtitle' | translate }}
+              </span>
+            </div>
+
+            <div class="space-y-4 mb-6">
+              @if (selectedProjectType()) {
+                @if (calculation().basePrice > 0) {
+                  <div class="flex justify-between items-center">
+                    <span class="text-sm text-gray-600 dark:text-gray-400">
+                      {{ 'quote.summary.baseService' | translate }}
+                    </span>
+                    <span class="text-sm font-semibold text-gray-800 dark:text-white">
+                      {{ formattedBasePrice() }}
+                    </span>
+                  </div>
+                }
+                @if (modulesCount() > 0) {
+                  <div class="flex justify-between items-center">
+                    <span class="text-sm text-gray-600 dark:text-gray-400">
+                      {{ modulesCount() }} x {{ getUnitLabel(selectedProjectType()!) }}
+                    </span>
+                    <span class="text-sm font-semibold text-gray-800 dark:text-white">
+                      {{ formattedModulesPrice() }}
+                    </span>
+                  </div>
+                }
+              }
+              
+
+              @if (calculation().enhancementsPrice > 0) {
+                <div class="space-y-2">
+                  <div class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase mb-2">
+                    {{ 'quote.summary.additionals' | translate }}
+                  </div>
+                  @for (enhancementId of selectedEnhancementsArray(); track enhancementId) {
+                    @let enhancement = getEnhancementById(enhancementId);
+                    @if (enhancement) {
+                      <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-600 dark:text-gray-400">
+                          {{ enhancement.name }}
+                        </span>
+                        <span class="text-sm font-semibold text-gray-800 dark:text-white">
+                          {{ formatEnhancementPrice(enhancement.price) }} {{ currency() === 'USD' ? 'USD' : 'MXN' }}
+                        </span>
+                      </div>
+                    }
+                  }
+                </div>
+              }
+            </div>
+
+            <div class="border-t border-gray-300 dark:border-gray-700 pt-4 mb-6">
+              <div class="flex items-center gap-2 mb-4">
+                <i class="pi pi-clock text-gray-500 dark:text-gray-400"></i>
+                <span class="text-sm text-gray-600 dark:text-gray-400">
+                  {{ 'quote.summary.delivery' | translate }}: ~{{ calculation().deliveryDays }} {{ 'quote.summary.days' | translate }}
+                </span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-lg font-bold text-gray-800 dark:text-white">
+                  {{ 'quote.summary.total' | translate }}
+                </span>
+                <span class="text-2xl font-bold text-gray-800 dark:text-white">
+                  {{ formattedTotal() }}
+                </span>
+              </div>
+            </div>
+
+            <p-button
+              label="{{ 'quote.summary.cta' | translate }}"
+              (onClick)="scheduleConsultation()"
+              [disabled]="!selectedProjectType()"
+              styleClass="w-full bg-black hover:bg-gray-900 text-white border-none"
+            ></p-button>
+
+            <p class="text-xs text-gray-500 dark:text-gray-400 mt-4 text-center">
+              {{ 'quote.summary.disclaimer' | translate }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

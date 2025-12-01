@@ -1,0 +1,208 @@
+{
+  "common": {
+    "welcome": "Welcome",
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "projects": "Projects",
+    "contact": "Contact",
+    "language": "Language",
+    "spanish": "Spanish",
+    "english": "English"
+  },
+  "header": {
+    "title": "Portfolio",
+    "nav": {
+      "home": "Home",
+      "about": "About me",
+      "services": "Services",
+      "projects": "Projects",
+      "contact": "Contact",
+      "workExperience": "Work experience",
+      "priceQuoteGenerator": "Price quote generator"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Hey, I'm Francisco.",
+      "subtitle": "Senior Web UI Engineer.",
+      "available": "Available for work",
+      "description": "Most front-end devs either move fast and break things or write code that never ships. I do both: ship fast and keep it clean. <strong>6+ years</strong> turning complex requirements into production web apps. Currently based in <strong>The Woodlands, TX</strong> and authorized to work in the US."
+    },
+    "about": {
+      "title": "About me",
+      "description": "I'm Francisco, a Web UI engineer from Monterrey, Mexico, now living in The Woodlands, Texas, fully authorized to work in the United States.<br><br>Here's what I actually do: I take messy, fragile frontends and turn them into scalable, testable systems. Not just \"nice UI\" — I care about architecture, state management, performance and DX. <strong>Angular</strong> is my main weapon, but I also work with <strong>React</strong>, and I'm a genuinely fast learner: I pick up new tools, libraries and patterns quickly and put them into production safely.<br><br>Most developers either understand design or understand the business. I focus on both. While others argue about libraries, I'm shipping experiences that load fast, are accessible, rank well on SEO and actually move business metrics.<br><br>I've shipped SaaS products like <strong>Shelfie</strong> (AI-powered product image enhancer for small retailers) and I've built enterprise solutions for global brands through <strong>Globant</strong> in sectors like retail, travel and media. My GitHub and side projects are proof, not promises.<br><br>The result? Frontends that are maintainable for the team, enjoyable for the user, and valuable for the business.<br><br>When I'm not coding, I'm usually experimenting with new tools, gaming, or helping friends debug their own projects and setups.<br><br>I don't just build components. I build systems that let teams ship faster without losing quality."
+    }
+  },
+  "workExperience": {
+    "title": "Work experience",
+    "description": "I've shipped SaaS products like <strong>Shelfie</strong> (AI-powered product image enhancer for small retailers) and <strong>Invitamex</strong> (digital invitations platform with analytics), and I've built enterprise solutions for global brands through <strong>Globant</strong> in sectors like retail, travel and media. My GitHub and side projects are proof, not promises.",
+    "items": [
+      {
+        "title": "Freelance",
+        "role": "Consultant",
+        "at": "at",
+        "date": "2025 - Current",
+        "description": "Helping startups and small businesses design, architect and ship modern web experiences."
+      },
+      {
+        "title": "Shelfie",
+        "role": "Founder",
+        "at": "at",
+        "date": "2025 - Current",
+        "description": "AI SaaS that helps small businesses upgrade their product photos and online presence, using React, Supabase and Stripe.",
+        "link": "https://shelfie.com.mx"
+      },
+      {
+        "title": "Globant",
+        "role": "Developer",
+        "at": "at",
+        "date": "2020 - 2025",
+        "description": "Built enterprise solutions for global brands through Globant in sectors like retail, travel and media.",
+        "link": "https://globant.com"
+      },
+      {
+        "title": "ContralorMX",
+        "role": "Developer",
+        "at": "at",
+        "date": "2019 - 2020",
+        "description": "Development of the expense and budget control platform for the ContralorMX company."
+      },
+      {
+        "title": "Handa Systems",
+        "role": "Developer",
+        "at": "at",
+        "date": "2019 - 2019",
+        "description": "Built enterprise solutions for global brands through Handa Systems in retail."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Get in touch",
+    "description": "Building something that needs a reliable, scalable frontend? Need a Web UI engineer who cares about architecture, performance and real outcomes, can learn your stack fast, and is already authorized to work in the US?<br><br>Reach out if you're serious about shipping products that users love — and teams can maintain.",
+    "sendMessage": "Send Message",
+    "reachMe": "Reach me"
+  },
+  "projects": {
+    "title": "Projects",
+    "code": "Code",
+    "preview": "Preview",
+    "items": [
+      {
+        "title": "SVGL",
+        "description": "A beautiful library with SVG logos. +10k visits per month. +2K svgs downloaded. Created from scratch with Next.js, React and Tailwind CSS.",
+        "link": "https://svgl.vercel.app",
+        "code": "https://github.com/pheralb/svgl",
+        "image": "https://porfolio.dev/projects/svgl.webp",
+        "technologies": [
+          {"name": "Next.js", "color": "contrast"},
+          {"name": "React", "color": "info"},
+          {"name": "Tailwind CSS", "color": "success"}
+        ]
+      },
+      {
+        "title": "AdventJS",
+        "description": "A platform with programming challenges. +1M visits per month. +50K challenges completed. Created from scratch with Next.js, React and Tailwind CSS.",
+        "link": "https://adventjs.dev",
+        "code": "https://github.com/pheralb/adventjs",
+        "image": "https://porfolio.dev/projects/adventjs.webp",
+        "technologies": [
+          {"name": "Next.js", "color": "contrast"},
+          {"name": "React", "color": "info"},
+          {"name": "Tailwind CSS", "color": "success"}
+        ]
+      }
+    ]
+  },
+  "quote": {
+    "title": "Intelligent Quoter",
+    "subtitle": "Customize your package and get an instant estimate.",
+    "currency": {
+      "usd": "USD",
+      "mxn": "MXN"
+    },
+    "steps": {
+      "projectType": "CHOOSE PROJECT TYPE",
+      "scope": "DEFINE SCOPE (MODULES)",
+      "enhancements": "ENHANCE YOUR PROJECT"
+    },
+    "selectProjectTypeFirst": "First select a project type",
+    "projectTypes": {
+      "landing": {
+        "name": "Landing Page",
+        "description": "High-impact site for conversions.",
+        "price": "FROM MXN $5,852"
+      },
+      "ecommerce": {
+        "name": "E-commerce",
+        "description": "Complete store with payment gateway.",
+        "price": "FROM MXN $17,374"
+      },
+      "saas": {
+        "name": "SaaS / Web App",
+        "description": "Complex application with custom logic.",
+        "price": "FROM MXN $32,920"
+      }
+    },
+    "modules": {
+      "label": "MODULES",
+      "basePrice": 3292
+    },
+    "units": {
+      "section": "section",
+      "product": "product",
+      "module": "module"
+    },
+    "enhancements": {
+      "database": {
+        "name": "Database",
+        "price": 3292
+      },
+      "adminPanel": {
+        "name": "Admin Panel (CMS)",
+        "price": 7315
+      },
+      "mobileFirst": {
+        "name": "Mobile First",
+        "price": 2195
+      },
+      "seo": {
+        "name": "Advanced SEO",
+        "price": 2743
+      },
+      "auth": {
+        "name": "Auth & Roles",
+        "price": 4572
+      },
+      "api": {
+        "name": "API Integrations",
+        "price": 7315
+      },
+      "premium": {
+        "name": "Premium UI/UX",
+        "price": 3658
+      },
+      "performance": {
+        "name": "Performance Opt.",
+        "price": 1829
+      },
+      "custom": {
+        "name": "Custom Logic",
+        "price": 3658
+      }
+    },
+    "budgetToggle": "I have a defined budget limit",
+    "summary": {
+      "title": "ESTIMATION",
+      "subtitle": "Summary",
+      "baseService": "Base Service",
+      "modules": "Modules",
+      "additionals": "Additionals",
+      "delivery": "Delivery",
+      "total": "TOTAL ESTIMATED",
+      "days": "days",
+      "cta": "Schedule Consultation →",
+      "disclaimer": "*This is a preliminary estimate. The final price may vary according to specific requirements."
+    }
+  }
+}
