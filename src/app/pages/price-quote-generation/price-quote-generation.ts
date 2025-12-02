@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, computed, inject, signal, AfterViewInit, OnDestroy, OnInit } from '@angular/core';
 import { I18nService } from '@services/i18n.service';
 import { TranslatePipe } from '@pipes/translate.pipe';
 import { Currency, QuoteCalculation } from '@interfaces/quote';
@@ -8,6 +8,7 @@ import { ButtonModule } from 'primeng/button';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { PdfGeneratorService } from '@services/pdf-generator.service';
+import { SEOService } from '@services/seo.service';
 
 @Component({
   selector: 'app-price-quote-generation',
@@ -22,9 +23,10 @@ import { PdfGeneratorService } from '@services/pdf-generator.service';
   templateUrl: './price-quote-generation.html',
   styleUrl: './price-quote-generation.css',
 })
-export class PriceQuoteGeneration implements AfterViewInit, OnDestroy {
+export class PriceQuoteGeneration implements OnInit, AfterViewInit, OnDestroy {
   private observer?: IntersectionObserver;
   private readonly i18nService = inject(I18nService);
+  private readonly seoService = inject(SEOService);
   readonly translate = this.i18nService.t;
 
   readonly selectedProjectType = signal<string | null>(null);
@@ -382,6 +384,22 @@ export class PriceQuoteGeneration implements AfterViewInit, OnDestroy {
       formattedBasePrice: this.formattedBasePrice(),
       formattedModulesPrice: this.formattedModulesPrice(),
       formattedTotal: this.formattedTotal(),
+    });
+  }
+
+  ngOnInit(): void {
+    const locale = this.i18nService.getLocale();
+    
+    this.seoService.updateSEO({
+      title: locale === 'es'
+        ? 'Generador de Cotizaciones - Francisco Moreno | Portfolio'
+        : 'Price Quote Generator - Francisco Moreno | Portfolio',
+      description: locale === 'es'
+        ? 'Genera cotizaciones personalizadas para proyectos web. Calcula precios y tiempos de entrega para Landing Pages, E-commerce y aplicaciones SaaS.'
+        : 'Generate custom quotes for web projects. Calculate prices and delivery times for Landing Pages, E-commerce and SaaS applications.',
+      keywords: 'Price Quote Generator, Web Development Pricing, Project Calculator, Landing Page Pricing, E-commerce Pricing, SaaS Pricing, Web Development Cost Calculator, developer en monterrey, developer en woodlands, developer in woodlands, developer near woodlands, desarrollador cerca de monterrey, desarrollador en monterrey',
+      url: '/price-quote-generator',
+      type: 'website',
     });
   }
 
