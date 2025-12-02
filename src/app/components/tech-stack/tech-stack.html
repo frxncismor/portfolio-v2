@@ -1,0 +1,58 @@
+<section
+  id="tech-stack"
+  class="section pt-12 md:pt-20 scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl"
+>
+  <div class="text-start mb-8">
+    <h2
+    class="text-zinc-900 text-xl md:text-2xl font-semibold leading-relaxed mb-8 dark:text-white"
+    >
+      {{ 'home.techStack.title' | translate }}
+    </h2>
+  </div>
+
+  <div class="flex flex-col gap-12 md:gap-12">
+    @for (categoryKey of categoryKeys(); track categoryKey) {
+      @let category = categories()[categoryKey];
+      <div
+        class="tech-category flex flex-col gap-6"
+        [id]="categoryKey"
+      >
+        <!-- Label -->
+        <div class="text-zinc-900 dark:text-white text-lg font-semibold">
+          <button
+            type="button"
+            class="category-label cursor-pointer hover:text-gray-700 dark:hover:text-gray-300 transition bg-transparent border-none p-0 text-left capitalize"
+            (click)="scrollToCategory(categoryKey)"
+            [attr.aria-label]="'Scroll to ' + category.label"
+          >
+            {{ category.label }}
+          </button>
+        </div>
+
+        <!-- Tech Grid -->
+        <div
+          class="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6"
+        >
+          @for (tech of category.technologies; track tech.name; let i = $index) {
+            <div
+              class="tech-item flex items-center gap-2"
+              [style.animation-delay]="(i * 50) + 'ms'"
+            >
+              <img
+                [ngSrc]="tech.icon"
+                [alt]="tech.name"
+                width="24"
+                height="24"
+                class="w-6 h-6"
+                loading="lazy"
+              >
+              <span class="text-base md:text-lg text-gray-700 dark:text-gray-300">
+                {{ tech.name }}
+              </span>
+            </div>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</section>

@@ -1,8 +1,17 @@
-<section class="section undefined scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl pb-16 md:pb-26" id="about-me">
-    <div class="" style="opacity: 1; transform: none">
-      <h2 class="text-zinc-900 text-xl md:text-2xl font-semibold leading-relaxed mb-4">{{ 'home.about.title' | translate }}</h2>
-      <div class="mt-6 text-base text-gray-600 dark:[&amp;&gt;strong]:text-yellow-200 [&amp;&gt;strong]:text-yellow-500 [&amp;&gt;strong]:font-semibold dark:text-gray-300">
-        <p [innerHTML]="'home.about.description' | translate"></p>
-      </div>
+<section
+  class="about-section section undefined scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl pb-16 md:pb-26"
+  id="about-me"
+>
+  <div>
+    <h2
+      class="text-zinc-900 text-xl md:text-2xl font-semibold leading-relaxed mb-4 dark:text-white"
+    >
+      {{ 'home.about.title' | translate }}
+    </h2>
+    <div
+      class="mt-6 text-base text-gray-600 dark:text-gray-400 [&amp;&gt;strong:not([class*='text-'])]:font-semibold [&amp;&gt;strong:not([class*='text-'])]:text-gray-800 dark:[&amp;&gt;strong:not([class*='text-'])]:text-gray-200"
+    >
+      <p [innerHTML]="'home.about.description' | translate"></p>
     </div>
+  </div>
 </section>

@@ -4,8 +4,9 @@ export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadComponent: () => import('./pages/home/home').then((m) => m.Home) },
   {
-    path: 'services',
-    loadComponent: () => import('./pages/services/services').then((m) => m.Services),
+    path: 'certifications',
+    loadComponent: () =>
+      import('./pages/certifications/certifications').then((m) => m.Certifications),
   },
   {
     path: 'price-quote-generator',

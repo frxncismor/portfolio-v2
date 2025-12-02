@@ -1,38 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Kedebideri:wght@400;500;600;700;800;900&display=swap');@import "primeicons/primeicons.css";
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Kedebideri:wght@400;500;600;700;800;900&display=swap');
+@import 'primeicons/primeicons.css';
+@import 'tailwindcss';
+
+:root {
+  --color-dark-theme: #121212;
+}
+
 .kedebideri-regular {
-  font-family: "Kedebideri", sans-serif;
+  font-family: 'Kedebideri', sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
 .kedebideri-medium {
-  font-family: "Kedebideri", sans-serif;
+  font-family: 'Kedebideri', sans-serif;
   font-weight: 500;
   font-style: normal;
 }
 
 .kedebideri-semibold {
-  font-family: "Kedebideri", sans-serif;
+  font-family: 'Kedebideri', sans-serif;
   font-weight: 600;
   font-style: normal;
 }
 
 .kedebideri-bold {
-  font-family: "Kedebideri", sans-serif;
+  font-family: 'Kedebideri', sans-serif;
   font-weight: 700;
   font-style: normal;
 }
 
 .kedebideri-extrabold {
-  font-family: "Kedebideri", sans-serif;
+  font-family: 'Kedebideri', sans-serif;
   font-weight: 800;
   font-style: normal;
 }
 
 .kedebideri-black {
-  font-family: "Kedebideri", sans-serif;
+  font-family: 'Kedebideri', sans-serif;
   font-weight: 900;
   font-style: normal;
 }

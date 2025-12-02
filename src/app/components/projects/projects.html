@@ -1,14 +1,17 @@
 <section
   id="projects"
   data-section="projects"
-  class="section scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl py-16 md:py-26"
+  class="projects-section section scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl py-12 md:py-20"
 >
-<h2 class="text-zinc-900 text-xl md:text-2xl font-semibold leading-relaxed mb-8">
-  {{ 'projects.title' | translate }}
-</h2>
+  <h2 class="text-zinc-900 text-xl md:text-2xl font-semibold leading-relaxed mb-8 dark:text-white">
+    {{ 'projects.title' | translate }}
+  </h2>
   <div class="flex flex-col gap-y-16">
-    @for (project of projects(); track project.title) {
-      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+    @for (project of projects(); track project.title; let i = $index) {
+      <article
+        class="project-item flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0"
+        [style.animation-delay]="(i * 150) + 'ms'"
+      >
         <div class="w-full md:w-1/2">
           <div
             class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50"
@@ -21,7 +24,7 @@
                 width="432"
                 height="243"
                 [ngSrc]="project.image"
-              >
+              />
             }
           </div>
         </div>
@@ -34,7 +37,10 @@
               @if (project.technologies && project.technologies.length > 0) {
                 @for (technology of project.technologies; track technology.name) {
                   <li>
-                    <p-tag [severity]="getTagSeverity(technology.color)" [value]="technology.name"></p-tag>
+                    <p-tag
+                      [severity]="getTagSeverity(technology.color)"
+                      [value]="technology.name"
+                    ></p-tag>
                   </li>
                 }
               }
@@ -46,7 +52,7 @@
               <a
                 target="_blank"
                 href="{{ project.code }}"
-                class="inline-flex bg-gray-100 text-gray-600 border-gray-300 items-center justify-center gap-2 px-3 py-2 space-x-2 text-base transition dark:text-white dark:bg-gray-800 border dark:border-gray-600 focus-visible:ring-yellow-500/80 text-md hover:bg-gray-800 hover:border-gray-900 group max-w-fit rounded-xl hover:text-white focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black"
+                class="inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-full dark:bg-(--color-dark-theme) dark:border-(--p-menubar-border-color) dark:text-white focus-visible:ring-yellow-500/80 text-md hover:bg-gray-900 hover:border-gray-700 hover:text-white dark:hover:bg-gray-100 dark:hover:border-gray-300 dark:hover:text-black group max-w-fit focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black"
               >
                 <svg
                   class="size-6"
@@ -70,24 +76,24 @@
               <a
                 target="_blank"
                 href="{{ project.link }}"
-                class="inline-flex bg-gray-100 text-gray-600 border-gray-300 items-center justify-center gap-2 px-3 py-2 space-x-2 text-base transition dark:text-white dark:bg-gray-800 border dark:border-gray-600 focus-visible:ring-yellow-500/80 text-md hover:bg-gray-800 hover:border-gray-900 group max-w-fit rounded-xl hover:text-white focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black"
+                class="inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-full dark:bg-(--color-dark-theme) dark:border-(--p-menubar-border-color) dark:text-white focus-visible:ring-yellow-500/80 text-md hover:bg-gray-900 hover:border-gray-700 hover:text-white dark:hover:bg-gray-100 dark:hover:border-gray-300 dark:hover:text-black group max-w-fit focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black"
               >
-              <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M9 17H7A5 5 0 0 1 7 7h2"></path>
-              <path d="M15 7h2a5 5 0 1 1 0 10h-2"></path>
-              <line x1="8" x2="16" y1="12" y2="12"></line>
-            </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M9 17H7A5 5 0 0 1 7 7h2"></path>
+                  <path d="M15 7h2a5 5 0 1 1 0 10h-2"></path>
+                  <line x1="8" x2="16" y1="12" y2="12"></line>
+                </svg>
                 {{ 'projects.preview' | translate }}
               </a>
             </footer>

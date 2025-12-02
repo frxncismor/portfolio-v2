@@ -1,8 +1,8 @@
-<div class="min-h-screen bg-white dark:bg-gray-900 py-16 md:py-24 px-4">
+<div class="min-h-screen bg-white dark:bg-(--color-dark-theme) py-16 md:py-24 px-4">
   <div class="max-w-7xl mx-auto">
     <div class="flex flex-col lg:flex-row gap-8">
       <div class="flex-1 lg:w-2/3">
-        <div class="mb-8">
+        <div class="quote-header mb-8">
           <div class="flex items-center gap-3 mb-2">
             <i class="pi pi-calculator text-2xl text-gray-800 dark:text-white"></i>
             <h1 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">
@@ -14,52 +14,105 @@
           </p>
         </div>
 
-        <div class="flex justify-end items-center gap-3 mb-6">
-          <span class="text-sm font-medium text-gray-700 dark:text-gray-300" [class.font-bold]="!isUSD()" [class.text-black]="!isUSD()" [class.dark:text-white]="!isUSD()">MXN</span>
-          <p-toggleswitch
-            [ngModel]="isUSD()"
-            (ngModelChange)="toggleCurrency()"
-          ></p-toggleswitch>
-          <span class="text-sm font-medium text-gray-700 dark:text-gray-300" [class.font-bold]="isUSD()" [class.text-black]="isUSD()" [class.dark:text-white]="isUSD()">USD</span>
+        <div class="flex justify-end items-center gap-3 mb-6 quote-currency-toggle">
+          <span
+            class="text-sm font-medium text-gray-700 dark:text-gray-300"
+            [class.font-bold]="!isUSD()"
+            [class.text-black]="!isUSD()"
+            [class.dark:text-white]="!isUSD()"
+            >MXN</span
+          >
+          <p-toggleswitch [ngModel]="isUSD()" (ngModelChange)="toggleCurrency()"></p-toggleswitch>
+          <span
+            class="text-sm font-medium text-gray-700 dark:text-gray-300"
+            [class.font-bold]="isUSD()"
+            [class.text-black]="isUSD()"
+            [class.dark:text-white]="isUSD()"
+            >USD</span
+          >
         </div>
 
         <div class="space-y-12">
-          <section>
-            <h2 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-6">
+          <section class="quote-project-types">
+            <h2
+              class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-6"
+            >
               {{ 'quote.steps.projectType' | translate }}
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-              @for (projectType of projectTypes(); track projectType.id) {
+              @for (projectType of projectTypes(); track projectType.id; let i = $index) {
                 <button
                   type="button"
                   (click)="selectProjectType(projectType.id)"
+                  [style.animation-delay]="(i * 100) + 'ms'"
                   [style.border-color]="selectedProjectType() === projectType.id ? '#000000' : ''"
                   [class.border-4]="selectedProjectType() === projectType.id"
-                  [style.background-color]="selectedProjectType() === projectType.id ? '#000000' : ''"
-                  [ngClass]="{'bg-black': selectedProjectType() === projectType.id, 'dark:bg-black': selectedProjectType() === projectType.id}"
+                  [style.background-color]="
+                    selectedProjectType() === projectType.id ? '#000000' : ''
+                  "
+                  [ngClass]="{
+                    'bg-black': selectedProjectType() === projectType.id,
+                    'dark:bg-black': selectedProjectType() === projectType.id,
+                  }"
                   [class.shadow-lg]="selectedProjectType() === projectType.id"
                   [class.scale-105]="selectedProjectType() === projectType.id"
-                  class="p-6 rounded-xl border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-600 transition-all text-left group"
+                  class="project-type-item p-6 rounded-xl border-2 border-gray-300 dark:border-(--p-menubar-border-color) bg-gray-100 dark:bg-(--color-dark-theme) hover:bg-gray-900 hover:border-gray-700 hover:text-white dark:hover:bg-gray-100 dark:hover:border-gray-300 dark:hover:text-black transition-all text-left group text-gray-800 dark:text-white"
                 >
                   <div class="flex items-center gap-3 mb-3">
-                    <i [ngClass]="projectType.icon + ' text-2xl'" [class.text-white]="selectedProjectType() === projectType.id" [class.text-gray-700]="selectedProjectType() !== projectType.id" [class.dark:text-gray-300]="selectedProjectType() !== projectType.id"></i>
-                    <h3 [ngClass]="'text-lg font-semibold'" [class.text-white]="selectedProjectType() === projectType.id" [class.text-gray-800]="selectedProjectType() !== projectType.id" [class.dark:text-white]="selectedProjectType() !== projectType.id">
+                    <i
+                      [class]="projectType.icon + ' text-2xl'"
+                      [class.text-white]="selectedProjectType() === projectType.id"
+                      [class.text-gray-800]="selectedProjectType() !== projectType.id"
+                      [class.group-hover:text-white]="selectedProjectType() !== projectType.id"
+                      [class.dark:text-white]="selectedProjectType() !== projectType.id"
+                      [class.dark:group-hover:text-black]="selectedProjectType() !== projectType.id"
+                    ></i>
+                    <h3
+                      class="text-lg font-semibold"
+                      [ngClass]="{
+                        'text-white dark:text-white': selectedProjectType() === projectType.id,
+                        'text-gray-800 dark:text-white group-hover:text-white dark:group-hover:text-black':
+                          selectedProjectType() !== projectType.id,
+                      }"
+                    >
                       {{ projectType.name }}
                     </h3>
                   </div>
-                  <p [ngClass]="'text-sm mb-4'" [class.text-white]="selectedProjectType() === projectType.id" [class.text-gray-600]="selectedProjectType() !== projectType.id" [class.dark:text-gray-400]="selectedProjectType() !== projectType.id">
+                  <p
+                    class="text-sm mb-4"
+                    [ngClass]="{
+                      'text-white dark:text-white': selectedProjectType() === projectType.id,
+                      'text-gray-800 dark:text-white group-hover:text-white dark:group-hover:text-black':
+                        selectedProjectType() !== projectType.id,
+                    }"
+                  >
                     {{ projectType.description }}
                   </p>
-                  <p [ngClass]="'text-sm font-medium'" [class.text-white]="selectedProjectType() === projectType.id" [class.text-gray-800]="selectedProjectType() !== projectType.id" [class.dark:text-white]="selectedProjectType() !== projectType.id">
-                    {{ getProjectTypePriceLabel(projectType.id, projectType.basePriceUSD, projectType.unitPriceUSD) }}
+                  <p
+                    class="text-sm font-medium"
+                    [ngClass]="{
+                      'text-white dark:text-white': selectedProjectType() === projectType.id,
+                      'text-gray-800 dark:text-white group-hover:text-white dark:group-hover:text-black':
+                        selectedProjectType() !== projectType.id,
+                    }"
+                  >
+                    {{
+                      getProjectTypePriceLabel(
+                        projectType.id,
+                        projectType.basePriceUSD,
+                        projectType.unitPriceUSD
+                      )
+                    }}
                   </p>
                 </button>
               }
             </div>
           </section>
 
-          <section>
-            <h2 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-6">
+          <section class="quote-scope">
+            <h2
+              class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-6"
+            >
               {{ 'quote.steps.scope' | translate }}
             </h2>
             @if (selectedProjectType()) {
@@ -67,7 +120,7 @@
                 <button
                   type="button"
                   (click)="decrementModules()"
-                  class="w-10 h-10 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 font-semibold"
+                  class="w-10 h-10 rounded-lg border border-gray-300 dark:border-(--p-menubar-border-color) bg-gray-100 dark:bg-(--color-dark-theme) hover:bg-gray-900 hover:border-gray-700 hover:text-white dark:hover:bg-gray-100 dark:hover:border-gray-300 dark:hover:text-black flex items-center justify-center text-gray-800 dark:text-white font-semibold transition-all"
                 >
                   -
                 </button>
@@ -82,7 +135,7 @@
                 <button
                   type="button"
                   (click)="incrementModules()"
-                  class="w-10 h-10 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 font-semibold"
+                  class="w-10 h-10 rounded-lg border border-gray-300 dark:border-(--p-menubar-border-color) bg-gray-100 dark:bg-(--color-dark-theme) hover:bg-gray-900 hover:border-gray-700 hover:text-white dark:hover:bg-gray-100 dark:hover:border-gray-300 dark:hover:text-black flex items-center justify-center text-gray-800 dark:text-white font-semibold transition-all"
                 >
                   +
                 </button>
@@ -94,48 +147,78 @@
             }
           </section>
 
-          <section>
-            <h2 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-6">
+          <section class="quote-enhancements">
+            <h2
+              class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-6"
+            >
               {{ 'quote.steps.enhancements' | translate }}
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-              @for (enhancement of enhancements(); track enhancement.id) {
+              @for (enhancement of enhancements(); track enhancement.id; let i = $index) {
                 <button
                   type="button"
                   (click)="toggleEnhancement(enhancement.id)"
+                  [style.animation-delay]="(i * 50) + 'ms'"
                   [style.border-color]="isEnhancementSelected(enhancement.id) ? '#000000' : ''"
                   [class.border-4]="isEnhancementSelected(enhancement.id)"
                   [style.background-color]="isEnhancementSelected(enhancement.id) ? '#000000' : ''"
-                  [ngClass]="{'bg-black': isEnhancementSelected(enhancement.id), 'dark:bg-black': isEnhancementSelected(enhancement.id)}"
+                  [ngClass]="{
+                    'bg-black': isEnhancementSelected(enhancement.id),
+                    'dark:bg-black': isEnhancementSelected(enhancement.id),
+                  }"
                   [class.shadow-md]="isEnhancementSelected(enhancement.id)"
                   [class.scale-105]="isEnhancementSelected(enhancement.id)"
-                  class="p-4 rounded-lg border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-600 transition-all text-left relative"
+                  class="enhancement-item p-4 rounded-lg border-2 border-gray-300 dark:border-(--p-menubar-border-color) bg-gray-100 dark:bg-(--color-dark-theme) hover:bg-gray-900 hover:border-gray-700 hover:text-white dark:hover:bg-gray-100 dark:hover:border-gray-300 dark:hover:text-black transition-all text-left relative group text-gray-800 dark:text-white"
                 >
                   @if (isEnhancementSelected(enhancement.id)) {
-                    <div class="absolute top-2 right-2 w-5 h-5 bg-white rounded-full flex items-center justify-center">
+                    <div
+                      class="absolute top-2 right-2 w-5 h-5 bg-white rounded-full flex items-center justify-center"
+                    >
                       <i class="pi pi-check text-black text-[10px] font-bold"></i>
                     </div>
                   }
                   <div class="flex items-start justify-between mb-2 pr-6">
-                    <i [ngClass]="enhancement.icon + ' text-xl'" [class.text-white]="isEnhancementSelected(enhancement.id)" [class.text-gray-700]="!isEnhancementSelected(enhancement.id)" [class.dark:text-gray-300]="!isEnhancementSelected(enhancement.id)"></i>
-                    <span [ngClass]="'text-sm font-medium'" [class.text-white]="isEnhancementSelected(enhancement.id)" [class.text-gray-800]="!isEnhancementSelected(enhancement.id)" [class.dark:text-white]="!isEnhancementSelected(enhancement.id)">
+                    <i
+                      [class]="enhancement.icon + ' text-xl'"
+                      [class.text-white]="isEnhancementSelected(enhancement.id)"
+                      [class.text-gray-800]="!isEnhancementSelected(enhancement.id)"
+                      [class.group-hover:text-white]="!isEnhancementSelected(enhancement.id)"
+                      [class.dark:text-white]="!isEnhancementSelected(enhancement.id)"
+                      [class.dark:group-hover:text-black]="!isEnhancementSelected(enhancement.id)"
+                    ></i>
+                    <span
+                      [ngClass]="'text-sm font-medium'"
+                      [class.text-white]="isEnhancementSelected(enhancement.id)"
+                      [class.text-gray-800]="!isEnhancementSelected(enhancement.id)"
+                      [class.group-hover:text-white]="!isEnhancementSelected(enhancement.id)"
+                      [class.dark:text-white]="!isEnhancementSelected(enhancement.id)"
+                      [class.dark:group-hover:text-black]="!isEnhancementSelected(enhancement.id)"
+                    >
                       {{ formatEnhancementPrice(enhancement.price) }}
                     </span>
                   </div>
-                  <h4 [ngClass]="'text-sm font-semibold'" [class.text-white]="isEnhancementSelected(enhancement.id)" [class.text-gray-800]="!isEnhancementSelected(enhancement.id)" [class.dark:text-white]="!isEnhancementSelected(enhancement.id)">
+                  <h4
+                    [ngClass]="'text-sm font-semibold'"
+                    [class.text-white]="isEnhancementSelected(enhancement.id)"
+                    [class.text-gray-800]="!isEnhancementSelected(enhancement.id)"
+                    [class.group-hover:text-white]="!isEnhancementSelected(enhancement.id)"
+                    [class.dark:text-white]="!isEnhancementSelected(enhancement.id)"
+                    [class.dark:group-hover:text-black]="!isEnhancementSelected(enhancement.id)"
+                  >
                     {{ enhancement.name }}
                   </h4>
                 </button>
               }
             </div>
           </section>
-
         </div>
       </div>
 
       <div class="lg:w-1/3">
         <div class="sticky top-20">
-          <div class="bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-2xl p-6 shadow-lg">
+          <div
+            class="quote-summary bg-gray-50 dark:bg-(--color-dark-theme) border border-gray-300 dark:border-(--p-menubar-border-color) rounded-2xl p-6 shadow-lg"
+          >
             <div class="flex items-center gap-2 mb-6">
               <i class="pi pi-bolt text-gray-700 dark:text-gray-300"></i>
               <h2 class="text-xl font-bold text-gray-800 dark:text-white">
@@ -169,11 +252,12 @@
                   </div>
                 }
               }
-              
 
               @if (calculation().enhancementsPrice > 0) {
                 <div class="space-y-2">
-                  <div class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase mb-2">
+                  <div
+                    class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase mb-2"
+                  >
                     {{ 'quote.summary.additionals' | translate }}
                   </div>
                   @for (enhancementId of selectedEnhancementsArray(); track enhancementId) {
@@ -184,7 +268,8 @@
                           {{ enhancement.name }}
                         </span>
                         <span class="text-sm font-semibold text-gray-800 dark:text-white">
-                          {{ formatEnhancementPrice(enhancement.price) }} {{ currency() === 'USD' ? 'USD' : 'MXN' }}
+                          {{ formatEnhancementPrice(enhancement.price) }}
+                          {{ currency() === 'USD' ? 'USD' : 'MXN' }}
                         </span>
                       </div>
                     }
@@ -197,7 +282,8 @@
               <div class="flex items-center gap-2 mb-4">
                 <i class="pi pi-clock text-gray-500 dark:text-gray-400"></i>
                 <span class="text-sm text-gray-600 dark:text-gray-400">
-                  {{ 'quote.summary.delivery' | translate }}: ~{{ calculation().deliveryDays }} {{ 'quote.summary.days' | translate }}
+                  {{ 'quote.summary.delivery' | translate }}: ~{{ calculation().deliveryDays }}
+                  {{ 'quote.summary.days' | translate }}
                 </span>
               </div>
               <div class="flex justify-between items-center">
@@ -210,12 +296,25 @@
               </div>
             </div>
 
-            <p-button
-              label="{{ 'quote.summary.cta' | translate }}"
-              (onClick)="scheduleConsultation()"
+            <button
+              type="button"
+              (click)="scheduleConsultation()"
               [disabled]="!selectedProjectType()"
-              styleClass="w-full bg-black hover:bg-gray-900 text-white border-none"
-            ></p-button>
+              class="w-full inline-flex items-center justify-center gap-2 px-6 py-3 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-lg dark:bg-(--color-dark-theme) dark:border-(--p-menubar-border-color) dark:text-white text-base font-semibold hover:bg-gray-900 hover:border-gray-700 hover:text-white dark:hover:bg-gray-100 dark:hover:border-gray-300 dark:hover:text-black focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <i class="pi pi-calendar"></i>
+              {{ 'quote.summary.cta' | translate }}
+            </button>
+
+            <button
+              type="button"
+              (click)="generatePDF()"
+              [disabled]="!selectedProjectType()"
+              class="w-full mt-3 inline-flex items-center justify-center gap-2 px-6 py-3 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-lg dark:bg-(--color-dark-theme) dark:border-(--p-menubar-border-color) dark:text-white text-base font-semibold hover:bg-gray-900 hover:border-gray-700 hover:text-white dark:hover:bg-gray-100 dark:hover:border-gray-300 dark:hover:text-black focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <i class="pi pi-file-pdf"></i>
+              {{ 'quote.summary.generatePdf' | translate }}
+            </button>
 
             <p class="text-xs text-gray-500 dark:text-gray-400 mt-4 text-center">
               {{ 'quote.summary.disclaimer' | translate }}

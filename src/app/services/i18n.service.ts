@@ -30,12 +30,12 @@ export class I18nService {
   readonly t = computed(() => {
     const locale = this.currentLocale();
     const loaded = this.translationsLoaded();
-      return (key: string): string => {
-        if (!loaded) {
-          return key;
-        }
-        return this.getTranslation(key, locale);
-      };
+    return (key: string): string => {
+      if (!loaded) {
+        return key;
+      }
+      return this.getTranslation(key, locale);
+    };
   });
 
   private async loadTranslations(): Promise<void> {

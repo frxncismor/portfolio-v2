@@ -23,4 +23,3 @@ export interface QuoteCalculation {
   subtotal: number;
   deliveryDays: number;
 }
-

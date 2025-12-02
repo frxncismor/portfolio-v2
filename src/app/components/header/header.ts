@@ -19,20 +19,9 @@ export class Header {
   readonly items = computed(() => [
     { label: this.translate()('header.nav.home'), icon: 'pi pi-home', routerLink: '/' },
     {
-      label: this.translate()('header.nav.workExperience'),
+      label: this.translate()('header.nav.certifications'),
       icon: 'pi pi-briefcase',
-      url: '/home#work-experience',
-    },
-    { label: this.translate()('header.nav.about'), icon: 'pi pi-user', url: '/home#about-me' },
-    {
-      label: this.translate()('header.nav.services'),
-      icon: 'pi pi-briefcase',
-      routerLink: '/services',
-    },
-    {
-      label: this.translate()('header.nav.projects'),
-      icon: 'pi pi-folder',
-      url: '/home#projects',
+      routerLink: '/certifications',
     },
     {
       label: this.translate()('header.nav.priceQuoteGenerator'),

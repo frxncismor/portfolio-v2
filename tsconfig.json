@@ -22,7 +22,7 @@
       "@services/*": ["./src/app/services/*"],
       "@assets/*": ["./src/assets/*"],
       "@pipes/*": ["./src/app/pipes/*"],
-      "@interfaces/*": ["./src/app/interfaces/*"],
+      "@interfaces/*": ["./src/app/interfaces/*"]
     }
   },
   "angularCompilerOptions": {
