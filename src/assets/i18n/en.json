@@ -145,7 +145,7 @@
         "title": "Shelfie",
         "description": "AI SaaS that helps small businesses upgrade their product photos and online presence, using React, Supabase and Stripe.",
         "link": "https://shelfie.com.mx",
-        "code": "https://github.com/frxncismor/shelfie",
+        "code": "https://github.com/frxncismor/shelfie-public",
         "image": "/shelfie.png",
         "technologies": [
           {
