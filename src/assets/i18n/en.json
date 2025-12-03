@@ -142,44 +142,27 @@
     "preview": "Preview",
     "items": [
       {
-        "title": "SVGL",
-        "description": "A beautiful library with SVG logos. +10k visits per month. +2K svgs downloaded. Created from scratch with Next.js, React and Tailwind CSS.",
-        "link": "https://svgl.vercel.app",
-        "code": "https://github.com/pheralb/svgl",
-        "image": "https://porfolio.dev/projects/svgl.webp",
+        "title": "Shelfie",
+        "description": "AI SaaS that helps small businesses upgrade their product photos and online presence, using React, Supabase and Stripe.",
+        "link": "https://shelfie.com.mx",
+        "code": "https://github.com/frxncismor/shelfie",
+        "image": "/shelfie.png",
         "technologies": [
-          {
-            "name": "Next.js",
-            "color": "contrast"
-          },
           {
             "name": "React",
             "color": "info"
           },
           {
-            "name": "Tailwind CSS",
+            "name": "Supabase",
             "color": "success"
-          }
-        ]
-      },
-      {
-        "title": "AdventJS",
-        "description": "A platform with programming challenges. +1M visits per month. +50K challenges completed. Created from scratch with Next.js, React and Tailwind CSS.",
-        "link": "https://adventjs.dev",
-        "code": "https://github.com/pheralb/adventjs",
-        "image": "https://porfolio.dev/projects/adventjs.webp",
-        "technologies": [
-          {
-            "name": "Next.js",
-            "color": "contrast"
           },
           {
-            "name": "React",
+            "name": "Stripe",
+            "color": "success"
+          },
+          {
+            "name": "Tailwind CSS",
             "color": "info"
-          },
-          {
-            "name": "Tailwind CSS",
-            "color": "success"
           }
         ]
       }
