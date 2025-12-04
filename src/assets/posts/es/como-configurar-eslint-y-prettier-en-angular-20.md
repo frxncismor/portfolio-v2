@@ -7,6 +7,7 @@ slug: como-configurar-eslint-y-prettier-en-angular-20
 author: Francisco Moreno
 imageUrl: https://images.unsplash.com/photo-1605379399642-870262d3d051?q=80&w=1206&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 ---
+
 # Cómo Configurar ESLint y Prettier en tus Proyectos Angular ✨
 
 ### Resumen 🧾
@@ -127,24 +128,23 @@ ESLint resolverá muchos temas de estilo y lógica simple de manera automática.
 Problemas frecuentes y cómo solucionarlos:
 
 1. **Importaciones no utilizadas**
-    
-    ➜ Elimina los imports que no estés usando.
-    
+
+   ➜ Elimina los imports que no estés usando.
+
 2. **Constructores vacíos**
-    
-    ➜ Si tu constructor no hace nada, bórralo.
-    
+
+   ➜ Si tu constructor no hace nada, bórralo.
+
 3. **Convenciones de nombres**
-    
-    ➜ Las directivas personalizadas deberían usar un prefijo como `app` para evitar colisiones:
-    
-    ```tsx
-    @Directive({
-      selector: '[appHighlight]',
-    })
-    
-    ```
-    
+
+   ➜ Las directivas personalizadas deberían usar un prefijo como `app` para evitar colisiones:
+
+   ```tsx
+   @Directive({
+     selector: '[appHighlight]',
+   })
+
+   ```
 
 ---
 
@@ -156,7 +156,6 @@ Por ejemplo, si usas una etiqueta `<img>` como elemento clickeable:
 
 ```html
 <img [src]="product.image" (click)="onSelect()" />
-
 ```
 
 Hazla accesible así:
@@ -169,7 +168,6 @@ Hazla accesible así:
   role="button"
   (keydown.enter)="onSelect()"
 />
-
 ```
 
 - `tabindex="0"` → Permite enfocar el elemento con el teclado
@@ -242,8 +240,8 @@ Agrega un `.prettierrc.json` (o `.prettierrc`) en la raíz del proyecto:
   "tabWidth": 2,
   "useTabs": false,
   "singleQuote": true,
-  "semi": true}
-
+  "semi": true
+}
 ```
 
 Opciones comunes:
@@ -278,26 +276,25 @@ module.exports = {
   // configuración existente...
   extends: [
     // otras configuraciones...
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
   ],
   overrides: [
     {
       files: ['*.ts'],
       extends: [
         // otras configuraciones...
-        'plugin:prettier/recommended'
-      ]
+        'plugin:prettier/recommended',
+      ],
     },
     {
       files: ['*.html'],
       extends: [
         // otras configuraciones...
-        'plugin:prettier/recommended'
-      ]
-    }
-  ]
+        'plugin:prettier/recommended',
+      ],
+    },
+  ],
 };
-
 ```
 
 **Qué obtienes con esto:**
@@ -319,13 +316,7 @@ Prettier reestructura etiquetas largas para que sean más legibles:
 <img src="assets/logo.png" alt="Logo" class="header-logo" width="100" height="50" />
 
 <!-- Después -->
-<imgsrc="assets/logo.png"
-  alt="Logo"
-  class="header-logo"
-  width="100"
-  height="50"
-/>
-
+<imgsrc ="assets/logo.png" alt="Logo" class="header-logo" width="100" height="50" />
 ```
 
 Esto hace que los atributos sean más fáciles de leer y mantener. 👀
@@ -336,10 +327,10 @@ Prettier normaliza indentación, espacios y comillas:
 
 ```tsx
 // Antes (inconsistente)
-function calculateTotal(items){
-    return items.reduce((total,item)=>{
-  return total+item.price;
-},0);
+function calculateTotal(items) {
+  return items.reduce((total, item) => {
+    return total + item.price;
+  }, 0);
 }
 
 // Después (formateado)
@@ -348,7 +339,6 @@ function calculateTotal(items) {
     return total + item.price;
   }, 0);
 }
-
 ```
 
 ### 🅰️ Compatibilidad con Angular
@@ -387,7 +377,6 @@ Aquí tienes un ejemplo completo para `.prettierrc.json` que funciona muy bien e
     }
   ]
 }
-
 ```
 
 ---
@@ -524,24 +513,23 @@ ESLint will handle many style and simple logic issues automatically. More seriou
 Common problems and their fixes:
 
 1. **Unused imports**
-    
-    ➜ Remove the imports you're not using.
-    
+
+   ➜ Remove the imports you're not using.
+
 2. **Empty constructors**
-    
-    ➜ If your constructor does nothing, delete it.
-    
+
+   ➜ If your constructor does nothing, delete it.
+
 3. **Naming conventions**
-    
-    ➜ Custom directives should use a prefix like `app` to avoid collisions:
-    
-    ```tsx
-    @Directive({
-      selector: '[appHighlight]',
-    })
-    
-    ```
-    
+
+   ➜ Custom directives should use a prefix like `app` to avoid collisions:
+
+   ```tsx
+   @Directive({
+     selector: '[appHighlight]',
+   })
+
+   ```
 
 ---
 
@@ -553,7 +541,6 @@ For example, if you're using an `<img>` as a clickable element:
 
 ```html
 <img [src]="product.image" (click)="onSelect()" />
-
 ```
 
 Make it accessible with:
@@ -566,7 +553,6 @@ Make it accessible with:
   role="button"
   (keydown.enter)="onSelect()"
 />
-
 ```
 
 - `tabindex="0"` → Enables keyboard focus
@@ -639,8 +625,8 @@ Add a `.prettierrc.json` (or `.prettierrc`) at the root:
   "tabWidth": 2,
   "useTabs": false,
   "singleQuote": true,
-  "semi": true}
-
+  "semi": true
+}
 ```
 
 Common options:
@@ -675,26 +661,25 @@ module.exports = {
   // existing config...
   extends: [
     // other configs...
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
   ],
   overrides: [
     {
       files: ['*.ts'],
       extends: [
         // other configs...
-        'plugin:prettier/recommended'
-      ]
+        'plugin:prettier/recommended',
+      ],
     },
     {
       files: ['*.html'],
       extends: [
         // other configs...
-        'plugin:prettier/recommended'
-      ]
-    }
-  ]
+        'plugin:prettier/recommended',
+      ],
+    },
+  ],
 };
-
 ```
 
 **What you get:**
@@ -716,13 +701,7 @@ Prettier restructures long tags for better readability:
 <img src="assets/logo.png" alt="Logo" class="header-logo" width="100" height="50" />
 
 <!-- After -->
-<imgsrc="assets/logo.png"
-  alt="Logo"
-  class="header-logo"
-  width="100"
-  height="50"
-/>
-
+<imgsrc ="assets/logo.png" alt="Logo" class="header-logo" width="100" height="50" />
 ```
 
 This makes attributes easier to scan and edit. 👀
@@ -733,10 +712,10 @@ Prettier normalizes indentation, spacing, and quotes:
 
 ```tsx
 // Before (inconsistent)
-function calculateTotal(items){
-    return items.reduce((total,item)=>{
-  return total+item.price;
-},0);
+function calculateTotal(items) {
+  return items.reduce((total, item) => {
+    return total + item.price;
+  }, 0);
 }
 
 // After (formatted)
@@ -745,7 +724,6 @@ function calculateTotal(items) {
     return total + item.price;
   }, 0);
 }
-
 ```
 
 ### 🅰️ Angular Compatibility
@@ -784,7 +762,6 @@ Here's a complete example for `.prettierrc.json` that works well in Angular proj
     }
   ]
 }
-
 ```
 
 ---

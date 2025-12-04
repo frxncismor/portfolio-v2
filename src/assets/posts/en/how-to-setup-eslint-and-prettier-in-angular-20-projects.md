@@ -128,24 +128,23 @@ ESLint will handle many style and simple logic issues automatically. More seriou
 Common problems and their fixes:
 
 1. **Unused imports**
-    
-    ➜ Remove the imports you're not using.
-    
+
+   ➜ Remove the imports you're not using.
+
 2. **Empty constructors**
-    
-    ➜ If your constructor does nothing, delete it.
-    
+
+   ➜ If your constructor does nothing, delete it.
+
 3. **Naming conventions**
-    
-    ➜ Custom directives should use a prefix like `app` to avoid collisions:
-    
-    ```tsx
-    @Directive({
-      selector: '[appHighlight]',
-    })
-    
-    ```
-    
+
+   ➜ Custom directives should use a prefix like `app` to avoid collisions:
+
+   ```tsx
+   @Directive({
+     selector: '[appHighlight]',
+   })
+
+   ```
 
 ---
 
@@ -157,7 +156,6 @@ For example, if you're using an `<img>` as a clickable element:
 
 ```html
 <img [src]="product.image" (click)="onSelect()" />
-
 ```
 
 Make it accessible with:
@@ -170,7 +168,6 @@ Make it accessible with:
   role="button"
   (keydown.enter)="onSelect()"
 />
-
 ```
 
 - `tabindex="0"` → Enables keyboard focus
@@ -243,8 +240,8 @@ Add a `.prettierrc.json` (or `.prettierrc`) at the root:
   "tabWidth": 2,
   "useTabs": false,
   "singleQuote": true,
-  "semi": true}
-
+  "semi": true
+}
 ```
 
 Common options:
@@ -279,26 +276,25 @@ module.exports = {
   // existing config...
   extends: [
     // other configs...
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
   ],
   overrides: [
     {
       files: ['*.ts'],
       extends: [
         // other configs...
-        'plugin:prettier/recommended'
-      ]
+        'plugin:prettier/recommended',
+      ],
     },
     {
       files: ['*.html'],
       extends: [
         // other configs...
-        'plugin:prettier/recommended'
-      ]
-    }
-  ]
+        'plugin:prettier/recommended',
+      ],
+    },
+  ],
 };
-
 ```
 
 **What you get:**
@@ -320,13 +316,7 @@ Prettier restructures long tags for better readability:
 <img src="assets/logo.png" alt="Logo" class="header-logo" width="100" height="50" />
 
 <!-- After -->
-<imgsrc="assets/logo.png"
-  alt="Logo"
-  class="header-logo"
-  width="100"
-  height="50"
-/>
-
+<imgsrc ="assets/logo.png" alt="Logo" class="header-logo" width="100" height="50" />
 ```
 
 This makes attributes easier to scan and edit. 👀
@@ -337,10 +327,10 @@ Prettier normalizes indentation, spacing, and quotes:
 
 ```tsx
 // Before (inconsistent)
-function calculateTotal(items){
-    return items.reduce((total,item)=>{
-  return total+item.price;
-},0);
+function calculateTotal(items) {
+  return items.reduce((total, item) => {
+    return total + item.price;
+  }, 0);
 }
 
 // After (formatted)
@@ -349,7 +339,6 @@ function calculateTotal(items) {
     return total + item.price;
   }, 0);
 }
-
 ```
 
 ### 🅰️ Angular Compatibility
@@ -388,7 +377,6 @@ Here's a complete example for `.prettierrc.json` that works well in Angular proj
     }
   ]
 }
-
 ```
 
 ---
