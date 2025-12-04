@@ -15,6 +15,7 @@ export class Header {
   private readonly i18nService = inject(I18nService);
 
   readonly translate = this.i18nService.t;
+  readonly currentLocale = this.i18nService.locale;
 
   readonly items = computed(() => [
     { label: this.translate()('header.nav.home'), icon: 'pi pi-home', routerLink: '/' },
@@ -28,5 +29,15 @@ export class Header {
       icon: 'pi pi-calculator',
       routerLink: '/price-quote-generator',
     },
+    {
+      label: this.translate()('header.nav.blog'),
+      icon: 'pi pi-book',
+      routerLink: '/blog',
+    },
   ]);
+
+  toggleLanguage() {
+    const newLocale = this.currentLocale() === 'en' ? 'es' : 'en';
+    this.i18nService.setLocale(newLocale);
+  }
 }

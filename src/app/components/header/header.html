@@ -1,4 +1,15 @@
 <p-menubar
   class="menubar fixed z-10 left-0 md:left-2.5 right-0 md:right-2.5 top-0 md:top-2.5"
   [model]="items()"
-></p-menubar>
+>
+  <ng-template pTemplate="end">
+    <div class="flex items-center gap-2">
+      <button
+        (click)="toggleLanguage()"
+        class="cursor-pointer inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition  bg-gray-100 border border-gray-300 rounded-md dark:bg-(--color-dark-theme) dark:border-(--p-menubar-border-color) dark:text-white text-md hover:bg-gray-900 hover:border-gray-700 hover:text-white dark:hover:bg-gray-100 dark:hover:border-gray-300 dark:hover:text-black group max-w-fit focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black"
+      >
+        {{ currentLocale() === 'en' ? 'ES' : 'EN' }}
+      </button>
+    </div>
+  </ng-template>
+</p-menubar>

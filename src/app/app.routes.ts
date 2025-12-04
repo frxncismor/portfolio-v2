@@ -16,6 +16,14 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'blog',
+    loadComponent: () => import('./pages/blog/blog').then((m) => m.Blog),
+  },
+  {
+    path: 'blog/:slug',
+    loadComponent: () => import('./pages/blog-detail/blog-detail').then((m) => m.BlogDetail),
+  },
+  {
     path: 'not-found',
     loadComponent: () => import('./pages/not-found/not-found').then((m) => m.NotFound),
   },

@@ -39,8 +39,32 @@
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://images.unsplash.com">
   </head>
   <body class="kedebideri-regular text-base font-normal">
+    <script>
+      // Initialize theme before Angular loads to prevent flash
+      // Always use system preference
+      (function() {
+        const darkClass = 'dark';
+        
+        function getSystemPreference() {
+          return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        
+        function applyTheme(theme) {
+          const htmlElement = document.documentElement;
+          if (theme === 'dark') {
+            htmlElement.classList.add(darkClass);
+          } else {
+            htmlElement.classList.remove(darkClass);
+          }
+        }
+        
+        const theme = getSystemPreference();
+        applyTheme(theme);
+      })();
+    </script>
     <app-root></app-root>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="91e751e5-0358-4ffb-af8b-787040743946"></script>
   </body>

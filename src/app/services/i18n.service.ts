@@ -1,5 +1,7 @@
 import { Injectable, signal, computed } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
+import { firstValueFrom, forkJoin } from 'rxjs';
 import localeEs from '@angular/common/locales/es';
 import localeEn from '@angular/common/locales/en';
 
@@ -38,18 +40,16 @@ export class I18nService {
     };
   });
 
+  constructor(private http: HttpClient) {}
+
   private async loadTranslations(): Promise<void> {
     try {
-      const [esTranslations, enTranslations] = await Promise.all([
-        fetch('/assets/i18n/es.json').then((res) => {
-          if (!res.ok) throw new Error(`Failed to load es.json: ${res.status}`);
-          return res.json();
-        }),
-        fetch('/assets/i18n/en.json').then((res) => {
-          if (!res.ok) throw new Error(`Failed to load en.json: ${res.status}`);
-          return res.json();
-        }),
-      ]);
+      const [esTranslations, enTranslations] = await firstValueFrom(
+        forkJoin([
+          this.http.get<Translations>('/assets/i18n/es.json'),
+          this.http.get<Translations>('/assets/i18n/en.json'),
+        ]),
+      );
 
       this.translations.es = esTranslations;
       this.translations.en = enTranslations;

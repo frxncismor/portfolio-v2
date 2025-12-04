@@ -15,7 +15,8 @@
     "nav": {
       "home": "Home",
       "certifications": "Certifications",
-      "priceQuoteGenerator": "Price quote generator"
+      "priceQuoteGenerator": "Price quote generator",
+      "blog": "Blog"
     }
   },
   "home": {
@@ -32,52 +33,145 @@
         "frontend": {
           "label": "Frontend",
           "technologies": [
-            { "name": "Angular", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg" },
-            { "name": "React", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-            { "name": "RxJS", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rxjs/rxjs-original.svg" },
-            { "name": "NgRx", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ngrx/ngrx-original.svg" },
-            { "name": "Next.js", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
-            { "name": "JavaScript", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-            { "name": "TypeScript", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
-            { "name": "Tailwind CSS", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
-            { "name": "Bootstrap", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" },
-            { "name": "CSS", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
-            { "name": "HTML", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
-            { "name": "Redux", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" }
+            {
+              "name": "Angular",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg"
+            },
+            {
+              "name": "React",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+            },
+            {
+              "name": "RxJS",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rxjs/rxjs-original.svg"
+            },
+            {
+              "name": "NgRx",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ngrx/ngrx-original.svg"
+            },
+            {
+              "name": "Next.js",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+            },
+            {
+              "name": "JavaScript",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+            },
+            {
+              "name": "TypeScript",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+            },
+            {
+              "name": "Tailwind CSS",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+            },
+            {
+              "name": "Bootstrap",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
+            },
+            {
+              "name": "CSS",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+            },
+            {
+              "name": "HTML",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+            },
+            {
+              "name": "Redux",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg"
+            }
           ]
         },
         "backend": {
           "label": "Backend",
           "technologies": [
-            { "name": "Node.js", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
-            { "name": "Supabase", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg" },
-            { "name": "Express.js", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" }
+            {
+              "name": "Node.js",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+            },
+            {
+              "name": "Supabase",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg"
+            },
+            {
+              "name": "Express.js",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+            }
           ]
         },
         "database": {
           "label": "Database",
           "technologies": [
-            { "name": "MongoDB", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
-            { "name": "PostgreSQL", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
-            { "name": "SQL Server", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-original.svg" }
+            {
+              "name": "MongoDB",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+            },
+            {
+              "name": "PostgreSQL",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+            },
+            {
+              "name": "SQL Server",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-original.svg"
+            }
           ]
         },
         "tools": {
           "label": "Tools",
           "technologies": [
-            { "name": "VSCode", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
-            { "name": "Jira", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" },
-            { "name": "Confluence", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/confluence/confluence-original.svg" },
-            { "name": "Postman", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" },
-            { "name": "Notion", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/notion/notion-original.svg" },
-            { "name": "Git", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-            { "name": "AWS", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
-            { "name": "Sentry", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sentry/sentry-original.svg" },
-            { "name": "SonarQube", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sonarqube/sonarqube-original.svg" },
-            { "name": "Docker", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-            { "name": "GitHub", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
-            { "name": "Google Cloud", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" },
-            { "name": "Figma", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" }
+            {
+              "name": "VSCode",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+            },
+            {
+              "name": "Jira",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg"
+            },
+            {
+              "name": "Confluence",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/confluence/confluence-original.svg"
+            },
+            {
+              "name": "Postman",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg"
+            },
+            {
+              "name": "Notion",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/notion/notion-original.svg"
+            },
+            {
+              "name": "Git",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+            },
+            {
+              "name": "AWS",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
+            },
+            {
+              "name": "Sentry",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sentry/sentry-original.svg"
+            },
+            {
+              "name": "SonarQube",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sonarqube/sonarqube-original.svg"
+            },
+            {
+              "name": "Docker",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+            },
+            {
+              "name": "GitHub",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+            },
+            {
+              "name": "Google Cloud",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"
+            },
+            {
+              "name": "Figma",
+              "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
+            }
           ]
         }
       }
@@ -277,7 +371,11 @@
         "issued_raw": "Issued: Nov 2025",
         "issued": "Nov 2025",
         "credentialId": "42a4173d-1e97-4f62-bd06-0e5b02b208d3",
-        "skills": ["React.js", "JavaScript", "Frontend Development"],
+        "skills": [
+          "React.js",
+          "JavaScript",
+          "Frontend Development"
+        ],
         "certificateUrl": "https://platzi.com/p/Frxncismor/curso/11887-reactjs/diploma/detalle/"
       },
       {
@@ -286,7 +384,11 @@
         "issued_raw": "Issued: Jan 2025",
         "issued": "Jan 2025",
         "credentialId": "",
-        "skills": ["English", "C2 Proficiency", "Language Skills"],
+        "skills": [
+          "English",
+          "C2 Proficiency",
+          "Language Skills"
+        ],
         "certificateUrl": "https://cert.efset.org/es/6TTrQh"
       },
       {
@@ -295,7 +397,11 @@
         "issued_raw": "Issued: Sep 2023",
         "issued": "Sep 2023",
         "credentialId": "ce686fb8-fa98-40ec-8471-60c8c4360eb3",
-        "skills": ["Frontend Architecture", "Frameworks", "Software Architecture"],
+        "skills": [
+          "Frontend Architecture",
+          "Frameworks",
+          "Software Architecture"
+        ],
         "certificateUrl": "https://platzi.com/p/Frxncismor/curso/4623-course/diploma/detalle/"
       },
       {
@@ -304,7 +410,11 @@
         "issued_raw": "Issued: Feb 2022",
         "issued": "Feb 2022",
         "credentialId": "279fda99-5750-4f40-9886-22a13c934061",
-        "skills": ["Blockchain", "Cryptocurrency", "Bitcoin"],
+        "skills": [
+          "Blockchain",
+          "Cryptocurrency",
+          "Bitcoin"
+        ],
         "certificateUrl": "https://platzi.com/p/Frxncismor/curso/2443-historia-bitcoin/diploma/detalle/"
       },
       {
@@ -313,7 +423,12 @@
         "issued_raw": "Issued: Feb 2022",
         "issued": "Feb 2022",
         "credentialId": "6eb2f6ae-65d7-40b3-90fd-42d8ec875aa4",
-        "skills": ["Ethereum", "Blockchain", "Smart Contracts", "Solidity"],
+        "skills": [
+          "Ethereum",
+          "Blockchain",
+          "Smart Contracts",
+          "Solidity"
+        ],
         "certificateUrl": "https://platzi.com/p/Frxncismor/curso/2560-ethereum-developers/diploma/detalle/"
       },
       {
@@ -322,7 +437,13 @@
         "issued_raw": "Issued: Oct 2021",
         "issued": "Oct 2021",
         "credentialId": "UC-a7510b5c-c9d6-4947-9c7a-d850dbf3689e",
-        "skills": ["Blockchain", "Ethereum", "Web3", "Smart Contracts", "DApp Development"],
+        "skills": [
+          "Blockchain",
+          "Ethereum",
+          "Web3",
+          "Smart Contracts",
+          "DApp Development"
+        ],
         "certificateUrl": "https://www.udemy.com/certificate/UC-a7510b5c-c9d6-4947-9c7a-d850dbf3689e/"
       },
       {
@@ -331,7 +452,12 @@
         "issued_raw": "Issued: Sep 2021",
         "issued": "Sep 2021",
         "credentialId": "7b4ace68-d05c-4b67-a818-83939e0a49fb",
-        "skills": ["JavaScript", "V8 Engine", "Browser Internals", "Performance"],
+        "skills": [
+          "JavaScript",
+          "V8 Engine",
+          "Browser Internals",
+          "Performance"
+        ],
         "certificateUrl": "https://platzi.com/p/Frxncismor/curso/1798-javascript-navegador/diploma/detalle/"
       },
       {
@@ -340,7 +466,11 @@
         "issued_raw": "Issued: Aug 2021",
         "issued": "Aug 2021",
         "credentialId": "168f3a14-cb04-4491-a759-8c1f0fed486f",
-        "skills": ["Cryptocurrency", "Taxation", "Financial Planning"],
+        "skills": [
+          "Cryptocurrency",
+          "Taxation",
+          "Financial Planning"
+        ],
         "certificateUrl": "https://platzi.com/p/Frxncismor/curso/2448-impuestos-criptomonedas/diploma/detalle/"
       },
       {
@@ -349,7 +479,12 @@
         "issued_raw": "Issued: Mar 2021",
         "issued": "Mar 2021",
         "credentialId": "7e595449-9e53-4b11-bbed-f407a1f0215c",
-        "skills": ["Data Structures", "Algorithms", "JavaScript", "Computer Science"],
+        "skills": [
+          "Data Structures",
+          "Algorithms",
+          "JavaScript",
+          "Computer Science"
+        ],
         "certificateUrl": "https://platzi.com/p/Frxncismor/curso/2156-estructuras-datos/diploma/detalle/"
       },
       {
@@ -358,7 +493,12 @@
         "issued_raw": "Issued: Jan 2021",
         "issued": "Jan 2021",
         "credentialId": "4ca1f3b1-60ef-4925-9954-5759c124d264",
-        "skills": ["JavaScript", "SPA", "Frontend Development", "Vanilla JS"],
+        "skills": [
+          "JavaScript",
+          "SPA",
+          "Frontend Development",
+          "Vanilla JS"
+        ],
         "certificateUrl": "https://platzi.com/p/Frxncis/curso/1787-spa-javascript/diploma/detalle/"
       },
       {
@@ -367,7 +507,13 @@
         "issued_raw": "Issued: Jan 2021",
         "issued": "Jan 2021",
         "credentialId": "283a4588-b937-45e0-9f04-d2cdb799af6e",
-        "skills": ["Jest", "React", "Unit Testing", "Testing", "TDD"],
+        "skills": [
+          "Jest",
+          "React",
+          "Unit Testing",
+          "Testing",
+          "TDD"
+        ],
         "certificateUrl": "https://platzi.com/p/Frxncis/curso/1788-jest/diploma/detalle/"
       },
       {
@@ -376,7 +522,10 @@
         "issued_raw": "Issued: Nov 2020",
         "issued": "Nov 2020",
         "credentialId": "8da0eaf0-338e-4fd1-bc3e-3bbb7e06c80c",
-        "skills": ["JavaScript", "Programming Fundamentals"],
+        "skills": [
+          "JavaScript",
+          "Programming Fundamentals"
+        ],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1814-basico-javascript/diploma/detalle/"
       },
       {
@@ -385,7 +534,12 @@
         "issued_raw": "Issued: Nov 2020",
         "issued": "Nov 2020",
         "credentialId": "1747aa5f-2b69-4df7-ad41-9b3bd53b10a8",
-        "skills": ["JavaScript", "Async/Await", "Promises", "Callbacks"],
+        "skills": [
+          "JavaScript",
+          "Async/Await",
+          "Promises",
+          "Callbacks"
+        ],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1789-asincronismo-js/diploma/detalle/"
       },
       {
@@ -394,7 +548,12 @@
         "issued_raw": "Issued: Nov 2020",
         "issued": "Nov 2020",
         "credentialId": "c8754537-2763-4ce1-b441-4637e702754b",
-        "skills": ["JavaScript", "Closures", "Scope", "Advanced JavaScript"],
+        "skills": [
+          "JavaScript",
+          "Closures",
+          "Scope",
+          "Advanced JavaScript"
+        ],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1807-scope/diploma/detalle/"
       },
       {
@@ -403,7 +562,12 @@
         "issued_raw": "Issued: Nov 2020",
         "issued": "Nov 2020",
         "credentialId": "7318c529-15f5-414d-af06-7db022967fe8",
-        "skills": ["ES6+", "JavaScript", "Modern JavaScript", "ES2015+"],
+        "skills": [
+          "ES6+",
+          "JavaScript",
+          "Modern JavaScript",
+          "ES2015+"
+        ],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1815-ecmascript-6/diploma/detalle/"
       },
       {
@@ -412,7 +576,12 @@
         "issued_raw": "Issued: Sep 2020",
         "issued": "Sep 2020",
         "credentialId": "a231d808-6d5d-4741-bc92-d89b4969a042",
-        "skills": ["Angular", "TypeScript", "Frontend Framework", "SPA"],
+        "skills": [
+          "Angular",
+          "TypeScript",
+          "Frontend Framework",
+          "SPA"
+        ],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1731-course/diploma/detalle/"
       },
       {
@@ -421,7 +590,11 @@
         "issued_raw": "Issued: Aug 2020",
         "issued": "Aug 2020",
         "credentialId": "2310bbf2-0bc0-4354-8ab4-2ef929d24e0f",
-        "skills": ["Angular", "TypeScript", "Frontend Development"],
+        "skills": [
+          "Angular",
+          "TypeScript",
+          "Frontend Development"
+        ],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1670-angular/diploma/detalle/"
       },
       {
@@ -430,7 +603,12 @@
         "issued_raw": "Issued: Aug 2020",
         "issued": "Aug 2020",
         "credentialId": "067389ed-c5b7-4273-8bd9-01084bb1b53f",
-        "skills": ["TypeScript", "Angular", "Type Safety", "Enterprise Development"],
+        "skills": [
+          "TypeScript",
+          "Angular",
+          "Type Safety",
+          "Enterprise Development"
+        ],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1580-typescript-angular/diploma/detalle/"
       },
       {
@@ -439,7 +617,12 @@
         "issued_raw": "Issued: Jul 2020",
         "issued": "Jul 2020",
         "credentialId": "d453d2a8-81f7-46c6-9556-bf96dd020926",
-        "skills": ["CSS", "Layout", "Web Design", "Frontend"],
+        "skills": [
+          "CSS",
+          "Layout",
+          "Web Design",
+          "Frontend"
+        ],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1744-practico-css/diploma/detalle/"
       },
       {
@@ -448,7 +631,13 @@
         "issued_raw": "Issued: Jul 2020",
         "issued": "Jul 2020",
         "credentialId": "cb2e2c11-c54c-405e-92f0-8a69b6209aa3",
-        "skills": ["Frontend Development", "HTML", "CSS", "JavaScript", "Web Development"],
+        "skills": [
+          "Frontend Development",
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Web Development"
+        ],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1640-frontend-developer/diploma/detalle/"
       },
       {
@@ -457,7 +646,12 @@
         "issued_raw": "Issued: Jul 2020",
         "issued": "Jul 2020",
         "credentialId": "a5306357-3742-4c35-98b4-81d7831006d0",
-        "skills": ["HTML", "CSS", "Web Development", "Markup"],
+        "skills": [
+          "HTML",
+          "CSS",
+          "Web Development",
+          "Markup"
+        ],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1492-html-css/diploma/detalle/"
       },
       {
@@ -466,7 +660,12 @@
         "issued_raw": "Issued: Jul 2020",
         "issued": "Jul 2020",
         "credentialId": "c399e910-2d77-426d-a047-dd11efb04513",
-        "skills": ["Responsive Design", "CSS", "Mobile First", "Web Design"],
+        "skills": [
+          "Responsive Design",
+          "CSS",
+          "Mobile First",
+          "Web Design"
+        ],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1362-responsive-design/diploma/detalle/"
       },
       {
@@ -475,7 +674,12 @@
         "issued_raw": "Issued: Jul 2020",
         "issued": "Jul 2020",
         "credentialId": "81f12ec8-3310-42d3-9e95-e739e2cd885b",
-        "skills": ["HTML", "CSS", "Practical Development", "Web Design"],
+        "skills": [
+          "HTML",
+          "CSS",
+          "Practical Development",
+          "Web Design"
+        ],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1758-html-practico/diploma/detalle/"
       },
       {
@@ -484,7 +688,12 @@
         "issued_raw": "Issued: Jul 2020",
         "issued": "Jul 2020",
         "credentialId": "40E03EF20AAF",
-        "skills": ["JavaScript", "Problem Solving", "Algorithms", "Coding Challenges"],
+        "skills": [
+          "JavaScript",
+          "Problem Solving",
+          "Algorithms",
+          "Coding Challenges"
+        ],
         "certificateUrl": "https://www.hackerrank.com/certificates/40e03ef20aaf"
       },
       {
@@ -493,7 +702,13 @@
         "issued_raw": "Issued: Jul 2020",
         "issued": "Jul 2020",
         "credentialId": "",
-        "skills": ["Responsive Design", "CSS", "HTML", "Web Development", "freeCodeCamp"],
+        "skills": [
+          "Responsive Design",
+          "CSS",
+          "HTML",
+          "Web Development",
+          "freeCodeCamp"
+        ],
         "certificateUrl": "https://www.freecodecamp.org/certification/frxncismor/responsive-web-design"
       },
       {
@@ -502,7 +717,11 @@
         "issued_raw": "Issued: Jun 2020",
         "issued": "Jun 2020",
         "credentialId": "843bf410-ce17-42be-adfb-3bc48a9f4fa0",
-        "skills": ["JavaScript", "Professional Development", "Advanced JavaScript"],
+        "skills": [
+          "JavaScript",
+          "Professional Development",
+          "Advanced JavaScript"
+        ],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1642-javascript-profesional/diploma/detalle/"
       },
       {
@@ -511,7 +730,12 @@
         "issued_raw": "Issued: Jun 2020",
         "issued": "Jun 2020",
         "credentialId": "32035f00-33c0-44fa-be89-93fda234b770",
-        "skills": ["Engineering Management", "Leadership", "Team Management", "Agile"],
+        "skills": [
+          "Engineering Management",
+          "Leadership",
+          "Team Management",
+          "Agile"
+        ],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1732-eng-management/diploma/detalle/"
       },
       {
@@ -520,7 +744,11 @@
         "issued_raw": "Issued: Jun 2020",
         "issued": "Jun 2020",
         "credentialId": "69a673dd-aaf3-49d6-ae9c-6758e764caf2",
-        "skills": ["Learning Strategies", "Personal Development", "Education"],
+        "skills": [
+          "Learning Strategies",
+          "Personal Development",
+          "Education"
+        ],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1608-aprender/diploma/detalle/"
       },
       {
@@ -529,7 +757,11 @@
         "issued_raw": "Issued: Jun 2020",
         "issued": "Jun 2020",
         "credentialId": "7efe49ab-b333-4031-98ef-4b12feab4c87",
-        "skills": ["Software Engineering", "Best Practices", "Development Process"],
+        "skills": [
+          "Software Engineering",
+          "Best Practices",
+          "Development Process"
+        ],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1098-ingenieria/diploma/detalle/"
       },
       {
@@ -538,7 +770,11 @@
         "issued_raw": "Issued: Jun 2020",
         "issued": "Jun 2020",
         "credentialId": "adb2ef5a-914f-4aa6-a6f3-111898c5c417",
-        "skills": ["Time Management", "Productivity", "Personal Development"],
+        "skills": [
+          "Time Management",
+          "Productivity",
+          "Personal Development"
+        ],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1749-gestion-tiempo/diploma/detalle/"
       },
       {
@@ -547,7 +783,13 @@
         "issued_raw": "Issued: Jun 2020",
         "issued": "Jun 2020",
         "credentialId": "5172bc35-5524-4f64-8dac-5252b9815cdb",
-        "skills": ["Terminal", "Command Line", "Linux", "Shell", "CLI"],
+        "skills": [
+          "Terminal",
+          "Command Line",
+          "Linux",
+          "Shell",
+          "CLI"
+        ],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1748-terminal/diploma/detalle/"
       },
       {
@@ -556,7 +798,12 @@
         "issued_raw": "Issued: Jun 2020",
         "issued": "Jun 2020",
         "credentialId": "08d1dcfa-a823-4891-af5e-13105b9ec055",
-        "skills": ["Leadership", "Team Management", "Soft Skills", "Communication"],
+        "skills": [
+          "Leadership",
+          "Team Management",
+          "Soft Skills",
+          "Communication"
+        ],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1300-liderazgo-equipos/diploma/detalle/"
       },
       {
@@ -565,7 +812,12 @@
         "issued_raw": "Issued: Jun 2020",
         "issued": "Jun 2020",
         "credentialId": "efc98f65-da26-41e9-9970-57b5b0cd1856",
-        "skills": ["Training", "Teaching", "Education", "Knowledge Transfer"],
+        "skills": [
+          "Training",
+          "Teaching",
+          "Education",
+          "Knowledge Transfer"
+        ],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1761-formacion/diploma/detalle/"
       },
       {
@@ -574,7 +826,12 @@
         "issued_raw": "Issued: Feb 2020",
         "issued": "Feb 2020",
         "credentialId": "48f04b53-720c-434d-9411-ef2e20d05118",
-        "skills": ["JavaScript", "SPA", "Routing", "Frontend Architecture"],
+        "skills": [
+          "JavaScript",
+          "SPA",
+          "Routing",
+          "Frontend Architecture"
+        ],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1771-singlepage-app/diploma/detalle/"
       },
       {
@@ -583,7 +840,12 @@
         "issued_raw": "Issued: Jun 2019",
         "issued": "Jun 2019",
         "credentialId": "17caa753-c875-482c-8120-3579018423a5",
-        "skills": ["Chatbots", "Facebook Messenger", "Node.js", "API Integration"],
+        "skills": [
+          "Chatbots",
+          "Facebook Messenger",
+          "Node.js",
+          "API Integration"
+        ],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/bots-fb/diploma/"
       },
       {
@@ -592,7 +854,11 @@
         "issued_raw": "Issued: Jun 2019",
         "issued": "Jun 2019",
         "credentialId": "2d6a42e9-184c-4dd9-aee1-c4c6b223aa33",
-        "skills": ["Business Model", "Entrepreneurship", "Business Strategy"],
+        "skills": [
+          "Business Model",
+          "Entrepreneurship",
+          "Business Strategy"
+        ],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1309-canvas/diploma/detalle/"
       },
       {
@@ -601,7 +867,11 @@
         "issued_raw": "Issued: Feb 2019",
         "issued": "Feb 2019",
         "credentialId": "fcdac36c-5908-4f97-b86e-d9ca3af1ebec",
-        "skills": ["English", "Language Learning", "Communication"],
+        "skills": [
+          "English",
+          "Language Learning",
+          "Communication"
+        ],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1358-ingles-basico/diploma/detalle/"
       },
       {
@@ -610,7 +880,12 @@
         "issued_raw": "Issued: Feb 2019",
         "issued": "Feb 2019",
         "credentialId": "84cfbcc5-bcb3-4cbf-aca7-d9e5824c9241",
-        "skills": ["Git", "GitHub", "Version Control", "Collaboration"],
+        "skills": [
+          "Git",
+          "GitHub",
+          "Version Control",
+          "Collaboration"
+        ],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1170-git-github-2017-old/diploma/detalle/"
       },
       {
@@ -619,7 +894,12 @@
         "issued_raw": "Issued: Feb 2019",
         "issued": "Feb 2019",
         "credentialId": "859d8534-f73f-4ab4-bdb0-2f8ed754e6dd",
-        "skills": ["CSS Grid", "Layout", "CSS", "Modern CSS"],
+        "skills": [
+          "CSS Grid",
+          "Layout",
+          "CSS",
+          "Modern CSS"
+        ],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1229-css-grid-layout/diploma/detalle/"
       },
       {
@@ -628,7 +908,12 @@
         "issued_raw": "Issued: Feb 2019",
         "issued": "Feb 2019",
         "credentialId": "deab8c22-c348-47fe-b9e0-884aac515902",
-        "skills": ["Web Development", "HTML5", "CSS3", "Frontend"],
+        "skills": [
+          "Web Development",
+          "HTML5",
+          "CSS3",
+          "Frontend"
+        ],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1350-html5-css3/diploma/detalle/"
       },
       {
@@ -637,7 +922,12 @@
         "issued_raw": "Issued: Feb 2019",
         "issued": "Feb 2019",
         "credentialId": "cd743b06-cff6-4525-9b75-9c0d76d09675",
-        "skills": ["English", "Writing", "Communication", "Language Skills"],
+        "skills": [
+          "English",
+          "Writing",
+          "Communication",
+          "Language Skills"
+        ],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1279-escritura-ingles/diploma/detalle/"
       }
     ]
@@ -645,5 +935,19 @@
   "notFound": {
     "title": "404",
     "description": "This page could not be found."
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Thoughts about web development, frontend architecture and technology",
+    "readMore": "Read more",
+    "backToBlog": "Back to blog",
+    "search": "Search posts...",
+    "allPosts": "All posts",
+    "filterByTag": "Filter by tag",
+    "noPostsFound": "No posts found",
+    "tryDifferentSearch": "Try a different search",
+    "clearFilters": "Clear filters",
+    "publishedOn": "Published on",
+    "minRead": "min read"
   }
 }

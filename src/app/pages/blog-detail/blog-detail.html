@@ -1,0 +1,86 @@
+<div class="min-h-screen bg-white dark:bg-(--color-dark-theme) py-12 md:py-20 px-4">
+  @if (loading()) {
+    <!-- Loading State -->
+    <div class="max-w-4xl mx-auto">
+      <div class="animate-pulse space-y-4">
+        <div class="h-8 w-3/4 rounded bg-gray-200 dark:bg-gray-700"></div>
+        <div class="h-4 w-1/2 rounded bg-gray-200 dark:bg-gray-700"></div>
+        <div class="space-y-2">
+          <div class="h-4 rounded bg-gray-200 dark:bg-gray-700"></div>
+          <div class="h-4 rounded bg-gray-200 dark:bg-gray-700"></div>
+          <div class="h-4 w-5/6 rounded bg-gray-200 dark:bg-gray-700"></div>
+        </div>
+      </div>
+    </div>
+  } @else if (post()) {
+    <!-- Blog Post Content -->
+    <article class="max-w-4xl mx-auto">
+      <!-- Back Button -->
+      <a
+        routerLink="/blog"
+        class="inline-flex items-center gap-2 mb-8 px-4 py-2 text-sm font-medium text-gray-800 dark:text-white bg-gray-100 dark:bg-(--color-dark-theme) border border-gray-300 dark:border-(--p-menubar-border-color) hover:bg-gray-900 hover:border-gray-700 hover:text-white dark:hover:bg-gray-100 dark:hover:border-gray-300 dark:hover:text-black rounded-lg transition-colors"
+      >
+        <i class="pi pi-arrow-left text-xs"></i>
+        <span>{{ 'blog.backToBlog' | translate }}</span>
+      </a>
+
+      <!-- Post Header -->
+      <header class="mb-8 pb-6 border-b border-gray-300 dark:border-(--p-menubar-border-color)">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4">
+          {{ post()!.title }}
+        </h1>
+
+        <!-- Meta Information -->
+        <div class="flex flex-wrap items-center gap-4 text-gray-600 dark:text-gray-400 mb-4">
+          @if (post()!.author) {
+            <span>{{ post()!.author }}</span>
+            <span>•</span>
+          }
+          @if (post()!.readingTime) {
+            <span>{{ post()!.readingTime }} {{ 'blog.minRead' | translate }}</span>
+            <span>•</span>
+          }
+          <time [dateTime]="post()!.date.toISOString()">
+            {{ formatDate(post()!.date) }}
+          </time>
+        </div>
+
+        <!-- Tags -->
+        @if (post()!.tags.length > 0) {
+          <div class="flex flex-wrap gap-2">
+            @for (tag of post()!.tags; track tag) {
+              <span
+                class="px-3 py-1 text-sm font-medium bg-gray-100 dark:bg-(--color-dark-theme) border border-gray-300 dark:border-(--p-menubar-border-color) text-gray-800 dark:text-white rounded-lg"
+              >
+                {{ tag }}
+              </span>
+            }
+          </div>
+        }
+      </header>
+
+      <!-- Post Content -->
+      <div
+        class="markdown-content"
+        [innerHTML]="safeContent()"
+      ></div>
+    </article>
+  } @else {
+    <!-- Post Not Found -->
+    <div class="max-w-4xl mx-auto text-center">
+      <i class="pi pi-inbox text-6xl text-gray-400 mb-4 block"></i>
+      <h1 class="text-4xl font-bold text-gray-800 dark:text-white mb-4">
+        {{ 'blog.noPostsFound' | translate }}
+      </h1>
+      <p class="text-gray-600 dark:text-gray-400 mb-8">
+        {{ 'blog.tryDifferentSearch' | translate }}
+      </p>
+      <a
+        routerLink="/blog"
+        class="inline-flex items-center gap-2 px-6 py-3 font-medium text-gray-800 dark:text-white bg-gray-100 dark:bg-(--color-dark-theme) border border-gray-300 dark:border-(--p-menubar-border-color) hover:bg-gray-900 hover:border-gray-700 hover:text-white dark:hover:bg-gray-100 dark:hover:border-gray-300 dark:hover:text-black rounded-lg transition-colors"
+      >
+        {{ 'blog.backToBlog' | translate }}
+      </a>
+    </div>
+  }
+</div>
