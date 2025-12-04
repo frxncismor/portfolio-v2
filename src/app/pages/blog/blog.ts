@@ -6,6 +6,7 @@ import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { BlogService } from '@services/blog.service';
 import { I18nService } from '@services/i18n.service';
+import { SEOService } from '@services/seo.service';
 import { BlogPost } from '@interfaces/blog-post.interface';
 import { TranslatePipe } from '@pipes/translate.pipe';
 
@@ -26,6 +27,7 @@ import { TranslatePipe } from '@pipes/translate.pipe';
 export class Blog implements OnInit {
   private readonly blogService = inject(BlogService);
   private readonly i18nService = inject(I18nService);
+  private readonly seoService = inject(SEOService);
   private isLoading = false;
   private currentLanguage: 'en' | 'es' | null = null;
 
@@ -81,6 +83,7 @@ export class Blog implements OnInit {
       this.currentLanguage = this.i18nService.getLocale() === 'en' ? 'en' : 'es';
       this.loadPosts();
     }
+    this.updateSEO();
   }
 
   private loadPosts() {
@@ -96,11 +99,58 @@ export class Blog implements OnInit {
       next: (posts) => {
         this.posts.set(posts);
         this.isLoading = false;
+        this.updateSEO();
       },
       error: () => {
         this.isLoading = false;
       }
     });
+  }
+
+  private updateSEO() {
+    const locale = this.i18nService.getLocale();
+    const isEnglish = locale === 'en';
+    
+    const title = isEnglish 
+      ? 'Blog | Francisco Moreno - Senior Web UI Engineer'
+      : 'Blog | Francisco Moreno - Ingeniero Web UI Senior';
+    
+    const description = isEnglish
+      ? 'Thoughts about web development, frontend architecture, Angular, React, TypeScript, and modern technology. Learn from a Senior Web UI Engineer with 6+ years of experience.'
+      : 'Pensamientos sobre desarrollo web, arquitectura frontend, Angular, React, TypeScript y tecnología moderna. Aprende de un Ingeniero Web UI Senior con más de 6 años de experiencia.';
+    
+    const keywords = isEnglish
+      ? 'blog, web development, frontend development, Angular, React, TypeScript, JavaScript, UI engineering, software development, programming tutorials, tech blog, Francisco Moreno'
+      : 'blog, desarrollo web, desarrollo frontend, Angular, React, TypeScript, JavaScript, ingeniería UI, desarrollo de software, tutoriales de programación, blog tecnológico, Francisco Moreno';
+
+    this.seoService.updateSEO({
+      title,
+      description,
+      keywords,
+      url: '/blog',
+      type: 'website',
+    });
+
+    // Add structured data for Blog
+    const structuredData = {
+      '@context': 'https://schema.org',
+      '@type': 'Blog',
+      name: title,
+      description,
+      url: 'https://frxncismor.dev/blog',
+      author: {
+        '@type': 'Person',
+        name: 'Francisco Moreno',
+        url: 'https://frxncismor.dev',
+      },
+      publisher: {
+        '@type': 'Person',
+        name: 'Francisco Moreno',
+      },
+      inLanguage: locale === 'en' ? 'en-US' : 'es-ES',
+    };
+
+    this.seoService.addStructuredData(structuredData);
   }
 
   onSearchChange(query: string) {
