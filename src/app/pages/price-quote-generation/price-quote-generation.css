@@ -61,7 +61,9 @@
 .quote-header {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 }
 
 .quote-header.animate-in {
@@ -72,7 +74,9 @@
 image.png.quote-currency-toggle {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 }
 
 .quote-currency-toggle.animate-in {
@@ -83,7 +87,9 @@ image.png.quote-currency-toggle {
 .quote-project-types {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 }
 
 .quote-project-types.animate-in {
@@ -94,7 +100,9 @@ image.png.quote-currency-toggle {
 .project-type-item {
   opacity: 0;
   transform: translateY(15px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
 }
 
 .project-type-item.animate-in {
@@ -105,7 +113,9 @@ image.png.quote-currency-toggle {
 .quote-scope {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 }
 
 .quote-scope.animate-in {
@@ -116,7 +126,9 @@ image.png.quote-currency-toggle {
 .quote-enhancements {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 }
 
 .quote-enhancements.animate-in {
@@ -127,7 +139,9 @@ image.png.quote-currency-toggle {
 .enhancement-item {
   opacity: 0;
   transform: translateY(15px);
-  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  transition:
+    opacity 0.4s ease-out,
+    transform 0.4s ease-out;
 }
 
 .enhancement-item.animate-in {
@@ -138,7 +152,9 @@ image.png.quote-currency-toggle {
 .quote-summary {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 }
 
 .quote-summary.animate-in {

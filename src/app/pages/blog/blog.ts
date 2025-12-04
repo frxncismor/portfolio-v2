@@ -53,9 +53,9 @@ export class Blog implements OnInit {
 
   // Posts with pre-calculated images to avoid recalculating on every change detection
   postsWithImages = computed(() => {
-    return this.filteredPosts().map(post => ({
+    return this.filteredPosts().map((post) => ({
       ...post,
-      headerImage: this.blogService.getPostImage(post)
+      headerImage: this.blogService.getPostImage(post),
     }));
   });
 
@@ -68,7 +68,7 @@ export class Blog implements OnInit {
     effect(() => {
       const newLocale = this.i18nService.locale();
       const language = newLocale === 'en' ? 'en' : 'es';
-      
+
       // Only load if language changed and we're not already loading
       if (this.currentLanguage !== language && !this.isLoading) {
         this.currentLanguage = language;
@@ -94,7 +94,7 @@ export class Blog implements OnInit {
 
     this.isLoading = true;
     const language = this.i18nService.getLocale();
-    
+
     this.blogService.getPosts(language).subscribe({
       next: (posts) => {
         this.posts.set(posts);
@@ -103,22 +103,22 @@ export class Blog implements OnInit {
       },
       error: () => {
         this.isLoading = false;
-      }
+      },
     });
   }
 
   private updateSEO() {
     const locale = this.i18nService.getLocale();
     const isEnglish = locale === 'en';
-    
-    const title = isEnglish 
-      ? 'Blog | Francisco Moreno - Senior Web UI Engineer'
-      : 'Blog | Francisco Moreno - Ingeniero Web UI Senior';
-    
+
+    const title = isEnglish
+      ? 'Blog - Francisco Moreno | Portfolio'
+      : 'Blog - Francisco Moreno | Portafolio';
+
     const description = isEnglish
       ? 'Thoughts about web development, frontend architecture, Angular, React, TypeScript, and modern technology. Learn from a Senior Web UI Engineer with 6+ years of experience.'
       : 'Pensamientos sobre desarrollo web, arquitectura frontend, Angular, React, TypeScript y tecnología moderna. Aprende de un Ingeniero Web UI Senior con más de 6 años de experiencia.';
-    
+
     const keywords = isEnglish
       ? 'blog, web development, frontend development, Angular, React, TypeScript, JavaScript, UI engineering, software development, programming tutorials, tech blog, Francisco Moreno'
       : 'blog, desarrollo web, desarrollo frontend, Angular, React, TypeScript, JavaScript, ingeniería UI, desarrollo de software, tutoriales de programación, blog tecnológico, Francisco Moreno';
@@ -165,7 +165,6 @@ export class Blog implements OnInit {
     this.searchQuery.set('');
     this.selectedTag.set('');
   }
-
 
   formatDate(date: Date): string {
     return new Intl.DateTimeFormat(this.i18nService.getLocale(), {

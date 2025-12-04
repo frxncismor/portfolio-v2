@@ -7,6 +7,7 @@ slug: valores-vs-referencias-en-javascript
 author: Francisco Moreno
 imageUrl: https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 ---
+
 ## 🧠 Valores vs Referencias en JavaScript: Lo Que Todo Dev Debe Saber
 
 Uno de los errores más comunes en JavaScript es no entender cómo funcionan los **valores** y las **referencias**. Ya sea en estado de React o lógica común, este conocimiento es esencial.
@@ -18,7 +19,7 @@ Vamos por partes:
 Los tipos primitivos incluyen:
 
 ```tsx
-string, number, boolean, null, undefined, symbol, bigint
+(string, number, boolean, null, undefined, symbol, bigint);
 ```
 
 Estos se almacenan **directamente** en la variable. Al asignarlos a otra variable, estás copiando el valor — **no un enlace** al original.
@@ -46,10 +47,10 @@ Los objetos, arrays y funciones son tipos **no primitivos (complejos)**. Al asig
 **Ejemplo:**
 
 ```jsx
-let persona1 = { nombre: "Francisco" };
+let persona1 = { nombre: 'Francisco' };
 let persona2 = persona1;
 
-persona2.nombre = "Laura";
+persona2.nombre = 'Laura';
 
 console.log(persona1.nombre); // "Laura"
 ```
@@ -60,11 +61,11 @@ console.log(persona1.nombre); // "Laura"
 
 ### 🛠 Diferencias clave
 
-| Acción | Primitivos (valor) | Complejos (referencia) |
-| --- | --- | --- |
-| Asignación (=) | Copia el valor | Copia la referencia |
-| Comparación (===) | Compara valores | Compara referencias |
-| Modificar uno | No afecta al otro | Afecta al otro |
+| Acción            | Primitivos (valor) | Complejos (referencia) |
+| ----------------- | ------------------ | ---------------------- |
+| Asignación (=)    | Copia el valor     | Copia la referencia    |
+| Comparación (===) | Compara valores    | Compara referencias    |
+| Modificar uno     | No afecta al otro  | Afecta al otro         |
 
 ---
 
@@ -128,9 +129,9 @@ Para estructuras **anidadas o profundas**, usa:
 ¿Qué imprime este código?
 
 ```jsx
-let a = { nombre: "Ana" };
+let a = { nombre: 'Ana' };
 let b = a;
-b.nombre = "Luis";
+b.nombre = 'Luis';
 
 console.log(a.nombre); // ?
 ```

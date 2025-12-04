@@ -82,14 +82,13 @@ export class SEOService {
     script.type = 'application/ld+json';
     script.text = JSON.stringify(data);
     script.id = 'structured-data';
-    
+
     // Remove existing structured data
     const existing = document.getElementById('structured-data');
     if (existing) {
       existing.remove();
     }
-    
+
     document.head.appendChild(script);
   }
 }
-

@@ -43,7 +43,7 @@
                 <button
                   type="button"
                   (click)="selectProjectType(projectType.id)"
-                  [style.animation-delay]="(i * 100) + 'ms'"
+                  [style.animation-delay]="i * 100 + 'ms'"
                   [style.border-color]="selectedProjectType() === projectType.id ? '#000000' : ''"
                   [class.border-4]="selectedProjectType() === projectType.id"
                   [style.background-color]="
@@ -157,7 +157,7 @@
                 <button
                   type="button"
                   (click)="toggleEnhancement(enhancement.id)"
-                  [style.animation-delay]="(i * 50) + 'ms'"
+                  [style.animation-delay]="i * 50 + 'ms'"
                   [style.border-color]="isEnhancementSelected(enhancement.id) ? '#000000' : ''"
                   [class.border-4]="isEnhancementSelected(enhancement.id)"
                   [style.background-color]="isEnhancementSelected(enhancement.id) ? '#000000' : ''"

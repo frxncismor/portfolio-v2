@@ -7,6 +7,7 @@ slug: wtf-is-inmutability-in-js
 author: Francisco Moreno
 imageUrl: https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 ---
+
 # 🔍 Understanding **Immutability** in JavaScript (and Why It Matters in React)
 
 Immutability is one of those concepts that can feel abstract at first — but once you get it, it unlocks a deeper understanding of how frameworks like React work behind the scenes.
@@ -45,8 +46,8 @@ Here you're **mutating** the original array. The same memory reference is modifi
 ```jsx
 const list = [1, 2, 3];
 const newList = [...list, 4]; // creates a new array
-console.log(list);      // [1, 2, 3]
-console.log(newList);   // [1, 2, 3, 4]
+console.log(list); // [1, 2, 3]
+console.log(newList); // [1, 2, 3, 4]
 ```
 
 Using the **spread operator (`...`)**, we create a new array. React can now **detect the change** because the reference is different.
@@ -56,14 +57,14 @@ Using the **spread operator (`...`)**, we create a new array. React can now **de
 ### 🔴 Mutating an object
 
 ```jsx
-const person = { name: "Ana", age: 25 };
+const person = { name: 'Ana', age: 25 };
 person.age = 26; // modifies the original object
 ```
 
 ### ✅ Creating a new object (immutable way)
 
 ```jsx
-const person = { name: "Ana", age: 25 };
+const person = { name: 'Ana', age: 25 };
 const updatedPerson = { ...person, age: 26 };
 ```
 
@@ -80,14 +81,12 @@ const newArray = oldArray;
 ```
 
 > newArray === oldArray → React: "Nothing changed." → ❌ No re-render.
-> 
 
 ```jsx
 const newArray = [...oldArray];
 ```
 
 > newArray !== oldArray → React: "Something changed!" → ✅ Re-render.
-> 
 
 That’s the power of **immutability** in React.
 
@@ -102,13 +101,13 @@ React prefers the second approach.
 
 ## 🧪 What’s Mutable and What’s Not in JavaScript?
 
-| Data Type | Mutable? | Example of Immutability |
-| --- | --- | --- |
-| `number` | ❌ No | `let x = 5` → can't change 5 itself |
-| `string` | ❌ No | `"hi".toUpperCase()` returns new string |
-| `boolean` | ❌ No | `true`, `false` are fixed |
-| `object` | ✅ Yes | Use `{ ...obj, newProp }` |
-| `array` | ✅ Yes | Use `[...arr, newItem]` |
+| Data Type | Mutable? | Example of Immutability                 |
+| --------- | -------- | --------------------------------------- |
+| `number`  | ❌ No    | `let x = 5` → can't change 5 itself     |
+| `string`  | ❌ No    | `"hi".toUpperCase()` returns new string |
+| `boolean` | ❌ No    | `true`, `false` are fixed               |
+| `object`  | ✅ Yes   | Use `{ ...obj, newProp }`               |
+| `array`   | ✅ Yes   | Use `[...arr, newItem]`                 |
 
 ---
 
@@ -116,4 +115,4 @@ React prefers the second approach.
 
 Understanding **immutability** helps you write better, more predictable code — especially in libraries like React, Redux, or any state-driven framework.
 
-Start small: use the spread operator, avoid `push` or direct assignment, and always ask yourself: *“**Am I changing the original, or creating something new?**”*
+Start small: use the spread operator, avoid `push` or direct assignment, and always ask yourself: _“**Am I changing the original, or creating something new?**”_

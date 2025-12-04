@@ -26,15 +26,18 @@ export class Certifications implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit(): void {
     const locale = this.i18nService.getLocale();
-    
+
     this.seoService.updateSEO({
-      title: locale === 'es'
-        ? 'Certificaciones - Francisco Moreno | Portfolio'
-        : 'Certifications - Francisco Moreno | Portfolio',
-      description: locale === 'es'
-        ? 'Certificaciones profesionales de Francisco Moreno en tecnologías web, desarrollo frontend, backend y herramientas de desarrollo.'
-        : 'Professional certifications of Francisco Moreno in web technologies, frontend development, backend and development tools.',
-      keywords: 'Francisco Moreno, Certifications, LinkedIn Certifications, Web Development Certifications, Angular, React, TypeScript, Professional Certifications, developer en monterrey, developer en woodlands, developer in woodlands, developer near woodlands, desarrollador cerca de monterrey, desarrollador en monterrey',
+      title:
+        locale === 'es'
+          ? 'Certificaciones - Francisco Moreno | Portfolio'
+          : 'Certifications - Francisco Moreno | Portfolio',
+      description:
+        locale === 'es'
+          ? 'Certificaciones profesionales de Francisco Moreno en tecnologías web, desarrollo frontend, backend y herramientas de desarrollo.'
+          : 'Professional certifications of Francisco Moreno in web technologies, frontend development, backend and development tools.',
+      keywords:
+        'Francisco Moreno, Certifications, LinkedIn Certifications, Web Development Certifications, Angular, React, TypeScript, Professional Certifications, developer en monterrey, developer en woodlands, developer in woodlands, developer near woodlands, desarrollador cerca de monterrey, desarrollador en monterrey',
       url: '/certifications',
       type: 'website',
     });

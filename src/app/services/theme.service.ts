@@ -23,7 +23,7 @@ export class ThemeService {
 
     // Get system preference
     const systemPreference = this.getSystemPreference();
-    
+
     // Always use system preference
     this.currentTheme.set(systemPreference);
     this.applyTheme(systemPreference);
@@ -49,7 +49,7 @@ export class ThemeService {
     }
 
     this.currentTheme.set(theme);
-    
+
     const htmlElement = document.documentElement;
 
     if (theme === 'dark') {
@@ -58,7 +58,6 @@ export class ThemeService {
       htmlElement.classList.remove(this.DARK_CLASS);
     }
   }
-
 
   /**
    * Listen to system theme changes
@@ -88,4 +87,3 @@ export class ThemeService {
     }
   }
 }
-

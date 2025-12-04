@@ -1,5 +1,7 @@
 <div class="space-y-24" id="work-experience">
-  <section class="experience-section section undefined scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl">
+  <section
+    class="experience-section section undefined scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl"
+  >
     <div class="w-full">
       <section class="w-full mx-auto">
         <h2
@@ -11,7 +13,7 @@
           @for (item of items(); track item.title; let i = $index) {
             <div
               class="experience-item flex flex-col gap-4"
-              [style.animation-delay]="(i * 100) + 'ms'"
+              [style.animation-delay]="i * 100 + 'ms'"
             >
               <div
                 class="flex flex-col gap-2 sm:gap-0 sm:flex-row items-start sm:items-center justify-between w-full"

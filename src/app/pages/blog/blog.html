@@ -64,8 +64,10 @@
         @for (post of postsWithImages(); track post.id; let i = $index) {
           <p-card>
             <ng-template #header>
-              <div class="relative h-48 bg-gray-100 dark:bg-(--color-dark-theme) border-b border-gray-300 dark:border-(--p-menubar-border-color) overflow-hidden">
-                <img 
+              <div
+                class="relative h-48 bg-gray-100 dark:bg-(--color-dark-theme) border-b border-gray-300 dark:border-(--p-menubar-border-color) overflow-hidden"
+              >
+                <img
                   [ngSrc]="post.headerImage"
                   [fill]="true"
                   [alt]="post.title"

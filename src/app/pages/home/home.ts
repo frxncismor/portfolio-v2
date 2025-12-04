@@ -22,10 +22,12 @@ export class Home implements OnInit {
 
     this.seoService.updateSEO({
       title: 'Francisco Moreno - Senior Web UI Engineer | Portfolio',
-      description: locale === 'es'
-        ? 'Senior Web UI Engineer con 6+ años de experiencia. Especializado en Angular, React, TypeScript. Disponible para proyectos full-time y freelance. Basado en The Woodlands, TX.'
-        : 'Senior Web UI Engineer with 6+ years of experience. Specialized in Angular, React, TypeScript. Available for full-time and freelance projects. Based in The Woodlands, TX.',
-      keywords: 'Francisco Moreno, Web Developer, Frontend Developer, Angular, React, TypeScript, UI Engineer, Portfolio, Full Stack Developer, JavaScript, Next.js, The Woodlands, Texas, developer en monterrey, developer en woodlands, developer in woodlands, developer near woodlands, desarrollador cerca de monterrey, desarrollador en monterrey, developer monterrey, developer woodlands, desarrollador monterrey, desarrollador woodlands, freelance developer woodlands, freelance developer monterrey, freelance desarrollador monterrey, freelance desarrollador woodlands',
+      description:
+        locale === 'es'
+          ? 'Senior Web UI Engineer con 6+ años de experiencia. Especializado en Angular, React, TypeScript. Disponible para proyectos full-time y freelance. Basado en The Woodlands, TX.'
+          : 'Senior Web UI Engineer with 6+ years of experience. Specialized in Angular, React, TypeScript. Available for full-time and freelance projects. Based in The Woodlands, TX.',
+      keywords:
+        'Francisco Moreno, Web Developer, Frontend Developer, Angular, React, TypeScript, UI Engineer, Portfolio, Full Stack Developer, JavaScript, Next.js, The Woodlands, Texas, developer en monterrey, developer en woodlands, developer in woodlands, developer near woodlands, desarrollador cerca de monterrey, desarrollador en monterrey, developer monterrey, developer woodlands, desarrollador monterrey, desarrollador woodlands, freelance developer woodlands, freelance developer monterrey, freelance desarrollador monterrey, freelance desarrollador woodlands',
       url: '/home',
       type: 'website',
     });
@@ -37,10 +39,7 @@ export class Home implements OnInit {
       name: 'Francisco Moreno',
       jobTitle: 'Senior Web UI Engineer',
       url: 'https://frxncismor.dev',
-      sameAs: [
-        'https://linkedin.com/in/frxncismor',
-        'https://github.com/frxncismor',
-      ],
+      sameAs: ['https://linkedin.com/in/frxncismor', 'https://github.com/frxncismor'],
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'The Woodlands',

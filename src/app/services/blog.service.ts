@@ -47,30 +47,32 @@ export class BlogService {
     }
 
     // Create new observable and cache it
-    const postsObservable = this.http.get<string[]>(`/assets/posts/${language}/index.json`, { responseType: 'json' }).pipe(
-      switchMap((slugs) => {
-        if (slugs.length === 0) {
-          return of([]);
-        }
+    const postsObservable = this.http
+      .get<string[]>(`/assets/posts/${language}/index.json`, { responseType: 'json' })
+      .pipe(
+        switchMap((slugs) => {
+          if (slugs.length === 0) {
+            return of([]);
+          }
 
-        const postObservables = slugs.map((slug) => this.loadPost(slug, language));
-        return forkJoin(postObservables);
-      }),
-      map((posts) => {
-        const validPosts = posts.filter((post): post is BlogPost => post !== null);
-        validPosts.sort((a, b) => b.date.getTime() - a.date.getTime());
-        this.postsCache.set(language, validPosts);
-        // Remove from observables cache once completed
-        this.postsObservables.delete(language);
-        return validPosts;
-      }),
-      catchError(() => {
-        console.warn(`No posts found for language: ${language}`);
-        this.postsObservables.delete(language);
-        return of([]);
-      }),
-      shareReplay(1), // Share the result to prevent multiple HTTP calls
-    );
+          const postObservables = slugs.map((slug) => this.loadPost(slug, language));
+          return forkJoin(postObservables);
+        }),
+        map((posts) => {
+          const validPosts = posts.filter((post): post is BlogPost => post !== null);
+          validPosts.sort((a, b) => b.date.getTime() - a.date.getTime());
+          this.postsCache.set(language, validPosts);
+          // Remove from observables cache once completed
+          this.postsObservables.delete(language);
+          return validPosts;
+        }),
+        catchError(() => {
+          console.warn(`No posts found for language: ${language}`);
+          this.postsObservables.delete(language);
+          return of([]);
+        }),
+        shareReplay(1), // Share the result to prevent multiple HTTP calls
+      );
 
     // Cache the observable
     this.postsObservables.set(language, postsObservable);

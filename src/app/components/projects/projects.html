@@ -10,7 +10,7 @@
     @for (project of projects(); track project.title; let i = $index) {
       <article
         class="project-item flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0"
-        [style.animation-delay]="(i * 150) + 'ms'"
+        [style.animation-delay]="i * 150 + 'ms'"
       >
         <div class="w-full md:w-1/2">
           <div

@@ -1,4 +1,12 @@
-import { Component, computed, inject, signal, AfterViewInit, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  computed,
+  inject,
+  signal,
+  AfterViewInit,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { I18nService } from '@services/i18n.service';
 import { TranslatePipe } from '@pipes/translate.pipe';
 import { Currency, QuoteCalculation } from '@interfaces/quote';
@@ -389,15 +397,18 @@ export class PriceQuoteGeneration implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit(): void {
     const locale = this.i18nService.getLocale();
-    
+
     this.seoService.updateSEO({
-      title: locale === 'es'
-        ? 'Generador de Cotizaciones - Francisco Moreno | Portfolio'
-        : 'Price Quote Generator - Francisco Moreno | Portfolio',
-      description: locale === 'es'
-        ? 'Genera cotizaciones personalizadas para proyectos web. Calcula precios y tiempos de entrega para Landing Pages, E-commerce y aplicaciones SaaS.'
-        : 'Generate custom quotes for web projects. Calculate prices and delivery times for Landing Pages, E-commerce and SaaS applications.',
-      keywords: 'Price Quote Generator, Web Development Pricing, Project Calculator, Landing Page Pricing, E-commerce Pricing, SaaS Pricing, Web Development Cost Calculator, developer en monterrey, developer en woodlands, developer in woodlands, developer near woodlands, desarrollador cerca de monterrey, desarrollador en monterrey',
+      title:
+        locale === 'es'
+          ? 'Generador de Cotizaciones - Francisco Moreno | Portfolio'
+          : 'Price Quote Generator - Francisco Moreno | Portfolio',
+      description:
+        locale === 'es'
+          ? 'Genera cotizaciones personalizadas para proyectos web. Calcula precios y tiempos de entrega para Landing Pages, E-commerce y aplicaciones SaaS.'
+          : 'Generate custom quotes for web projects. Calculate prices and delivery times for Landing Pages, E-commerce and SaaS applications.',
+      keywords:
+        'Price Quote Generator, Web Development Pricing, Project Calculator, Landing Page Pricing, E-commerce Pricing, SaaS Pricing, Web Development Cost Calculator, developer en monterrey, developer en woodlands, developer in woodlands, developer near woodlands, desarrollador cerca de monterrey, desarrollador en monterrey',
       url: '/price-quote-generator',
       type: 'website',
     });
@@ -445,7 +456,7 @@ export class PriceQuoteGeneration implements OnInit, AfterViewInit, OnDestroy {
         elements.forEach((el) => {
           const rect = el.getBoundingClientRect();
           const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-          
+
           if (isVisible) {
             el.classList.add('animate-in');
           } else {

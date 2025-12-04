@@ -371,11 +371,7 @@
         "issued_raw": "Expedición: nov. 2025",
         "issued": "nov. 2025",
         "credentialId": "42a4173d-1e97-4f62-bd06-0e5b02b208d3",
-        "skills": [
-          "React.js",
-          "JavaScript",
-          "Desarrollo Frontend"
-        ],
+        "skills": ["React.js", "JavaScript", "Desarrollo Frontend"],
         "certificateUrl": "https://platzi.com/p/Frxncismor/curso/11887-reactjs/diploma/detalle/"
       },
       {
@@ -384,11 +380,7 @@
         "issued_raw": "Expedición: ene. 2025",
         "issued": "ene. 2025",
         "credentialId": "",
-        "skills": [
-          "Inglés",
-          "C2 Proficiente",
-          "Habilidades Lingüísticas"
-        ],
+        "skills": ["Inglés", "C2 Proficiente", "Habilidades Lingüísticas"],
         "certificateUrl": "https://cert.efset.org/es/6TTrQh"
       },
       {
@@ -397,11 +389,7 @@
         "issued_raw": "Expedición: sept. 2023",
         "issued": "sept. 2023",
         "credentialId": "ce686fb8-fa98-40ec-8471-60c8c4360eb3",
-        "skills": [
-          "Arquitectura Frontend",
-          "Frameworks",
-          "Arquitectura de Software"
-        ],
+        "skills": ["Arquitectura Frontend", "Frameworks", "Arquitectura de Software"],
         "certificateUrl": "https://platzi.com/p/Frxncismor/curso/4623-course/diploma/detalle/"
       },
       {
@@ -410,11 +398,7 @@
         "issued_raw": "Expedición: feb. 2022",
         "issued": "feb. 2022",
         "credentialId": "279fda99-5750-4f40-9886-22a13c934061",
-        "skills": [
-          "Blockchain",
-          "Criptomonedas",
-          "Bitcoin"
-        ],
+        "skills": ["Blockchain", "Criptomonedas", "Bitcoin"],
         "certificateUrl": "https://platzi.com/p/Frxncismor/curso/2443-historia-bitcoin/diploma/detalle/"
       },
       {
@@ -423,12 +407,7 @@
         "issued_raw": "Expedición: feb. 2022",
         "issued": "feb. 2022",
         "credentialId": "6eb2f6ae-65d7-40b3-90fd-42d8ec875aa4",
-        "skills": [
-          "Ethereum",
-          "Blockchain",
-          "Smart Contracts",
-          "Solidity"
-        ],
+        "skills": ["Ethereum", "Blockchain", "Smart Contracts", "Solidity"],
         "certificateUrl": "https://platzi.com/p/Frxncismor/curso/2560-ethereum-developers/diploma/detalle/"
       },
       {
@@ -437,13 +416,7 @@
         "issued_raw": "Expedición: oct. 2021",
         "issued": "oct. 2021",
         "credentialId": "UC-a7510b5c-c9d6-4947-9c7a-d850dbf3689e",
-        "skills": [
-          "Blockchain",
-          "Ethereum",
-          "Web3",
-          "Smart Contracts",
-          "Desarrollo DApp"
-        ],
+        "skills": ["Blockchain", "Ethereum", "Web3", "Smart Contracts", "Desarrollo DApp"],
         "certificateUrl": "https://www.udemy.com/certificate/UC-a7510b5c-c9d6-4947-9c7a-d850dbf3689e/"
       },
       {
@@ -452,12 +425,7 @@
         "issued_raw": "Expedición: sept. 2021",
         "issued": "sept. 2021",
         "credentialId": "7b4ace68-d05c-4b67-a818-83939e0a49fb",
-        "skills": [
-          "JavaScript",
-          "Motor V8",
-          "Internos del Navegador",
-          "Rendimiento"
-        ],
+        "skills": ["JavaScript", "Motor V8", "Internos del Navegador", "Rendimiento"],
         "certificateUrl": "https://platzi.com/p/Frxncismor/curso/1798-javascript-navegador/diploma/detalle/"
       },
       {
@@ -466,11 +434,7 @@
         "issued_raw": "Expedición: ago. 2021",
         "issued": "ago. 2021",
         "credentialId": "168f3a14-cb04-4491-a759-8c1f0fed486f",
-        "skills": [
-          "Criptomonedas",
-          "Fiscalidad",
-          "Planificación Financiera"
-        ],
+        "skills": ["Criptomonedas", "Fiscalidad", "Planificación Financiera"],
         "certificateUrl": "https://platzi.com/p/Frxncismor/curso/2448-impuestos-criptomonedas/diploma/detalle/"
       },
       {
@@ -493,12 +457,7 @@
         "issued_raw": "Expedición: ene. 2021",
         "issued": "ene. 2021",
         "credentialId": "4ca1f3b1-60ef-4925-9954-5759c124d264",
-        "skills": [
-          "JavaScript",
-          "SPA",
-          "Desarrollo Frontend",
-          "JavaScript Vanilla"
-        ],
+        "skills": ["JavaScript", "SPA", "Desarrollo Frontend", "JavaScript Vanilla"],
         "certificateUrl": "https://platzi.com/p/Frxncis/curso/1787-spa-javascript/diploma/detalle/"
       },
       {
@@ -507,13 +466,7 @@
         "issued_raw": "Expedición: ene. 2021",
         "issued": "ene. 2021",
         "credentialId": "283a4588-b937-45e0-9f04-d2cdb799af6e",
-        "skills": [
-          "Jest",
-          "React",
-          "Unit Testing",
-          "Testing",
-          "TDD"
-        ],
+        "skills": ["Jest", "React", "Unit Testing", "Testing", "TDD"],
         "certificateUrl": "https://platzi.com/p/Frxncis/curso/1788-jest/diploma/detalle/"
       },
       {
@@ -522,10 +475,7 @@
         "issued_raw": "Expedición: nov. 2020",
         "issued": "nov. 2020",
         "credentialId": "8da0eaf0-338e-4fd1-bc3e-3bbb7e06c80c",
-        "skills": [
-          "JavaScript",
-          "Fundamentos de Programación"
-        ],
+        "skills": ["JavaScript", "Fundamentos de Programación"],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1814-basico-javascript/diploma/detalle/"
       },
       {
@@ -534,12 +484,7 @@
         "issued_raw": "Expedición: nov. 2020",
         "issued": "nov. 2020",
         "credentialId": "1747aa5f-2b69-4df7-ad41-9b3bd53b10a8",
-        "skills": [
-          "JavaScript",
-          "Async/Await",
-          "Promesas",
-          "Callbacks"
-        ],
+        "skills": ["JavaScript", "Async/Await", "Promesas", "Callbacks"],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1789-asincronismo-js/diploma/detalle/"
       },
       {
@@ -548,12 +493,7 @@
         "issued_raw": "Expedición: nov. 2020",
         "issued": "nov. 2020",
         "credentialId": "c8754537-2763-4ce1-b441-4637e702754b",
-        "skills": [
-          "JavaScript",
-          "Closures",
-          "Scope",
-          "JavaScript Avanzado"
-        ],
+        "skills": ["JavaScript", "Closures", "Scope", "JavaScript Avanzado"],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1807-scope/diploma/detalle/"
       },
       {
@@ -562,12 +502,7 @@
         "issued_raw": "Expedición: nov. 2020",
         "issued": "nov. 2020",
         "credentialId": "7318c529-15f5-414d-af06-7db022967fe8",
-        "skills": [
-          "ES6+",
-          "JavaScript",
-          "JavaScript Moderno",
-          "ES2015+"
-        ],
+        "skills": ["ES6+", "JavaScript", "JavaScript Moderno", "ES2015+"],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1815-ecmascript-6/diploma/detalle/"
       },
       {
@@ -576,12 +511,7 @@
         "issued_raw": "Expedición: sept. 2020",
         "issued": "sept. 2020",
         "credentialId": "a231d808-6d5d-4741-bc92-d89b4969a042",
-        "skills": [
-          "Angular",
-          "TypeScript",
-          "Framework Frontend",
-          "SPA"
-        ],
+        "skills": ["Angular", "TypeScript", "Framework Frontend", "SPA"],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1731-course/diploma/detalle/"
       },
       {
@@ -590,11 +520,7 @@
         "issued_raw": "Expedición: ago. 2020",
         "issued": "ago. 2020",
         "credentialId": "2310bbf2-0bc0-4354-8ab4-2ef929d24e0f",
-        "skills": [
-          "Angular",
-          "TypeScript",
-          "Desarrollo Frontend"
-        ],
+        "skills": ["Angular", "TypeScript", "Desarrollo Frontend"],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1670-angular/diploma/detalle/"
       },
       {
@@ -603,12 +529,7 @@
         "issued_raw": "Expedición: ago. 2020",
         "issued": "ago. 2020",
         "credentialId": "067389ed-c5b7-4273-8bd9-01084bb1b53f",
-        "skills": [
-          "TypeScript",
-          "Angular",
-          "Type Safety",
-          "Desarrollo Empresarial"
-        ],
+        "skills": ["TypeScript", "Angular", "Type Safety", "Desarrollo Empresarial"],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1580-typescript-angular/diploma/detalle/"
       },
       {
@@ -617,12 +538,7 @@
         "issued_raw": "Expedición: jul. 2020",
         "issued": "jul. 2020",
         "credentialId": "d453d2a8-81f7-46c6-9556-bf96dd020926",
-        "skills": [
-          "CSS",
-          "Maquetación",
-          "Diseño Web",
-          "Frontend"
-        ],
+        "skills": ["CSS", "Maquetación", "Diseño Web", "Frontend"],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1744-practico-css/diploma/detalle/"
       },
       {
@@ -631,13 +547,7 @@
         "issued_raw": "Expedición: jul. 2020",
         "issued": "jul. 2020",
         "credentialId": "cb2e2c11-c54c-405e-92f0-8a69b6209aa3",
-        "skills": [
-          "Desarrollo Frontend",
-          "HTML",
-          "CSS",
-          "JavaScript",
-          "Desarrollo Web"
-        ],
+        "skills": ["Desarrollo Frontend", "HTML", "CSS", "JavaScript", "Desarrollo Web"],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1640-frontend-developer/diploma/detalle/"
       },
       {
@@ -646,12 +556,7 @@
         "issued_raw": "Expedición: jul. 2020",
         "issued": "jul. 2020",
         "credentialId": "a5306357-3742-4c35-98b4-81d7831006d0",
-        "skills": [
-          "HTML",
-          "CSS",
-          "Desarrollo Web",
-          "Markup"
-        ],
+        "skills": ["HTML", "CSS", "Desarrollo Web", "Markup"],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1492-html-css/diploma/detalle/"
       },
       {
@@ -660,12 +565,7 @@
         "issued_raw": "Expedición: jul. 2020",
         "issued": "jul. 2020",
         "credentialId": "c399e910-2d77-426d-a047-dd11efb04513",
-        "skills": [
-          "Diseño Responsive",
-          "CSS",
-          "Mobile First",
-          "Diseño Web"
-        ],
+        "skills": ["Diseño Responsive", "CSS", "Mobile First", "Diseño Web"],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1362-responsive-design/diploma/detalle/"
       },
       {
@@ -674,12 +574,7 @@
         "issued_raw": "Expedición: jul. 2020",
         "issued": "jul. 2020",
         "credentialId": "81f12ec8-3310-42d3-9e95-e739e2cd885b",
-        "skills": [
-          "HTML",
-          "CSS",
-          "Desarrollo Práctico",
-          "Diseño Web"
-        ],
+        "skills": ["HTML", "CSS", "Desarrollo Práctico", "Diseño Web"],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1758-html-practico/diploma/detalle/"
       },
       {
@@ -688,12 +583,7 @@
         "issued_raw": "Expedición: jul. 2020",
         "issued": "jul. 2020",
         "credentialId": "40E03EF20AAF",
-        "skills": [
-          "JavaScript",
-          "Resolución de Problemas",
-          "Algoritmos",
-          "Desafíos de Código"
-        ],
+        "skills": ["JavaScript", "Resolución de Problemas", "Algoritmos", "Desafíos de Código"],
         "certificateUrl": "https://www.hackerrank.com/certificates/40e03ef20aaf"
       },
       {
@@ -702,13 +592,7 @@
         "issued_raw": "Expedición: jul. 2020",
         "issued": "jul. 2020",
         "credentialId": "",
-        "skills": [
-          "Diseño Responsive",
-          "CSS",
-          "HTML",
-          "Desarrollo Web",
-          "freeCodeCamp"
-        ],
+        "skills": ["Diseño Responsive", "CSS", "HTML", "Desarrollo Web", "freeCodeCamp"],
         "certificateUrl": "https://www.freecodecamp.org/certification/frxncismor/responsive-web-design"
       },
       {
@@ -717,11 +601,7 @@
         "issued_raw": "Expedición: jun. 2020",
         "issued": "jun. 2020",
         "credentialId": "843bf410-ce17-42be-adfb-3bc48a9f4fa0",
-        "skills": [
-          "JavaScript",
-          "Desarrollo Profesional",
-          "JavaScript Avanzado"
-        ],
+        "skills": ["JavaScript", "Desarrollo Profesional", "JavaScript Avanzado"],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1642-javascript-profesional/diploma/detalle/"
       },
       {
@@ -730,12 +610,7 @@
         "issued_raw": "Expedición: jun. 2020",
         "issued": "jun. 2020",
         "credentialId": "32035f00-33c0-44fa-be89-93fda234b770",
-        "skills": [
-          "Gestión de Ingeniería",
-          "Liderazgo",
-          "Gestión de Equipos",
-          "Agile"
-        ],
+        "skills": ["Gestión de Ingeniería", "Liderazgo", "Gestión de Equipos", "Agile"],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1732-eng-management/diploma/detalle/"
       },
       {
@@ -744,11 +619,7 @@
         "issued_raw": "Expedición: jun. 2020",
         "issued": "jun. 2020",
         "credentialId": "69a673dd-aaf3-49d6-ae9c-6758e764caf2",
-        "skills": [
-          "Estrategias de Aprendizaje",
-          "Desarrollo Personal",
-          "Educación"
-        ],
+        "skills": ["Estrategias de Aprendizaje", "Desarrollo Personal", "Educación"],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1608-aprender/diploma/detalle/"
       },
       {
@@ -757,11 +628,7 @@
         "issued_raw": "Expedición: jun. 2020",
         "issued": "jun. 2020",
         "credentialId": "7efe49ab-b333-4031-98ef-4b12feab4c87",
-        "skills": [
-          "Ingeniería de Software",
-          "Mejores Prácticas",
-          "Proceso de Desarrollo"
-        ],
+        "skills": ["Ingeniería de Software", "Mejores Prácticas", "Proceso de Desarrollo"],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1098-ingenieria/diploma/detalle/"
       },
       {
@@ -770,11 +637,7 @@
         "issued_raw": "Expedición: jun. 2020",
         "issued": "jun. 2020",
         "credentialId": "adb2ef5a-914f-4aa6-a6f3-111898c5c417",
-        "skills": [
-          "Gestión del Tiempo",
-          "Productividad",
-          "Desarrollo Personal"
-        ],
+        "skills": ["Gestión del Tiempo", "Productividad", "Desarrollo Personal"],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1749-gestion-tiempo/diploma/detalle/"
       },
       {
@@ -783,13 +646,7 @@
         "issued_raw": "Expedición: jun. 2020",
         "issued": "jun. 2020",
         "credentialId": "5172bc35-5524-4f64-8dac-5252b9815cdb",
-        "skills": [
-          "Terminal",
-          "Línea de Comandos",
-          "Linux",
-          "Shell",
-          "CLI"
-        ],
+        "skills": ["Terminal", "Línea de Comandos", "Linux", "Shell", "CLI"],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1748-terminal/diploma/detalle/"
       },
       {
@@ -798,12 +655,7 @@
         "issued_raw": "Expedición: jun. 2020",
         "issued": "jun. 2020",
         "credentialId": "08d1dcfa-a823-4891-af5e-13105b9ec055",
-        "skills": [
-          "Liderazgo",
-          "Gestión de Equipos",
-          "Habilidades Blandas",
-          "Comunicación"
-        ],
+        "skills": ["Liderazgo", "Gestión de Equipos", "Habilidades Blandas", "Comunicación"],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1300-liderazgo-equipos/diploma/detalle/"
       },
       {
@@ -812,12 +664,7 @@
         "issued_raw": "Expedición: jun. 2020",
         "issued": "jun. 2020",
         "credentialId": "efc98f65-da26-41e9-9970-57b5b0cd1856",
-        "skills": [
-          "Formación",
-          "Enseñanza",
-          "Educación",
-          "Transferencia de Conocimiento"
-        ],
+        "skills": ["Formación", "Enseñanza", "Educación", "Transferencia de Conocimiento"],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1761-formacion/diploma/detalle/"
       },
       {
@@ -826,12 +673,7 @@
         "issued_raw": "Expedición: feb. 2020",
         "issued": "feb. 2020",
         "credentialId": "48f04b53-720c-434d-9411-ef2e20d05118",
-        "skills": [
-          "JavaScript",
-          "SPA",
-          "Routing",
-          "Arquitectura Frontend"
-        ],
+        "skills": ["JavaScript", "SPA", "Routing", "Arquitectura Frontend"],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1771-singlepage-app/diploma/detalle/"
       },
       {
@@ -840,12 +682,7 @@
         "issued_raw": "Expedición: jun. 2019",
         "issued": "jun. 2019",
         "credentialId": "17caa753-c875-482c-8120-3579018423a5",
-        "skills": [
-          "Chatbots",
-          "Facebook Messenger",
-          "Node.js",
-          "Integración API"
-        ],
+        "skills": ["Chatbots", "Facebook Messenger", "Node.js", "Integración API"],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/bots-fb/diploma/"
       },
       {
@@ -854,11 +691,7 @@
         "issued_raw": "Expedición: jun. 2019",
         "issued": "jun. 2019",
         "credentialId": "2d6a42e9-184c-4dd9-aee1-c4c6b223aa33",
-        "skills": [
-          "Modelo de Negocio",
-          "Emprendimiento",
-          "Estrategia de Negocio"
-        ],
+        "skills": ["Modelo de Negocio", "Emprendimiento", "Estrategia de Negocio"],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1309-canvas/diploma/detalle/"
       },
       {
@@ -867,11 +700,7 @@
         "issued_raw": "Expedición: feb. 2019",
         "issued": "feb. 2019",
         "credentialId": "fcdac36c-5908-4f97-b86e-d9ca3af1ebec",
-        "skills": [
-          "Inglés",
-          "Aprendizaje de Idiomas",
-          "Comunicación"
-        ],
+        "skills": ["Inglés", "Aprendizaje de Idiomas", "Comunicación"],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1358-ingles-basico/diploma/detalle/"
       },
       {
@@ -880,12 +709,7 @@
         "issued_raw": "Expedición: feb. 2019",
         "issued": "feb. 2019",
         "credentialId": "84cfbcc5-bcb3-4cbf-aca7-d9e5824c9241",
-        "skills": [
-          "Git",
-          "GitHub",
-          "Control de Versiones",
-          "Colaboración"
-        ],
+        "skills": ["Git", "GitHub", "Control de Versiones", "Colaboración"],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1170-git-github-2017-old/diploma/detalle/"
       },
       {
@@ -894,12 +718,7 @@
         "issued_raw": "Expedición: feb. 2019",
         "issued": "feb. 2019",
         "credentialId": "859d8534-f73f-4ab4-bdb0-2f8ed754e6dd",
-        "skills": [
-          "CSS Grid",
-          "Layout",
-          "CSS",
-          "CSS Moderno"
-        ],
+        "skills": ["CSS Grid", "Layout", "CSS", "CSS Moderno"],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1229-css-grid-layout/diploma/detalle/"
       },
       {
@@ -908,12 +727,7 @@
         "issued_raw": "Expedición: feb. 2019",
         "issued": "feb. 2019",
         "credentialId": "deab8c22-c348-47fe-b9e0-884aac515902",
-        "skills": [
-          "Desarrollo Web",
-          "HTML5",
-          "CSS3",
-          "Frontend"
-        ],
+        "skills": ["Desarrollo Web", "HTML5", "CSS3", "Frontend"],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1350-html5-css3/diploma/detalle/"
       },
       {
@@ -922,12 +736,7 @@
         "issued_raw": "Expedición: feb. 2019",
         "issued": "feb. 2019",
         "credentialId": "cd743b06-cff6-4525-9b75-9c0d76d09675",
-        "skills": [
-          "Inglés",
-          "Escritura",
-          "Comunicación",
-          "Habilidades Lingüísticas"
-        ],
+        "skills": ["Inglés", "Escritura", "Comunicación", "Habilidades Lingüísticas"],
         "certificateUrl": "https://platzi.com/@Frxncis/curso/1279-escritura-ingles/diploma/detalle/"
       }
     ]

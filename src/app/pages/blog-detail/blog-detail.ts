@@ -59,9 +59,11 @@ export class BlogDetail implements OnInit {
     const locale = this.i18nService.getLocale();
     const imageUrl = this.blogService.getPostImage(post);
     const postUrl = `/blog/${post.slug}`;
-    const keywords = post.tags.join(', ') + (locale === 'en' 
-      ? ', web development, frontend development, programming'
-      : ', desarrollo web, desarrollo frontend, programación');
+    const keywords =
+      post.tags.join(', ') +
+      (locale === 'en'
+        ? ', web development, frontend development, programming'
+        : ', desarrollo web, desarrollo frontend, programación');
 
     this.seoService.updateSEO({
       title: `${post.title} | Francisco Moreno - Blog`,

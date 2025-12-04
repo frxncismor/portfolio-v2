@@ -7,4 +7,3 @@ export interface Certification {
   skills: string[];
   certificateUrl: string;
 }
-

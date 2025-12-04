@@ -7,6 +7,7 @@ slug: values-vs-references-in-javascript
 author: Francisco Moreno
 imageUrl: https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 ---
+
 ## 🧠 Values vs References in JavaScript: What Every Developer Should Know
 
 One of the most common sources of unexpected bugs in JavaScript is misunderstanding how values and references work. Whether you're dealing with React state or plain JS logic, this knowledge is key.
@@ -18,7 +19,7 @@ Let’s break it down:
 Primitive types include:
 
 ```tsx
-string, number, boolean, null, undefined, symbol, bigint
+(string, number, boolean, null, undefined, symbol, bigint);
 ```
 
 These are **stored directly** in the variable. When you assign them to another variable, you're copying the value — **not a link** to the original.
@@ -33,7 +34,6 @@ b = 10;
 
 console.log(a); // 5
 console.log(b); // 10
-
 ```
 
 🔍 `b` holds a copy of `a`'s value. Changing `b` doesn’t affect `a`.
@@ -47,10 +47,10 @@ Objects, arrays, and functions are **non-primitive (complex)** types. When assig
 **Example:**
 
 ```jsx
-let person1 = { name: "Francisco" };
+let person1 = { name: 'Francisco' };
 let person2 = person1;
 
-person2.name = "Laura";
+person2.name = 'Laura';
 
 console.log(person1.name); // "Laura"
 ```
@@ -61,11 +61,11 @@ console.log(person1.name); // "Laura"
 
 ### 🛠 Key Differences
 
-| Action | Primitives (value) | Objects/Arrays (reference) |
-| --- | --- | --- |
-| Assignment (=) | Copies the value | Copies the reference |
-| Comparison (===) | Compares values | Compares references |
-| Modify one | Doesn’t affect other | Affects the other |
+| Action           | Primitives (value)   | Objects/Arrays (reference) |
+| ---------------- | -------------------- | -------------------------- |
+| Assignment (=)   | Copies the value     | Copies the reference       |
+| Comparison (===) | Compares values      | Compares references        |
+| Modify one       | Doesn’t affect other | Affects the other          |
 
 ---
 
@@ -129,9 +129,9 @@ For **deeply nested structures**, use:
 What will this print?
 
 ```jsx
-let a = { name: "Ana" };
+let a = { name: 'Ana' };
 let b = a;
-b.name = "Luis";
+b.name = 'Luis';
 
 console.log(a.name); // ?
 ```

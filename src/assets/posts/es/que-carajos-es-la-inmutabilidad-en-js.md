@@ -14,14 +14,11 @@ La inmutabilidad es uno de esos conceptos que al principio puede parecer abstrac
 
 Vamos a desglosarlo.
 
-
 ## 🧠 ¿Qué es la Inmutabilidad?
 
 La **inmutabilidad** significa que un valor **no puede cambiar después de haber sido creado**.
 
 En lugar de modificar un valor existente, se **crea una nueva copia** con los cambios aplicados.
-
-
 
 ## ⚛️ ¿Por qué importa la inmutabilidad en React?
 
@@ -51,33 +48,32 @@ Aquí estás **mutando** el array original. La misma referencia en memoria se mo
 ```jsx
 const lista = [1, 2, 3];
 const nuevaLista = [...lista, 4]; // crea un nuevo array
-console.log(lista);        // [1, 2, 3]
-console.log(nuevaLista);   // [1, 2, 3, 4]
+console.log(lista); // [1, 2, 3]
+console.log(nuevaLista); // [1, 2, 3, 4]
 ```
 
 Con el **spread operator (`...`)**, estás creando un nuevo array. React puede **detectar el cambio** porque la referencia es diferente.
-
 
 ## 🧬 ¿Y los objetos?
 
 ### 🔴 Mutar un objeto
 
 ```jsx
-const persona = { nombre: "Ana", edad: 25 };
+const persona = { nombre: 'Ana', edad: 25 };
 persona.edad = 26; // modifica el objeto original
 ```
 
 ### ✅ Crear un objeto nuevo (inmutable)
 
 ```jsx
-const persona = { nombre: "Ana", edad: 25 };
+const persona = { nombre: 'Ana', edad: 25 };
 const nuevaPersona = { ...persona, edad: 26 };
 ```
 
 Aquí no estás cambiando `persona`, sino creando un **nuevo objeto** (`nuevaPersona`) con el valor actualizado.
 
-
 ---
+
 ## 🔍 Cómo actúa React con el shallow comparison
 
 Veamos dos casos:
@@ -87,18 +83,14 @@ const nuevoArray = viejoArray;
 ```
 
 > nuevoArray === viejoArray → React: "No ha cambiado nada." → ❌ No se re-renderiza.
-> 
 
 ```jsx
 const nuevoArray = [...viejoArray];
 ```
 
 > nuevoArray !== viejoArray → React: "¡Ah, sí cambió!" → ✅ Se re-renderiza.
-> 
 
 Así funciona la **inmutabilidad** en React.
-
-
 
 ## 💡 Analogía rápida
 
@@ -109,17 +101,15 @@ Piensa en escribir sobre papel:
 
 React prefiere esta última.
 
-
-
 ## 🧪 ¿Qué es mutable y qué no en JavaScript?
 
-| Tipo de dato | ¿Es mutable? | Ejemplo de inmutabilidad |
-| --- | --- | --- |
-| `number` | ❌ No | `let x = 5` → 5 no puede cambiar |
-| `string` | ❌ No | `"hola".toUpperCase()` devuelve nuevo string |
-| `boolean` | ❌ No | `true`, `false` son fijos |
-| `object` | ✅ Sí | Usa `{ ...obj, nuevoValor }` |
-| `array` | ✅ Sí | Usa `[...arr, nuevoItem]` |
+| Tipo de dato | ¿Es mutable? | Ejemplo de inmutabilidad                     |
+| ------------ | ------------ | -------------------------------------------- |
+| `number`     | ❌ No        | `let x = 5` → 5 no puede cambiar             |
+| `string`     | ❌ No        | `"hola".toUpperCase()` devuelve nuevo string |
+| `boolean`    | ❌ No        | `true`, `false` son fijos                    |
+| `object`     | ✅ Sí        | Usa `{ ...obj, nuevoValor }`                 |
+| `array`      | ✅ Sí        | Usa `[...arr, nuevoItem]`                    |
 
 ---
 
@@ -127,4 +117,4 @@ React prefiere esta última.
 
 Entender la **inmutabilidad** te ayuda a escribir código más limpio y predecible — especialmente en frameworks como React, Redux u otros basados en estados.
 
-Empieza con lo básico: usa el spread operator, evita `push` o asignaciones directas, y pregúntate: *“**¿Estoy cambiando el original, o creando algo nuevo?**”*
+Empieza con lo básico: usa el spread operator, evita `push` o asignaciones directas, y pregúntate: _“**¿Estoy cambiando el original, o creando algo nuevo?**”_
