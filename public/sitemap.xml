@@ -1,40 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>https://frxncismor.dev/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://frxncismor.dev/?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://frxncismor.dev/?lang=es" />
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://frxncismor.dev/home</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://frxncismor.dev/home?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://frxncismor.dev/home?lang=es" />
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-03-23</lastmod>
   </url>
   <url>
     <loc>https://frxncismor.dev/certifications</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://frxncismor.dev/certifications?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://frxncismor.dev/certifications?lang=es" />
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-03-23</lastmod>
   </url>
   <url>
     <loc>https://frxncismor.dev/price-quote-generator</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://frxncismor.dev/price-quote-generator?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://frxncismor.dev/price-quote-generator?lang=es" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-03-23</lastmod>
   </url>
   <url>
     <loc>https://frxncismor.dev/blog</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://frxncismor.dev/blog?lang=en" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://frxncismor.dev/blog?lang=es" />
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-03-23</lastmod>
+  </url>
+  <url>
+    <loc>https://frxncismor.dev/blog/values-vs-references-in-javascript</loc>
+    <lastmod>2025-12-04</lastmod>
+  </url>
+  <url>
+    <loc>https://frxncismor.dev/blog/wtf-is-inmutability-in-js</loc>
+    <lastmod>2025-12-04</lastmod>
+  </url>
+  <url>
+    <loc>https://frxncismor.dev/blog/how-to-setup-eslint-and-prettier-in-angular-20-projects</loc>
+    <lastmod>2025-12-04</lastmod>
   </url>
 </urlset>
-

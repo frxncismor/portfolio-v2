@@ -123,6 +123,8 @@ export class Blog implements OnInit {
       ? 'blog, web development, frontend development, Angular, React, TypeScript, JavaScript, UI engineering, software development, programming tutorials, tech blog, Francisco Moreno'
       : 'blog, desarrollo web, desarrollo frontend, Angular, React, TypeScript, JavaScript, ingeniería UI, desarrollo de software, tutoriales de programación, blog tecnológico, Francisco Moreno';
 
+    this.seoService.updateCanonical('/blog');
+
     this.seoService.updateSEO({
       title,
       description,
@@ -140,17 +142,19 @@ export class Blog implements OnInit {
       url: 'https://frxncismor.dev/blog',
       author: {
         '@type': 'Person',
+        '@id': 'https://frxncismor.dev/#person',
         name: 'Francisco Moreno',
         url: 'https://frxncismor.dev',
       },
       publisher: {
         '@type': 'Person',
+        '@id': 'https://frxncismor.dev/#person',
         name: 'Francisco Moreno',
       },
       inLanguage: locale === 'en' ? 'en-US' : 'es-ES',
     };
 
-    this.seoService.addStructuredData(structuredData);
+    this.seoService.addStructuredData(structuredData, 'blog');
   }
 
   onSearchChange(query: string) {
