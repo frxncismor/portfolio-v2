@@ -43,6 +43,25 @@ export class Certifications implements OnInit, AfterViewInit, OnDestroy {
       type: 'website',
     });
 
+    const certs = this.certifications();
+    const credentialSchemas = certs.map((cert) => ({
+      '@type': 'EducationalOccupationalCredential',
+      name: cert.name,
+      credentialCategory: 'Professional Certificate',
+      recognizedBy: {
+        '@type': 'Organization',
+        name: cert.issuer,
+      },
+      dateCreated: cert.issued_raw,
+      url: cert.certificateUrl,
+      competencyRequired: cert.skills.join(', '),
+      holder: {
+        '@type': 'Person',
+        '@id': 'https://frxncismor.dev/#person',
+        name: 'Francisco Moreno',
+      },
+    }));
+
     this.seoService.addStructuredData({
       '@context': 'https://schema.org',
       '@type': 'ItemList',
@@ -51,14 +70,19 @@ export class Certifications implements OnInit, AfterViewInit, OnDestroy {
         : 'Certificaciones Profesionales - Francisco Moreno',
       description: isEnglish
         ? 'Professional certifications in web technologies, frontend development, and software engineering.'
-        : 'Certificaciones profesionales en tecnologías web, desarrollo frontend e ingeniería de software.',
+        : 'Certificaciones profesionales en tecnologias web, desarrollo frontend e ingenieria de software.',
       url: 'https://frxncismor.dev/certifications',
       author: {
         '@type': 'Person',
         '@id': 'https://frxncismor.dev/#person',
         name: 'Francisco Moreno',
       },
-    }, 'certifications');
+      itemListElement: credentialSchemas.map((cred, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item: cred,
+      })),
+    }, 'credentials');
   }
 
   ngAfterViewInit(): void {
