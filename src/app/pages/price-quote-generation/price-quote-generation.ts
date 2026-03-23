@@ -412,6 +412,28 @@ export class PriceQuoteGeneration implements OnInit, AfterViewInit, OnDestroy {
       url: '/price-quote-generator',
       type: 'website',
     });
+
+    this.seoService.addStructuredData({
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: locale === 'es' ? 'Generador de Cotizaciones Web' : 'Web Project Price Quote Generator',
+      description: locale === 'es'
+        ? 'Calcula el costo de tu proyecto web: Landing Pages, E-commerce y SaaS.'
+        : 'Calculate the cost of your web project: Landing Pages, E-commerce, and SaaS apps.',
+      url: 'https://frxncismor.dev/price-quote-generator',
+      applicationCategory: 'UtilityApplication',
+      operatingSystem: 'Web',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+      },
+      author: {
+        '@type': 'Person',
+        '@id': 'https://frxncismor.dev/#person',
+        name: 'Francisco Moreno',
+      },
+    }, 'webapplication');
   }
 
   ngAfterViewInit(): void {
