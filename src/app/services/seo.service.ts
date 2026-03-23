@@ -90,7 +90,7 @@ export class SEOService {
   }
 
   updateCanonical(path: string): void {
-    const url = `https://www.frxncismor.dev${path}`;
+    const url = `${this.baseUrl}${path}`;
     let link = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!link) {
       link = document.createElement('link');
