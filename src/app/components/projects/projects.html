@@ -73,29 +73,31 @@
                 </svg>
                 {{ 'projects.code' | translate }}
               </a>
-              <a
-                target="_blank"
-                href="{{ project.link }}"
-                class="inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-full dark:bg-(--color-dark-theme) dark:border-(--p-menubar-border-color) dark:text-white focus-visible:ring-yellow-500/80 text-md hover:bg-gray-900 hover:border-gray-700 hover:text-white dark:hover:bg-gray-100 dark:hover:border-gray-300 dark:hover:text-black group max-w-fit focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
+              @if (project.link) {
+                <a
+                  target="_blank"
+                  href="{{ project.link }}"
+                  class="inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-full dark:bg-(--color-dark-theme) dark:border-(--p-menubar-border-color) dark:text-white focus-visible:ring-yellow-500/80 text-md hover:bg-gray-900 hover:border-gray-700 hover:text-white dark:hover:bg-gray-100 dark:hover:border-gray-300 dark:hover:text-black group max-w-fit focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black"
                 >
-                  <path d="M9 17H7A5 5 0 0 1 7 7h2"></path>
-                  <path d="M15 7h2a5 5 0 1 1 0 10h-2"></path>
-                  <line x1="8" x2="16" y1="12" y2="12"></line>
-                </svg>
-                {{ 'projects.preview' | translate }}
-              </a>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M9 17H7A5 5 0 0 1 7 7h2"></path>
+                    <path d="M15 7h2a5 5 0 1 1 0 10h-2"></path>
+                    <line x1="8" x2="16" y1="12" y2="12"></line>
+                  </svg>
+                  {{ 'projects.preview' | translate }}
+                </a>
+              }
             </footer>
           </div>
         </div>
