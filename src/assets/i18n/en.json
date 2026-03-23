@@ -237,27 +237,64 @@
     "items": [
       {
         "title": "Shelfie",
-        "description": "AI SaaS that helps small businesses upgrade their product photos and online presence, using React, Supabase and Stripe.",
+        "description": "AI SaaS that helps small businesses upgrade their product photos and online presence using generative AI, with subscription management via Stripe and cloud storage via Supabase.",
         "link": "https://shelfie.com.mx",
         "code": "https://github.com/frxncismor/shelfie-public",
         "image": "/shelfie.png",
         "technologies": [
-          {
-            "name": "React",
-            "color": "info"
-          },
-          {
-            "name": "Supabase",
-            "color": "success"
-          },
-          {
-            "name": "Stripe",
-            "color": "success"
-          },
-          {
-            "name": "Tailwind CSS",
-            "color": "info"
-          }
+          { "name": "React", "color": "info" },
+          { "name": "TypeScript", "color": "info" },
+          { "name": "Supabase", "color": "success" },
+          { "name": "Stripe", "color": "info" },
+          { "name": "Tailwind CSS", "color": "info" }
+        ]
+      },
+      {
+        "title": "Corporate Website — WordPress Headless CMS & Angular",
+        "description": "Decoupled web solution where the client manages all content through the WordPress admin panel, while Angular renders a fully custom frontend consuming the WordPress REST API.",
+        "code": "https://github.com/frxncismor/corporate-website-public",
+        "image": "/corporate-website.png",
+        "technologies": [
+          { "name": "Angular", "color": "danger" },
+          { "name": "TypeScript", "color": "info" },
+          { "name": "WordPress", "color": "secondary" },
+          { "name": "REST API", "color": "secondary" },
+          { "name": "RxJS", "color": "warn" }
+        ]
+      },
+      {
+        "title": "Invitamex",
+        "description": "Digital invitation platform to create and share personalized invitations for events and celebrations, featuring a custom invitation builder and a public-facing landing page.",
+        "code": "https://github.com/frxncismor/invitamex-public",
+        "image": "/digital-invitation-platform.png",
+        "technologies": [
+          { "name": "HTML", "color": "warn" },
+          { "name": "CSS", "color": "info" },
+          { "name": "JavaScript", "color": "warn" }
+        ]
+      },
+      {
+        "title": "Kindnest",
+        "description": "Web platform for managing private communities with integrated payment processing, member communication tools, and a full administration system. Currently in active development.",
+        "code": "https://github.com/frxncismor/kindnest-public",
+        "image": "/kindnest.png",
+        "technologies": [
+          { "name": "Angular", "color": "danger" },
+          { "name": "TypeScript", "color": "info" },
+          { "name": "Node.js", "color": "success" },
+          { "name": "Stripe", "color": "info" }
+        ]
+      },
+      {
+        "title": "CeederDesk",
+        "description": "Windows desktop application for managing the Ceeder smart pet feeder, allowing users to configure automated feeding schedules, monitor device status, and manage pet profiles, backed by a local SQL Server database.",
+        "code": "https://github.com/frxncismor/CeederDesk",
+        "image": "/ceeder.png",
+        "technologies": [
+          { "name": "C#", "color": "success" },
+          { "name": "WinForms", "color": "secondary" },
+          { "name": "SQL Server", "color": "danger" },
+          { "name": ".NET Framework", "color": "info" }
         ]
       }
     ]
