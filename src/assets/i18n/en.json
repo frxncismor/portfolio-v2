@@ -301,7 +301,7 @@
         "title": "Contractors Project",
         "description": "Full-stack platform to streamline website creation and client management, featuring an AI-assisted dashboard for leads, project status, and feature requirements, with automated landing page generation from structured client input.",
         "code": "https://github.com/frxncismor/contractors-project-v2-public",
-        "image": "/placeholder.png",
+        "image": "/contractors-project.png",
         "technologies": [
           { "name": "Next.js", "color": "contrast" },
           { "name": "React", "color": "info" },
@@ -315,7 +315,7 @@
         "description": "Custom Angular 20 portfolio website built for a client, featuring project showcase, PDF resume export, and markdown content rendering with code syntax highlighting.",
         "link": "https://www.vaneybr.com/home",
         "code": "https://github.com/frxncismor/vaneybr-portfolio",
-        "image": "/placeholder.png",
+        "image": "/vaneybr.png",
         "technologies": [
           { "name": "Angular", "color": "danger" },
           { "name": "TypeScript", "color": "info" },
@@ -329,7 +329,7 @@
         "description": "Interactive 3D room viewer built with Angular and Three.js, featuring orbit controls, teleportation navigation, object interaction with descriptions, and a glassmorphism UI.",
         "link": "https://room-tour-and-descriptions.vercel.app/",
         "code": "https://github.com/frxncismor/room-tour-and-descriptions",
-        "image": "/placeholder.png",
+        "image": "/room-tour.png",
         "technologies": [
           { "name": "Angular", "color": "danger" },
           { "name": "TypeScript", "color": "info" },
@@ -342,7 +342,7 @@
         "description": "A browser-based Crossy Road game clone built with Three.js and TypeScript, featuring 3D rendering, collision detection, and smooth keyboard-controlled gameplay.",
         "link": "https://mega-basic-crossy-road.vercel.app/",
         "code": "https://github.com/frxncismor/mega-basic-crossy-road",
-        "image": "/placeholder.png",
+        "image": "/crossyroad.png",
         "technologies": [
           { "name": "TypeScript", "color": "info" },
           { "name": "Three.js", "color": "contrast" },
