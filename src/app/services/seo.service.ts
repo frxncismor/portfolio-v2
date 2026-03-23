@@ -77,18 +77,26 @@ export class SEOService {
     }
   }
 
-  addStructuredData(data: object): void {
+  addStructuredData(data: object, type: string = 'default'): void {
+    const id = `structured-data-${type}`;
+    const existing = document.getElementById(id);
+    if (existing) existing.remove();
+
     const script = document.createElement('script');
     script.type = 'application/ld+json';
+    script.id = id;
     script.text = JSON.stringify(data);
-    script.id = 'structured-data';
-
-    // Remove existing structured data
-    const existing = document.getElementById('structured-data');
-    if (existing) {
-      existing.remove();
-    }
-
     document.head.appendChild(script);
+  }
+
+  updateCanonical(path: string): void {
+    const url = `https://www.frxncismor.dev${path}`;
+    let link = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (!link) {
+      link = document.createElement('link');
+      link.setAttribute('rel', 'canonical');
+      document.head.appendChild(link);
+    }
+    link.setAttribute('href', url);
   }
 }

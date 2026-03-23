@@ -20,14 +20,16 @@ export class Home implements OnInit {
   ngOnInit(): void {
     const locale = this.i18nService.getLocale();
 
+    this.seoService.updateCanonical('/home');
+
     this.seoService.updateSEO({
       title: 'Francisco Moreno - Senior Web UI Engineer | Portfolio',
       description:
         locale === 'es'
           ? 'Senior Web UI Engineer con 6+ años de experiencia. Especializado en Angular, React, TypeScript. Disponible para proyectos full-time y freelance. Basado en The Woodlands, TX.'
-          : 'Senior Web UI Engineer with 6+ years of experience. Specialized in Angular, React, TypeScript. Available for full-time and freelance projects. Based in The Woodlands, TX.',
+          : "Senior Web UI Engineer · 6+ yrs building apps for Royal Caribbean & United Airlines · Angular, React, TypeScript · The Woodlands, TX",
       keywords:
-        'Francisco Moreno, Web Developer, Frontend Developer, Angular, React, TypeScript, UI Engineer, Portfolio, Full Stack Developer, JavaScript, Next.js, The Woodlands, Texas, developer en monterrey, developer en woodlands, developer in woodlands, developer near woodlands, desarrollador cerca de monterrey, desarrollador en monterrey, developer monterrey, developer woodlands, desarrollador monterrey, desarrollador woodlands, freelance developer woodlands, freelance developer monterrey, freelance desarrollador monterrey, freelance desarrollador woodlands',
+        'Francisco Moreno, Senior Frontend Engineer, Angular Developer, React Developer, TypeScript, The Woodlands TX, Web UI Engineer',
       url: '/home',
       type: 'website',
     });
@@ -36,8 +38,15 @@ export class Home implements OnInit {
     this.seoService.addStructuredData({
       '@context': 'https://schema.org',
       '@type': 'Person',
+      '@id': 'https://frxncismor.dev/#person',
       name: 'Francisco Moreno',
       jobTitle: 'Senior Web UI Engineer',
+      description:
+        "Senior Fullstack Engineer with 6+ years building scalable web apps for enterprise clients like Royal Caribbean, United Airlines, and Dick's Sporting Goods.",
+      image: {
+        '@type': 'ImageObject',
+        url: 'https://frxncismor.dev/myphoto.webp',
+      },
       url: 'https://frxncismor.dev',
       sameAs: ['https://linkedin.com/in/frxncismor', 'https://github.com/frxncismor'],
       address: {
@@ -60,6 +69,6 @@ export class Home implements OnInit {
         'MongoDB',
         'PostgreSQL',
       ],
-    });
+    }, 'person');
   }
 }

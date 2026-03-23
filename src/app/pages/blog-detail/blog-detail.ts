@@ -65,6 +65,8 @@ export class BlogDetail implements OnInit {
         ? ', web development, frontend development, programming'
         : ', desarrollo web, desarrollo frontend, programación');
 
+    this.seoService.updateCanonical(postUrl);
+
     this.seoService.updateSEO({
       title: `${post.title} | Francisco Moreno - Blog`,
       description: post.description,
@@ -86,12 +88,20 @@ export class BlogDetail implements OnInit {
       dateModified: post.date.toISOString(),
       author: {
         '@type': 'Person',
+        '@id': 'https://frxncismor.dev/#person',
         name: post.author || 'Francisco Moreno',
         url: 'https://frxncismor.dev',
       },
       publisher: {
         '@type': 'Person',
+        '@id': 'https://frxncismor.dev/#person',
         name: 'Francisco Moreno',
+        image: {
+          '@type': 'ImageObject',
+          url: 'https://frxncismor.dev/myphoto.webp',
+          width: 400,
+          height: 400,
+        },
       },
       mainEntityOfPage: {
         '@type': 'WebPage',
@@ -105,7 +115,7 @@ export class BlogDetail implements OnInit {
       }),
     };
 
-    this.seoService.addStructuredData(structuredData);
+    this.seoService.addStructuredData(structuredData, 'blogposting');
   }
 
   formatDate(date: Date): string {

@@ -1,7 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Kedebideri:wght@400;500;600;700;800;900&display=swap');
+/* Google Fonts loaded asynchronously via <link rel="preload"> in index.html */
 @import 'primeicons/primeicons.css';
 @import 'tailwindcss';
+
+/* Override PrimeNG default font-display: block → swap to prevent FOIT and reduce CLS */
+@font-face {
+  font-family: primeicons;
+  font-display: swap;
+  src: url('/media/primeicons.woff2') format('woff2');
+}
 
 :root {
   --color-dark-theme: #121212;
