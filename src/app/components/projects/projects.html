@@ -7,7 +7,7 @@
     {{ 'projects.title' | translate }}
   </h2>
   <div class="flex flex-col gap-y-16">
-    @for (project of projects(); track project.title; let i = $index) {
+    @for (project of projects(); track i; let i = $index) {
       <article
         class="project-item flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0"
         [style.animation-delay]="i * 150 + 'ms'"
