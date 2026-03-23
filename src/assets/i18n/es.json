@@ -253,7 +253,7 @@
         "title": "Sitio Corporativo — WordPress Headless CMS & Angular",
         "description": "Solución web desacoplada donde el cliente gestiona todo el contenido desde el panel de WordPress, mientras Angular renderiza un frontend completamente personalizado consumiendo la REST API.",
         "code": "https://github.com/frxncismor/corporate-website-public",
-        "image": "/placeholder.png",
+        "image": "/corporate-website.png",
         "technologies": [
           { "name": "Angular", "color": "danger" },
           { "name": "TypeScript", "color": "info" },
@@ -266,7 +266,7 @@
         "title": "Invitamex",
         "description": "Plataforma de invitaciones digitales para crear y compartir invitaciones personalizadas para eventos y celebraciones, con un constructor de invitaciones y una landing page pública.",
         "code": "https://github.com/frxncismor/invitamex-public",
-        "image": "/placeholder.png",
+        "image": "/digital-invitation-platform.png",
         "technologies": [
           { "name": "HTML", "color": "warn" },
           { "name": "CSS", "color": "info" },
@@ -277,7 +277,7 @@
         "title": "Kindnest",
         "description": "Plataforma web para gestionar comunidades privadas con pagos integrados, herramientas de comunicación entre miembros y un sistema de administración completo. Actualmente en desarrollo.",
         "code": "https://github.com/frxncismor/kindnest-public",
-        "image": "/placeholder.png",
+        "image": "/kindnest.png",
         "technologies": [
           { "name": "Angular", "color": "danger" },
           { "name": "TypeScript", "color": "info" },
@@ -289,7 +289,7 @@
         "title": "CeederDesk",
         "description": "Aplicación de escritorio Windows para gestionar el comedero inteligente Ceeder, que permite configurar horarios de alimentación automáticos, monitorear el dispositivo y administrar perfiles de mascotas con SQL Server.",
         "code": "https://github.com/frxncismor/CeederDesk",
-        "image": "/placeholder.png",
+        "image": "/ceeder.png",
         "technologies": [
           { "name": "C#", "color": "success" },
           { "name": "WinForms", "color": "secondary" },
