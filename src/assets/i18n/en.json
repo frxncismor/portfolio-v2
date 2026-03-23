@@ -179,15 +179,15 @@
           "technologies": [
             {
               "name": "Claude Code",
-              "icon": "https://cdn.simpleicons.org/anthropic"
+              "icon": "https://www.google.com/s2/favicons?domain=anthropic.com&sz=64"
             },
             {
               "name": "ChatGPT",
-              "icon": "https://cdn.simpleicons.org/openai"
+              "icon": "https://www.google.com/s2/favicons?domain=openai.com&sz=64"
             },
             {
               "name": "Gemini",
-              "icon": "https://cdn.simpleicons.org/googlegemini"
+              "icon": "https://www.google.com/s2/favicons?domain=gemini.google.com&sz=64"
             }
           ]
         }
@@ -202,13 +202,6 @@
     "title": "Work experience",
     "description": "I've shipped SaaS products like <strong>Shelfie</strong> (AI-powered product image enhancer for small retailers) and <strong>Invitamex</strong> (digital invitations platform with analytics), and I've built enterprise solutions for global brands through <strong>Globant</strong> in sectors like retail, travel and media. My GitHub and side projects are proof, not promises.",
     "items": [
-      {
-        "title": "Contractors Project",
-        "role": "Fullstack Developer",
-        "at": "at",
-        "date": "Mar 2026 - Current",
-        "description": "AI-assisted web platform to streamline website creation and client management workflows. Built a dashboard to manage leads, project status, and feature requirements. Implemented AI-assisted workflows using Claude, MCPs, and tools to accelerate development. Designed a system to generate landing pages based on structured client input."
-      },
       {
         "title": "Kindnest",
         "role": "Co-Founder",
