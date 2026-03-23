@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: unknown
-stopped_at: "Completed 01-02-PLAN.md (Structured Data: Certifications & Price-Quote Generator)"
-last_updated: "2026-03-23T23:42:44.928Z"
+status: Ready to execute
+stopped_at: Completed 01-04-PLAN.md (Services Page)
+last_updated: "2026-03-23T23:50:43.938Z"
 progress:
   total_phases: 1
   completed_phases: 0
   total_plans: 4
-  completed_plans: 2
+  completed_plans: 3
 ---
 
 # Project State
@@ -37,14 +37,15 @@ progress:
 ## Current Position
 
 **Phase:** 01-seo-improvements
-**Plan:** 2 of 4 (COMPLETE)
-**Stopped At:** Completed 01-02-PLAN.md (Structured Data: Certifications & Price-Quote Generator)
-**Last Session:** 2026-03-23T23:42:44.924Z
+**Plan:** 3 of 4 (COMPLETE)
+**Stopped At:** Completed 01-04-PLAN.md (Services Page)
+**Last Session:** 2026-03-23T23:50:43.935Z
 
 ## Completed Plans
 
 - [x] 01-01: Static SEO Files & URL Canonicalization (commit: 0d1fbb5)
 - [x] 01-02: Structured Data — Certifications & Price-Quote Generator (commits: 1188c84, 7d50433)
+- [x] 01-04: Services Page with ProfessionalService Schema (commits: 40227d9, 9f037bf)
 
 ## Decisions Log
 
@@ -56,3 +57,5 @@ progress:
 - 2026-03-23: Remove xhtml:link hreflang alternates from sitemap — simplify to canonical URLs only
 - 2026-03-23: REQ-008 (BlogPosting) confirmed already satisfied in blog-detail.ts — no changes needed
 - 2026-03-23: WebApplication schema uses Offer with price '0' to represent the free price-quote tool
+- 2026-03-23: Services page uses ProfessionalService schema with areaServed array (US + Texas) for local SEO targeting
+- 2026-03-23: CTA conversion funnel: hero + CTA section both link to /price-quote-generator and Calendly
