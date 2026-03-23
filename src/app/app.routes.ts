@@ -16,6 +16,10 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'services',
+    loadComponent: () => import('./pages/services/services').then((m) => m.Services),
+  },
+  {
     path: 'blog',
     loadComponent: () => import('./pages/blog/blog').then((m) => m.Blog),
   },

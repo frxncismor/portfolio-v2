@@ -864,5 +864,68 @@
     "clearFilters": "Limpiar filtros",
     "publishedOn": "Publicado el",
     "minRead": "min de lectura"
+  },
+  "services": {
+    "seo": {
+      "title": "Desarrollador Angular y React Freelance | Houston TX | Francisco Moreno",
+      "description": "Contrata un desarrollador Angular experimentado en Houston, TX. Consultor frontend freelance especializado en Angular, React, TypeScript para aplicaciones web empresariales.",
+      "keywords": "desarrollador Angular Houston TX, consultor frontend freelance, contratar desarrollador Angular, desarrollador React Texas, consultoria TypeScript"
+    },
+    "hero": {
+      "title": "Servicios de Desarrollo Web Freelance",
+      "subtitle": "Ingeniero Frontend Senior disponible para proyectos en Angular, React y TypeScript",
+      "cta": "Obtener Cotizacion Gratis"
+    },
+    "offerings": {
+      "title": "Lo Que Ofrezco",
+      "angular": {
+        "title": "Desarrollo Angular",
+        "description": "Aplicaciones Angular de nivel empresarial con signals, componentes standalone, RxJS y gestion de estado con NgRx."
+      },
+      "react": {
+        "title": "Desarrollo React y Next.js",
+        "description": "Aplicaciones React modernas con hooks, server components y Next.js para apps web optimizadas para SEO."
+      },
+      "typescript": {
+        "title": "Consultoria TypeScript",
+        "description": "Codebases type-safe, migracion de JavaScript a TypeScript, estrategias de tipado estricto para equipos grandes."
+      },
+      "fullstack": {
+        "title": "Desarrollo Full-Stack",
+        "description": "Soluciones end-to-end con Node.js, Supabase, AWS, MongoDB y backends PostgreSQL."
+      },
+      "uiux": {
+        "title": "Implementacion UI/UX",
+        "description": "Implementacion pixel-perfect de disenos usando TailwindCSS, layouts responsivos y mejores practicas de accesibilidad."
+      }
+    },
+    "clients": {
+      "title": "Experiencia Empresarial",
+      "description": "Confiado por equipos en empresas lideres para entregar aplicaciones web de nivel produccion.",
+      "royalCaribbean": "Royal Caribbean — Plataformas de reserva y gestion de cruceros",
+      "unitedAirlines": "United Airlines — Operaciones de vuelo y herramientas para clientes",
+      "dicksSportingGoods": "Dick's Sporting Goods — Aplicaciones web de e-commerce y retail"
+    },
+    "process": {
+      "title": "Como Trabajo",
+      "step1": {
+        "title": "Descubrimiento",
+        "description": "Discutimos los requisitos de tu proyecto, timeline y presupuesto para encontrar el enfoque correcto."
+      },
+      "step2": {
+        "title": "Construccion",
+        "description": "Desarrollo tu aplicacion con check-ins regulares, codigo limpio y pruebas exhaustivas."
+      },
+      "step3": {
+        "title": "Entrega",
+        "description": "Tu proyecto se despliega, documenta y esta listo para produccion con opciones de soporte continuo."
+      }
+    },
+    "cta": {
+      "title": "Listo para Iniciar tu Proyecto?",
+      "description": "Obtén una estimacion instantanea con el generador de cotizaciones, o agenda una consulta gratis.",
+      "quoteButton": "Obtener Cotizacion",
+      "calendlyButton": "Agendar Llamada"
+    }
   }
 }
