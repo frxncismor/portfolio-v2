@@ -320,6 +320,58 @@
           { "name": "SQL Server", "color": "danger" },
           { "name": ".NET Framework", "color": "info" }
         ]
+      },
+      {
+        "title": "Contractors Project",
+        "description": "Plataforma full-stack para optimizar la creación de sitios web y gestión de clientes, con un dashboard asistido por IA para leads, estatus de proyectos y requerimientos, y generación automatizada de landing pages.",
+        "code": "https://github.com/frxncismor/contractors-project-v2-public",
+        "image": "/contractors-project.png",
+        "technologies": [
+          { "name": "Next.js", "color": "contrast" },
+          { "name": "React", "color": "info" },
+          { "name": "TypeScript", "color": "info" },
+          { "name": "Supabase", "color": "success" },
+          { "name": "Tailwind CSS", "color": "info" }
+        ]
+      },
+      {
+        "title": "Vaneybr Portfolio",
+        "description": "Sitio de portafolio personal construido para un cliente con Angular 20, con sección de proyectos, exportación de CV en PDF y renderizado de contenido Markdown con resaltado de sintaxis.",
+        "link": "https://www.vaneybr.com/home",
+        "code": "https://github.com/frxncismor/vaneybr-portfolio",
+        "image": "/vaneybr.png",
+        "technologies": [
+          { "name": "Angular", "color": "danger" },
+          { "name": "TypeScript", "color": "info" },
+          { "name": "PrimeNG", "color": "danger" },
+          { "name": "Tailwind CSS", "color": "info" },
+          { "name": "jsPDF", "color": "secondary" }
+        ]
+      },
+      {
+        "title": "Room Tour & Descriptions",
+        "description": "Visor 3D interactivo de habitaciones construido con Angular y Three.js, con controles de órbita, navegación por teletransporte, interacción con objetos y descripción de cada mueble mediante una UI con glassmorphism.",
+        "link": "https://room-tour-and-descriptions.vercel.app/",
+        "code": "https://github.com/frxncismor/room-tour-and-descriptions",
+        "image": "/room-tour.png",
+        "technologies": [
+          { "name": "Angular", "color": "danger" },
+          { "name": "TypeScript", "color": "info" },
+          { "name": "Three.js", "color": "contrast" },
+          { "name": "Angular Material", "color": "warn" }
+        ]
+      },
+      {
+        "title": "Mega Basic Crossy Road",
+        "description": "Clon del juego Crossy Road para el navegador, desarrollado con Three.js y TypeScript, con renderizado 3D, detección de colisiones y gameplay fluido controlado desde el teclado.",
+        "link": "https://mega-basic-crossy-road.vercel.app/",
+        "code": "https://github.com/frxncismor/mega-basic-crossy-road",
+        "image": "/crossyroad.png",
+        "technologies": [
+          { "name": "TypeScript", "color": "info" },
+          { "name": "Three.js", "color": "contrast" },
+          { "name": "Vite", "color": "warn" }
+        ]
       }
     ]
   },
