@@ -11,9 +11,9 @@
 - [x] REQ-006: Fix `og:url` inconsistency — remove `www.` prefix so all OG URLs use `https://frxncismor.dev` (no www) (completed: 01-01, pre-existing fix verified)
 
 ### Schema Markup
-- REQ-007: Add `EducationalOccupationalCredential` schema to certifications page
-- REQ-008: Add `BlogPosting` schema with `datePublished`, `author`, `headline`, `image` to blog-detail page
-- REQ-009: Add `WebApplication` schema to price-quote-generator page
+- [x] REQ-007: Add `EducationalOccupationalCredential` schema to certifications page (completed: 01-02, commit 1188c84)
+- [x] REQ-008: Add `BlogPosting` schema with `datePublished`, `author`, `headline`, `image` to blog-detail page (completed: 01-02, pre-existing in blog-detail.ts)
+- [x] REQ-009: Add `WebApplication` schema to price-quote-generator page (completed: 01-02, commit 7d50433)
 - REQ-010: Add `Service` / `ProfessionalService` schema to services page
 
 ### Content

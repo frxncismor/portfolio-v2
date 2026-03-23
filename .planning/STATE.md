@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 01-01-PLAN.md (Static SEO Files & URL Canonicalization)
-last_updated: "2026-03-23T23:41:47.983Z"
+stopped_at: "Completed 01-02-PLAN.md (Structured Data: Certifications & Price-Quote Generator)"
+last_updated: "2026-03-23T23:42:44.928Z"
 progress:
   total_phases: 1
   completed_phases: 0
@@ -38,12 +38,13 @@ progress:
 
 **Phase:** 01-seo-improvements
 **Plan:** 2 of 4 (COMPLETE)
-**Stopped At:** Completed 01-01-PLAN.md (Static SEO Files & URL Canonicalization)
-**Last Session:** 2026-03-23
+**Stopped At:** Completed 01-02-PLAN.md (Structured Data: Certifications & Price-Quote Generator)
+**Last Session:** 2026-03-23T23:42:44.924Z
 
 ## Completed Plans
 
 - [x] 01-01: Static SEO Files & URL Canonicalization (commit: 0d1fbb5)
+- [x] 01-02: Structured Data — Certifications & Price-Quote Generator (commits: 1188c84, 7d50433)
 
 ## Decisions Log
 
@@ -53,3 +54,5 @@ progress:
 - 2026-03-23: Angular SSR via `@angular/ssr` — Vercel auto-detects and deploys as serverless function
 - 2026-03-23: Use static sitemap.xml in public/ (not a build script) since routes are known
 - 2026-03-23: Remove xhtml:link hreflang alternates from sitemap — simplify to canonical URLs only
+- 2026-03-23: REQ-008 (BlogPosting) confirmed already satisfied in blog-detail.ts — no changes needed
+- 2026-03-23: WebApplication schema uses Offer with price '0' to represent the free price-quote tool
