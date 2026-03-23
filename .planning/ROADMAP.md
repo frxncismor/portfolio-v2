@@ -14,7 +14,7 @@
 **Plans:** 4 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Static files (robots.txt, sitemap.xml, llms.txt) and canonical/OG URL fixes
+- [x] 01-01-PLAN.md — Static files (robots.txt, sitemap.xml, llms.txt) and canonical/OG URL fixes
 - [ ] 01-02-PLAN.md — Schema enhancements (EducationalOccupationalCredential + WebApplication)
 - [ ] 01-03-PLAN.md — Angular SSR setup (@angular/ssr) with browser guards
 - [ ] 01-04-PLAN.md — Services page content, i18n, route, and ProfessionalService schema
