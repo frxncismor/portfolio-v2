@@ -25,7 +25,7 @@
       "subtitle": "Senior Web UI Engineer / Desarrollador Frontend.",
       "available": "Disponible para trabajar",
       "downloadResume": "Descargar CV",
-      "description": "La mayoría de los devs front-end o se mueven rápido y rompen cosas, o hacen código tan \"perfecto\" que nunca se lanza. Yo hago ambas: envío rápido y mantengo el código limpio. Más de <strong>6 años</strong> convirtiendo ideas en aplicaciones web reales. Actualmente vivo en <strong>The Woodlands, Texas</strong> y estoy autorizado para trabajar en Estados Unidos. Disponible para <strong>posiciones full-time</strong> y <strong>proyectos freelance</strong>."
+      "description": "La mayoría de los devs o envían rápido y rompen cosas, o escriben código enterprise-grade que tarda una eternidad en lanzarse. Yo hago ambas: me muevo rápido <em>y</em> mantengo el código limpio. <strong>Senior Fullstack Engineer</strong> con más de <strong>6 años</strong> construyendo aplicaciones web escalables para clientes enterprise como <strong>Royal Caribbean</strong>, <strong>United Airlines</strong> y <strong>Dick's Sporting Goods</strong>. Actualmente en <strong>The Woodlands, TX</strong>, autorizado para trabajar en EE.UU. Disponible para <strong>posiciones full-time</strong> y <strong>proyectos freelance</strong>."
     },
     "techStack": {
       "title": "Stack Tecnológico",
@@ -173,12 +173,29 @@
               "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
             }
           ]
+        },
+        "ai": {
+          "label": "IA",
+          "technologies": [
+            {
+              "name": "Claude Code",
+              "icon": "https://www.google.com/s2/favicons?domain=anthropic.com&sz=64"
+            },
+            {
+              "name": "ChatGPT",
+              "icon": "https://www.google.com/s2/favicons?domain=openai.com&sz=64"
+            },
+            {
+              "name": "Gemini",
+              "icon": "https://www.google.com/s2/favicons?domain=gemini.google.com&sz=64"
+            }
+          ]
         }
       }
     },
     "about": {
       "title": "Sobre mí",
-      "description": "Soy Francisco, ingeniero de interfaces web de Monterrey, México, ahora viviendo en The Woodlands, TX, con autorización para trabajar en USA.<br><br>Lo que realmente hago es esto: tomo frontends desordenados o frágiles y los convierto en sistemas escalables y mantenibles. No se trata solo de \"que se vea bonito\": me enfoco en arquitectura, manejo de estado, rendimiento y experiencia del desarrollador. <strong class=\"font-bold text-red-400 dark:text-red-300\">Angular</strong> es mi fuerte, también trabajo con <strong class=\"font-bold text-blue-400 dark:text-blue-300\">React</strong>, y soy un aprendiz muy rápido: adopto nuevas herramientas, librerías y patrones con facilidad y los llevo a producción de forma segura.<br><br>Muchos desarrolladores entienden el framework, pero no el producto. Yo me preocupo por ambos. Mientras otros discuten sobre la librería de moda, yo estoy lanzando experiencias rápidas, accesibles, optimizadas para <strong class=\"font-bold\">SEO</strong> y alineadas al negocio.<br><br>He lanzado productos <strong class=\"font-bold\">SaaS</strong> como <strong class=\"font-bold\">Shelfie</strong> (mejora de fotos de productos con <strong class=\"font-bold\">IA</strong> para pequeños comercios) además de construir soluciones corporativas para marcas globales a través de <strong class=\"font-bold text-green-400 dark:text-green-300\">Globant</strong> en sectores como retail, viajes y medios. Mi <strong class=\"font-bold\">GitHub</strong> y mis proyectos personales son pruebas, no promesas.<br><br>¿El resultado? Frontends fáciles de mantener, agradables de usar y con impacto directo en el negocio.<br><br>Cuando no estoy programando, normalmente estoy probando herramientas nuevas, jugando videojuegos o ayudando a amigos con sus proyectos y configuraciones.<br><br>No solo construyo componentes. Construyo sistemas que permiten a los equipos lanzar más rápido sin perder calidad."
+      "description": "Soy Francisco — <strong class=\"font-bold\">Senior Fullstack Engineer</strong> de Monterrey, México, ahora viviendo en The Woodlands, Texas, con autorización para trabajar en EE.UU.<br><br>No solo escribo código. Pienso en sistemas, flujos de usuario e impacto en el negocio. Mientras la mayoría de los ingenieros se enfocan en features, yo me enfoco en resultados: cómo escala el sistema, cómo lo viven los usuarios y cómo lo mantiene el equipo con el tiempo.<br><br>Me especializo en <strong class=\"font-bold text-red-400 dark:text-red-300\">Angular</strong>, <strong class=\"font-bold text-blue-400 dark:text-blue-300\">React</strong> y <strong class=\"font-bold text-green-400 dark:text-green-300\">Node.js</strong>, con experiencia sólida en arquitectura frontend, optimización de rendimiento y testing — principalmente dentro de monorepos. He entregado soluciones enterprise para marcas globales como <strong class=\"font-bold\">Royal Caribbean</strong>, <strong class=\"font-bold\">United Airlines</strong> y <strong class=\"font-bold\">Dick's Sporting Goods</strong>. Mi <strong class=\"font-bold\">GitHub</strong> y proyectos personales son pruebas, no promesas.<br><br>También he integrado <strong class=\"font-bold\">IA</strong> a mi flujo de trabajo de forma pragmática — la uso para acelerar el desarrollo, explorar soluciones y aumentar la velocidad de iteración, tomando decisiones intencionales sobre cuándo y cómo aplicarla. Sin seguir hypes. Construyendo ventajas reales.<br><br>Actualmente construyendo <strong class=\"font-bold\">Kindnest</strong>, una plataforma de gestión de comunidades con arquitectura de pagos y sistemas de administración, además de herramientas internas para generar landing pages y automatizar flujos de clientes con desarrollo asistido por IA.<br><br>Fortalezas clave: arquitectura frontend &amp; sistemas escalables, rendimiento &amp; accesibilidad (WCAG), testing (Jest, Cypress), desarrollo asistido por IA y product thinking.<br><br>No solo construyo componentes. Construyo sistemas que permiten a los equipos lanzar más rápido sin perder calidad."
     }
   },
   "workExperience": {
@@ -186,11 +203,11 @@
     "description": "He lanzado productos SaaS como Shelfie (mejora de fotos de productos con IA para pequeños comercios) e Invitamex (plataforma de invitaciones digitales con analíticas), además de construir soluciones corporativas para marcas globales a través de Globant en sectores como retail, viajes y medios. Mi GitHub y mis proyectos personales son pruebas, no promesas.",
     "items": [
       {
-        "title": "Freelance",
-        "role": "Consultor",
+        "title": "Kindnest",
+        "role": "Co-Fundador",
         "at": "en",
-        "date": "2025 - Actualidad",
-        "description": "Ayudo a startups y negocios pequeños a diseñar, arquitectar y lanzar experiencias web modernas."
+        "date": "Ene 2026 - Actualidad",
+        "description": "Construyendo una plataforma web para gestionar comunidades privadas, incluyendo pagos, comunicación y sistemas de administración. Diseñando la arquitectura del producto desde cero, implementando soluciones de pago (Stripe Connect) y usando herramientas de IA para acelerar el desarrollo y la toma de decisiones."
       },
       {
         "title": "Shelfie",
