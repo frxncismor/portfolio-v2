@@ -173,6 +173,23 @@
               "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
             }
           ]
+        },
+        "ai": {
+          "label": "AI",
+          "technologies": [
+            {
+              "name": "Claude Code",
+              "icon": "https://cdn.simpleicons.org/anthropic"
+            },
+            {
+              "name": "ChatGPT",
+              "icon": "https://cdn.simpleicons.org/openai"
+            },
+            {
+              "name": "Gemini",
+              "icon": "https://cdn.simpleicons.org/googlegemini"
+            }
+          ]
         }
       }
     },
@@ -186,11 +203,18 @@
     "description": "I've shipped SaaS products like <strong>Shelfie</strong> (AI-powered product image enhancer for small retailers) and <strong>Invitamex</strong> (digital invitations platform with analytics), and I've built enterprise solutions for global brands through <strong>Globant</strong> in sectors like retail, travel and media. My GitHub and side projects are proof, not promises.",
     "items": [
       {
-        "title": "Freelance",
-        "role": "Consultant",
+        "title": "Contractors Project",
+        "role": "Fullstack Developer",
         "at": "at",
-        "date": "2025 - Current",
-        "description": "Helping startups and small businesses design, architect and ship modern web experiences."
+        "date": "Mar 2026 - Current",
+        "description": "AI-assisted web platform to streamline website creation and client management workflows. Built a dashboard to manage leads, project status, and feature requirements. Implemented AI-assisted workflows using Claude, MCPs, and tools to accelerate development. Designed a system to generate landing pages based on structured client input."
+      },
+      {
+        "title": "Kindnest",
+        "role": "Co-Founder",
+        "at": "at",
+        "date": "Jan 2026 - Current",
+        "description": "Building a web platform to manage private communities, including payments, communication, and administration systems. Designing product architecture from the ground up, implementing payment solutions (Stripe Connect), and using AI tools to accelerate development and decision-making."
       },
       {
         "title": "Shelfie",

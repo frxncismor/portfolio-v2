@@ -173,6 +173,23 @@
               "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
             }
           ]
+        },
+        "ai": {
+          "label": "IA",
+          "technologies": [
+            {
+              "name": "Claude Code",
+              "icon": "https://cdn.simpleicons.org/anthropic"
+            },
+            {
+              "name": "ChatGPT",
+              "icon": "https://cdn.simpleicons.org/openai"
+            },
+            {
+              "name": "Gemini",
+              "icon": "https://cdn.simpleicons.org/googlegemini"
+            }
+          ]
         }
       }
     },
@@ -186,11 +203,18 @@
     "description": "He lanzado productos SaaS como Shelfie (mejora de fotos de productos con IA para pequeños comercios) e Invitamex (plataforma de invitaciones digitales con analíticas), además de construir soluciones corporativas para marcas globales a través de Globant en sectores como retail, viajes y medios. Mi GitHub y mis proyectos personales son pruebas, no promesas.",
     "items": [
       {
-        "title": "Freelance",
-        "role": "Consultor",
+        "title": "Contractors Project",
+        "role": "Desarrollador Fullstack",
         "at": "en",
-        "date": "2025 - Actualidad",
-        "description": "Ayudo a startups y negocios pequeños a diseñar, arquitectar y lanzar experiencias web modernas."
+        "date": "Mar 2026 - Actualidad",
+        "description": "Plataforma web asistida por IA para optimizar la creación de sitios web y la gestión de clientes. Construí un dashboard para gestionar leads, estatus de proyectos y requerimientos. Implementé flujos de trabajo asistidos por IA usando Claude, MCPs y herramientas para acelerar el desarrollo. Diseñé un sistema para generar landing pages basadas en input estructurado del cliente."
+      },
+      {
+        "title": "Kindnest",
+        "role": "Co-Fundador",
+        "at": "en",
+        "date": "Ene 2026 - Actualidad",
+        "description": "Construyendo una plataforma web para gestionar comunidades privadas, incluyendo pagos, comunicación y sistemas de administración. Diseñando la arquitectura del producto desde cero, implementando soluciones de pago (Stripe Connect) y usando herramientas de IA para acelerar el desarrollo y la toma de decisiones."
       },
       {
         "title": "Shelfie",
