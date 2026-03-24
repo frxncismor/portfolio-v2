@@ -1,5 +1,4 @@
 import { Injectable, inject } from '@angular/core';
-import jsPDF from 'jspdf';
 import { I18nService } from './i18n.service';
 import { Currency, QuoteCalculation } from '../interfaces/quote';
 
@@ -33,8 +32,9 @@ export interface QuotePDFData {
 export class PdfGeneratorService {
   private readonly i18nService = inject(I18nService);
 
-  generateQuotePDF(data: QuotePDFData): void {
+  async generateQuotePDF(data: QuotePDFData): Promise<void> {
     console.log(data);
+    const { default: jsPDF } = await import('jspdf');
     const t = this.i18nService.t();
     const locale = this.i18nService.getLocale();
 
