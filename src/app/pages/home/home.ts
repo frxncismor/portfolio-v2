@@ -20,7 +20,7 @@ export class Home implements OnInit {
   ngOnInit(): void {
     const locale = this.i18nService.getLocale();
 
-    this.seoService.updateCanonical('/home');
+    this.seoService.updateCanonical('/');
 
     this.seoService.updateSEO({
       title: 'Francisco Moreno - Senior Web UI Engineer | Portfolio',
@@ -30,7 +30,7 @@ export class Home implements OnInit {
           : "Senior Web UI Engineer · 6+ yrs building apps for Royal Caribbean & United Airlines · Angular, React, TypeScript · The Woodlands, TX",
       keywords:
         'Francisco Moreno, Senior Frontend Engineer, Angular Developer, React Developer, TypeScript, The Woodlands TX, Web UI Engineer',
-      url: '/home',
+      url: '/',
       type: 'website',
     });
 

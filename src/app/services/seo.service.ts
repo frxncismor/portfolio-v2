@@ -1,6 +1,6 @@
-import { Injectable, inject, PLATFORM_ID } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { isPlatformBrowser } from '@angular/common';
+import { DOCUMENT } from '@angular/common';
 import { I18nService } from './i18n.service';
 
 export interface SEOData {
@@ -20,7 +20,7 @@ export class SEOService {
   private readonly meta = inject(Meta);
   private readonly title = inject(Title);
   private readonly i18nService = inject(I18nService);
-  private readonly platformId = inject(PLATFORM_ID);
+  private readonly document = inject(DOCUMENT);
 
   private readonly baseUrl = 'https://frxncismor.dev';
   private readonly defaultImage = `${this.baseUrl}/myphoto.webp`;
@@ -80,26 +80,24 @@ export class SEOService {
   }
 
   addStructuredData(data: object, type: string = 'default'): void {
-    if (!isPlatformBrowser(this.platformId)) return;
     const id = `structured-data-${type}`;
-    const existing = document.getElementById(id);
+    const existing = this.document.getElementById(id);
     if (existing) existing.remove();
 
-    const script = document.createElement('script');
+    const script = this.document.createElement('script');
     script.type = 'application/ld+json';
     script.id = id;
     script.text = JSON.stringify(data);
-    document.head.appendChild(script);
+    this.document.head.appendChild(script);
   }
 
   updateCanonical(path: string): void {
-    if (!isPlatformBrowser(this.platformId)) return;
     const url = `${this.baseUrl}${path}`;
-    let link = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    let link = this.document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!link) {
-      link = document.createElement('link');
+      link = this.document.createElement('link');
       link.setAttribute('rel', 'canonical');
-      document.head.appendChild(link);
+      this.document.head.appendChild(link);
     }
     link.setAttribute('href', url);
   }
