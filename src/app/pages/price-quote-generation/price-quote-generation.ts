@@ -367,7 +367,7 @@ export class PriceQuoteGeneration implements OnInit, AfterViewInit, OnDestroy {
 
   private readonly pdfGeneratorService = inject(PdfGeneratorService);
 
-  generatePDF(): void {
+  async generatePDF(): Promise<void> {
     const calc = this.calculation();
     const projectType = this.projectTypes().find((p) => p.id === this.selectedProjectType());
 
@@ -378,7 +378,7 @@ export class PriceQuoteGeneration implements OnInit, AfterViewInit, OnDestroy {
       .filter((e): e is NonNullable<typeof e> => e !== undefined)
       .map((e) => ({ id: e.id, name: e.name, price: e.price }));
 
-    this.pdfGeneratorService.generateQuotePDF({
+    await this.pdfGeneratorService.generateQuotePDF({
       projectType: {
         id: projectType.id,
         name: projectType.name,

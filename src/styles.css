@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-/* Google Fonts loaded asynchronously via <link rel="preload"> in index.html */
+/* Kedebideri font self-hosted — eliminates fonts.googleapis.com and fonts.gstatic.com round trips */
 @import 'primeicons/primeicons.css';
 @import 'tailwindcss';
 
@@ -8,6 +8,29 @@
   font-family: primeicons;
   font-display: swap;
   src: url('/media/primeicons.woff2') format('woff2');
+}
+
+/* Self-hosted Kedebideri — eliminates fonts.googleapis.com and fonts.gstatic.com round trips */
+@font-face {
+  font-family: 'Kedebideri';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/kedebideri-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Kedebideri';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/assets/fonts/kedebideri-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Kedebideri';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/kedebideri-700.woff2') format('woff2');
 }
 
 :root {

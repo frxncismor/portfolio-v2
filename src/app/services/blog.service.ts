@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of, map, catchError, forkJoin, switchMap, shareReplay } from 'rxjs';
-import { marked, Renderer } from 'marked';
-import hljs from 'highlight.js';
+import { Observable, of, map, catchError, forkJoin, switchMap, shareReplay, from } from 'rxjs';
 import { BlogPost, BlogPostMetadata } from '../interfaces/blog-post.interface';
 
 @Injectable({
@@ -11,28 +9,45 @@ import { BlogPost, BlogPostMetadata } from '../interfaces/blog-post.interface';
 export class BlogService {
   private readonly postsCache: Map<string, BlogPost[]> = new Map();
   private readonly postsObservables: Map<string, Observable<BlogPost[]>> = new Map();
+  private markedInstance: typeof import('marked') | null = null;
+  private hljsInstance: typeof import('highlight.js').default | null = null;
 
-  constructor(private readonly http: HttpClient) {
-    const renderer = new Renderer();
+  constructor(private readonly http: HttpClient) {}
 
-    renderer.code = ({ text, lang }: { text: string; lang?: string }) => {
-      if (lang && hljs.getLanguage(lang)) {
-        try {
-          const highlighted = hljs.highlight(text, { language: lang }).value;
-          return `<pre><code class="hljs language-${lang}">${highlighted}</code></pre>`;
-        } catch (err) {
-          console.error('Highlight error:', err);
+  private async ensureLibsLoaded(): Promise<{
+    marked: typeof import('marked').marked;
+    hljs: typeof import('highlight.js').default;
+  }> {
+    if (!this.markedInstance || !this.hljsInstance) {
+      const [markedModule, hljsModule] = await Promise.all([
+        import('marked'),
+        import('highlight.js'),
+      ]);
+
+      const renderer = new markedModule.Renderer();
+      renderer.code = ({ text, lang }: { text: string; lang?: string }) => {
+        if (lang && hljsModule.default.getLanguage(lang)) {
+          try {
+            const highlighted = hljsModule.default.highlight(text, { language: lang }).value;
+            return `<pre><code class="hljs language-${lang}">${highlighted}</code></pre>`;
+          } catch (err) {
+            console.error('Highlight error:', err);
+          }
         }
-      }
-      const highlighted = hljs.highlightAuto(text).value;
-      return `<pre><code class="hljs">${highlighted}</code></pre>`;
-    };
+        const highlighted = hljsModule.default.highlightAuto(text).value;
+        return `<pre><code class="hljs">${highlighted}</code></pre>`;
+      };
 
-    marked.setOptions({
-      gfm: true,
-      breaks: true,
-      renderer,
-    });
+      markedModule.marked.setOptions({
+        gfm: true,
+        breaks: true,
+        renderer,
+      });
+
+      this.markedInstance = markedModule;
+      this.hljsInstance = hljsModule.default;
+    }
+    return { marked: this.markedInstance!.marked, hljs: this.hljsInstance! };
   }
 
   getPosts(language: 'en' | 'es'): Observable<BlogPost[]> {
@@ -85,7 +100,8 @@ export class BlogService {
 
   private loadPost(slug: string, language: 'en' | 'es'): Observable<BlogPost | null> {
     return this.http.get(`/assets/posts/${language}/${slug}.md`, { responseType: 'text' }).pipe(
-      map((markdown) => {
+      switchMap(async (markdown) => {
+        const { marked } = await this.ensureLibsLoaded();
         const { metadata, content } = this.parseMarkdown(markdown);
         const htmlContent = marked.parse(content) as string;
 

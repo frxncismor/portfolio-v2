@@ -25,3 +25,18 @@ Plans:
 - Canonical and OG URL inconsistencies fixed
 - Schema markup on certifications, blog-detail, price-quote-generator, and services pages
 - Services page with real SEO-targeted content
+
+---
+
+### Phase 2: Lighthouse Performance 100
+**Goal:** Raise Lighthouse performance score from 87 to 100 on frxncismor.dev by addressing all Core Web Vitals and performance audit items. SEO score is already 100 — must not regress.
+
+**Requirements:** REQ-PERF-001
+
+**Plans:** TBD
+
+**Deliverables:**
+- Lighthouse performance score of 100
+- No regression in SEO (100), Accessibility, or Best Practices scores
+- All Core Web Vitals in green (LCP, FID/INP, CLS)
+- Changes compatible with Vercel deployment and Angular SSR
