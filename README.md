@@ -1,4 +1,4 @@
-# Francisco Morales — Portfolio v2
+# Francisco Moreno — Portfolio v2
 
 Personal portfolio built with Angular 20, showcasing projects, work experience, blog posts, and a downloadable resume. Fully bilingual (English / Spanish) with dark mode support.
 
