@@ -2,13 +2,13 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: Executing Phase 02
-last_updated: "2026-03-24T04:38:00.000Z"
+status: Ready to execute
+last_updated: "2026-03-24T04:46:49.579Z"
 progress:
   total_phases: 2
   completed_phases: 1
   total_plans: 8
-  completed_plans: 6
+  completed_plans: 7
 ---
 
 # Project State
@@ -36,7 +36,7 @@ progress:
 ## Current Position
 
 Phase: 02 (lighthouse-performance-100) — EXECUTING
-Plan: 3 of 4
+Plan: 4 of 4
 
 ## Completed Plans
 
@@ -46,6 +46,7 @@ Plan: 3 of 4
 - [x] 01-04: Services Page with ProfessionalService Schema (commits: 40227d9, 9f037bf)
 - [x] 02-01: Bundle Leak Fix — Dynamic Imports for marked, highlight.js, jspdf (commits: 0d419d5, 4989483)
 - [x] 02-02: Self-Host Kedebideri Font (commits: 22b05e0, 1171498)
+- [x] 02-03: PNG-to-WebP Image Conversion + Build Budget (commits: e426d73, 662305f, c3fc058)
 
 ## Decisions Log
 
@@ -63,3 +64,5 @@ Plan: 3 of 4
 - 2026-03-23: addStructuredData and updateCanonical guarded with isPlatformBrowser; updateSEO uses SSR-safe Angular Meta/Title APIs
 - 2026-03-23: 02-02: Self-hosted Kedebideri latin subset woff2 (400/600/700) — eliminates Google Fonts CDN; font-display: swap on all weights
 - 2026-03-24: 02-01: Use ensureLibsLoaded() singleton for lazy-init of marked+highlight.js; use dynamic import('jspdf') at call site in generateQuotePDF()
+- 2026-03-24: 02-03: Image paths live in i18n JSON files (en.json/es.json) not projects.ts; updated those for WebP paths
+- 2026-03-24: 02-03: Only 5 of 9 planned PNG files existed in public/; converted available 5 (80-96% size reduction); build budget warning tightened to 350kB
