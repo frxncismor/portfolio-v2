@@ -4,6 +4,8 @@ Personal portfolio built with Angular 20, showcasing projects, work experience, 
 
 **Live:** [frxncismor.dev](https://frxncismor.dev)
 
+![Lighthouse Scores](docs/lighthouse-scores.png)
+
 ---
 
 ## Tech Stack
