@@ -55,26 +55,11 @@
     <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
 
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
     <!-- LCP: preload hero image so the browser doesn't wait for Angular bootstrap -->
     <link rel="preload" as="image" href="/myphoto.webp" fetchpriority="high" />
 
-    <!-- Google Fonts: async non-render-blocking load (replaces @import in styles.css) -->
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Kedebideri:wght@400;600;700&display=swap"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Kedebideri:wght@400;600;700&display=swap"
-      />
-    </noscript>
+    <!-- Preload primary font weight to ensure availability before first paint -->
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/kedebideri-400.woff2" crossorigin />
 
     <!-- Static JSON-LD: visible to ALL crawlers without JS execution -->
     <script type="application/ld+json">
