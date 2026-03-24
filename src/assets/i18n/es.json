@@ -257,7 +257,7 @@
         "description": "SaaS de IA que ayuda a pequeños negocios a mejorar sus fotos de producto y presencia online usando IA generativa, con gestión de suscripciones via Stripe y almacenamiento en Supabase.",
         "link": "https://shelfie.com.mx",
         "code": "https://github.com/frxncismor/shelfie-public",
-        "image": "/shelfie.png",
+        "image": "/shelfie.webp",
         "technologies": [
           { "name": "React", "color": "info" },
           { "name": "TypeScript", "color": "info" },
@@ -270,7 +270,7 @@
         "title": "Sitio Corporativo — WordPress Headless CMS & Angular",
         "description": "Solución web desacoplada donde el cliente gestiona todo el contenido desde el panel de WordPress, mientras Angular renderiza un frontend completamente personalizado consumiendo la REST API.",
         "code": "https://github.com/frxncismor/corporate-website-public",
-        "image": "/corporate-website.png",
+        "image": "/corporate-website.webp",
         "technologies": [
           { "name": "Angular", "color": "danger" },
           { "name": "TypeScript", "color": "info" },
@@ -283,7 +283,7 @@
         "title": "Invitamex",
         "description": "Plataforma de invitaciones digitales para crear y compartir invitaciones personalizadas para eventos y celebraciones, con un constructor de invitaciones y una landing page pública.",
         "code": "https://github.com/frxncismor/invitamex-public",
-        "image": "/digital-invitation-platform.png",
+        "image": "/digital-invitation-platform.webp",
         "technologies": [
           { "name": "HTML", "color": "warn" },
           { "name": "CSS", "color": "info" },
@@ -294,7 +294,7 @@
         "title": "Kindnest",
         "description": "Plataforma web para gestionar comunidades privadas con pagos integrados, herramientas de comunicación entre miembros y un sistema de administración completo. Actualmente en desarrollo.",
         "code": "https://github.com/frxncismor/kindnest-public",
-        "image": "/kindnest.png",
+        "image": "/kindnest.webp",
         "technologies": [
           { "name": "Angular", "color": "danger" },
           { "name": "TypeScript", "color": "info" },
@@ -306,7 +306,7 @@
         "title": "CeederDesk",
         "description": "Aplicación de escritorio Windows para gestionar el comedero inteligente Ceeder, que permite configurar horarios de alimentación automáticos, monitorear el dispositivo y administrar perfiles de mascotas con SQL Server.",
         "code": "https://github.com/frxncismor/CeederDesk",
-        "image": "/ceeder.png",
+        "image": "/ceeder.webp",
         "technologies": [
           { "name": "C#", "color": "success" },
           { "name": "WinForms", "color": "secondary" },
