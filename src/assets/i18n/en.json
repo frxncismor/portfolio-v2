@@ -868,7 +868,7 @@
     },
     "hero": {
       "title": "Freelance Web Development Services",
-      "subtitle": "Senior Frontend Engineer available for Angular, React, and TypeScript projects",
+      "subtitle": "Software Engineer who takes your idea from requirements to production — I analyze, build, and ship complete systems",
       "cta": "Get a Free Quote"
     },
     "offerings": {
@@ -904,16 +904,16 @@
     "process": {
       "title": "How I Work",
       "step1": {
-        "title": "Discovery",
-        "description": "We discuss your project requirements, timeline, and budget to find the right approach."
+        "title": "Discovery & Requirements",
+        "description": "I sit down with you to understand your business goals, dig into the problem, and define clear requirements — so we build the right solution, not just a website."
       },
       "step2": {
-        "title": "Build",
-        "description": "I develop your application with regular check-ins, clean code, and thorough testing."
+        "title": "Architecture & Development",
+        "description": "I design the system architecture and engineer the full product — frontend, backend, integrations — with clean, maintainable code and regular progress updates."
       },
       "step3": {
-        "title": "Deliver",
-        "description": "Your project is deployed, documented, and ready for production with ongoing support options."
+        "title": "Deploy & Handoff",
+        "description": "I deploy your product to production, configure CI/CD pipelines, and hand off clean documentation — your system is live, stable, and ready to grow."
       }
     },
     "cta": {

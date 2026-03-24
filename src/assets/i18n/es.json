@@ -873,7 +873,7 @@
     },
     "hero": {
       "title": "Servicios de Desarrollo Web Freelance",
-      "subtitle": "Ingeniero Frontend Senior disponible para proyectos en Angular, React y TypeScript",
+      "subtitle": "Ingeniero de Software que lleva tu idea desde los requerimientos hasta producción — analizo, construyo y despliego sistemas completos",
       "cta": "Obtener Cotizacion Gratis"
     },
     "offerings": {
@@ -909,16 +909,16 @@
     "process": {
       "title": "Como Trabajo",
       "step1": {
-        "title": "Descubrimiento",
-        "description": "Discutimos los requisitos de tu proyecto, timeline y presupuesto para encontrar el enfoque correcto."
+        "title": "Descubrimiento y Requerimientos",
+        "description": "Me siento contigo para entender tus metas de negocio, analizo el problema a fondo y defino requerimientos claros — para construir la solución correcta, no solo un sitio web."
       },
       "step2": {
-        "title": "Construccion",
-        "description": "Desarrollo tu aplicacion con check-ins regulares, codigo limpio y pruebas exhaustivas."
+        "title": "Arquitectura y Desarrollo",
+        "description": "Diseño la arquitectura del sistema y desarrollo el producto completo — frontend, backend, integraciones — con código limpio, mantenible y actualizaciones regulares de progreso."
       },
       "step3": {
-        "title": "Entrega",
-        "description": "Tu proyecto se despliega, documenta y esta listo para produccion con opciones de soporte continuo."
+        "title": "Despliegue y Entrega",
+        "description": "Despliego tu producto a producción, configuro pipelines CI/CD y entrego documentación clara — tu sistema está en vivo, estable y listo para crecer."
       }
     },
     "cta": {
