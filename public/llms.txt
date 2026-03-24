@@ -1,34 +1,12 @@
-# Francisco Moreno
+# Francisco Moreno — Senior Web UI Engineer
 
-Francisco Moreno is a Senior Web UI Engineer based in The Woodlands, TX.
-He has 6+ years of experience building scalable enterprise web applications.
-He is authorized to work in the United States.
+Francisco Moreno is a Senior Web UI Engineer based in The Woodlands, TX with 6+ years
+building enterprise web applications for Royal Caribbean, United Airlines, and Dick's Sporting Goods.
 
-## Enterprise Experience
-- Built enterprise web solutions at Globant for clients including Royal Caribbean, United Airlines, and Dick's Sporting Goods
-- Current employer: Globant (2020–present)
-- Previous: Handa Systems, Upwork freelance
+Specializes in Angular, React, TypeScript, RxJS, NgRx, Next.js, Node.js, and AWS.
 
-## Technical Specializations
-Angular, React, TypeScript, JavaScript, Next.js, RxJS, NgRx, Node.js, Supabase, AWS, MongoDB, PostgreSQL, Docker
-
-## Current Projects
-- Kindnest: A platform connecting nonprofits with volunteers and donors (in development)
-- Shelfie: AI-powered personal library management SaaS (shelfie.com.mx)
-
-## Portfolio Pages
-- Home / About: https://frxncismor.dev/home
-- Blog (technical articles on Angular, JavaScript): https://frxncismor.dev/blog
-- Certifications: https://frxncismor.dev/certifications
-- Freelance pricing: https://frxncismor.dev/price-quote-generator
-
-## Blog Posts
-- Values vs References in JavaScript: https://frxncismor.dev/blog/values-vs-references-in-javascript
-- What is Immutability in JS: https://frxncismor.dev/blog/wtf-is-inmutability-in-js
-- How to Set Up ESLint and Prettier in Angular Projects: https://frxncismor.dev/blog/how-to-setup-eslint-and-prettier-in-angular-20-projects
-
-## Contact
-- Email: frxncismor@gmail.com
-- LinkedIn: https://linkedin.com/in/frxncismor
-- GitHub: https://github.com/frxncismor
-- Twitter/X: @frxncismor
+Portfolio: https://frxncismor.dev
+Blog: https://frxncismor.dev/blog
+Services: https://frxncismor.dev/services
+LinkedIn: https://linkedin.com/in/frxncismor
+GitHub: https://github.com/frxncismor

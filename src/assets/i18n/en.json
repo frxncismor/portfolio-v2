@@ -859,5 +859,68 @@
     "clearFilters": "Clear filters",
     "publishedOn": "Published on",
     "minRead": "min read"
+  },
+  "services": {
+    "seo": {
+      "title": "Freelance Angular & React Developer | Houston TX | Francisco Moreno",
+      "description": "Hire an experienced Angular developer in Houston, TX. Freelance frontend consultant specializing in Angular, React, TypeScript for enterprise web applications.",
+      "keywords": "Angular developer Houston TX, freelance frontend consultant, hire Angular developer, React developer Texas, TypeScript consulting, frontend architecture"
+    },
+    "hero": {
+      "title": "Freelance Web Development Services",
+      "subtitle": "Senior Frontend Engineer available for Angular, React, and TypeScript projects",
+      "cta": "Get a Free Quote"
+    },
+    "offerings": {
+      "title": "What I Offer",
+      "angular": {
+        "title": "Angular Development",
+        "description": "Enterprise-grade Angular applications with signals, standalone components, RxJS, and NgRx state management."
+      },
+      "react": {
+        "title": "React & Next.js Development",
+        "description": "Modern React applications with hooks, server components, and Next.js for SEO-optimized web apps."
+      },
+      "typescript": {
+        "title": "TypeScript Consulting",
+        "description": "Type-safe codebases, migration from JavaScript to TypeScript, strict typing strategies for large teams."
+      },
+      "fullstack": {
+        "title": "Full-Stack Development",
+        "description": "End-to-end solutions with Node.js, Supabase, AWS, MongoDB, and PostgreSQL backends."
+      },
+      "uiux": {
+        "title": "UI/UX Implementation",
+        "description": "Pixel-perfect implementation of designs using TailwindCSS, responsive layouts, and accessibility best practices."
+      }
+    },
+    "clients": {
+      "title": "Enterprise Experience",
+      "description": "Trusted by teams at leading companies to deliver production-grade web applications.",
+      "royalCaribbean": "Royal Caribbean — Cruise booking and management platforms",
+      "unitedAirlines": "United Airlines — Flight operations and customer-facing tools",
+      "dicksSportingGoods": "Dick's Sporting Goods — E-commerce and retail web applications"
+    },
+    "process": {
+      "title": "How I Work",
+      "step1": {
+        "title": "Discovery",
+        "description": "We discuss your project requirements, timeline, and budget to find the right approach."
+      },
+      "step2": {
+        "title": "Build",
+        "description": "I develop your application with regular check-ins, clean code, and thorough testing."
+      },
+      "step3": {
+        "title": "Deliver",
+        "description": "Your project is deployed, documented, and ready for production with ongoing support options."
+      }
+    },
+    "cta": {
+      "title": "Ready to Start Your Project?",
+      "description": "Get an instant estimate with the price quote generator, or schedule a free consultation.",
+      "quoteButton": "Get Price Quote",
+      "calendlyButton": "Book a Call"
+    }
   }
 }

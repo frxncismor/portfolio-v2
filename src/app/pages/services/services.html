@@ -1,1 +1,187 @@
-<p>services works!</p>
+<div class="min-h-screen bg-white dark:bg-(--color-dark-theme) py-12 md:py-20 px-4">
+  <div class="max-w-5xl mx-auto">
+
+    <!-- Hero Section -->
+    <section class="mb-16 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4">
+        {{ translate()('services.hero.title') }}
+      </h1>
+      <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
+        {{ translate()('services.hero.subtitle') }}
+      </p>
+      <a
+        routerLink="/price-quote-generator"
+        class="inline-block px-8 py-3 bg-gray-800 dark:bg-white text-white dark:text-gray-800 font-semibold rounded-lg hover:bg-gray-700 dark:hover:bg-gray-200 transition-colors text-lg"
+      >
+        {{ translate()('services.hero.cta') }}
+      </a>
+    </section>
+
+    <!-- Offerings Section -->
+    <section class="mb-16">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-8 text-center">
+        {{ translate()('services.offerings.title') }}
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article class="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg p-6 hover:border-gray-500 dark:hover:border-gray-400 transition-colors">
+          <div class="mb-3">
+            <i class="pi pi-code text-2xl text-gray-700 dark:text-gray-300"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">
+            {{ translate()('services.offerings.angular.title') }}
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+            {{ translate()('services.offerings.angular.description') }}
+          </p>
+        </article>
+
+        <article class="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg p-6 hover:border-gray-500 dark:hover:border-gray-400 transition-colors">
+          <div class="mb-3">
+            <i class="pi pi-globe text-2xl text-gray-700 dark:text-gray-300"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">
+            {{ translate()('services.offerings.react.title') }}
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+            {{ translate()('services.offerings.react.description') }}
+          </p>
+        </article>
+
+        <article class="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg p-6 hover:border-gray-500 dark:hover:border-gray-400 transition-colors">
+          <div class="mb-3">
+            <i class="pi pi-check-circle text-2xl text-gray-700 dark:text-gray-300"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">
+            {{ translate()('services.offerings.typescript.title') }}
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+            {{ translate()('services.offerings.typescript.description') }}
+          </p>
+        </article>
+
+        <article class="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg p-6 hover:border-gray-500 dark:hover:border-gray-400 transition-colors">
+          <div class="mb-3">
+            <i class="pi pi-server text-2xl text-gray-700 dark:text-gray-300"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">
+            {{ translate()('services.offerings.fullstack.title') }}
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+            {{ translate()('services.offerings.fullstack.description') }}
+          </p>
+        </article>
+
+        <article class="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg p-6 hover:border-gray-500 dark:hover:border-gray-400 transition-colors">
+          <div class="mb-3">
+            <i class="pi pi-palette text-2xl text-gray-700 dark:text-gray-300"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">
+            {{ translate()('services.offerings.uiux.title') }}
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+            {{ translate()('services.offerings.uiux.description') }}
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="mb-16">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-4 text-center">
+        {{ translate()('services.clients.title') }}
+      </h2>
+      <p class="text-gray-600 dark:text-gray-400 text-center mb-8 max-w-2xl mx-auto">
+        {{ translate()('services.clients.description') }}
+      </p>
+      <div class="space-y-3 max-w-2xl mx-auto">
+        <div class="flex items-center gap-3 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg px-6 py-4">
+          <i class="pi pi-building text-gray-600 dark:text-gray-400 text-lg shrink-0"></i>
+          <p class="text-gray-800 dark:text-white font-medium">
+            {{ translate()('services.clients.royalCaribbean') }}
+          </p>
+        </div>
+        <div class="flex items-center gap-3 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg px-6 py-4">
+          <i class="pi pi-building text-gray-600 dark:text-gray-400 text-lg shrink-0"></i>
+          <p class="text-gray-800 dark:text-white font-medium">
+            {{ translate()('services.clients.unitedAirlines') }}
+          </p>
+        </div>
+        <div class="flex items-center gap-3 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg px-6 py-4">
+          <i class="pi pi-building text-gray-600 dark:text-gray-400 text-lg shrink-0"></i>
+          <p class="text-gray-800 dark:text-white font-medium">
+            {{ translate()('services.clients.dicksSportingGoods') }}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="mb-16">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-8 text-center">
+        {{ translate()('services.process.title') }}
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="text-center">
+          <div class="w-12 h-12 rounded-full bg-gray-800 dark:bg-white text-white dark:text-gray-800 font-bold text-xl flex items-center justify-center mx-auto mb-4">
+            1
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">
+            {{ translate()('services.process.step1.title') }}
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+            {{ translate()('services.process.step1.description') }}
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 rounded-full bg-gray-800 dark:bg-white text-white dark:text-gray-800 font-bold text-xl flex items-center justify-center mx-auto mb-4">
+            2
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">
+            {{ translate()('services.process.step2.title') }}
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+            {{ translate()('services.process.step2.description') }}
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 rounded-full bg-gray-800 dark:bg-white text-white dark:text-gray-800 font-bold text-xl flex items-center justify-center mx-auto mb-4">
+            3
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">
+            {{ translate()('services.process.step3.title') }}
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+            {{ translate()('services.process.step3.description') }}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="text-center bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl p-10">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-4">
+        {{ translate()('services.cta.title') }}
+      </h2>
+      <p class="text-gray-600 dark:text-gray-400 mb-8 max-w-xl mx-auto">
+        {{ translate()('services.cta.description') }}
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          routerLink="/price-quote-generator"
+          class="inline-block px-8 py-3 bg-gray-800 dark:bg-white text-white dark:text-gray-800 font-semibold rounded-lg hover:bg-gray-700 dark:hover:bg-gray-200 transition-colors"
+        >
+          {{ translate()('services.cta.quoteButton') }}
+        </a>
+        <a
+          href="https://calendly.com/frxncismor"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block px-8 py-3 bg-transparent border-2 border-gray-800 dark:border-white text-gray-800 dark:text-white font-semibold rounded-lg hover:bg-gray-800 hover:text-white dark:hover:bg-white dark:hover:text-gray-800 transition-colors"
+        >
+          {{ translate()('services.cta.calendlyButton') }}
+        </a>
+      </div>
+    </section>
+
+  </div>
+</div>
