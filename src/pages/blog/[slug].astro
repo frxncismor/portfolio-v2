@@ -48,6 +48,7 @@ const blogPostingSchema = {
 <Layout
   title={`${enPost.data.title} — Francisco Moreno`}
   description={enPost.data.description}
+  keywords={`${enPost.data.category}, ${enPost.data.title}, Francisco Moreno, Angular, TypeScript, JavaScript, frontend development`}
 >
   <script type="application/ld+json" set:html={JSON.stringify(blogPostingSchema)} />
   <Nav />
@@ -57,6 +58,7 @@ const blogPostingSchema = {
     <!-- Back link -->
     <a
       href="/blog"
+      title="Back to all blog posts"
       class="inline-block text-[10px] font-mono text-muted hover:text-cream uppercase tracking-widest transition-colors mb-12 fade-in"
       data-i18n="blog.back"
     >← Back to Blog</a>

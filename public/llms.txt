@@ -1,0 +1,39 @@
+# Francisco Moreno — Senior Web UI Engineer
+
+> Angular specialist based in Houston, TX. 6 years building production-grade frontends for Disney, Royal Caribbean, United Airlines, and more. Available for freelance projects and full-time opportunities in the US.
+
+## About
+
+Francisco Moreno is a Senior Web UI Engineer with expertise in Angular, TypeScript, React, Next.js, and Astro. He has delivered enterprise-grade frontends at Globant for Fortune 500 companies including Disney, Royal Caribbean, United Airlines, Dick's Sporting Goods, and Gannett. Currently based in Houston, TX, originally from Monterrey, Mexico.
+
+## Skills & Expertise
+
+- Angular (specialist), TypeScript, RxJS, Angular Signals
+- React, Next.js, Astro
+- Frontend architecture: Clean Architecture, Atomic Design, Hexagonal Architecture
+- Performance optimization, Core Web Vitals, Lighthouse 100
+- Tailwind CSS, SCSS, CSS-in-JS
+- Testing: Jest, Cypress, Playwright
+- AI-assisted development: Claude Code, SDD workflow, MCP servers
+
+## Work Experience
+
+- **Globant** (5 years) — Senior Web UI Engineer. Clients: Disney, Royal Caribbean, United Airlines, Dick's Sporting Goods, Gannett
+- **Freelance & Independent**: Vaneybr Portfolio (Angular), Kindnest (community platform, WIP), Contractors Project (AI-assisted client management, WIP), Shelfie (AI SaaS for product photography)
+
+## Blog
+
+Technical writing on Angular, JavaScript, frontend architecture, and AI-assisted development.
+
+- /blog/angular-signals — Angular Signals: A Practical Introduction
+- /blog/values-vs-references-in-javascript — Values vs References in JavaScript
+- /blog/wtf-is-inmutability-in-js — WTF Is Immutability in JavaScript?
+- /blog/how-to-setup-eslint-and-prettier-in-angular-20-projects — How to Setup ESLint and Prettier in Angular 20 Projects
+- /blog/web-dev-in-2026-with-ai — What It's Like to Be a Web Developer in 2026
+
+## Contact
+
+- Email: hello@frxncismor.dev
+- GitHub: https://github.com/frxncismor
+- LinkedIn: https://linkedin.com/in/frxncismor
+- Website: https://frxncismor.dev

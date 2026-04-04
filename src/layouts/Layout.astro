@@ -5,30 +5,47 @@ interface Props {
   title?: string
   description?: string
   ogImage?: string
+  keywords?: string
 }
 
 const {
   title       = 'Francisco Moreno — Senior Web UI Engineer',
   description = 'Angular specialist based in Houston, TX. 6 years building for Disney, Royal Caribbean, United Airlines & more. Available for freelance and full-time opportunities in the US.',
   ogImage     = '/og-image.svg',
+  keywords    = 'Angular developer, TypeScript, React, Next.js, Astro, Frontend Engineer, Web Developer, Senior Web UI Engineer, Houston TX, freelance developer, JavaScript, Angular specialist',
 } = Astro.props
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 const ogImageURL   = new URL(ogImage, Astro.site)
 
-const jsonLd = {
+const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Francisco Moreno',
   url: 'https://frxncismor.dev',
   jobTitle: 'Senior Web UI Engineer',
+  description: 'Angular specialist based in Houston, TX. 6 years building for Disney, Royal Caribbean, United Airlines & more.',
+  knowsAbout: ['Angular', 'TypeScript', 'React', 'Next.js', 'Astro', 'JavaScript', 'Frontend Architecture', 'Web Development'],
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Houston',
     addressRegion: 'TX',
     addressCountry: 'US',
   },
-  sameAs: ['https://github.com/frxncismor'],
+  sameAs: [
+    'https://github.com/frxncismor',
+    'https://linkedin.com/in/frxncismor',
+  ],
+}
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Francisco Moreno',
+  url: 'https://frxncismor.dev',
+  description: 'Portfolio of Francisco Moreno — Senior Web UI Engineer based in Houston, TX.',
+  author: { '@type': 'Person', name: 'Francisco Moreno', url: 'https://frxncismor.dev' },
+  publisher: { '@type': 'Person', name: 'Francisco Moreno', url: 'https://frxncismor.dev' },
 }
 ---
 
@@ -90,10 +107,13 @@ const jsonLd = {
 
     <!-- Primary SEO -->
     <title>{title}</title>
-    <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalURL} />
-    <meta name="robots" content="index, follow" />
-    <meta name="generator" content={Astro.generator} />
+    <meta name="description"  content={description} />
+    <meta name="keywords"     content={keywords} />
+    <meta name="author"       content="Francisco Moreno" />
+    <meta name="publisher"    content="Francisco Moreno" />
+    <link rel="canonical"     href={canonicalURL} />
+    <meta name="robots"       content="index, follow" />
+    <meta name="generator"    content={Astro.generator} />
 
     <!-- Open Graph -->
     <meta property="og:type"        content="website" />
@@ -102,16 +122,20 @@ const jsonLd = {
     <meta property="og:description" content={description} />
     <meta property="og:image"       content={ogImageURL} />
     <meta property="og:site_name"   content="frxncismor.dev" />
+    <meta property="og:locale"      content="en_US" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:site"        content="@frxncismor" />
+    <meta name="twitter:creator"     content="@frxncismor" />
     <meta name="twitter:url"         content={canonicalURL} />
     <meta name="twitter:title"       content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image"       content={ogImageURL} />
 
-    <!-- JSON-LD Person schema -->
-    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <!-- JSON-LD Person + WebSite schemas -->
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="theme-color" content="#0c0c0f" />

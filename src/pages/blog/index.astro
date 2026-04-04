@@ -30,12 +30,30 @@ const categories = [...new Set(posts.map((p) => p.category))]
 const searchManifest = posts.map(({ slug, titleEn, titleEs, descEn, descEs, category }) => ({
   slug, titleEn, titleEs, descEn, descEs, category,
 }))
+
+const blogSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'Francisco Moreno — Blog',
+  url: 'https://frxncismor.dev/blog',
+  description: 'Technical writing on Angular, frontend architecture, and building things on the web.',
+  author: { '@type': 'Person', name: 'Francisco Moreno', url: 'https://frxncismor.dev' },
+  blogPost: posts.map((p) => ({
+    '@type': 'BlogPosting',
+    headline: p.titleEn,
+    description: p.descEn,
+    datePublished: p.date.toISOString(),
+    url: `https://frxncismor.dev/blog/${p.slug}`,
+  })),
+}
 ---
 
 <Layout
   title="Blog — Francisco Moreno"
   description="Technical writing on Angular, frontend architecture, and building things on the web."
+  keywords="Angular blog, TypeScript tutorials, JavaScript fundamentals, frontend development, web development 2026, Angular signals, ESLint Prettier Angular"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(blogSchema)} />
   <Nav />
 
   <main id="main-content" class="min-h-screen pt-32 pb-24 px-6 max-w-screen-xl mx-auto">
