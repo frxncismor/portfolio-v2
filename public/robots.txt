@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://frxncismor.dev/sitemap-index.xml

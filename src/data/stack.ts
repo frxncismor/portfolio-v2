@@ -1,0 +1,15 @@
+export const stack: string[] = [
+  'Angular',
+  'React',
+  'Next.js',
+  'Astro',
+  'TypeScript',
+  'Node.js',
+  'Supabase',
+  'Stripe',
+  'Three.js',
+  'WordPress',
+  'RxJS',
+  'NGRX',
+  'Tailwind CSS',
+]

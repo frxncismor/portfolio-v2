@@ -1,0 +1,133 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+import BlogCard from '../../components/BlogCard.astro'
+
+const enPosts = await getCollection('blog-en', ({ data }) => !data.draft)
+const esPosts = await getCollection('blog-es', ({ data }) => !data.draft)
+
+const esMap = new Map(esPosts.map((p) => [p.slug, p]))
+
+const posts = enPosts
+  .map((en) => {
+    const es = esMap.get(en.slug)
+    return {
+      slug:     en.slug,
+      titleEn:  en.data.title,
+      titleEs:  es?.data.title  ?? en.data.title,
+      descEn:   en.data.description,
+      descEs:   es?.data.description ?? en.data.description,
+      category: en.data.category,
+      date:     en.data.date,
+    }
+  })
+  .sort((a, b) => b.date.getTime() - a.date.getTime())
+
+const categories = [...new Set(posts.map((p) => p.category))]
+
+const searchManifest = posts.map(({ slug, titleEn, titleEs, descEn, descEs, category }) => ({
+  slug, titleEn, titleEs, descEn, descEs, category,
+}))
+---
+
+<Layout
+  title="Blog — Francisco Moreno"
+  description="Technical writing on Angular, frontend architecture, and building things on the web."
+>
+  <Nav />
+
+  <main id="main-content" class="min-h-screen pt-32 pb-24 px-6 max-w-screen-xl mx-auto">
+
+    <!-- Header -->
+    <div class="mb-16 fade-in">
+      <span class="section-label" data-i18n="blog.label">WRITING</span>
+      <h1
+        class="text-5xl md:text-7xl font-black font-headline text-cream mt-2 italic underline decoration-brand underline-offset-8 decoration-4"
+        data-i18n="blog.title"
+      >Blog.</h1>
+    </div>
+
+    <!-- Search + Filters -->
+    <div class="mb-10 flex flex-col sm:flex-row gap-4 fade-in" role="search">
+      <label for="blog-search" class="sr-only" data-i18n="blog.search-placeholder">Search posts...</label>
+      <input
+        id="blog-search"
+        type="search"
+        placeholder="Search posts..."
+        data-i18n-placeholder="blog.search-placeholder"
+        aria-label="Search posts"
+        class="w-full sm:max-w-xs bg-elevated border border-outline-v/20 text-cream/80 font-mono text-sm px-4 py-2.5 placeholder:text-muted focus:outline-none focus:border-brand/50 transition-colors"
+      />
+
+      <div class="flex flex-wrap gap-2" role="group" aria-label="Filter by category">
+        <button
+          type="button"
+          data-filter="all"
+          class="filter-active px-3 py-1.5 text-[10px] font-mono font-bold uppercase tracking-widest border transition-colors"
+          aria-pressed="true"
+        >
+          <span data-i18n="blog.all">All</span>
+        </button>
+        {categories.map((cat) => (
+          <button
+            type="button"
+            data-filter={cat}
+            class="px-3 py-1.5 text-[10px] font-mono font-bold uppercase tracking-widest border border-outline-v/30 text-outline hover:text-cream hover:border-outline-v/60 transition-colors"
+            aria-pressed="false"
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Posts grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 stagger-group">
+      {posts.map((post) => (
+        <BlogCard {...post} />
+      ))}
+    </div>
+
+    <!-- No results -->
+    <p
+      id="blog-no-results"
+      class="text-sm font-mono text-muted text-center py-16"
+      data-i18n="blog.no-results"
+      style="display: none;"
+      aria-live="polite"
+    >
+      No posts found.
+    </p>
+
+  </main>
+
+  <Footer />
+</Layout>
+
+<!-- Inline search manifest -->
+<script id="blog-search-index" type="application/json" set:html={JSON.stringify(searchManifest)} />
+
+<script>
+  import '../../scripts/animations'
+</script>
+<script>
+  import '../../scripts/i18n'
+</script>
+<script>
+  import '../../scripts/blog'
+</script>
+
+<style>
+  /* Active filter pill style */
+  [data-filter].filter-active {
+    border-color: rgb(127 119 221 / 0.4);
+    color: #7F77DD;
+  }
+
+  /* Placeholder i18n — vanilla JS handles the text, but we need attr support */
+  input[data-i18n-placeholder] {
+    /* handled by i18n extension in blog.ts via re-use of data-lang */
+  }
+</style>

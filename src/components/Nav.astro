@@ -1,0 +1,58 @@
+---
+---
+
+<nav
+  class="fixed top-0 w-full z-50 bg-[#111114]/60 backdrop-blur-xl border-b border-white/10"
+  style="box-shadow: 0 40px 60px -15px rgba(127,119,221,0.05);"
+>
+  <div class="flex justify-between items-center h-20 px-6 md:px-12 w-full max-w-screen-2xl mx-auto">
+
+    <!-- Brand -->
+    <a href="/" class="text-xl font-black tracking-widest text-cream font-headline uppercase">
+      FRXNCISMOR
+    </a>
+
+    <!-- Nav links -->
+    <div class="hidden md:flex items-center gap-8">
+      <a
+        href="/#work"
+        class="text-cream/60 hover:text-cream transition-colors font-mono text-sm uppercase"
+        data-i18n="nav.work"
+      >Work</a>
+      <a
+        href="/#experience"
+        class="text-cream/60 hover:text-cream transition-colors font-mono text-sm uppercase"
+        data-i18n="nav.experience"
+      >Experience</a>
+      <a
+        href="/#contact"
+        class="text-cream/60 hover:text-cream transition-colors font-mono text-sm uppercase"
+        data-i18n="nav.contact"
+      >Contact</a>
+      <a
+        href="/blog"
+        class="text-cream/60 hover:text-cream transition-colors font-mono text-sm uppercase"
+        data-i18n="nav.blog"
+      >Blog</a>
+    </div>
+
+    <!-- Right controls -->
+    <div class="flex items-center gap-4 md:gap-6">
+      <button
+        id="lang-toggle"
+        type="button"
+        class="text-xs font-mono text-cream/60 uppercase tracking-tight hover:text-cream transition-colors"
+        aria-label="Toggle language"
+      >
+        <span data-i18n="nav.toggle">ES</span>
+      </button>
+      <span
+        class="hidden sm:inline-block bg-[#1D9E75]/20 text-[#86f8c9] text-[10px] px-3 py-1 font-bold uppercase tracking-widest border border-[#1D9E75]/30 font-mono"
+        data-i18n="nav.available"
+      >
+        Open to full-time
+      </span>
+    </div>
+
+  </div>
+</nav>

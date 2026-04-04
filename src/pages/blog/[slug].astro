@@ -1,0 +1,112 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+
+export async function getStaticPaths() {
+  const enPosts = await getCollection('blog-en', ({ data }) => !data.draft)
+  const esPosts = await getCollection('blog-es', ({ data }) => !data.draft)
+  const esMap   = new Map(esPosts.map((p) => [p.slug, p]))
+
+  return enPosts.map((enPost) => ({
+    params: { slug: enPost.slug },
+    props:  { enPost, esPost: esMap.get(enPost.slug) ?? enPost },
+  }))
+}
+
+const { enPost, esPost } = Astro.props
+
+const { Content: ContentEn } = await enPost.render()
+const { Content: ContentEs } = await esPost.render()
+
+const formattedEn = enPost.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+const formattedEs = enPost.data.date.toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })
+
+const postUrl = `https://frxncismor.dev/blog/${enPost.slug}`
+const blogPostingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: enPost.data.title,
+  description: enPost.data.description,
+  datePublished: enPost.data.date.toISOString(),
+  url: postUrl,
+  author: {
+    '@type': 'Person',
+    name: 'Francisco Moreno',
+    url: 'https://frxncismor.dev',
+  },
+  publisher: {
+    '@type': 'Person',
+    name: 'Francisco Moreno',
+    url: 'https://frxncismor.dev',
+  },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl },
+}
+---
+
+<Layout
+  title={`${enPost.data.title} — Francisco Moreno`}
+  description={enPost.data.description}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(blogPostingSchema)} />
+  <Nav />
+
+  <main id="main-content" class="min-h-screen pt-32 pb-24 px-6 max-w-screen-lg mx-auto">
+
+    <!-- Back link -->
+    <a
+      href="/blog"
+      class="inline-block text-[10px] font-mono text-muted hover:text-cream uppercase tracking-widest transition-colors mb-12 fade-in"
+      data-i18n="blog.back"
+    >← Back to Blog</a>
+
+    <!-- Post header -->
+    <header class="mb-12 fade-in">
+      <span class="inline-block px-2 py-1 bg-white/5 border border-white/10 text-[9px] font-bold tracking-widest uppercase text-outline w-fit font-mono mb-4">
+        {enPost.data.category}
+      </span>
+
+      <h1 class="text-4xl md:text-5xl font-black font-headline text-cream leading-tight mb-4">
+        <span class="lang-en">{enPost.data.title}</span>
+        <span class="lang-es">{esPost.data.title}</span>
+      </h1>
+
+      <p class="text-xs font-mono text-muted">
+        <span class="lang-en">{formattedEn}</span>
+        <span class="lang-es">{formattedEs}</span>
+      </p>
+
+      <div class="mt-6 border-b border-outline-v/20"></div>
+    </header>
+
+    <!-- Post content — bilingual blocks -->
+    <article>
+      <div class="prose lang-en">
+        <ContentEn />
+      </div>
+      <div class="prose lang-es">
+        <ContentEs />
+      </div>
+    </article>
+
+    <!-- Footer nav -->
+    <div class="mt-16 pt-8 border-t border-outline-v/20 fade-in">
+      <a
+        href="/blog"
+        class="text-[10px] font-mono text-muted hover:text-brand uppercase tracking-widest transition-colors"
+        data-i18n="blog.back"
+      >← Back to Blog</a>
+    </div>
+
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  import '../../scripts/animations'
+</script>
+<script>
+  import '../../scripts/i18n'
+</script>

@@ -1,0 +1,79 @@
+---
+---
+
+<section
+  id="hero"
+  class="relative h-[100vh] flex flex-col items-center justify-center overflow-hidden px-6"
+>
+  <!-- Grain overlay -->
+  <div class="absolute inset-0 grain-overlay z-10"></div>
+
+  <!-- Background orbs -->
+  <div
+    class="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full blur-[120px] z-0"
+    style="background:#3C3489;opacity:0.07;"
+  ></div>
+  <div
+    class="absolute -bottom-20 -right-20 w-[400px] h-[400px] rounded-full blur-[120px] z-0"
+    style="background:#0F6E56;opacity:0.07;"
+  ></div>
+
+  <!-- Content -->
+  <div class="w-full max-w-6xl z-20 flex flex-col items-center text-center">
+
+    <!-- Label row -->
+    <div class="flex items-center gap-4 w-full mb-8 fade-in" id="hero-label">
+      <div class="h-px flex-grow bg-outline-v/30"></div>
+      <span
+        class="text-[10px] md:text-xs font-mono uppercase tracking-[0.3em] text-on-sv whitespace-nowrap"
+        data-i18n="hero.label"
+      >Senior Web UI Engineer · Houston, TX</span>
+      <div class="h-px flex-grow bg-outline-v/30"></div>
+    </div>
+
+    <!-- Main heading -->
+    <h1 class="flex flex-col w-full mb-8">
+      <span
+        class="text-6xl md:text-[10rem] font-black uppercase tracking-tighter leading-none text-brand font-headline fade-in"
+        id="hero-name-1"
+      >FRANCISCO</span>
+      <span
+        class="text-6xl md:text-[10rem] font-black uppercase tracking-tighter leading-none text-cream font-headline fade-in"
+        id="hero-name-2"
+      >MORENO.</span>
+    </h1>
+
+    <!-- Subtitles -->
+    <p
+      class="font-mono text-sm md:text-lg mb-2 text-cream fade-in"
+      id="hero-sub1"
+      data-i18n="hero.subtitle"
+    >6 years building for Disney, Royal Caribbean, United Airlines &amp; more.</p>
+    <p
+      class="font-mono text-[10px] md:text-xs text-outline mb-12 uppercase tracking-widest fade-in"
+      id="hero-sub2"
+      data-i18n="hero.specialty"
+    >Angular specialist. React, Next.js &amp; Astro when the job calls for it.</p>
+
+    <!-- CTAs -->
+    <div class="flex flex-col sm:flex-row gap-4 fade-in" id="hero-cta">
+      <a
+        href="#work"
+        class="bg-brand text-[#2a1c84] font-bold py-4 px-10 tracking-widest text-xs hover:bg-brand-h transition-all font-mono"
+        data-i18n="hero.cta-work"
+      >SEE MY WORK</a>
+      <a
+        href="#experience"
+        class="border border-outline-v/40 text-cream font-bold py-4 px-10 tracking-widest text-xs hover:border-brand transition-all font-mono"
+        data-i18n="hero.cta-exp"
+      >VIEW EXPERIENCE</a>
+    </div>
+
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce opacity-40 z-20" aria-hidden="true">
+    <span class="material-symbols-outlined text-3xl text-cream">keyboard_double_arrow_down</span>
+  </div>
+
+</section>

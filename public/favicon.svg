@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" fill="#0c0c0f"/>
+  <text
+    x="50%" y="53%"
+    dominant-baseline="middle"
+    text-anchor="middle"
+    font-family="Arial Black, sans-serif"
+    font-weight="900"
+    font-size="13"
+    fill="#7F77DD"
+    letter-spacing="-0.5"
+  >FM</text>
+</svg>

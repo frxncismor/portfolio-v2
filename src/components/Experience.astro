@@ -1,0 +1,122 @@
+---
+import { globantClients, freelanceProjects } from '../data/experience'
+import { stack } from '../data/stack'
+---
+
+<section id="experience" class="py-32 bg-card">
+  <div class="max-w-screen-xl mx-auto px-6">
+
+    <!-- Section header -->
+    <div class="mb-16">
+      <span class="section-label" data-i18n="exp.label">RESUME</span>
+      <h2
+        class="text-5xl font-black font-headline text-cream mt-2 italic underline decoration-brand underline-offset-8 decoration-4"
+        data-i18n="exp.title"
+      >Experience.</h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+
+      <!-- Enterprise column -->
+      <div class="fade-in">
+        <h3
+          class="font-headline font-bold text-xl uppercase tracking-tighter mb-8 border-l-4 border-green pl-4 text-cream"
+          data-i18n="exp.enterprise"
+        >Enterprise</h3>
+
+        <div class="bg-elevated p-8 rounded-lg border border-outline-v/10">
+          <!-- Globant header -->
+          <div class="flex justify-between items-start mb-6">
+            <div>
+              <h4 class="text-2xl font-black font-headline text-cream">Globant</h4>
+              <p class="text-xs font-mono text-green uppercase tracking-widest mt-1" data-i18n="exp.globant-role">
+                Senior Web UI Engineer
+              </p>
+            </div>
+            <span class="text-xs font-mono text-outline uppercase tracking-tighter" data-i18n="exp.globant-duration">
+              5 YEARS
+            </span>
+          </div>
+
+          <p class="text-sm font-mono text-on-sv mb-8 leading-relaxed" data-i18n="exp.globant-desc">
+            Delivered production-grade frontends for global enterprise brands as part of Globant's engineering teams.
+          </p>
+
+          <!-- Clients -->
+          <div>
+            <span class="text-[10px] font-bold text-muted tracking-widest block mb-4 uppercase font-mono" data-i18n="exp.clients-label">
+              Direct Clients Served
+            </span>
+            <div class="flex flex-wrap gap-3">
+              {globantClients.map((client) => (
+                <div class="bg-base px-4 py-2 border border-outline-v/20 flex items-center gap-3">
+                  <span class="material-symbols-outlined text-sm text-brand">{client.icon}</span>
+                  <span class="text-xs font-mono text-cream">{client.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Freelance column -->
+      <div class="fade-in">
+        <h3
+          class="font-headline font-bold text-xl uppercase tracking-tighter mb-8 border-l-4 border-outline-v pl-4 text-cream"
+          data-i18n="exp.freelance"
+        >Freelance &amp; Independent</h3>
+
+        <div class="space-y-1">
+          {freelanceProjects.map((item) => (
+            item.url ? (
+              <a
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group flex flex-col p-6 bg-base border-b border-outline-v/10 hover:bg-elevated transition-colors block"
+              >
+                <div class="flex justify-between items-center">
+                  <div class="flex items-center gap-3">
+                    <h4 class="text-lg font-bold font-headline text-cream group-hover:text-brand transition-colors">
+                      {item.title}
+                    </h4>
+                    {item.wip && (
+                      <span class="text-[9px] font-mono font-bold tracking-widest px-2 py-0.5 border border-brand/40 text-brand/70 uppercase">WIP</span>
+                    )}
+                  </div>
+                  <span class="material-symbols-outlined text-sm text-outline group-hover:text-brand transition-colors">arrow_outward</span>
+                </div>
+                <p class="text-xs font-mono text-outline">{item.description}</p>
+              </a>
+            ) : (
+              <div class="group flex flex-col p-6 bg-base border-b border-outline-v/10 hover:bg-elevated transition-colors">
+                <div class="flex items-center gap-3">
+                  <h4 class="text-lg font-bold font-headline text-cream group-hover:text-brand transition-colors">
+                    {item.title}
+                  </h4>
+                  {item.wip && (
+                    <span class="text-[9px] font-mono font-bold tracking-widest px-2 py-0.5 border border-brand/40 text-brand/70 uppercase">WIP</span>
+                  )}
+                </div>
+                <p class="text-xs font-mono text-outline">{item.description}</p>
+              </div>
+            )
+          ))}
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Tech chips row -->
+    <div class="mt-24 pt-16 border-t border-outline-v/20">
+      <div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+        {stack.map((tech) => (
+          <span class="text-sm font-mono text-cream/40 hover:text-brand transition-colors cursor-default">
+            {tech}
+          </span>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>

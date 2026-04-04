@@ -1,0 +1,24 @@
+---
+import { projects } from '../data/projects'
+import ProjectCard from './ProjectCard.astro'
+---
+
+<section id="work" class="py-32 px-6 max-w-screen-xl mx-auto">
+
+  <!-- Section header -->
+  <div class="mb-20">
+    <span class="section-label" data-i18n="work.label">SELECTED WORK</span>
+    <h2
+      class="text-5xl md:text-7xl font-black font-headline text-cream mt-2"
+      data-i18n="work.title"
+    >Selected Work.</h2>
+  </div>
+
+  <!-- Cards grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10 stagger-group">
+    {projects.map((project) => (
+      <ProjectCard project={project} />
+    ))}
+  </div>
+
+</section>
