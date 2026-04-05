@@ -16,6 +16,7 @@ const hasBothLinks = Boolean(project.url && project.githubUrl)
 {hasLink ? (
   <a
     href={primaryUrl}
+    title={isGithubOnly ? `View ${project.title} source code on GitHub` : `View ${project.title} — ${project.description}`}
     target="_blank"
     rel="noopener noreferrer"
     class="bg-card border-x border-b border-border rounded-[4px] p-8 flex flex-col gap-6 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group fade-in block"
@@ -45,6 +46,7 @@ const hasBothLinks = Boolean(project.url && project.githubUrl)
     {hasBothLinks && (
       <a
         href={project.githubUrl}
+        title={`View ${project.title} source code on GitHub`}
         target="_blank"
         rel="noopener noreferrer"
         class="absolute bottom-4 right-4 text-[9px] font-mono text-muted hover:text-brand transition-colors uppercase tracking-widest"
