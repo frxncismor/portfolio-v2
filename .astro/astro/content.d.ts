@@ -146,35 +146,42 @@ declare module 'astro:content' {
   slug: "angular-signals";
   body: string;
   collection: "blog-en";
-  data: InferEntrySchema<"blog-en">
+  data: any
+} & { render(): Render[".md"] };
+"from-frontend-to-full-stack.md": {
+	id: "from-frontend-to-full-stack.md";
+  slug: "from-frontend-to-full-stack";
+  body: string;
+  collection: "blog-en";
+  data: any
 } & { render(): Render[".md"] };
 "how-to-setup-eslint-and-prettier-in-angular-20-projects.md": {
 	id: "how-to-setup-eslint-and-prettier-in-angular-20-projects.md";
   slug: "how-to-setup-eslint-and-prettier-in-angular-20-projects";
   body: string;
   collection: "blog-en";
-  data: InferEntrySchema<"blog-en">
+  data: any
 } & { render(): Render[".md"] };
 "values-vs-references-in-javascript.md": {
 	id: "values-vs-references-in-javascript.md";
   slug: "values-vs-references-in-javascript";
   body: string;
   collection: "blog-en";
-  data: InferEntrySchema<"blog-en">
+  data: any
 } & { render(): Render[".md"] };
 "web-dev-in-2026-with-ai.md": {
 	id: "web-dev-in-2026-with-ai.md";
   slug: "web-dev-in-2026-with-ai";
   body: string;
   collection: "blog-en";
-  data: InferEntrySchema<"blog-en">
+  data: any
 } & { render(): Render[".md"] };
 "wtf-is-inmutability-in-js.md": {
 	id: "wtf-is-inmutability-in-js.md";
   slug: "wtf-is-inmutability-in-js";
   body: string;
   collection: "blog-en";
-  data: InferEntrySchema<"blog-en">
+  data: any
 } & { render(): Render[".md"] };
 };
 "blog-es": {
@@ -183,35 +190,42 @@ declare module 'astro:content' {
   slug: "angular-signals";
   body: string;
   collection: "blog-es";
-  data: InferEntrySchema<"blog-es">
+  data: any
+} & { render(): Render[".md"] };
+"from-frontend-to-full-stack.md": {
+	id: "from-frontend-to-full-stack.md";
+  slug: "from-frontend-to-full-stack";
+  body: string;
+  collection: "blog-es";
+  data: any
 } & { render(): Render[".md"] };
 "how-to-setup-eslint-and-prettier-in-angular-20-projects.md": {
 	id: "how-to-setup-eslint-and-prettier-in-angular-20-projects.md";
   slug: "how-to-setup-eslint-and-prettier-in-angular-20-projects";
   body: string;
   collection: "blog-es";
-  data: InferEntrySchema<"blog-es">
+  data: any
 } & { render(): Render[".md"] };
 "values-vs-references-in-javascript.md": {
 	id: "values-vs-references-in-javascript.md";
   slug: "values-vs-references-in-javascript";
   body: string;
   collection: "blog-es";
-  data: InferEntrySchema<"blog-es">
+  data: any
 } & { render(): Render[".md"] };
 "web-dev-in-2026-with-ai.md": {
 	id: "web-dev-in-2026-with-ai.md";
   slug: "web-dev-in-2026-with-ai";
   body: string;
   collection: "blog-es";
-  data: InferEntrySchema<"blog-es">
+  data: any
 } & { render(): Render[".md"] };
 "wtf-is-inmutability-in-js.md": {
 	id: "wtf-is-inmutability-in-js.md";
   slug: "wtf-is-inmutability-in-js";
   body: string;
   collection: "blog-es";
-  data: InferEntrySchema<"blog-es">
+  data: any
 } & { render(): Render[".md"] };
 };
 
@@ -223,5 +237,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	export type ContentConfig = typeof import("./../../src/content/config.js");
+	export type ContentConfig = never;
 }
