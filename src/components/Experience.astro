@@ -71,6 +71,7 @@ import { stack } from '../data/stack'
             item.url ? (
               <a
                 href={item.url}
+                title={`${item.title} — ${item.description}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 class="group flex flex-col p-6 bg-base border-b border-outline-v/10 hover:bg-elevated transition-colors block"
