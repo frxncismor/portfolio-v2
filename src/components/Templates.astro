@@ -1,0 +1,24 @@
+---
+import { templates } from '../data/templates'
+import TemplateCard from './TemplateCard.astro'
+---
+
+<section id="templates" class="py-32 px-6 max-w-screen-xl mx-auto">
+
+  <!-- Section header -->
+  <div class="mb-20">
+    <span class="section-label">TEMPLATES</span>
+    <h2 class="text-5xl md:text-7xl font-black font-headline text-cream mt-2">Templates.</h2>
+    <p class="text-sm font-mono text-on-sv mt-4 max-w-xl">
+      Production-ready HTML & CSS templates — no frameworks, no build tools. Buy once, own forever.
+    </p>
+  </div>
+
+  <!-- Cards grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10 stagger-group">
+    {templates.map((template) => (
+      <TemplateCard template={template} />
+    ))}
+  </div>
+
+</section>
