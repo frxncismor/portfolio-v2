@@ -19,8 +19,8 @@ export const globantClients: GlobantClient[] = [
 ]
 
 export const freelanceProjects: FreelanceItem[] = [
-  { title: 'Vaneybr Portfolio',   description: 'Custom Angular portfolio built for a client',            url: 'https://www.vaneybr.com/home'              },
-{ title: 'Kindnest',            description: 'Community platform with payments, in active development',   wip: true },
-  { title: 'Contractors Project', description: 'AI-assisted client management platform',                        wip: true },
-  { title: 'Shelfie',             description: 'AI SaaS for small business product photography',         url: 'https://shelfie.com.mx/'                   },
+  { title: 'Vaneybr Portfolio', description: 'Custom Angular portfolio built for a client',                      url: 'https://www.vaneybr.com/home'            },
+  { title: 'Shelfie',           description: 'AI SaaS for small business product photography',                   url: 'https://shelfie.com.mx/'                 },
+  { title: 'Caro Sweet MUA',    description: 'Brand & booking site for a professional makeup artist',            url: 'https://caro-sweet-mua.vercel.app/'      },
+  { title: 'Nox Coffee',        description: 'Motion-driven brand experience for a fictional coffee company',    url: 'https://nox-coffee.vercel.app/', wip: true },
 ]
