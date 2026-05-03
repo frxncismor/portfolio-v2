@@ -7,6 +7,7 @@ export interface Project {
   accentColor: string
   url?: string
   githubUrl?: string
+  wip?: boolean
 }
 
 export const projects: Project[] = [
@@ -21,13 +22,15 @@ export const projects: Project[] = [
     url: 'https://shelfie.com.mx/',
   },
   {
-    id: 'contractors',
-    title: 'Contractors Project',
-    category: 'Full-Stack · AI',
+    id: 'nox-coffee',
+    title: 'Nox Coffee',
+    category: 'LANDING · MOTION',
     description:
-      'Full-stack platform for website creation and client management with AI-assisted dashboard and automated landing page generation.',
-    stack: ['Next.js', 'React', 'TypeScript', 'Supabase', 'Tailwind CSS'],
-    accentColor: '#1D9E75',
+      'Brand experience for a fictional late-night coffee company. Scroll-driven storytelling, pinned product showcase, and horizontal lineup section — all under 100KB of JavaScript.',
+    stack: ['Astro', 'TypeScript', 'GSAP', 'ScrollTrigger', 'Lenis', 'Tailwind CSS'],
+    accentColor: '#A0713A',
+    url: 'https://nox-coffee.vercel.app/',
+    wip: true,
   },
   {
     id: 'kindnest',
@@ -47,15 +50,6 @@ export const projects: Project[] = [
     stack: ['Angular', 'TypeScript', 'Three.js', 'Angular Material'],
     accentColor: '#EF9F27',
     url: 'https://room-tour-and-descriptions.vercel.app/',
-  },
-  {
-    id: 'codepreview',
-    title: 'CodePreview',
-    category: 'Headless CMS',
-    description:
-      'Corporate site where Angular consumes the WordPress REST API and the client manages all content via WP admin panel.',
-    stack: ['Angular', 'WordPress', 'REST API', 'RxJS', 'TypeScript'],
-    accentColor: '#D85A30',
   },
   {
     id: 'crossy-road',

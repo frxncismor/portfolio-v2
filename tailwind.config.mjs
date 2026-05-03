@@ -18,6 +18,8 @@ export default {
         outline:      '#928f9d',
         'outline-v':  '#474552',
         'on-sv':      '#c8c4d4',
+        'glass':      'rgba(255,255,255,0.05)',
+        'glass-line': 'rgba(255,255,255,0.10)',
       },
       fontFamily: {
         headline: ['Epilogue', 'Arial Black', 'sans-serif'],
