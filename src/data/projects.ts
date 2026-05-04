@@ -30,6 +30,7 @@ export const projects: Project[] = [
     stack: ['Astro', 'TypeScript', 'GSAP', 'ScrollTrigger', 'Lenis', 'Tailwind CSS'],
     accentColor: '#A0713A',
     url: 'https://nox-coffee.vercel.app/',
+    githubUrl: 'https://github.com/frxncismor/nox-coffee',
   },
   {
     id: 'room-tour',
