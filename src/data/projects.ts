@@ -26,10 +26,11 @@ export const projects: Project[] = [
     title: 'Nox Coffee',
     category: 'LANDING · MOTION',
     description:
-      'Brand experience for a fictional late-night coffee company. Scroll-driven storytelling, pinned product showcase, and horizontal lineup section — all under 100KB of JavaScript.',
+      'Brand experience for a fictional late-night coffee company. Scroll-driven storytelling, pinned product showcase, and horizontal lineup section — all under 100KB of JavaScript. Desktop recommended for the full motion experience.',
     stack: ['Astro', 'TypeScript', 'GSAP', 'ScrollTrigger', 'Lenis', 'Tailwind CSS'],
     accentColor: '#A0713A',
     url: 'https://nox-coffee.vercel.app/',
+    githubUrl: 'https://github.com/frxncismor/nox-coffee',
   },
   {
     id: 'room-tour',
