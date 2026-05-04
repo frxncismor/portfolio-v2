@@ -43,7 +43,7 @@ export const translations: Translations = {
     'blog.all':              'All',
     'blog.no-results':       'No posts found.',
     'blog.back':             '← Back to Blog',
-    'project.nox-coffee.description': 'Brand experience for a fictional late-night coffee company. Scroll-driven storytelling, pinned product showcase, and horizontal lineup section — all under 100KB of JavaScript.',
+    'project.nox-coffee.description': 'Brand experience for a fictional late-night coffee company. Scroll-driven storytelling, pinned product showcase, and horizontal lineup section — all under 100KB of JavaScript. Desktop recommended for the full motion experience.',
   },
   es: {
     'nav.work':              'Trabajo',
@@ -85,6 +85,6 @@ export const translations: Translations = {
     'blog.all':              'Todos',
     'blog.no-results':       'No se encontraron artículos.',
     'blog.back':             '← Volver al Blog',
-    'project.nox-coffee.description': 'Experiencia de marca para una compañía ficticia de café nocturno. Storytelling guiado por scroll, showcase de producto fijo y sección horizontal de lineup — todo bajo 100KB de JavaScript.',
+    'project.nox-coffee.description': 'Experiencia de marca para una compañía ficticia de café nocturno. Storytelling guiado por scroll, showcase de producto fijo y sección horizontal de lineup — todo bajo 100KB de JavaScript. Se recomienda desktop para la experiencia completa de animaciones.',
   },
 }
