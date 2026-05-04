@@ -23,7 +23,7 @@ const hasBothLinks = Boolean(project.url && project.githubUrl)
       title={isGithubOnly ? `View ${project.title} source code on GitHub` : `View ${project.title} — ${project.description}`}
       target="_blank"
       rel="noopener noreferrer"
-      class="absolute inset-0 z-10"
+      class="absolute inset-0"
       aria-label={isGithubOnly ? `View ${project.title} source code on GitHub` : `View ${project.title}`}
     />
 
@@ -58,7 +58,7 @@ const hasBothLinks = Boolean(project.url && project.githubUrl)
         title={`View ${project.title} source code on GitHub`}
         target="_blank"
         rel="noopener noreferrer"
-        class="absolute bottom-4 right-4 text-[9px] font-mono text-muted hover:text-brand transition-colors uppercase tracking-widest z-20"
+        class="absolute bottom-4 right-4 text-[9px] font-mono text-muted hover:text-brand transition-colors uppercase tracking-widest"
       >GitHub ↗</a>
     )}
   </article>

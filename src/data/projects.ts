@@ -30,16 +30,6 @@ export const projects: Project[] = [
     stack: ['Astro', 'TypeScript', 'GSAP', 'ScrollTrigger', 'Lenis', 'Tailwind CSS'],
     accentColor: '#A0713A',
     url: 'https://nox-coffee.vercel.app/',
-    wip: true,
-  },
-  {
-    id: 'kindnest',
-    title: 'Kindnest',
-    category: 'In Development',
-    description:
-      'Platform for managing private communities with integrated payment processing and member communication tools.',
-    stack: ['Angular', 'TypeScript', 'Node.js', 'Stripe'],
-    accentColor: '#378ADD',
   },
   {
     id: 'room-tour',
