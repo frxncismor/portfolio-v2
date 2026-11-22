@@ -77,12 +77,12 @@
 
 ## Parada 3 — Experience + Toolkit
 
-- [ ] T-027 Modificar `src/data/experience.ts`: datos `Localized` y orden: Valtre (Now, "DevCrossQA · Backend Engineer", OXXO), Globant (5 years, Senior Software Engineer, 5 clientes), freelance: RegioLabs (`https://regiolabs.com.mx/`), Caro Sweet MUA, Vaneybr; quitar iconos de Material (`icon`) y Nox Coffee/Shelfie del freelance.
-- [ ] T-028 Reescribir `src/components/Experience.astro`: filas `grid 180px 1fr auto` con `border-top` hairline; subtítulo "Freelance & independent"; enlace ↗ con `aria-label` traducido (solo donde hay URL real); `.reveal`; ≤640px `1fr auto`.
-- [ ] T-029 [P] Crear `src/data/toolkit.ts` (4 grupos `Localized`: Frontend; Backend & data con .NET 10, Prisma, Oracle; AI workflow; Ship & observe con ARO) y `src/components/Toolkit.astro` (chips 28px radio 4 `bg-accent-soft`, grid 4/2/1 col, nota). Eliminar `src/data/stack.ts`.
-- [ ] T-030 [P] Ampliar `src/i18n/translations.ts` (cabeceras, "Now", "5 years", "Client", "Freelance & independent") y traducir descripciones al ES.
-- [ ] T-031 Modificar `src/pages/index.astro`: … Process → Experience → Toolkit; quitar el bloque de chips antiguo de Experience.
-- [ ] T-032 Cierre: build verde; greps; 390px; ES/EN; verificar que RegioLabs aparece en Experience y en "Shipped for", y Caro Sweet solo en Experience.
+- [x] T-027 Modificar `src/data/experience.ts`: datos `Localized` y orden: Valtre (Now, "DevCrossQA · Backend Engineer", OXXO), Globant (5 years, Senior Software Engineer, 5 clientes), freelance: RegioLabs (`https://regiolabs.com.mx/`), Caro Sweet MUA, Vaneybr; quitar iconos de Material (`icon`) y Nox Coffee/Shelfie del freelance.
+- [x] T-028 Reescribir `src/components/Experience.astro`: filas `grid 180px 1fr auto` con `border-top` hairline; subtítulo "Freelance & independent"; enlace ↗ con `aria-label` traducido (solo donde hay URL real); `.reveal`; ≤640px `1fr auto`.
+- [x] T-029 [P] Crear `src/data/toolkit.ts` (4 grupos `Localized`: Frontend; Backend & data con .NET 10, Prisma, Oracle; AI workflow; Ship & observe con ARO) y `src/components/Toolkit.astro` (chips 28px radio 4 `bg-accent-soft`, grid 4/2/1 col, nota). Eliminar `src/data/stack.ts`.
+- [x] T-030 [P] Ampliar `src/i18n/translations.ts` (cabeceras, "Now", "5 years", "Client", "Freelance & independent") y traducir descripciones al ES.
+- [x] T-031 Modificar `src/pages/index.astro`: … Process → Experience → Toolkit; quitar el bloque de chips antiguo de Experience.
+- [x] T-032 Cierre: build verde; greps; 390px; ES/EN; verificar que RegioLabs aparece en Experience y en "Shipped for", y Caro Sweet solo en Experience.
 
 **Qué debe ver Paco en local**
 - `/#experience` y `/#stack` en **1280px/390px**, **oscuro/claro**, **ES/EN**.
