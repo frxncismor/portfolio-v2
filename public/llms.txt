@@ -22,7 +22,7 @@ Francisco Moreno is a full-stack software engineer with expertise in Angular, Ty
 
 - **Valtre** (current) — DevCrossQA (backend). Building a .NET 10 API for OXXO with an AI-assisted workflow (GitHub Copilot, Claude, Codex), owning code quality and testing.
 - **Globant** (5 years) — Senior Software Engineer. Clients: Disney, Royal Caribbean, United Airlines, Dick's Sporting Goods, Gannett
-- **Freelance & Independent**: Regio Labs (client — AI WhatsApp bots & website), Vaneybr Portfolio (Angular), Caro Sweet MUA (brand & booking site), Nox Coffee (motion-driven brand experience, WIP)
+- **Freelance & Independent**: Regio Labs (client — AI WhatsApp bots & website), Vaneybr Portfolio (Angular), Caro Sweet MUA (brand & booking site), Nox Coffee (motion-driven brand experience)
 
 ## Selected Projects
 

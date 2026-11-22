@@ -11,6 +11,8 @@ const primaryUrl   = project.url ?? project.githubUrl
 const hasLink      = Boolean(primaryUrl)
 const isGithubOnly = !project.url && Boolean(project.githubUrl)
 const hasBothLinks = Boolean(project.url && project.githubUrl)
+// WIP replaces the header icon, so surface the GitHub link explicitly in that case too
+const showGithubLink = Boolean(project.githubUrl) && (hasBothLinks || Boolean(project.wip))
 ---
 
 {hasLink ? (
@@ -52,13 +54,14 @@ const hasBothLinks = Boolean(project.url && project.githubUrl)
       <span class="text-[11px] font-mono text-cream/70">{project.stack.join(' · ')}</span>
     </div>
 
-    {hasBothLinks && (
+    {showGithubLink && (
       <a
         href={project.githubUrl}
         title={`View ${project.title} source code on GitHub`}
+        aria-label={`View ${project.title} source code on GitHub`}
         target="_blank"
         rel="noopener noreferrer"
-        class="absolute bottom-4 right-4 text-[9px] font-mono text-muted hover:text-brand transition-colors uppercase tracking-widest"
+        class="absolute bottom-4 right-4 z-10 text-[9px] font-mono text-muted hover:text-brand transition-colors uppercase tracking-widest"
       >GitHub ↗</a>
     )}
   </article>
