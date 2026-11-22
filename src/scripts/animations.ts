@@ -1,65 +1,40 @@
 /**
- * Animation system — Intersection Observer + stagger.
- *
- * Hero elements: revealed immediately via double requestAnimationFrame
- * (guarantees first paint is done before adding .visible).
- *
- * Scroll elements: observed via IntersectionObserver.
- * Init on `window.load` so layout is fully settled before the observer
- * records initial intersections.
+ * Scroll reveal. `.reveal` elements that start below the fold fade/slide in once
+ * (CSS: 500ms, 10px). Siblings stagger by 60ms, capped at 4 steps.
+ * No-op with reduced motion or without IntersectionObserver: everything stays visible.
  */
 
-function applyStagger(group: Element) {
-  group.querySelectorAll<HTMLElement>('.fade-in').forEach((el, i) => {
-    el.style.transitionDelay = `${i * 100}ms`
-  })
-}
+function initReveal(): void {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (reduce || !('IntersectionObserver' in window)) return
 
-function initScrollAnimations() {
-  // Stagger delays for card grids
-  document.querySelectorAll('.stagger-group').forEach(applyStagger)
+  const viewportHeight = window.innerHeight
+  const targets = Array.from(document.querySelectorAll<HTMLElement>('.reveal')).filter(
+    (el) => el.getBoundingClientRect().top > viewportHeight,
+  )
 
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible')
-          observer.unobserve(entry.target)
-        }
+        if (!entry.isIntersecting) return
+        const el = entry.target as HTMLElement
+        const pending = Array.from(el.parentElement?.children ?? []).filter((c) => c.classList.contains('pending'))
+        el.style.transitionDelay = `${Math.min(pending.indexOf(el), 4) * 60}ms`
+        el.classList.remove('pending')
+        observer.unobserve(el)
       })
     },
-    {
-      threshold: 0.08,
-      rootMargin: '0px 0px -40px 0px',
-    }
+    { rootMargin: '0px 0px -8% 0px' },
   )
 
-  document.querySelectorAll<HTMLElement>('.fade-in').forEach((el) => {
-    if (!el.closest('#hero')) {
-      observer.observe(el)
-    }
+  targets.forEach((el) => {
+    el.classList.add('pending')
+    observer.observe(el)
   })
 }
 
-function initHeroAnimations() {
-  const heroEls = document.querySelectorAll<HTMLElement>('#hero .fade-in')
-  // Double rAF: first frame schedules the work, second frame runs after
-  // the browser has committed the first paint — avoids invisible flash.
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      heroEls.forEach((el, i) => {
-        setTimeout(() => el.classList.add('visible'), i * 120)
-      })
-    })
-  })
-}
-
-// Hero: start as soon as possible (doesn't need layout info)
-initHeroAnimations()
-
-// Scroll: wait for full page load so layout is stable
-if (document.readyState === 'complete') {
-  initScrollAnimations()
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initReveal, { once: true })
 } else {
-  window.addEventListener('load', initScrollAnimations, { once: true })
+  initReveal()
 }
