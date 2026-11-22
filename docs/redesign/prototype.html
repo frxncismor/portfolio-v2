@@ -1,0 +1,813 @@
+<title>Francisco Moreno Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400,100,1&family=Geist:wght@400;500&family=Geist+Mono:wght@500&display=swap">
+<style>
+/* Layout: one 1120px column, left-aligned editorial rhythm; 96px between sections; feed grid of 4:5 posts for work. */
+:root {
+  --paper:#141513; --surface:#1C1D1B; --sunken:#0F100E; --ink:#ECEAE4; --muted:#A3A69F; --hairline:#2C2E2A;
+  --accent:#8CB8A8; --accent-soft:#1F2E29; --on-accent:#0F1A16; --clay:#D9926D; --deep:#2F5D50;
+  --shadow-sm:0 0 0 1px rgba(236,234,228,.04), 0 8px 24px rgba(0,0,0,.45);
+  --focus:0 0 0 2px #141513, 0 0 0 4px #8CB8A8;
+  --display:"Fraunces", "Iowan Old Style", Georgia, serif;
+  --sans:"Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"Geist Mono", ui-monospace, Menlo, monospace;
+  --r-sm:4px; --r-md:10px; --r-lg:16px;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) {
+  --paper:#F7F5F0; --surface:#FFFFFF; --sunken:#EFECE5; --ink:#1A1C1A; --muted:#5E625D; --hairline:#DEDAD1;
+  --accent:#2F5D50; --accent-soft:#DCE7E2; --on-accent:#FFFFFF; --clay:#A0532F; --deep:#2F5D50;
+  --shadow-sm:0 1px 2px rgba(26,28,26,.05), 0 6px 16px rgba(26,28,26,.06);
+  --focus:0 0 0 2px #F7F5F0, 0 0 0 4px #2F5D50; color-scheme: light; } }
+:root[data-theme="light"] {
+  --paper:#F7F5F0; --surface:#FFFFFF; --sunken:#EFECE5; --ink:#1A1C1A; --muted:#5E625D; --hairline:#DEDAD1;
+  --accent:#2F5D50; --accent-soft:#DCE7E2; --on-accent:#FFFFFF; --clay:#A0532F; --deep:#2F5D50;
+  --shadow-sm:0 1px 2px rgba(26,28,26,.05), 0 6px 16px rgba(26,28,26,.06);
+  --focus:0 0 0 2px #F7F5F0, 0 0 0 4px #2F5D50; color-scheme: light; }
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); font: 400 17px/28px var(--sans); -webkit-font-smoothing: antialiased; transition: background-color .2s, color .2s; }
+body::before { content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top,0px); z-index:10; background:var(--paper); }
+a { color: inherit; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(24px, env(safe-area-inset-left,0px)); padding-right: max(24px, env(safe-area-inset-right,0px)); }
+.serif { font-family: var(--display); font-weight: 400; font-variation-settings: "SOFT" 100, "WONK" 1; }
+.label { font: 500 12px/16px var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0; }
+:focus-visible { outline: none; box-shadow: var(--focus); border-radius: var(--r-sm); }
+
+/* Nav */
+.nav { position: sticky; top: env(safe-area-inset-top,0px); z-index: 5; background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--hairline); }
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 64px; }
+.logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+.logo__mark { display: inline-flex; align-items: baseline; font-size: 30px; line-height: 1; letter-spacing: -.04em; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; }
+.logo__dot { width: 5px; height: 5px; margin-left: 2px; border-radius: 50%; background: var(--accent); }
+.logo__rule { width: 1px; height: 24px; background: var(--hairline); }
+.logo__name { font-size: 13px; line-height: 14px; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 24; }
+.links { display: flex; gap: 28px; }
+.links a { font-size: 14px; color: var(--muted); text-decoration: none; transition: color .15s; }
+.links a:hover { color: var(--ink); }
+.end { display: flex; align-items: center; gap: 6px; }
+.icon-btn { display: inline-grid; place-items: center; min-width: 34px; height: 34px; padding: 0 6px; border: 0; background: none; color: var(--muted); cursor: pointer; border-radius: var(--r-sm); font: 500 12px/1 var(--mono); letter-spacing: .06em; transition: color .15s; }
+.icon-btn:hover { color: var(--ink); }
+.status { display: inline-flex; align-items: center; gap: 8px; height: 28px; padding: 0 12px; margin-left: 6px; border: 1px solid var(--hairline); border-radius: 999px; font: 500 12px/1 var(--mono); letter-spacing: .04em; white-space: nowrap; }
+.status i { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2.4s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: .35; } }
+.sun, .moon { display: none; }
+:root .sun { display: block; }
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .sun { display: none; } :root:not([data-theme="dark"]) .moon { display: block; } }
+:root[data-theme="light"] .sun { display: none; } :root[data-theme="light"] .moon { display: block; }
+
+/* Hero: the experience is the headline; name sits as a quiet label above it */
+.hero .wrap { display: grid; gap: 32px; justify-items: start; padding-block: 120px 96px; }
+.hero h1 { margin: 0; max-width: 15.5em; font-size: clamp(40px, 6.6vw, 84px); line-height: 1.04; letter-spacing: -.022em; text-wrap: balance; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; }
+.hero h1 .br { color: var(--accent); }
+.hero h1 .nw { white-space: nowrap; }
+.hero h1 .w { display: inline-block; animation: rise .8s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes rise { from { opacity: .001; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.who { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.who .label:first-child { color: var(--ink); }
+.who .sep { width: 24px; height: 1px; background: var(--hairline); }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 12px; }
+.actions .label { margin-left: 16px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 24px; border-radius: var(--r-md); font: 500 15px/1 var(--sans); text-decoration: none; background: var(--accent); color: var(--on-accent); border: 1px solid transparent; transition: background-color .15s, color .15s, border-color .15s; }
+.btn:hover { background: var(--ink); color: var(--paper); }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--hairline); }
+.btn.ghost:hover { border-color: var(--muted); background: transparent; color: var(--ink); }
+.link { display: inline-flex; align-items: center; gap: 8px; font-weight: 500; font-size: 15px; text-decoration: none; transition: color .15s; }
+.link:hover { color: var(--accent); }
+.arrow { transition: transform .15s cubic-bezier(.2,.7,.2,1); }
+.link:hover .arrow { transform: translateX(3px); }
+.lead { font-size: 19px; line-height: 30px; color: var(--muted); max-width: 34em; margin: 0; }
+.clients { border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+.clients .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 40px; padding-block: 22px; }
+.clients ul { display: flex; flex-wrap: wrap; gap: 8px 36px; list-style: none; margin: 0; padding: 0; }
+.clients li { font-family: var(--display); font-size: 22px; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 36; }
+
+/* Sections */
+section.block { padding-block: 112px 0; scroll-margin-top: 72px; }
+.head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 16px 40px; margin-bottom: 48px; }
+.head h2 { font-size: clamp(36px, 5vw, 52px); line-height: 1.02; margin: 12px 0 0; letter-spacing: -.015em; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 72; }
+.head p.note { max-width: 26em; color: var(--muted); margin: 0; font-size: 15px; line-height: 24px; }
+
+/* Work feed */
+.feed { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 32px; }
+.post { display: grid; gap: 18px; text-decoration: none; }
+.shot { position: relative; aspect-ratio: 4/5; max-width: 100%; border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--hairline); transition: box-shadow .25s, transform .35s cubic-bezier(.2,.7,.2,1); }
+.post:hover .shot { box-shadow: var(--shadow-sm); transform: translateY(-3px); }
+.shot .tag { position: absolute; left: 14px; top: 14px; z-index: 2; padding: 6px 9px; border-radius: var(--r-sm); background: rgba(15,16,14,.55); color: #ECEAE4; font: 500 11px/1 var(--mono); letter-spacing: .06em; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.meta { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+.meta h3 { margin: 0; font: 500 19px/26px var(--sans); }
+.meta svg { color: var(--muted); flex: none; transition: transform .15s, color .15s; }
+.post:hover .meta svg { transform: translate(2px,-2px); color: var(--accent); }
+.post p { margin: -10px 0 0; color: var(--muted); font-size: 15px; line-height: 24px; }
+.stack { margin-top: -6px; }
+.feed .post:nth-child(even) { margin-top: 96px; }
+
+/* Mock screens (stand-ins for real screenshots) */
+.m-grim { background: radial-gradient(90% 70% at 45% 35%, #2A1E18 0%, #120F0D 70%); }
+.m-grim svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.grim-title { position: absolute; left: 24px; right: 24px; bottom: 22px; display: grid; gap: 10px; color: #E9DCC8; }
+.grim-title b { font-family: var(--display); font-weight: 400; font-size: clamp(40px, 6vw, 64px); line-height: .9; letter-spacing: -.03em; font-variation-settings: "SOFT" 0, "WONK" 1, "opsz" 144; }
+.grim-title span { font: 500 11px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: #D9926D; }
+.m-shelfie { background: #E9E4DA; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 64px 22px 22px; }
+.m-shelfie div { border-radius: 10px; position: relative; }
+.m-shelfie .before { background: #CFC8BB; }
+.m-shelfie .after { background: linear-gradient(160deg, #F7F5F0, #DCE7E2); }
+.m-shelfie .before::after, .m-shelfie .after::after { content: ""; position: absolute; left: 50%; top: 52%; width: 44%; aspect-ratio: 1/1.4; transform: translate(-50%,-50%); border-radius: 40% 40% 12px 12px; background: #2F5D50; }
+.m-shelfie .before::after { background: #7E8A84; filter: blur(1.5px); transform: translate(-50%,-50%) rotate(-6deg); }
+.m-shelfie small { position: absolute; bottom: 8px; left: 10px; font: 500 10px/1 var(--mono); letter-spacing: .06em; color: #1A1C1A; opacity: .6; text-transform: uppercase; }
+.m-nox { background: #0E0D0C; display: grid; align-content: end; padding: 26px; color: #E9DCC8; }
+.m-nox b { font-family: var(--display); font-weight: 400; font-size: clamp(64px, 11vw, 132px); line-height: .8; letter-spacing: -.05em; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; }
+.m-nox::before { content: ""; position: absolute; right: -15%; top: 8%; width: 70%; aspect-ratio: 1; border-radius: 50%; background: #D9926D; opacity: .9; }
+.m-nox span { position: relative; font: 500 11px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; margin-top: 14px; opacity: .7; }
+.m-room { background: #DCE7E2; }
+.m-room svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.m-game { background: #1F2E29; display: grid; grid-template-rows: repeat(7, 1fr); }
+.m-game div:nth-child(odd) { background: #2F5D50; } .m-game div:nth-child(even) { background: #263F37; }
+.m-game div:nth-child(4) { background: #3A3D38; } .m-game div:nth-child(5) { background: #3A3D38; }
+.m-game i { position: absolute; width: 9%; aspect-ratio: 1; background: #ECEAE4; border-radius: 3px; left: 46%; top: 75%; }
+.m-game u { position: absolute; height: 6%; width: 22%; background: #D9926D; border-radius: 4px; top: 47%; left: 12%; animation: drive 6s linear infinite; text-decoration: none; }
+@keyframes drive { to { left: 100%; } }
+
+/* Experience */
+.exp { display: grid; grid-template-columns: 180px minmax(0,1fr) auto; gap: 8px 32px; padding-block: 28px; border-top: 1px solid var(--hairline); }
+.exp:last-child { border-bottom: 1px solid var(--hairline); }
+.exp h3 { margin: 0; font: 500 19px/28px var(--sans); }
+.exp h3 span { color: var(--muted); font-weight: 400; }
+.exp p { margin: 6px 0 0; color: var(--muted); font-size: 15px; line-height: 24px; max-width: 38em; }
+.exp .clients-line { color: var(--ink); }
+.exp .label { padding-top: 7px; }
+.exp a.ext { align-self: start; padding-top: 4px; color: var(--muted); }
+.exp a.ext:hover { color: var(--accent); }
+.sub { margin: 56px 0 16px; }
+
+/* Stack */
+.stackgrid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 32px; }
+.stackgrid > div { display: grid; gap: 14px; align-content: start; padding-top: 18px; border-top: 1px solid var(--hairline); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { display: inline-flex; align-items: center; height: 28px; padding: 0 10px; border-radius: var(--r-sm); background: var(--accent-soft); font: 500 12px/1 var(--mono); letter-spacing: .03em; }
+
+/* Template */
+.tpl { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.1fr); gap: 0; border: 1px solid var(--hairline); border-radius: var(--r-lg); overflow: hidden; background: var(--surface); }
+.tpl .art { background: #2F5D50; min-height: 320px; position: relative; overflow: hidden; }
+.tpl .art::before { content: ""; position: absolute; width: 70%; aspect-ratio: 1; border-radius: 50%; background: #D9926D; left: -12%; bottom: -30%; }
+.tpl .art::after { content: "ZooNova"; position: absolute; left: 28px; top: 26px; font-family: var(--display); font-size: 40px; color: #F7F5F0; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 72; }
+.tpl .body { display: grid; gap: 16px; padding: 36px; align-content: center; }
+.tpl h3 { margin: 0; font: 500 22px/30px var(--sans); display: flex; justify-content: space-between; gap: 16px; align-items: baseline; }
+.price { font: 500 16px/1 var(--mono); color: var(--clay); }
+.tpl p { margin: 0; color: var(--muted); font-size: 15px; line-height: 24px; }
+
+/* About */
+.about { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.4fr); gap: 64px; }
+.about blockquote { margin: 0; font-family: var(--display); font-size: clamp(28px, 3.6vw, 40px); line-height: 1.15; letter-spacing: -.01em; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 72; }
+.about blockquote em { color: var(--accent); font-style: normal; }
+.about .text { display: grid; gap: 18px; color: var(--muted); }
+.about .text p { margin: 0; }
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 24px; margin-top: 12px; padding-top: 24px; border-top: 1px solid var(--hairline); }
+.facts b { display: block; font-family: var(--display); font-weight: 400; font-size: 40px; line-height: 1; color: var(--ink); font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 72; font-variant-numeric: tabular-nums; }
+.facts span { font-size: 13px; line-height: 20px; }
+
+/* Contact */
+.contact { margin-top: 128px; background: var(--sunken); border-top: 1px solid var(--hairline); }
+.contact .wrap { padding-block: 112px 48px; display: grid; gap: 28px; }
+.contact h2 { font-size: clamp(48px, 8vw, 104px); line-height: .95; margin: 0; letter-spacing: -.025em; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; text-wrap: balance; }
+.mail { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.mail code { font: 400 clamp(20px, 3vw, 30px)/1.2 var(--display); font-variation-settings: "SOFT" 100, "WONK" 1; color: var(--accent); user-select: all; word-break: break-all; }
+.copy { height: 36px; padding: 0 14px; border-radius: var(--r-md); border: 1px solid var(--hairline); background: none; color: var(--ink); font: 500 13px/1 var(--sans); cursor: pointer; transition: border-color .15s; }
+.copy:hover { border-color: var(--muted); }
+.socials { display: flex; flex-wrap: wrap; gap: 28px; }
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 80px; padding-top: 24px; border-top: 1px solid var(--hairline); }
+
+/* Motion */
+.reveal { transition: opacity .5s cubic-bezier(.2,.7,.2,1), transform .5s cubic-bezier(.2,.7,.2,1); }
+.reveal.pending { opacity: 0; transform: translateY(10px); }
+@media (prefers-reduced-motion: reduce) { .reveal.pending { opacity: 1; transform: none; } *, *::before, *::after { animation: none !important; transition: none !important; } html { scroll-behavior: auto; } }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .links { display: none; }
+  .hero .wrap { padding-block: 72px 64px; gap: 28px; }
+  .who .sep { display: none; } .who { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .actions .label { margin-left: 0; flex-basis: 100%; margin-top: 8px; }
+  .stackgrid, .about { grid-template-columns: 1fr; gap: 32px; }
+  .tpl { grid-template-columns: 1fr; } .tpl .art { min-height: 220px; }
+}
+@media (max-width: 640px) {
+  .wrap { padding-left: max(16px, env(safe-area-inset-left,0px)); padding-right: max(16px, env(safe-area-inset-right,0px)); }
+  .logo__rule, .logo__name, .lang { display: none; }
+  .feed { grid-template-columns: 1fr; } .feed .post:nth-child(even) { margin-top: 0; }
+  .exp { grid-template-columns: 1fr auto; } .exp .label { grid-column: 1 / -1; padding-top: 0; }
+  .exp > div { grid-column: 1; }
+  .facts { grid-template-columns: 1fr 1fr 1fr; gap: 12px; } .facts b { font-size: 30px; }
+  section.block { padding-block: 80px 0; }
+  .status { padding: 0 10px; }
+}
+
+
+/* Process: B cards (simulated deliverables) + C loop */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 16px; }
+.step { display: grid; grid-template-rows: auto 1fr; border: 1px solid var(--hairline); border-radius: var(--r-lg); overflow: hidden; background: var(--surface); transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .25s; }
+.step:hover { transform: translateY(-3px); box-shadow: var(--shadow-sm); }
+.win { height: 176px; padding: 14px 16px; background: var(--sunken); border-bottom: 1px solid var(--hairline); font: 500 12px/20px var(--mono); color: var(--muted); overflow: hidden; white-space: nowrap; }
+.win b { color: var(--ink); font-weight: 500; }
+.win .hd { color: var(--ink); }
+.win .add, .win .ok { color: var(--syn-s); }
+.win .del { color: var(--syn-k); }
+.win .chk { display: flex; align-items: center; gap: 8px; }
+.win .chk i { width: 13px; height: 13px; border-radius: 3px; background: var(--accent); flex: none; position: relative; }
+.win .chk i::after { content: ""; position: absolute; left: 4px; top: 1px; width: 3px; height: 7px; border: solid var(--on-accent); border-width: 0 1.5px 1.5px 0; transform: rotate(45deg); }
+.win svg { display: block; width: 100%; height: 76px; margin: 8px 0 6px; }
+.spark { fill: none; stroke: var(--accent); stroke-width: 2; vector-effect: non-scaling-stroke; }
+.spark-area { fill: var(--accent-soft); }
+.step__body { display: grid; gap: 8px; align-content: start; padding: 20px; }
+.step__body .label { color: var(--accent); }
+.step__body h3 { margin: 0; font-size: 22px; line-height: 1.15; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 48; }
+.step__body p:last-child { margin: 0; color: var(--muted); font-size: 14.5px; line-height: 23px; }
+.loop { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 56px; align-items: center; margin-top: 16px; padding: 40px 48px; border: 1px solid var(--hairline); border-radius: var(--r-lg); }
+.loop__art { width: 100%; max-width: 300px; height: auto; }
+.lp-ring { fill: none; stroke: var(--hairline); stroke-width: 1.5; }
+.lp-arc, .lp-head { fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.lp-node circle { fill: var(--surface); stroke: var(--hairline); stroke-width: 1.2; }
+.lp-node circle.lp-fill { fill: var(--deep); stroke: var(--deep); }
+.lp-node text { font: 500 10px var(--mono); letter-spacing: .1em; text-anchor: middle; fill: var(--ink); }
+.lp-node:first-of-type text { fill: #ECEAE4; }
+.loop__text { display: grid; gap: 14px; }
+.loop__text h3 { margin: 0; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.08; letter-spacing: -.015em; text-wrap: balance; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 72; }
+.loop__text p:last-child { margin: 0; color: var(--muted); max-width: 34em; }
+@media (max-width: 1000px) { .steps { grid-template-columns: repeat(2, minmax(0,1fr)); } .loop { grid-template-columns: 220px minmax(0,1fr); gap: 32px; padding: 32px; } }
+@media (max-width: 640px) { .steps { grid-template-columns: 1fr; } .loop { grid-template-columns: 1fr; padding: 24px; justify-items: start; } .loop__art { max-width: 220px; } }
+/* Latest writing teaser */
+.writing .row { grid-template-columns: 120px minmax(0,1fr) auto; }
+.stackgrid { grid-template-columns: repeat(4, minmax(0,1fr)) !important; }
+@media (max-width: 1000px) { .stackgrid { grid-template-columns: repeat(2, minmax(0,1fr)) !important; } }
+@media (max-width: 640px) { .stackgrid { grid-template-columns: 1fr !important; } .writing .row { grid-template-columns: minmax(0,1fr) auto; } }
+/* ───────── Blog ───────── */
+:root { --syn-k:#D9926D; --syn-s:#B7D3C7; --syn-n:#E6C27A; --syn-f:#8CB8A8; --syn-c:#7C807A; --code-bg:#0F100E; }
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) { --syn-k:#9A4A26; --syn-s:#2F5D50; --syn-n:#8A6414; --syn-f:#25584A; --syn-c:#6F736D; --code-bg:#EFECE5; } }
+:root[data-theme="light"] { --syn-k:#9A4A26; --syn-s:#2F5D50; --syn-n:#8A6414; --syn-f:#25584A; --syn-c:#6F736D; --code-bg:#EFECE5; }
+
+.blog-head .wrap { display: grid; gap: 24px; padding-block: 104px 56px; }
+.blog-head h1 { margin: 0; max-width: 14em; font-size: clamp(40px, 6vw, 76px); line-height: 1.03; letter-spacing: -.022em; text-wrap: balance; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; }
+.filters { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; margin-top: 16px; }
+.search { display: flex; align-items: center; gap: 10px; height: 44px; padding: 0 14px; min-width: 0; flex: 0 1 300px; border: 1px solid var(--hairline); border-radius: var(--r-md); color: var(--muted); background: var(--surface); transition: border-color .15s; }
+.search:focus-within { border-color: var(--accent); }
+.search input { border: 0; outline: 0; background: none; color: var(--ink); font: 400 15px/1 var(--sans); width: 100%; min-width: 0; }
+.search input::placeholder { color: var(--muted); }
+.seg { display: flex; flex-wrap: wrap; gap: 6px; }
+.seg button { height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--hairline); background: none; color: var(--muted); font: 500 13px/1 var(--sans); cursor: pointer; transition: color .15s, border-color .15s, background-color .15s; }
+.seg button:hover { color: var(--ink); border-color: var(--muted); }
+.seg button.on { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+
+.topic { display: inline-flex; align-items: center; height: 24px; padding: 0 9px; border-radius: var(--r-sm); background: var(--accent-soft); color: var(--ink); font: 500 11px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+.post-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+
+.feature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); border: 1px solid var(--hairline); border-radius: var(--r-lg); overflow: hidden; text-decoration: none; background: var(--surface); transition: box-shadow .25s, border-color .25s; }
+.feature:hover { box-shadow: var(--shadow-sm); border-color: var(--muted); }
+.feature__art { position: relative; min-height: 300px; }
+.feature__art svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.fa-bg { fill: var(--deep); } .fa-line { stroke: #B7D3C7; } .fa-dot { fill: #D9926D; } .fa-txt { fill: #DCE7E2; }
+.feature__body { display: grid; gap: 18px; align-content: center; padding: 40px; }
+.feature__body h2 { margin: 0; font-size: clamp(26px, 3vw, 36px); line-height: 1.12; letter-spacing: -.01em; text-wrap: balance; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 72; }
+.feature__body p { margin: 0; color: var(--muted); font-size: 16px; line-height: 26px; }
+.feature:hover .arrow { transform: translateX(3px); }
+
+.posts { margin-top: 56px; }
+.row { display: grid; grid-template-columns: 120px minmax(0, 1fr) auto; gap: 8px 32px; align-items: start; padding-block: 28px; border-top: 1px solid var(--hairline); text-decoration: none; }
+.row:last-child { border-bottom: 1px solid var(--hairline); }
+.row .label { padding-top: 8px; font-variant-numeric: tabular-nums; }
+.row h3 { margin: 0; font-size: 26px; line-height: 1.18; letter-spacing: -.01em; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 48; transition: color .15s; text-wrap: balance; }
+.row p { margin: 8px 0 0; color: var(--muted); font-size: 15px; line-height: 24px; max-width: 40em; }
+.row .topic { margin-top: 6px; }
+.row:hover h3 { color: var(--accent); }
+.empty { color: var(--muted); padding-block: 40px; }
+.empty button { border: 0; background: none; color: var(--accent); font: inherit; text-decoration: underline; cursor: pointer; padding: 0; }
+
+/* Article */
+.progress { position: sticky; top: calc(env(safe-area-inset-top,0px) + 64px); z-index: 4; height: 2px; }
+.progress i { display: block; height: 100%; width: 0; background: var(--accent); }
+.article__head { display: grid; gap: 20px; justify-items: start; max-width: 860px; padding-block: 72px 48px; }
+.back { text-decoration: none; transition: color .15s; }
+.back:hover { color: var(--accent); }
+.article__head h1 { margin: 8px 0 0; font-size: clamp(40px, 6.4vw, 80px); line-height: 1.02; letter-spacing: -.025em; text-wrap: balance; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144; }
+.dek { margin: 0; font-size: 21px; line-height: 32px; color: var(--muted); max-width: 32em; }
+.article__grid { display: grid; grid-template-columns: 200px minmax(0, 680px); gap: 72px; padding-top: 40px; border-top: 1px solid var(--hairline); }
+.toc { position: sticky; top: 104px; align-self: start; display: grid; gap: 12px; }
+.toc a { font-size: 14px; line-height: 20px; color: var(--muted); text-decoration: none; padding-left: 12px; border-left: 1px solid var(--hairline); transition: color .15s, border-color .15s; }
+.toc a:hover, .toc a.on { color: var(--ink); border-color: var(--accent); }
+.prose { font-size: 18px; line-height: 31px; }
+.prose > p { margin: 0 0 22px; }
+.prose h2 { font-size: 32px; line-height: 1.15; letter-spacing: -.01em; margin: 56px 0 16px; scroll-margin-top: 96px; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 72; }
+.prose strong { font-weight: 500; color: var(--ink); }
+.prose em { font-style: italic; }
+.prose :not(pre) > code { font: 500 .82em/1 var(--mono); padding: 3px 6px; border-radius: var(--r-sm); background: var(--accent-soft); color: var(--ink); white-space: nowrap; }
+.types { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 0 0 22px; }
+.types > div { padding: 20px; border: 1px solid var(--hairline); border-radius: var(--r-md); background: var(--surface); }
+.types p:last-child { margin: 12px 0 0; display: flex; flex-wrap: wrap; gap: 8px; line-height: 1; }
+.code { margin: 8px 0 28px; border: 1px solid var(--hairline); border-radius: var(--r-md); background: var(--code-bg); overflow: hidden; }
+.code figcaption { display: flex; justify-content: space-between; align-items: center; height: 40px; padding: 0 8px 0 16px; border-bottom: 1px solid var(--hairline); font: 500 12px/1 var(--mono); color: var(--muted); letter-spacing: .04em; }
+.copy-code { height: 28px; padding: 0 10px; border: 0; border-radius: var(--r-sm); background: none; color: var(--muted); font: 500 12px/1 var(--sans); cursor: pointer; }
+.copy-code:hover { color: var(--ink); background: var(--hairline); }
+.code pre { margin: 0; padding: 20px 20px 22px; overflow-x: auto; font: 400 14.5px/1.75 var(--mono); color: var(--ink); tab-size: 2; }
+.code .k { color: var(--syn-k); } .code .s { color: var(--syn-s); } .code .n { color: var(--syn-n); } .code .f { color: var(--syn-f); } .code .c { color: var(--syn-c); font-style: italic; } .code .o { color: var(--muted); }
+.callout { margin: 0 0 22px; padding: 28px 32px; border-radius: var(--r-lg); background: var(--accent-soft); }
+.callout p { margin: 0; font-family: var(--display); font-size: 23px; line-height: 1.4; font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 36; }
+.article__foot { display: grid; gap: 16px; margin-top: 72px; padding-top: 32px; border-top: 1px solid var(--hairline); }
+.next { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.next a { display: grid; gap: 10px; padding: 22px; border: 1px solid var(--hairline); border-radius: var(--r-md); text-decoration: none; transition: border-color .15s; }
+.next a:hover { border-color: var(--accent); }
+.next .serif { font-size: 20px; line-height: 1.25; }
+
+.site-foot { margin-top: 128px; border-top: 1px solid var(--hairline); background: var(--sunken); }
+.site-foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px; padding-block: 40px; }
+
+@media (max-width: 900px) {
+  .feature { grid-template-columns: 1fr; } .feature__art { min-height: 200px; } .feature__body { padding: 28px; }
+  .article__grid { grid-template-columns: 1fr; gap: 0; } .toc { display: none; }
+}
+@media (max-width: 640px) {
+  .blog-head .wrap { padding-block: 64px 40px; }
+  .row { grid-template-columns: minmax(0,1fr) auto; } .row > .label { grid-column: 1 / -1; padding-top: 0; } .row > div { grid-column: 1; } .row h3 { font-size: 22px; }
+  .types, .next { grid-template-columns: 1fr; }
+  .prose { font-size: 17px; line-height: 29px; } .prose h2 { font-size: 27px; }
+  .callout { padding: 22px; } .callout p { font-size: 20px; }
+  .code pre { font-size: 13px; }
+}
+.links a.current { color: var(--ink); }
+</style>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo serif" href="#top" aria-label="Francisco Moreno, home">
+      <span class="logo__mark" aria-hidden="true">FM<span class="logo__dot"></span></span>
+      <span class="logo__rule" aria-hidden="true"></span>
+      <span class="logo__name" aria-hidden="true">Francisco<br>Moreno</span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#work">Work</a><a href="#experience">Experience</a><a href="#blog">Blog</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="end">
+      <button class="icon-btn lang" type="button" id="lang-btn" aria-label="Switch language">ES</button>
+      <button class="icon-btn" type="button" id="theme-btn" aria-label="Toggle light and dark theme">
+        <svg class="sun" width="17" height="17" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8 1.5v1.5M8 13v1.5M1.5 8H3M13 8h1.5M3.4 3.4l1 1M11.6 11.6l1 1M3.4 12.6l1-1M11.6 4.4l1-1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <svg class="moon" width="17" height="17" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 9.5A6 6 0 0 1 6.5 2.5a6 6 0 1 0 7 7z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+      </button>
+      <span class="status"><i aria-hidden="true"></i>Open to full-time</span>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="who"><p class="label">Francisco Moreno</p><span class="sep" aria-hidden="true"></span><p class="label">Software Engineer · Houston, TX</p></div>
+      <h1 class="serif"><span class="w" style="animation-delay:0ms">I</span> <span class="w" style="animation-delay:50ms">build</span> <span class="w" style="animation-delay:100ms">software</span> <span class="w" style="animation-delay:150ms">for</span> <span class="nw"><span class="w br" style="animation-delay:200ms">Disney</span>,</span> <span class="nw"><span class="w br" style="animation-delay:250ms">Royal Caribbean</span>,</span> <span class="w br" style="animation-delay:300ms">United Airlines</span> <span class="w" style="animation-delay:350ms">and</span> <span class="nw"><span class="w br" style="animation-delay:400ms">OXXO</span>.</span></h1>
+      <div class="actions">
+        <a class="btn" href="#work">See my work</a>
+        <a class="btn ghost" href="#experience">View experience</a>
+        <p class="label">Angular · .NET &amp; Node · AI-assisted, human-reviewed</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="clients">
+    <div class="wrap">
+      <p class="label">Shipped for</p>
+      <ul><li>Disney</li><li>Royal Caribbean</li><li>United Airlines</li><li>OXXO</li><li>Dick's Sporting Goods</li><li>Gannett</li><li>RegioLabs</li></ul>
+    </div>
+  </div>
+
+  <section class="block" id="work">
+    <div class="wrap">
+      <div class="head reveal">
+        <div><p class="label">Selected work</p><h2 class="serif">Things I've built lately</h2></div>
+        <p class="note">Products, client sites and a few experiments. Each one taught me something about speed, motion or detail.</p>
+      </div>
+      <div class="feed">
+        <a class="post reveal" href="#work">
+          <div class="shot m-grim"><span class="tag">Community · Gaming</span>
+            <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <g stroke="#D9926D" stroke-opacity=".55" stroke-width="1.2" fill="none">
+                <path d="M92 132 150 98 214 124 262 86 318 120"/><path d="M150 98 170 176 214 124"/><path d="M170 176 236 214 300 190 318 120"/>
+                <path d="M236 214 226 286"/><path d="M110 250 170 176"/><path d="M110 250 160 300 226 286 290 320"/>
+              </g>
+              <g fill="#ECEAE4"><circle cx="92" cy="132" r="3"/><circle cx="150" cy="98" r="4"/><circle cx="214" cy="124" r="3"/><circle cx="262" cy="86" r="3"/><circle cx="318" cy="120" r="4"/><circle cx="170" cy="176" r="5"/><circle cx="236" cy="214" r="4"/><circle cx="300" cy="190" r="3"/><circle cx="226" cy="286" r="3"/><circle cx="110" cy="250" r="3"/><circle cx="160" cy="300" r="4"/><circle cx="290" cy="320" r="3"/></g>
+              <circle cx="170" cy="176" r="12" fill="none" stroke="#D9926D" stroke-width="1.2"/>
+              <g fill="#ECEAE4" fill-opacity=".35"><circle cx="40" cy="60" r="1.2"/><circle cx="360" cy="40" r="1"/><circle cx="380" cy="260" r="1.3"/><circle cx="30" cy="330" r="1"/><circle cx="340" cy="380" r="1.2"/><circle cx="70" cy="190" r="1"/></g>
+            </svg>
+            <div class="grim-title"><b>Grim Builds</b><span>Community build library</span></div>
+          </div>
+          <div class="meta"><h3>Grim Builds</h3><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p>A home for Grim Dawn character builds made by the community. Players create, share and browse builds for every class and playstyle.</p>
+        </a>
+        <a class="post reveal" href="#work">
+          <div class="shot m-nox"><span class="tag">Landing · Motion</span><b>Nox</b><span>Late-night coffee</span></div>
+          <div class="meta"><h3>Nox Coffee</h3><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p>Scroll-driven brand story for a fictional coffee company, with a pinned product showcase. Under 100KB of JavaScript.</p>
+          <p class="label stack">Astro · GSAP · ScrollTrigger · Lenis</p>
+        </a>
+        <a class="post reveal" href="#work">
+          <div class="shot m-room"><span class="tag">3D · Interactive</span>
+            <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <path d="M200 140 340 220 340 380 200 460 60 380 60 220Z" fill="#F7F5F0"/>
+              <path d="M200 140 340 220 200 300 60 220Z" fill="#EFECE5"/>
+              <path d="M60 220 200 300 200 460 60 380Z" fill="#B9CCC4"/>
+              <path d="M200 300 340 220 340 380 200 460Z" fill="#8CB8A8"/>
+              <path d="M110 300 170 334 170 392 110 358Z" fill="#2F5D50"/>
+              <path d="M240 330 300 296 300 330 240 364Z" fill="#D9926D"/>
+              <circle cx="262" cy="250" r="16" fill="#2F5D50"/>
+            </svg></div>
+          <div class="meta"><h3>Room Tour</h3><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p>An interactive 3D room viewer with orbit controls, teleport navigation and object descriptions.</p>
+          <p class="label stack">Three.js · TypeScript</p>
+        </a>
+        <a class="post reveal" href="#work">
+          <div class="shot m-game"><span class="tag">Game · For fun</span><div></div><div></div><div></div><div></div><div></div><div></div><div></div><i></i><u></u></div>
+          <div class="meta"><h3>Mega Basic Crossy Road</h3><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p>A browser game with collision detection and keyboard controls, built to practice game loops.</p>
+          <p class="label stack">Three.js · JavaScript</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="process">
+    <div class="wrap">
+      <div class="head reveal">
+        <div><p class="label">How I work</p><h2 class="serif">From spec to production</h2></div>
+        <p class="note">AI agents write a lot of my code. Specs, guardrails and my own review decide what ships.</p>
+      </div>
+      <ol class="steps">
+        <li class="step reveal">
+          <div class="win" aria-hidden="true"><b>spec.md</b><br><br><span class="hd">## Checkout retry</span><br>- Retry failed payment 3x<br>- Show status after 2s<br>- <b>Never</b> double-charge<br><span class="ok">✓</span> acceptance: 4 cases</div>
+          <div class="step__body"><p class="label">01 · Spec</p><h3 class="serif">Write it down first</h3><p>Behavior, edge cases and acceptance criteria before any code. Agents and tests build against it.</p></div>
+        </li>
+        <li class="step reveal">
+          <div class="win" aria-hidden="true"><b>agent · run #482</b><br><span class="add">+ retryPayment(order, 3)</span><br><span class="add">+ idempotencyKey(order.id)</span><br><span class="del">- chargeCard(order)</span><br>tests&nbsp;&nbsp; <span class="ok">24 passed</span><br>types&nbsp;&nbsp; <span class="ok">ok</span> · lint <span class="ok">ok</span></div>
+          <div class="step__body"><p class="label">02 · Harness</p><h3 class="serif">Build inside guardrails</h3><p>Project rules, MCP servers, skills, type checks and tests that fail loudly.</p></div>
+        </li>
+        <li class="step reveal">
+          <div class="win" aria-hidden="true"><b>review · PR 213</b><br><br><span class="chk"><i></i>matches spec</span><span class="chk"><i></i>ran locally</span><span class="chk"><i></i>edge cases covered</span><span class="chk"><i></i>approved by Francisco</span></div>
+          <div class="step__body"><p class="label">03 · Review</p><h3 class="serif">A human signs off</h3><p>I read and run every diff. Nothing merges until it meets the spec and I understand it.</p></div>
+        </li>
+        <li class="step reveal">
+          <div class="win" aria-hidden="true"><b>production · 24h</b><svg viewBox="0 0 200 64" preserveAspectRatio="none"><path class="spark-area" d="M0 46 L20 42 L40 44 L60 36 L80 38 L100 27 L120 31 L140 19 L160 23 L180 15 L200 17 L200 64 L0 64Z"/><path class="spark" d="M0 46 L20 42 L40 44 L60 36 L80 38 L100 27 L120 31 L140 19 L160 23 L180 15 L200 17"/></svg>errors <span class="ok">0.02%</span> · p95 180ms</div>
+          <div class="step__body"><p class="label">04 · Observe</p><h3 class="serif">Watch it in production</h3><p>Errors, latency and real usage, watched after every release.</p></div>
+        </li>
+      </ol>
+
+      <div class="loop reveal">
+        <svg class="loop__art" viewBox="0 0 300 300" role="img" aria-label="Spec, build, review, observe, and back to spec">
+          <circle class="lp-ring" cx="150" cy="150" r="104"/>
+          <path class="lp-arc" d="M150 46 A104 104 0 1 1 46 150"/>
+          <path class="lp-head" d="M40 140 46 152 54 142"/>
+          <g class="lp-node"><circle cx="150" cy="46" r="27" class="lp-fill"/><text x="150" y="50">SPEC</text></g>
+          <g class="lp-node"><circle cx="254" cy="150" r="27"/><text x="254" y="154">BUILD</text></g>
+          <g class="lp-node"><circle cx="150" cy="254" r="27"/><text x="150" y="258">REVIEW</text></g>
+          <g class="lp-node"><circle cx="46" cy="150" r="27"/><text x="46" y="154">OBSERVE</text></g>
+        </svg>
+        <div class="loop__text">
+          <p class="label">And back again</p>
+          <h3 class="serif">Every release improves the next.</h3>
+          <p>What I learn in production becomes the next spec: a new edge case, a sharper test, a better rule for the agents. The process gets a little better every time it runs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="experience">
+    <div class="wrap">
+      <div class="head reveal"><div><p class="label">Experience</p><h2 class="serif">Where I've worked</h2></div></div>
+      <div class="exp reveal">
+        <p class="label">Now</p>
+        <div>
+          <h3>Valtre <span>— Software Engineer</span></h3>
+          <p>Designing and building an API for one of Mexico's largest retail brands.</p>
+          <p class="clients-line">OXXO</p>
+        </div>
+      </div>
+      <div class="exp reveal">
+        <p class="label">5 years</p>
+        <div>
+          <h3>Globant <span>— Senior Software Engineer</span></h3>
+          <p>Production frontends for global enterprise brands, as part of Globant's engineering teams.</p>
+          <p class="clients-line">Disney, Royal Caribbean, United Airlines, Dick's Sporting Goods, Gannett</p>
+        </div>
+      </div>
+      <p class="label sub reveal">Freelance &amp; independent</p>
+      <div class="exp reveal"><p class="label">Client</p><div><h3>RegioLabs <span>— regiolabs.com.mx</span></h3><p>AI WhatsApp bots, system integrations, landing pages and custom software, made in Monterrey for small businesses that no longer have time for manual work.</p></div><a class="ext" href="https://regiolabs.com.mx" target="_blank" rel="noopener" aria-label="Open RegioLabs"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      <div class="exp reveal"><p class="label">Client</p><div><h3>Caro Sweet MUA <span>— Brand &amp; booking site</span></h3><p>Brand and booking site for a professional makeup artist.</p></div><a class="ext" href="#experience" aria-label="Open Caro Sweet MUA"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      <div class="exp reveal"><p class="label">Client</p><div><h3>Vaneybr <span>— Portfolio</span></h3><p>Custom Angular portfolio built for a client.</p></div><a class="ext" href="#experience" aria-label="Open Vaneybr portfolio"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      </div>
+  </section>
+
+  <section class="block" id="stack">
+    <div class="wrap">
+      <div class="head reveal"><div><p class="label">Toolkit</p><h2 class="serif">What I work with</h2></div><p class="note">Angular on the front, .NET and Node on the back, AI agents in the loop. The rest I use when a product needs it.</p></div>
+      <div class="stackgrid reveal">
+        <div><p class="label">Frontend</p><div class="chips"><span class="chip">Angular</span><span class="chip">RxJS</span><span class="chip">NgRx</span><span class="chip">TypeScript</span><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">Astro</span></div></div>
+        <div><p class="label">Backend &amp; data</p><div class="chips"><span class="chip">.NET 10</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">Prisma</span><span class="chip">Oracle</span><span class="chip">SQL Server</span><span class="chip">MySQL</span><span class="chip">Supabase</span><span class="chip">Firebase</span></div></div>
+        <div><p class="label">AI workflow</p><div class="chips"><span class="chip">Claude Code</span><span class="chip">MCP servers</span><span class="chip">Agent skills</span><span class="chip">Spec-driven dev</span><span class="chip">Harness engineering</span><span class="chip">Human-in-the-loop</span></div></div>
+        <div><p class="label">Ship &amp; observe</p><div class="chips"><span class="chip">Docker</span><span class="chip">ARO</span><span class="chip">Traefik</span><span class="chip">Datadog</span><span class="chip">Sentry</span><span class="chip">Stripe</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block writing" id="writing">
+    <div class="wrap">
+      <div class="head reveal"><div><p class="label">Writing</p><h2 class="serif">Latest from the blog</h2></div><a class="link" href="#blog">All posts <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      <div class="posts" style="margin-top:0">
+        <a class="row reveal" href="#post-web-dev-2026"><span class="label">Apr 4, 2026</span><div><h3 class="serif">What It's Like to Be a Web Developer in 2026</h3><p>The tools changed. The fundamentals didn't. How I work with Claude Code, MCPs and skills.</p></div><span class="topic">AI</span></a>
+        <a class="row reveal" href="#post-frontend-to-full-stack"><span class="label">Apr 5, 2026</span><div><h3 class="serif">From Frontend to Full-Stack</h3><p>What actually changes when you own the whole system.</p></div><span class="topic">Backend</span></a>
+        <a class="row reveal" href="#post-angular-signals"><span class="label">Apr 1, 2026</span><div><h3 class="serif">Angular Signals: A Practical Introduction</h3><p>What signals are and how to start using them today.</p></div><span class="topic">Angular</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="templates">
+    <div class="wrap">
+      <div class="head reveal"><div><p class="label">Templates</p><h2 class="serif">Ready-made sites</h2></div><p class="note">Production-ready HTML and CSS. No frameworks, no build tools. Buy once, own forever.</p></div>
+      <div class="tpl reveal">
+        <div class="art" aria-hidden="true"></div>
+        <div class="body">
+          <p class="label">HTML · Tailwind CSS · 6 pages</p>
+          <h3>ZooNova <span class="price">$25</span></h3>
+          <p>A complete template for zoos and wildlife parks. Six designed pages in plain HTML5 and Tailwind via CDN. Open the file and start customizing.</p>
+          <a class="link" href="#templates">Buy on Gumroad <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="about">
+    <div class="wrap about">
+      <div class="reveal"><p class="label">About</p><blockquote style="margin-top:16px">Software engineer by trade, <em>builder</em> by nature.</blockquote></div>
+      <div class="text reveal">
+        <p>I'm from Monterrey and based in Houston. I've shipped production systems for Disney, Royal Caribbean, United Airlines and OXXO, from polished Angular frontends to .NET and Node.js APIs, Oracle and SQL databases, Docker infrastructure and monitoring with Datadog and Sentry.</p>
+        <p>These days I build with AI agents every day, inside a workflow I keep refining: specs first, guardrails around the agents, and my review on every change. I write about what works on the blog.</p>
+        <p>Away from work I'm gaming, learning something new, or prototyping the next idea.</p>
+        <div class="facts">
+          <div><b>6</b><span>years in production</span></div>
+          <div><b>6</b><span>global brands</span></div>
+          <div><b>20+</b><span>tools in production</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <p class="label reveal">Contact</p>
+      <h2 class="serif reveal">Let's build something good.</h2>
+      <p class="lead reveal">Open to full-time roles and selected freelance projects.</p>
+      <div class="mail reveal">
+        <code id="email">frxncismor@gmail.com</code>
+        <button class="copy" type="button" id="copy-btn">Copy email</button>
+      </div>
+      <div class="socials reveal">
+        <a class="link" href="https://github.com/" target="_blank" rel="noopener">GitHub <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="link" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="link" href="#blog">Blog <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="foot"><p class="label">© 2026 Francisco Moreno</p><p class="label">Houston, TX · Built with care</p></div>
+    </div>
+  </section>
+</main>
+
+<main id="blog-view" hidden>
+  <section class="blog-head">
+    <div class="wrap">
+      <p class="label">Blog</p>
+      <h1 class="serif">Notes on Angular, backend and building with AI</h1>
+      <p class="lead">What I learn shipping software, written down so the next person spends less time on it.</p>
+      <div class="filters">
+        <label class="search" for="post-search"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="m10.5 10.5 3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><input id="post-search" type="search" placeholder="Search posts" autocomplete="off"></label>
+        <div class="seg" role="group" aria-label="Filter by topic">
+          <button type="button" class="on" data-topic="all">All</button><button type="button" data-topic="Backend">Backend</button><button type="button" data-topic="AI">AI</button><button type="button" data-topic="Angular">Angular</button><button type="button" data-topic="JavaScript">JavaScript</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <a class="feature" href="#post-frontend-to-full-stack" data-topic="Backend" data-text="from frontend to full-stack own the whole system angular infrastructure failure modes">
+      <div class="feature__art" aria-hidden="true">
+        <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><rect width="400" height="300" class="fa-bg"/><g class="fa-line" fill="none" stroke-width="1.5"><rect x="60" y="60" width="110" height="56" rx="10"/><rect x="230" y="60" width="110" height="56" rx="10"/><rect x="145" y="190" width="110" height="56" rx="10"/><path d="M115 116v38h85v36M285 116v38h-85"/></g><circle cx="200" cy="154" r="6" class="fa-dot"/><g class="fa-txt" font-family="Geist Mono, monospace" font-size="12" letter-spacing="1"><text x="84" y="93">CLIENT</text><text x="261" y="93">API</text><text x="176" y="223">DATA</text></g></svg>
+      </div>
+      <div class="feature__body">
+        <div class="post-meta"><span class="topic">Backend</span><span class="label">April 5, 2026</span></div>
+        <h2 class="serif">From Frontend to Full-Stack: What Actually Changes When You Own the Whole System</h2>
+        <p>I spent years as an Angular specialist. Then I shipped complete systems. Here's what nobody tells you about the jump: the infrastructure decisions, the failure modes, and why the frontend mindset both helps and hurts you.</p>
+        <span class="link">Read post <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </div>
+    </a>
+
+    <div class="posts" id="post-list">
+      <a class="row" href="#post-web-dev-2026" data-topic="AI" data-text="web developer 2026 tools claude code mcps skills gentle ai stack">
+        <span class="label">Apr 4, 2026</span>
+        <div><h3 class="serif">What It's Like to Be a Web Developer in 2026</h3><p>The tools changed. The fundamentals didn't. Here's how I actually work in 2026 using Claude Code, MCPs, skills, and the Gentle AI stack.</p></div>
+        <span class="topic">AI</span>
+      </a>
+      <a class="row" href="#post-angular-signals" data-topic="Angular" data-text="angular signals practical introduction components">
+        <span class="label">Apr 1, 2026</span>
+        <div><h3 class="serif">Angular Signals: A Practical Introduction</h3><p>What signals are, why Angular added them, and how to start using them in your components today.</p></div>
+        <span class="topic">Angular</span>
+      </a>
+      <a class="row" href="#post-values-vs-references" data-topic="JavaScript" data-text="values vs references javascript objects copy bugs">
+        <span class="label">Mar 20, 2026</span>
+        <div><h3 class="serif">Values vs References in JavaScript</h3><p>One of the most misunderstood concepts in JS. Understanding how values and references work will save you from bugs you can't explain.</p></div>
+        <span class="topic">JavaScript</span>
+      </a>
+      <a class="row" href="#post-immutability" data-topic="JavaScript" data-text="immutability javascript state mutating">
+        <span class="label">Mar 10, 2026</span>
+        <div><h3 class="serif">WTF Is Immutability in JavaScript?</h3><p>Stop mutating your state. Here's what immutability actually means in JavaScript and why it matters more than you think.</p></div>
+        <span class="topic">JavaScript</span>
+      </a>
+      <a class="row" href="#post-eslint-prettier" data-topic="Angular" data-text="eslint prettier angular 20 setup guide">
+        <span class="label">Mar 1, 2026</span>
+        <div><h3 class="serif">How to Set Up ESLint and Prettier in Angular 20 Projects</h3><p>A complete, up-to-date guide to wiring ESLint and Prettier into a fresh Angular 20 project, including the parts most guides skip.</p></div>
+        <span class="topic">Angular</span>
+      </a>
+    </div>
+    <p class="empty" id="empty" hidden>No posts match that search. Try another word or pick <button type="button" id="reset-filters">All topics</button>.</p>
+  </section>
+</main>
+
+<main id="post-view" hidden>
+  <div class="progress" aria-hidden="true"><i id="progress-bar"></i></div>
+  <article class="wrap article">
+    <header class="article__head">
+      <a class="back label" href="#blog">← All posts</a>
+      <div class="post-meta"><span class="topic">JavaScript</span><span class="label">March 20, 2026 · 4 min read</span></div>
+      <h1 class="serif">Values vs References in JavaScript</h1>
+      <p class="dek">This is the bug you've had a hundred times but couldn't name.</p>
+    </header>
+
+    <div class="article__grid">
+      <aside class="toc" aria-label="On this page">
+        <p class="label">On this page</p>
+        <a href="#post-values-vs-references" data-target="two-categories">Two categories of types</a>
+        <a href="#post-values-vs-references" data-target="primitives">Primitives: copied by value</a>
+        <a href="#post-values-vs-references" data-target="objects">Objects: copied by reference</a>
+        <a href="#post-values-vs-references" data-target="new-objects">Return new objects</a>
+        <a href="#post-values-vs-references" data-target="mental-model">The mental model</a>
+      </aside>
+
+      <div class="prose">
+        <p>You copy an object, change a property, and suddenly the original changed too. Or you pass an array to a function and it comes back different. Welcome to the value vs reference problem.</p>
+
+        <h2 class="serif" id="two-categories">Two categories of types</h2>
+        <p>JavaScript has two categories of types, and they behave completely differently in memory.</p>
+        <div class="types">
+          <div><p class="label">Primitive types · stored by value</p><p><code>string</code> <code>number</code> <code>boolean</code> <code>null</code> <code>undefined</code> <code>symbol</code> <code>bigint</code></p></div>
+          <div><p class="label">Reference types · stored by reference</p><p><code>object</code> <code>array</code> <code>function</code></p></div>
+        </div>
+
+        <h2 class="serif" id="primitives">Primitives: copied by value</h2>
+        <p>When you assign a primitive, JavaScript copies the actual value.</p>
+<figure class="code"><figcaption><span>primitives.js</span><button type="button" class="copy-code">Copy</button></figcaption><pre><code><span class="k">let</span> a <span class="o">=</span> <span class="n">10</span>
+<span class="k">let</span> b <span class="o">=</span> a
+b <span class="o">=</span> <span class="n">20</span>
+
+console.<span class="f">log</span>(a) <span class="c">// 10 — unchanged</span>
+console.<span class="f">log</span>(b) <span class="c">// 20</span></code></pre></figure>
+        <p><code>b</code> got its own copy. Changing <code>b</code> has zero effect on <code>a</code>. Clean, predictable.</p>
+
+        <h2 class="serif" id="objects">Objects: copied by reference</h2>
+        <p>When you assign an object, JavaScript copies the <strong>reference</strong>: a pointer to the same place in memory.</p>
+<figure class="code"><figcaption><span>references.js</span><button type="button" class="copy-code">Copy</button></figcaption><pre><code><span class="k">const</span> user <span class="o">=</span> { name: <span class="s">'Francisco'</span>, age: <span class="n">29</span> }
+<span class="k">const</span> copy <span class="o">=</span> user
+
+copy.age <span class="o">=</span> <span class="n">30</span>
+
+console.<span class="f">log</span>(user.age) <span class="c">// 30 — you changed the original</span>
+console.<span class="f">log</span>(copy.age) <span class="c">// 30</span></code></pre></figure>
+
+        <h2 class="serif" id="new-objects">Return new objects</h2>
+        <p>The fix is to never change what you were given. Build a new object with the spread operator and return it.</p>
+<figure class="code"><figcaption><span>birthday.js</span><button type="button" class="copy-code">Copy</button></figcaption><pre><code><span class="k">function</span> <span class="f">birthday</span>(person) {
+  <span class="k">return</span> { ...person, age: person.age <span class="o">+</span> <span class="n">1</span> }
+}
+
+<span class="k">const</span> user <span class="o">=</span> { name: <span class="s">'Francisco'</span>, age: <span class="n">29</span> }
+<span class="k">const</span> older <span class="o">=</span> <span class="f">birthday</span>(user)
+
+console.<span class="f">log</span>(user.age)  <span class="c">// 29 — untouched</span>
+console.<span class="f">log</span>(older.age) <span class="c">// 30</span></code></pre></figure>
+
+        <h2 class="serif" id="mental-model">The mental model</h2>
+        <aside class="callout"><p>Think of primitives as the value written on a piece of paper. Objects are a piece of paper with an <em>address</em> written on it. Many people can hold the same address, and if you change what's at that address, everyone sees it.</p></aside>
+        <p>Once this clicks, a whole class of bugs becomes obvious before you even run the code.</p>
+
+        <footer class="article__foot">
+          <p class="label">Keep reading</p>
+          <div class="next">
+            <a href="#post-immutability"><span class="label">Next · JavaScript</span><span class="serif">WTF Is Immutability in JavaScript?</span></a>
+            <a href="#post-angular-signals"><span class="label">Previous · Angular</span><span class="serif">Angular Signals: A Practical Introduction</span></a>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer class="site-foot" id="site-foot" hidden>
+  <div class="wrap">
+    <a class="logo serif" href="#top" aria-label="Francisco Moreno, home"><span class="logo__mark" aria-hidden="true">FM<span class="logo__dot"></span></span><span class="logo__rule" aria-hidden="true"></span><span class="logo__name" aria-hidden="true">Francisco<br>Moreno</span></a>
+    <div class="socials"><a class="link" href="https://github.com/" target="_blank" rel="noopener">GitHub</a><a class="link" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a><a class="link" href="#contact">Contact</a></div>
+    <p class="label">© 2026 Francisco Moreno · Houston, TX</p>
+  </div>
+</footer>
+
+
+<script>
+(function () {
+  var root = document.documentElement;
+  try { var saved = localStorage.getItem('fm-theme'); if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved); } catch (e) {}
+  function current() {
+    var t = root.getAttribute('data-theme');
+    if (t === 'light' || t === 'dark') return t;
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  }
+  document.getElementById('theme-btn').addEventListener('click', function () {
+    var next = current() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('fm-theme', next); } catch (e) {}
+  });
+  var lang = document.getElementById('lang-btn');
+  lang.addEventListener('click', function () { lang.textContent = lang.textContent === 'ES' ? 'EN' : 'ES'; });
+
+  var copyBtn = document.getElementById('copy-btn');
+  copyBtn.addEventListener('click', function () {
+    var text = document.getElementById('email').textContent;
+    function done(msg) { copyBtn.textContent = msg; setTimeout(function () { copyBtn.textContent = 'Copy email'; }, 1600); }
+    function fallback() { var r = document.createRange(); r.selectNodeContents(document.getElementById('email')); var s = getSelection(); s.removeAllRanges(); s.addRange(r); done('Selected'); }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(function () { done('Copied'); }, fallback); else fallback();
+  });
+
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce && 'IntersectionObserver' in window) {
+    var vh = window.innerHeight;
+    var els = [].slice.call(document.querySelectorAll('.reveal')).filter(function (el) { return el.getBoundingClientRect().top > vh; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var el = en.target, sib = [].slice.call(el.parentNode.children).filter(function (c) { return c.classList.contains('pending'); });
+        el.style.transitionDelay = Math.min(sib.indexOf(el), 4) * 60 + 'ms';
+        el.classList.remove('pending'); io.unobserve(el);
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { el.classList.add('pending'); io.observe(el); });
+  }
+})();
+
+/* Blog: views by hash (#blog, #post-*), filters, TOC, reading progress */
+(function () {
+  var home = document.getElementById('top'), blog = document.getElementById('blog-view'), post = document.getElementById('post-view'), foot = document.getElementById('site-foot');
+  var navLinks = [].slice.call(document.querySelectorAll('.links a'));
+  function route() {
+    var h = location.hash.slice(1);
+    var view = h === 'blog' ? 'blog' : h.indexOf('post-') === 0 ? 'post' : 'home';
+    home.hidden = view !== 'home'; blog.hidden = view !== 'blog'; post.hidden = view !== 'post'; foot.hidden = view === 'home';
+    navLinks.forEach(function (a) { a.classList.toggle('current', (view !== 'home' && a.getAttribute('href') === '#blog')); });
+    if (view === 'home') { var el = h && document.getElementById(h); if (el) el.scrollIntoView(); else if (!h) window.scrollTo(0, 0); }
+    else window.scrollTo(0, 0);
+  }
+  window.addEventListener('hashchange', route); route();
+
+  var q = document.getElementById('post-search'), topic = 'all';
+  var items = [].slice.call(document.querySelectorAll('#blog-view [data-topic]')).filter(function (el) { return el.tagName === 'A'; });
+  var btns = [].slice.call(document.querySelectorAll('.seg button'));
+  function apply() {
+    var term = q.value.trim().toLowerCase(), shown = 0;
+    items.forEach(function (el) {
+      var ok = (topic === 'all' || el.dataset.topic === topic) && (!term || (el.dataset.text + ' ' + el.textContent).toLowerCase().indexOf(term) > -1);
+      el.hidden = !ok; if (ok) shown++;
+    });
+    document.getElementById('empty').hidden = shown > 0;
+  }
+  btns.forEach(function (b) { b.addEventListener('click', function () { topic = b.dataset.topic; btns.forEach(function (x) { x.classList.toggle('on', x === b); }); apply(); }); });
+  q.addEventListener('input', apply);
+  document.getElementById('reset-filters').addEventListener('click', function () { q.value = ''; topic = 'all'; btns.forEach(function (x) { x.classList.toggle('on', x.dataset.topic === 'all'); }); apply(); });
+
+  [].slice.call(document.querySelectorAll('.toc a')).forEach(function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); var t = document.getElementById(a.dataset.target); if (t) t.scrollIntoView({ behavior: 'smooth' }); });
+  });
+  [].slice.call(document.querySelectorAll('.copy-code')).forEach(function (b) {
+    b.addEventListener('click', function () {
+      var code = b.closest('figure').querySelector('code').textContent;
+      function done(m) { b.textContent = m; setTimeout(function () { b.textContent = 'Copy'; }, 1500); }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(code).then(function () { done('Copied'); }, function () { done('Select to copy'); }); else done('Select to copy');
+    });
+  });
+  var bar = document.getElementById('progress-bar'), heads = [].slice.call(document.querySelectorAll('.prose h2')), tocs = [].slice.call(document.querySelectorAll('.toc a'));
+  window.addEventListener('scroll', function () {
+    if (post.hidden) return;
+    var art = post.querySelector('.prose'), r = art.getBoundingClientRect();
+    var p = Math.min(1, Math.max(0, -r.top / Math.max(1, r.height - innerHeight)));
+    bar.style.width = (p * 100) + '%';
+    var cur = heads.filter(function (h) { return h.getBoundingClientRect().top < 140; }).pop();
+    tocs.forEach(function (a) { a.classList.toggle('on', !!cur && a.dataset.target === cur.id); });
+  }, { passive: true });
+})();
+</script>
