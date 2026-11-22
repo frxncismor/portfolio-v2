@@ -1,157 +1,113 @@
 ---
-import { globantClients, valtreClients, freelanceProjects } from '../data/experience'
-import { stack } from '../data/stack'
+import { experience, freelance } from '../data/experience'
 ---
 
-<section id="experience" class="py-32 bg-card">
-  <div class="max-w-screen-xl mx-auto px-6">
-
-    <!-- Section header -->
-    <div class="mb-16">
-      <span class="section-label" data-i18n="exp.label">RESUME</span>
-      <h2
-        class="text-5xl font-black font-headline text-cream mt-2 italic underline decoration-brand underline-offset-8 decoration-4"
-        data-i18n="exp.title"
-      >Experience.</h2>
+<section id="experience" class="section-block">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <p class="label" data-i18n="exp.label">Experience</p>
+        <h2 class="serif" data-i18n="exp.title">Where I've worked</h2>
+      </div>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-
-      <!-- Enterprise column -->
-      <div class="fade-in">
-        <h3
-          class="font-headline font-bold text-xl uppercase tracking-tighter mb-8 border-l-4 border-green pl-4 text-cream"
-          data-i18n="exp.enterprise"
-        >Enterprise</h3>
-
-        <div class="bg-elevated p-8 rounded-lg border border-outline-v/10 mb-6">
-          <!-- Valtre header -->
-          <div class="flex justify-between items-start mb-6">
-            <div>
-              <h4 class="text-2xl font-black font-headline text-cream">Valtre</h4>
-              <p class="text-xs font-mono text-green uppercase tracking-widest mt-1" data-i18n="exp.valtre-role">
-                DevCrossQA · Backend Engineer
-              </p>
-            </div>
-            <span class="text-xs font-mono text-outline uppercase tracking-tighter" data-i18n="exp.valtre-duration">
-              CURRENT
-            </span>
-          </div>
-
-          <p class="text-sm font-mono text-on-sv mb-8 leading-relaxed" data-i18n="exp.valtre-desc">
-            Building a .NET 10 API for OXXO with an AI-assisted workflow (GitHub Copilot, Claude, Codex): I own the backend code end to end, apply engineering best practices and test everything I ship to guarantee code and product quality.
+    <div class="rows">
+      {experience.map((item) => (
+        <div class="exp reveal">
+          <p class="label">
+            <span class="lang-en">{item.period.en}</span>
+            <span class="lang-es">{item.period.es}</span>
           </p>
-
-          <!-- Clients -->
-          <div>
-            <span class="text-[10px] font-bold text-muted tracking-widest block mb-4 uppercase font-mono" data-i18n="exp.clients-label">
-              Direct Clients Served
-            </span>
-            <div class="flex flex-wrap gap-3">
-              {valtreClients.map((client) => (
-                <div class="bg-base px-4 py-2 border border-outline-v/20 flex items-center gap-3">
-                  <span class="material-symbols-outlined text-sm text-brand">{client.icon}</span>
-                  <span class="text-xs font-mono text-cream">{client.name}</span>
-                </div>
-              ))}
-            </div>
+          <div class="exp-body">
+            <h3>
+              {item.company}
+              <span>
+                — <span class="lang-en">{item.role.en}</span><span class="lang-es">{item.role.es}</span>
+              </span>
+            </h3>
+            <p>
+              <span class="lang-en">{item.description.en}</span>
+              <span class="lang-es">{item.description.es}</span>
+            </p>
+            <p class="clients-line">{item.clients}</p>
           </div>
         </div>
-
-        <div class="bg-elevated p-8 rounded-lg border border-outline-v/10">
-          <!-- Globant header -->
-          <div class="flex justify-between items-start mb-6">
-            <div>
-              <h4 class="text-2xl font-black font-headline text-cream">Globant</h4>
-              <p class="text-xs font-mono text-green uppercase tracking-widest mt-1" data-i18n="exp.globant-role">
-                Senior Software Engineer
-              </p>
-            </div>
-            <span class="text-xs font-mono text-outline uppercase tracking-tighter" data-i18n="exp.globant-duration">
-              5 YEARS
-            </span>
-          </div>
-
-          <p class="text-sm font-mono text-on-sv mb-8 leading-relaxed" data-i18n="exp.globant-desc">
-            Delivered production-grade frontends for global enterprise brands as part of Globant's engineering teams.
-          </p>
-
-          <!-- Clients -->
-          <div>
-            <span class="text-[10px] font-bold text-muted tracking-widest block mb-4 uppercase font-mono" data-i18n="exp.clients-label">
-              Direct Clients Served
-            </span>
-            <div class="flex flex-wrap gap-3">
-              {globantClients.map((client) => (
-                <div class="bg-base px-4 py-2 border border-outline-v/20 flex items-center gap-3">
-                  <span class="material-symbols-outlined text-sm text-brand">{client.icon}</span>
-                  <span class="text-xs font-mono text-cream">{client.name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Freelance column -->
-      <div class="fade-in">
-        <h3
-          class="font-headline font-bold text-xl uppercase tracking-tighter mb-8 border-l-4 border-outline-v pl-4 text-cream"
-          data-i18n="exp.freelance"
-        >Freelance &amp; Independent</h3>
-
-        <div class="space-y-1">
-          {freelanceProjects.map((item) => (
-            item.url ? (
-              <a
-                href={item.url}
-                title={`${item.title} — ${item.description}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="group flex flex-col p-6 bg-base border-b border-outline-v/10 hover:bg-elevated transition-colors block"
-              >
-                <div class="flex justify-between items-center">
-                  <div class="flex items-center gap-3">
-                    <h4 class="text-lg font-bold font-headline text-cream group-hover:text-brand transition-colors">
-                      {item.title}
-                    </h4>
-                    {item.wip && (
-                      <span class="text-[9px] font-mono font-bold tracking-widest px-2 py-0.5 border border-brand/40 text-brand/70 uppercase">WIP</span>
-                    )}
-                  </div>
-                  <span class="material-symbols-outlined text-sm text-outline group-hover:text-brand transition-colors">arrow_outward</span>
-                </div>
-                <p class="text-xs font-mono text-outline">{item.description}</p>
-              </a>
-            ) : (
-              <div class="group flex flex-col p-6 bg-base border-b border-outline-v/10 hover:bg-elevated transition-colors">
-                <div class="flex items-center gap-3">
-                  <h4 class="text-lg font-bold font-headline text-cream group-hover:text-brand transition-colors">
-                    {item.title}
-                  </h4>
-                  {item.wip && (
-                    <span class="text-[9px] font-mono font-bold tracking-widest px-2 py-0.5 border border-brand/40 text-brand/70 uppercase">WIP</span>
-                  )}
-                </div>
-                <p class="text-xs font-mono text-outline">{item.description}</p>
-              </div>
-            )
-          ))}
-        </div>
-      </div>
-
+      ))}
     </div>
 
-    <!-- Tech chips row -->
-    <div class="mt-24 pt-16 border-t border-outline-v/20">
-      <div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
-        {stack.map((tech) => (
-          <span class="text-sm font-mono text-cream/40 hover:text-brand transition-colors cursor-default">
-            {tech}
-          </span>
-        ))}
-      </div>
-    </div>
+    <p class="label sub reveal" data-i18n="exp.freelance">Freelance &amp; independent</p>
 
+    <div class="rows">
+      {freelance.map((item) => (
+        <div class="exp reveal">
+          <p class="label" data-i18n="exp.client">Client</p>
+          <div class="exp-body">
+            <h3>
+              {item.name}
+              <span>
+                — <span class="lang-en">{item.tagline.en}</span><span class="lang-es">{item.tagline.es}</span>
+              </span>
+            </h3>
+            <p>
+              <span class="lang-en">{item.description.en}</span>
+              <span class="lang-es">{item.description.es}</span>
+            </p>
+          </div>
+          {item.url && item.openLabel && (
+            <a class="ext" href={item.url} target="_blank" rel="noopener noreferrer">
+              <span class="sr-only">
+                <span class="lang-en">{item.openLabel.en}</span>
+                <span class="lang-es">{item.openLabel.es}</span>
+              </span>
+              <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" focusable="false">
+                <path d="M4 10 10 4M5 4h5v5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
   </div>
 </section>
+
+<style>
+  .rows .exp:last-child { border-bottom: 1px solid var(--hairline); }
+  .exp {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr) auto;
+    gap: 8px 32px;
+    padding-block: 28px;
+    border-top: 1px solid var(--hairline);
+  }
+  .exp .label { padding-top: 7px; }
+  .exp-body { min-width: 0; }
+  .exp h3 {
+    margin: 0;
+    font: 500 19px/28px var(--sans);
+    color: var(--ink);
+  }
+  .exp h3 > span { color: var(--muted); font-weight: 400; }
+  .exp p { margin: 6px 0 0; color: var(--muted); font-size: 15px; line-height: 24px; max-width: 38em; }
+  .exp .label { margin: 0; }
+  .exp .clients-line { color: var(--ink); }
+  .exp a.ext {
+    align-self: start;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    margin-top: 2px;
+    border-radius: var(--r-sm);
+    color: var(--muted);
+    transition: color .15s, transform .15s cubic-bezier(.2, .7, .2, 1);
+  }
+  .exp a.ext:hover { color: var(--accent); transform: translate(2px, -2px); }
+  .exp a.ext:focus-visible { outline: none; box-shadow: var(--focus); color: var(--accent); }
+  .sub { margin: 56px 0 16px; }
+
+  @media (max-width: 640px) {
+    .exp { grid-template-columns: minmax(0, 1fr) auto; }
+    .exp .label { grid-column: 1 / -1; padding-top: 0; }
+  }
+</style>

@@ -1,0 +1,62 @@
+---
+import { toolkitGroups } from '../data/toolkit'
+---
+
+<section id="stack" class="section-block">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <p class="label" data-i18n="toolkit.label">Toolkit</p>
+        <h2 class="serif" data-i18n="toolkit.title">What I work with</h2>
+      </div>
+      <p class="note" data-i18n="toolkit.note">
+        Angular on the front, .NET and Node on the back, AI agents in the loop. The rest I use when a product needs it.
+      </p>
+    </div>
+
+    <div class="stackgrid reveal">
+      {toolkitGroups.map((group) => (
+        <div class="group">
+          <p class="label">
+            <span class="lang-en">{group.label.en}</span>
+            <span class="lang-es">{group.label.es}</span>
+          </p>
+          <ul class="chips">
+            {group.items.map((item) => <li class="chip">{item}</li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .stackgrid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 32px;
+  }
+  .group {
+    display: grid;
+    gap: 14px;
+    align-content: start;
+    padding-top: 18px;
+    border-top: 1px solid var(--hairline);
+  }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .chip { font: 500 12px/1 var(--mono); letter-spacing: .03em; }
+
+  @media (max-width: 1000px) {
+    .stackgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 640px) {
+    .stackgrid { grid-template-columns: 1fr; }
+  }
+</style>

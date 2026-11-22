@@ -1,30 +1,78 @@
-export interface GlobantClient {
+import type { Localized } from '../i18n/types'
+
+export interface ExperienceEntry {
+  /** Left-column label ("Now", "5 years"). */
+  period: Localized
+  company: string
+  role: Localized
+  description: Localized
+  /** Plain-text client list shown under the description. */
+  clients: string
+}
+
+export interface FreelanceEntry {
   name: string
-  icon: string
-}
-
-export interface FreelanceItem {
-  title: string
-  description: string
+  /** Short suffix after the name, e.g. "regiolabs.com.mx". */
+  tagline: Localized
+  description: Localized
+  /** Only set when a real public URL exists: renders the ↗ link. */
   url?: string
-  wip?: boolean
+  /** Accessible name of the ↗ link. */
+  openLabel?: Localized
 }
 
-export const globantClients: GlobantClient[] = [
-  { name: 'Disney',                icon: 'corporate_fare'  },
-  { name: 'Royal Caribbean',       icon: 'directions_boat' },
-  { name: 'United Airlines',       icon: 'flight_takeoff'  },
-  { name: "Dick's Sporting Goods", icon: 'shopping_cart'   },
-  { name: 'Gannett',               icon: 'newspaper'       },
+export const experience: ExperienceEntry[] = [
+  {
+    period: { en: 'Now', es: 'Ahora' },
+    company: 'Valtre',
+    role: { en: 'DevCrossQA · Backend Engineer', es: 'DevCrossQA · Ingeniero Backend' },
+    description: {
+      en: 'Building a .NET 10 API for OXXO with an AI-assisted workflow (GitHub Copilot, Claude, Codex): I own the backend code end to end, apply engineering best practices and test everything I ship to guarantee code and product quality.',
+      es: 'Desarrollo una API con .NET 10 para OXXO con un flujo asistido por IA (GitHub Copilot, Claude, Codex): me encargo del código backend de principio a fin, aplico buenas prácticas de ingeniería y pruebo todo lo que entrego para asegurar la calidad del código y del producto.',
+    },
+    clients: 'OXXO',
+  },
+  {
+    period: { en: '5 years', es: '5 años' },
+    company: 'Globant',
+    role: { en: 'Senior Software Engineer', es: 'Ingeniero de Software Senior' },
+    description: {
+      en: "Delivered production-grade frontends for global enterprise brands as part of Globant's engineering teams.",
+      es: 'Entregué frontends de nivel producción para marcas enterprise globales como parte de los equipos de ingeniería de Globant.',
+    },
+    clients: "Disney, Royal Caribbean, United Airlines, Dick's Sporting Goods, Gannett",
+  },
 ]
 
-export const valtreClients: GlobantClient[] = [
-  { name: 'OXXO',                  icon: 'storefront'      },
-]
-
-export const freelanceProjects: FreelanceItem[] = [
-  { title: 'Regio Labs',        description: 'AI WhatsApp bots & website for a Monterrey automation studio',    url: 'https://regiolabs.com.mx/'               },
-  { title: 'Vaneybr Portfolio', description: 'Custom Angular portfolio built for a client',                      url: 'https://www.vaneybr.com/home'            },
-  { title: 'Caro Sweet MUA',    description: 'Brand & booking site for a professional makeup artist',            url: 'https://caro-sweet-mua.vercel.app/'      },
-  { title: 'Nox Coffee',        description: 'Motion-driven brand experience for a fictional coffee company',    url: 'https://nox-coffee.vercel.app/' },
+export const freelance: FreelanceEntry[] = [
+  {
+    name: 'RegioLabs',
+    tagline: { en: 'regiolabs.com.mx', es: 'regiolabs.com.mx' },
+    description: {
+      en: 'Client project: I built the AI WhatsApp bots and the website for this Monterrey automation studio.',
+      es: 'Proyecto para cliente: desarrollé los bots de WhatsApp con IA y el sitio web de este estudio de automatización de Monterrey.',
+    },
+    url: 'https://regiolabs.com.mx/',
+    openLabel: { en: 'Open RegioLabs (opens in a new tab)', es: 'Abrir RegioLabs (se abre en una pestaña nueva)' },
+  },
+  {
+    name: 'Caro Sweet MUA',
+    tagline: { en: 'Brand & booking site', es: 'Marca y sitio de reservas' },
+    description: {
+      en: 'Brand and booking site for a professional makeup artist.',
+      es: 'Sitio de marca y reservas para una maquillista profesional.',
+    },
+    url: 'https://caro-sweet-mua.vercel.app/',
+    openLabel: { en: 'Open Caro Sweet MUA (opens in a new tab)', es: 'Abrir Caro Sweet MUA (se abre en una pestaña nueva)' },
+  },
+  {
+    name: 'Vaneybr',
+    tagline: { en: 'Portfolio', es: 'Portafolio' },
+    description: {
+      en: 'Custom Angular portfolio built for a client.',
+      es: 'Portafolio a medida en Angular, hecho para un cliente.',
+    },
+    url: 'https://www.vaneybr.com/home',
+    openLabel: { en: 'Open Vaneybr portfolio (opens in a new tab)', es: 'Abrir el portafolio de Vaneybr (se abre en una pestaña nueva)' },
+  },
 ]
