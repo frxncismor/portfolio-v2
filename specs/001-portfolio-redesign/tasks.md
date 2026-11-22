@@ -18,29 +18,29 @@
 **Objetivo**: tokens, tema, fuentes, marca, i18n `{en,es}`, movimiento base, navbar (con Menu y ES/EN en móvil), hero y franja "Shipped for".
 
 ### Base
-- [ ] T-001 Crear `src/styles/tokens.css`: copiar `docs/redesign/tokens.css`; añadir `--art-*` (hex de las ilustraciones del prototipo: ver `plan.md`) y `--syn-*`/`--code-bg` por tema; `--focus` con `var()`.
-- [ ] T-002 Reescribir `tailwind.config.mjs`: colores `paper, surface, sunken, ink, muted, hairline, accent, accent-soft, on-accent, clay, deep, art.*` = `var(--…)`; radios 4/10/16; `fontFamily` `display/sans/mono`; `maxWidth.wrap 1120px`; `boxShadow sm/focus`. Quitar la paleta morada.
-- [ ] T-003 Reescribir `src/styles/global.css`: importar tokens; reset base; `.wrap`, `.label`, `.serif`, `.btn(.ghost)`, `.link`, `.arrow`, `.chip`, `.topic`, `.reveal(.pending)`, `[hidden]{display:none!important}`, `:focus-visible` con `--focus` (sin `border-radius` global), `.sr-only`/skip link, `@media (scripting: none)` y `@media (prefers-reduced-motion: reduce)`, `html[data-lang]` para `.lang-en/.lang-es`. Eliminar `.grain-overlay`, `.fade-in` y `.material-symbols-outlined`.
-- [ ] T-004 [P] Crear `src/i18n/types.ts` (`Localized = { en: string; es: string }`) y ampliar `src/i18n/translations.ts` con claves de nav, hero, franja, menú, tema, idioma; mantener las existentes que sigan usándose.
-- [ ] T-005 Actualizar `src/scripts/i18n.ts`: `try/catch` en `localStorage`; soporte `data-i18n-aria`; sin ocultar la página con `opacity:0` (evitar parpadeo con el script del `<head>`).
-- [ ] T-006 [P] Reescribir `src/scripts/animations.ts`: `.reveal` (500ms, `cubic-bezier(.2,.7,.2,1)`, 10px, una vez, escalonado `min(i,4)*60ms`, solo elementos bajo el pliegue), no-op con reduced-motion/sin IntersectionObserver.
-- [ ] T-007 [P] Crear `public/brand/` con los 6 SVG de `docs/redesign/logos/`; sustituir `public/favicon.svg` por `avatar-dark.svg`.
-- [ ] T-008 Actualizar `src/layouts/Layout.astro`: script de tema en `<head>` antes de los estilos (clave `fm-theme`, try/catch); `<meta theme-color>` doble con `media`; fuentes Fraunces + Geist + Geist Mono con `preconnect` a googleapis y gstatic; favicon dark/light con `media`; quitar Epilogue, DM Mono y Material Symbols; `color-scheme`.
-- [ ] T-009 Crear `src/components/Logo.astro` (FM. + punto + regla + "Francisco Moreno", texto/CSS; variante `FM.` ≤640px).
-- [ ] T-010 [P] Crear `src/components/ThemeToggle.astro` y `src/scripts/theme.ts` (alterna `data-theme`, guarda `fm-theme`, `aria-label` traducido, sol/luna SVG por CSS).
+- [x] T-001 Crear `src/styles/tokens.css`: copiar `docs/redesign/tokens.css`; añadir `--art-*` (hex de las ilustraciones del prototipo: ver `plan.md`) y `--syn-*`/`--code-bg` por tema; `--focus` con `var()`.
+- [x] T-002 Reescribir `tailwind.config.mjs`: colores `paper, surface, sunken, ink, muted, hairline, accent, accent-soft, on-accent, clay, deep, art.*` = `var(--…)`; radios 4/10/16; `fontFamily` `display/sans/mono`; `maxWidth.wrap 1120px`; `boxShadow sm/focus`. Quitar la paleta morada.
+- [x] T-003 Reescribir `src/styles/global.css`: importar tokens; reset base; `.wrap`, `.label`, `.serif`, `.btn(.ghost)`, `.link`, `.arrow`, `.chip`, `.topic`, `.reveal(.pending)`, `[hidden]{display:none!important}`, `:focus-visible` con `--focus` (sin `border-radius` global), `.sr-only`/skip link, `@media (scripting: none)` y `@media (prefers-reduced-motion: reduce)`, `html[data-lang]` para `.lang-en/.lang-es`. Eliminar `.grain-overlay`, `.fade-in` y `.material-symbols-outlined`.
+- [x] T-004 [P] Crear `src/i18n/types.ts` (`Localized = { en: string; es: string }`) y ampliar `src/i18n/translations.ts` con claves de nav, hero, franja, menú, tema, idioma; mantener las existentes que sigan usándose.
+- [x] T-005 Actualizar `src/scripts/i18n.ts`: `try/catch` en `localStorage`; soporte `data-i18n-aria`; sin ocultar la página con `opacity:0` (evitar parpadeo con el script del `<head>`).
+- [x] T-006 [P] Reescribir `src/scripts/animations.ts`: `.reveal` (500ms, `cubic-bezier(.2,.7,.2,1)`, 10px, una vez, escalonado `min(i,4)*60ms`, solo elementos bajo el pliegue), no-op con reduced-motion/sin IntersectionObserver.
+- [x] T-007 [P] Crear `public/brand/` con los 6 SVG de `docs/redesign/logos/`; sustituir `public/favicon.svg` por `avatar-dark.svg`.
+- [x] T-008 Actualizar `src/layouts/Layout.astro`: script de tema en `<head>` antes de los estilos (clave `fm-theme`, try/catch); `<meta theme-color>` doble con `media`; fuentes Fraunces + Geist + Geist Mono con `preconnect` a googleapis y gstatic; favicon dark/light con `media`; quitar Epilogue, DM Mono y Material Symbols; `color-scheme`.
+- [x] T-009 Crear `src/components/Logo.astro` (FM. + punto + regla + "Francisco Moreno", texto/CSS; variante `FM.` ≤640px).
+- [x] T-010 [P] Crear `src/components/ThemeToggle.astro` y `src/scripts/theme.ts` (alterna `data-theme`, guarda `fm-theme`, `aria-label` traducido, sol/luna SVG por CSS).
 
 ### Nav
-- [ ] T-011 Reescribir `src/components/Nav.astro`: sticky 64px, blur + `color-mix`, línea hairline; Logo, 4 enlaces (`/#work`, `/#experience`, `/blog`, `/#contact`), botón ES/EN (`#lang-toggle`), ThemeToggle, píldora "Open to full-time" con punto que late (`@keyframes pulse` 2.4s). `aria-current` en Blog dentro de `/blog*`.
-- [ ] T-012 Crear `src/scripts/nav.ts` y el botón **Menu** ≤900px: oculta los 4 enlaces y abre un panel con los mismos enlaces (`aria-expanded`, `aria-controls`, cierra con Esc, al elegir y al pasar a >900px). ES/EN permanece visible a ≤640px; logo `FM.` a ≤640px; todo cabe a 390px.
+- [x] T-011 Reescribir `src/components/Nav.astro`: sticky 64px, blur + `color-mix`, línea hairline; Logo, 4 enlaces (`/#work`, `/#experience`, `/blog`, `/#contact`), botón ES/EN (`#lang-toggle`), ThemeToggle, píldora "Open to full-time" con punto que late (`@keyframes pulse` 2.4s). `aria-current` en Blog dentro de `/blog*`.
+- [x] T-012 Crear `src/scripts/nav.ts` y el botón **Menu** ≤900px: oculta los 4 enlaces y abre un panel con los mismos enlaces (`aria-expanded`, `aria-controls`, cierra con Esc, al elegir y al pasar a >900px). ES/EN permanece visible a ≤640px; logo `FM.` a ≤640px; todo cabe a 390px.
 
 ### Hero
-- [ ] T-013 Reescribir `src/components/Hero.astro`: etiqueta "Francisco Moreno — Software Engineer · Houston, TX"; titular palabra por palabra en `.lang-en` y `.lang-es` (`span.w`, `animation-delay` 50ms, marcas en `text-accent`, comas con `white-space:nowrap` pegadas); botones "See my work" / "View experience"; línea "Angular · .NET & Node · AI-assisted, human-reviewed"; sin foto, grano ni orbes. `padding` 120/96 (72/64 ≤900px).
-- [ ] T-014 Crear `src/components/Clients.astro`: franja "Shipped for" (Disney, Royal Caribbean, United Airlines, OXXO, Dick's Sporting Goods, Gannett, RegioLabs) en Fraunces 22px entre dos hairlines.
-- [ ] T-015 Modificar `src/pages/index.astro`: Nav → Hero → Clients; el resto de secciones actuales siguen montadas (se migran en las paradas 2–4).
-- [ ] T-016 Modificar `src/components/Footer.astro` mínimo (tokens, sin `slate-*`, sin `white/`) para que no rompa la home entre paradas; el rediseño completo va en la parada 4/5.
+- [x] T-013 Reescribir `src/components/Hero.astro`: etiqueta "Francisco Moreno — Software Engineer · Houston, TX"; titular palabra por palabra en `.lang-en` y `.lang-es` (`span.w`, `animation-delay` 50ms, marcas en `text-accent`, comas con `white-space:nowrap` pegadas); botones "See my work" / "View experience"; línea "Angular · .NET & Node · AI-assisted, human-reviewed"; sin foto, grano ni orbes. `padding` 120/96 (72/64 ≤900px).
+- [x] T-014 Crear `src/components/Clients.astro`: franja "Shipped for" (Disney, Royal Caribbean, United Airlines, OXXO, Dick's Sporting Goods, Gannett, RegioLabs) en Fraunces 22px entre dos hairlines.
+- [x] T-015 Modificar `src/pages/index.astro`: Nav → Hero → Clients; el resto de secciones actuales siguen montadas (se migran en las paradas 2–4).
+- [x] T-016 Modificar `src/components/Footer.astro` mínimo (tokens, sin `slate-*`, sin `white/`) para que no rompa la home entre paradas; el rediseño completo va en la parada 4/5.
 
 ### Cierre de la parada 1
-- [ ] T-017 Comprobar y corregir: build verde, greps en `Layout, Nav, Hero, Clients, Logo, ThemeToggle, global.css, tailwind.config.mjs`; 390px sin scroll horizontal; recarga con tema claro guardado sin parpadeo; reduced-motion; Menu con teclado.
+- [x] T-017 Comprobar y corregir: build verde, greps en `Layout, Nav, Hero, Clients, Logo, ThemeToggle, global.css, tailwind.config.mjs`; 390px sin scroll horizontal; recarga con tema claro guardado sin parpadeo; reduced-motion; Menu con teclado.
 
 **Qué debe ver Paco en local**
 - `npm run dev` → `/` en **1280px** y **390px**, tema **oscuro y claro** (botón sol/luna y cambiando el SO), **ES y EN**.

@@ -1,95 +1,186 @@
+@import './tokens.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  /*
-   * Fallback font metrics — prevents CLS when web fonts load.
-   * size-adjust values tuned to minimize layout shift.
-   */
+  /* Fallback font metrics — approximate size-adjust values to limit layout shift while web fonts load. */
   @font-face {
-    font-family: 'Epilogue-Fallback';
-    src: local('Arial Black'), local('Arial');
-    size-adjust: 97%;
-    ascent-override: 96%;
+    font-family: 'Fraunces-Fallback';
+    src: local('Georgia');
+    size-adjust: 104%;
+    ascent-override: 92%;
     descent-override: 24%;
     line-gap-override: 0%;
   }
 
   @font-face {
-    font-family: 'DMMono-Fallback';
-    src: local('Courier New');
-    size-adjust: 87%;
-    ascent-override: 88%;
-    descent-override: 22%;
+    font-family: 'Geist-Fallback';
+    src: local('Arial');
+    size-adjust: 102%;
+    ascent-override: 94%;
+    descent-override: 26%;
     line-gap-override: 0%;
   }
 
+  *, *::before, *::after { box-sizing: border-box; }
+
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
-    background-color: #0c0c0f;
-    color: #e8e4dc;
-    font-family: 'DM Mono', 'DMMono-Fallback', monospace;
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 17px/28px var(--sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
+    transition: background-color .2s, color .2s;
   }
 
-  /* Material Symbols icon rendering */
-  .material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    vertical-align: middle;
+  a { color: inherit; }
+  img, svg { max-width: 100%; }
+
+  section[id] { scroll-margin-top: 72px; }
+
+  [hidden] { display: none !important; }
+
+  :focus-visible {
+    outline: none;
+    box-shadow: var(--focus);
   }
 }
 
 @layer components {
-  /* ── Intersection Observer animations ── */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    will-change: opacity, transform;
+  /* ── Layout ── */
+  .wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding-left: max(24px, env(safe-area-inset-left, 0px));
+    padding-right: max(24px, env(safe-area-inset-right, 0px));
   }
-
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-    will-change: auto;
-  }
-
-  /* No-JS fallback: content always visible when JS is off */
-  @media (scripting: none) {
-    .fade-in {
-      opacity: 1;
-      transform: none;
-      will-change: auto;
+  @media (max-width: 640px) {
+    .wrap {
+      padding-left: max(16px, env(safe-area-inset-left, 0px));
+      padding-right: max(16px, env(safe-area-inset-right, 0px));
     }
   }
 
-  /* ── Grain texture overlay ── */
-  .grain-overlay {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-    background-repeat: repeat;
-    opacity: 0.035;
-    pointer-events: none;
+  /* ── Type ── */
+  .serif {
+    font-family: var(--display);
+    font-weight: 400;
+    font-variation-settings: "SOFT" 100, "WONK" 1;
   }
 
-  /* ── Section heading divider ── */
+  .label {
+    font: 500 12px/16px var(--mono);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Legacy section label (secciones antiguas, hasta migrarlas en las paradas 2–4) */
   .section-label {
-    @apply text-[10px] font-mono text-muted uppercase tracking-[0.4em];
+    font: 500 12px/16px var(--mono);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
   }
 
-  /* ── Focus visible — keyboard navigation ── */
-  :focus-visible {
-    outline: 2px solid #7F77DD;
-    outline-offset: 3px;
-    border-radius: 2px;
+  /* ── Buttons & links ── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 48px;
+    padding: 0 24px;
+    border-radius: var(--r-md);
+    font: 500 15px/1 var(--sans);
+    text-decoration: none;
+    background: var(--accent);
+    color: var(--on-accent);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: background-color .15s, color .15s, border-color .15s;
+  }
+  .btn:hover { background: var(--ink); color: var(--paper); }
+  .btn.ghost { background: transparent; color: var(--ink); border-color: var(--hairline); }
+  .btn.ghost:hover { border-color: var(--muted); background: transparent; color: var(--ink); }
+
+  .link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    font-size: 15px;
+    text-decoration: none;
+    transition: color .15s;
+  }
+  .link:hover { color: var(--accent); }
+
+  .arrow { transition: transform .15s cubic-bezier(.2, .7, .2, 1); }
+  .link:hover .arrow { transform: translateX(3px); }
+
+  /* ── Chips & topics ── */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    height: 28px;
+    padding: 0 10px;
+    border-radius: var(--r-sm);
+    background: var(--accent-soft);
+    color: var(--ink);
+    font: 400 13px/1 var(--sans);
   }
 
-  /* ── Screen-reader only utility ── */
+  .topic {
+    display: inline-flex;
+    align-items: center;
+    font: 500 12px/1 var(--mono);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* ── Motion: scroll reveal (see src/scripts/animations.ts) ── */
+  .reveal {
+    transition: opacity .5s cubic-bezier(.2, .7, .2, 1), transform .5s cubic-bezier(.2, .7, .2, 1);
+  }
+  .reveal.pending {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  /* No-JS: content always visible */
+  @media (scripting: none) {
+    .reveal.pending { opacity: 1; transform: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal.pending { opacity: 1; transform: none; }
+    *, *::before, *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+    html { scroll-behavior: auto; }
+  }
+
+  /* ── Theme icons (ThemeToggle): sun in dark, moon in light ── */
+  .theme-sun, .theme-moon { display: none; }
+  :root .theme-sun { display: block; }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) .theme-sun { display: none; }
+    :root:not([data-theme="dark"]) .theme-moon { display: block; }
+  }
+  :root[data-theme="light"] .theme-sun { display: none; }
+  :root[data-theme="light"] .theme-moon { display: block; }
+
+  /* ── Accessibility ── */
   .sr-only {
     position: absolute;
     width: 1px;
@@ -102,70 +193,83 @@
     border-width: 0;
   }
 
-  .focus\:not-sr-only:focus {
-    position: fixed;
-    width: auto;
-    height: auto;
-    padding: revert;
-    margin: revert;
-    overflow: visible;
-    clip: auto;
-    white-space: normal;
+  .skip-link {
+    position: absolute;
+    left: 16px;
+    top: -64px;
+    z-index: 100;
+    padding: 12px 16px;
+    border-radius: var(--r-md);
+    background: var(--accent);
+    color: var(--on-accent);
+    font: 500 14px/1 var(--sans);
+    text-decoration: none;
   }
+  .skip-link:focus { top: 16px; }
 
-  /* ── Bilingual blog content visibility ── */
+  /* ── i18n ── */
   html[data-lang="en"] .lang-es { display: none; }
   html[data-lang="es"] .lang-en { display: none; }
 
-  /* ── Blog prose styles ── */
+  /* Avoid an EN flash for stored ES: hide only translatable fragments until i18n.ts has run. */
+  html[data-lang="es"]:not([data-i18n-ready]) [data-i18n] { visibility: hidden; }
+  @media (scripting: none) {
+    html[data-lang="es"]:not([data-i18n-ready]) [data-i18n] { visibility: visible; }
+  }
+
+  /* TEMPORAL (paradas 2–4): Material Symbols ya no se carga y las secciones antiguas aún
+     lo referencian. Se ocultan para que no salgan nombres de ligadura como texto. */
+  .material-symbols-outlined { display: none; }
+
+  /* ── Blog prose (se rehace en la parada 6; ahora solo con tokens) ── */
   .prose h1, .prose h2, .prose h3, .prose h4 {
-    font-family: 'Epilogue', 'Arial Black', sans-serif;
-    font-weight: 900;
-    color: #e8e4dc;
+    font-family: var(--display);
+    font-weight: 400;
+    color: var(--ink);
     margin-top: 2rem;
     margin-bottom: 0.75rem;
     line-height: 1.15;
   }
   .prose h1 { font-size: 1.875rem; }
-  .prose h2 { font-size: 1.375rem; border-bottom: 1px solid #474552; padding-bottom: 0.5rem; }
+  .prose h2 { font-size: 1.375rem; border-bottom: 1px solid var(--hairline); padding-bottom: 0.5rem; }
   .prose h3 { font-size: 1.125rem; }
-  .prose p  { margin-bottom: 1.25rem; line-height: 1.8; color: #c8c4d4; }
-  .prose a  { color: #7F77DD; text-decoration: underline; text-underline-offset: 3px; }
-  .prose a:hover { color: #8c84eb; }
-  .prose strong { color: #e8e4dc; font-weight: 700; }
-  .prose em { color: #c8c4d4; font-style: italic; }
+  .prose p  { margin-bottom: 1.25rem; line-height: 1.8; color: var(--muted); }
+  .prose a  { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .prose a:hover { color: var(--ink); }
+  .prose strong { color: var(--ink); font-weight: 500; }
+  .prose em { color: var(--muted); font-style: italic; }
   .prose code {
-    background: #1b1b1e;
-    color: #7F77DD;
+    background: var(--accent-soft);
+    color: var(--ink);
     padding: 0.15rem 0.4rem;
     font-size: 0.85em;
-    font-family: 'DM Mono', 'Courier New', monospace;
-    border: 1px solid #474552;
+    font-family: var(--mono);
+    border-radius: var(--r-sm);
   }
   .prose pre {
-    background: #131316;
+    background: var(--code-bg);
     padding: 1.25rem 1.5rem;
     overflow-x: auto;
     margin: 1.5rem 0;
-    border-left: 2px solid #7F77DD;
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-md);
   }
   .prose pre code {
     background: none;
     padding: 0;
-    color: #c8c4d4;
+    color: var(--ink);
     border: none;
     font-size: 0.875rem;
   }
-  .prose ul, .prose ol { padding-left: 1.5rem; margin-bottom: 1.25rem; color: #c8c4d4; }
+  .prose ul, .prose ol { padding-left: 1.5rem; margin-bottom: 1.25rem; color: var(--muted); }
   .prose ul { list-style-type: disc; }
   .prose ol { list-style-type: decimal; }
   .prose li { margin-bottom: 0.4rem; line-height: 1.7; }
   .prose blockquote {
-    border-left: 3px solid #474552;
+    border-left: 3px solid var(--hairline);
     padding-left: 1rem;
-    color: #928f9d;
+    color: var(--muted);
     margin: 1.5rem 0;
-    font-style: italic;
   }
-  .prose hr { border-color: #474552; margin: 2rem 0; }
+  .prose hr { border-color: var(--hairline); margin: 2rem 0; }
 }

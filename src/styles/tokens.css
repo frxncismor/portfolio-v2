@@ -1,0 +1,36 @@
+/* Francisco Moreno — design tokens. Dark is the default; light via prefers-color-scheme or [data-theme="light"]. */
+
+:root {
+  --paper:#141513; --surface:#1C1D1B; --sunken:#0F100E; --ink:#ECEAE4; --muted:#A3A69F; --hairline:#2C2E2A;
+  --accent:#8CB8A8; --accent-soft:#1F2E29; --on-accent:#0F1A16; --clay:#D9926D; --deep:#2F5D50;
+  --shadow-sm:0 0 0 1px rgba(236,234,228,.04), 0 8px 24px rgba(0,0,0,.45);
+  --focus:0 0 0 2px var(--paper), 0 0 0 4px var(--accent);
+  --display:"Fraunces", "Fraunces-Fallback", "Iowan Old Style", Georgia, serif;
+  --sans:"Geist", "Geist-Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"Geist Mono", ui-monospace, Menlo, monospace;
+  --r-sm:4px; --r-md:10px; --r-lg:16px;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) {
+  --paper:#F7F5F0; --surface:#FFFFFF; --sunken:#EFECE5; --ink:#1A1C1A; --muted:#5E625D; --hairline:#DEDAD1;
+  --accent:#2F5D50; --accent-soft:#DCE7E2; --on-accent:#FFFFFF; --clay:#A0532F; --deep:#2F5D50;
+  --shadow-sm:0 1px 2px rgba(26,28,26,.05), 0 6px 16px rgba(26,28,26,.06);
+  color-scheme: light; } }
+:root[data-theme="light"] {
+  --paper:#F7F5F0; --surface:#FFFFFF; --sunken:#EFECE5; --ink:#1A1C1A; --muted:#5E625D; --hairline:#DEDAD1;
+  --accent:#2F5D50; --accent-soft:#DCE7E2; --on-accent:#FFFFFF; --clay:#A0532F; --deep:#2F5D50;
+  --shadow-sm:0 1px 2px rgba(26,28,26,.05), 0 6px 16px rgba(26,28,26,.06);
+  color-scheme: light; }
+
+/* Syntax highlighting */
+:root { --syn-k:#D9926D; --syn-s:#B7D3C7; --syn-n:#E6C27A; --syn-f:#8CB8A8; --syn-c:#7C807A; --code-bg:#0F100E; }
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) { --syn-k:#9A4A26; --syn-s:#2F5D50; --syn-n:#8A6414; --syn-f:#25584A; --syn-c:#6F736D; --code-bg:#EFECE5; } }
+:root[data-theme="light"] { --syn-k:#9A4A26; --syn-s:#2F5D50; --syn-n:#8A6414; --syn-f:#25584A; --syn-c:#6F736D; --code-bg:#EFECE5; }
+
+/* Illustration palette (--art-*): project covers and diagrams are artwork, identical in both themes. */
+:root {
+  --art-ember:#D9926D; --art-ink-warm:#2A1E18; --art-night:#120F0D; --art-cream:#E9DCC8;
+  --art-pine:#2F5D50; --art-pine-dark:#263F37; --art-pine-deep:#1F2E29; --art-road:#3A3D38;
+  --art-mist:#DCE7E2; --art-wall-l:#B9CCC4; --art-wall-r:#8CB8A8; --art-ceiling:#EFECE5;
+  --art-paper:#F7F5F0; --art-ink:#ECEAE4; --art-coal:#0E0D0C; --art-tag-bg:rgba(15,16,14,.55);
+}

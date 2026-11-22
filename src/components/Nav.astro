@@ -1,62 +1,217 @@
 ---
+import Logo from './Logo.astro'
+import ThemeToggle from './ThemeToggle.astro'
+
+const inBlog = Astro.url.pathname.startsWith('/blog')
+
+const links = [
+  { href: '/#work', key: 'nav.work', label: 'Work', current: false },
+  { href: '/#experience', key: 'nav.experience', label: 'Experience', current: false },
+  { href: '/blog', key: 'nav.blog', label: 'Blog', current: inBlog },
+  { href: '/#contact', key: 'nav.contact', label: 'Contact', current: false },
+]
 ---
 
-<nav
-  class="fixed top-0 w-full z-50 bg-[#111114]/60 backdrop-blur-xl border-b border-white/10"
-  style="box-shadow: 0 40px 60px -15px rgba(127,119,221,0.05);"
->
-  <div class="flex justify-between items-center h-20 px-6 md:px-12 w-full max-w-screen-2xl mx-auto">
+<header class="nav">
+  <div class="wrap bar">
+    <Logo />
 
-    <!-- Brand -->
-    <a href="/" title="Francisco Moreno — Home" class="text-xl font-black tracking-widest text-cream font-mono uppercase">
-      FRXNCISMOR
-    </a>
+    <nav class="links" aria-label="Primary" data-i18n-aria="nav.primary-aria">
+      {
+        links.map((link) => (
+          <a href={link.href} data-i18n={link.key} aria-current={link.current ? 'page' : undefined}>
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
 
-    <!-- Nav links -->
-    <div class="hidden md:flex items-center gap-8">
-      <a
-        href="/#work"
-        title="View selected work and projects"
-        class="text-cream/60 hover:text-cream transition-colors font-mono text-sm uppercase"
-        data-i18n="nav.work"
-      >Work</a>
-      <a
-        href="/#experience"
-        title="View professional experience"
-        class="text-cream/60 hover:text-cream transition-colors font-mono text-sm uppercase"
-        data-i18n="nav.experience"
-      >Experience</a>
-      <a
-        href="/#contact"
-        title="Get in touch"
-        class="text-cream/60 hover:text-cream transition-colors font-mono text-sm uppercase"
-        data-i18n="nav.contact"
-      >Contact</a>
-      <a
-        href="/blog"
-        title="Read technical articles and posts"
-        class="text-cream/60 hover:text-cream transition-colors font-mono text-sm uppercase"
-        data-i18n="nav.blog"
-      >Blog</a>
-    </div>
-
-    <!-- Right controls -->
-    <div class="flex items-center gap-4 md:gap-6">
+    <div class="end">
       <button
         id="lang-toggle"
+        class="icon-btn lang"
         type="button"
-        class="text-xs font-mono text-cream/60 uppercase tracking-tight hover:text-cream transition-colors"
-        aria-label="Toggle language"
+        aria-label="Switch language"
+        data-i18n-aria="nav.lang-aria"
       >
         <span data-i18n="nav.toggle">ES</span>
       </button>
-      <span
-        class="hidden sm:inline-block bg-[#1D9E75]/20 text-[#86f8c9] text-[10px] px-3 py-1 font-bold uppercase tracking-widest border border-[#1D9E75]/30 font-mono"
-        data-i18n="nav.available"
-      >
-        Open to full-time
-      </span>
+      <ThemeToggle />
+      <span class="status"><i aria-hidden="true"></i><span data-i18n="nav.available">Open to full-time</span></span>
+      <button
+        id="menu-toggle"
+        class="menu-btn"
+        type="button"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+        data-i18n="nav.menu"
+      >Menu</button>
     </div>
-
   </div>
-</nav>
+
+  <div id="nav-menu" class="menu-panel" hidden>
+    <nav class="wrap menu-links" aria-label="Primary" data-i18n-aria="nav.primary-aria">
+      {
+        links.map((link) => (
+          <a href={link.href} data-i18n={link.key} aria-current={link.current ? 'page' : undefined}>
+            {link.label}
+          </a>
+        ))
+      }
+      <span class="status menu-status"><i aria-hidden="true"></i><span data-i18n="nav.available">Open to full-time</span></span>
+    </nav>
+  </div>
+</header>
+
+<script>
+  import '../scripts/nav'
+</script>
+
+<style>
+  .nav {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 50;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    height: 64px;
+  }
+  .links {
+    display: flex;
+    gap: 28px;
+  }
+  .links a,
+  .menu-links a {
+    font-size: 14px;
+    color: var(--muted);
+    text-decoration: none;
+    border-radius: var(--r-sm);
+    transition: color 0.15s;
+  }
+  .links a:hover,
+  .menu-links a:hover,
+  .links a[aria-current='page'],
+  .menu-links a[aria-current='page'] {
+    color: var(--ink);
+  }
+  .end {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .icon-btn {
+    display: inline-grid;
+    place-items: center;
+    min-width: 34px;
+    height: 34px;
+    padding: 0 6px;
+    border: 0;
+    background: none;
+    color: var(--muted);
+    cursor: pointer;
+    border-radius: var(--r-sm);
+    font: 500 12px/1 var(--mono);
+    letter-spacing: 0.06em;
+    transition: color 0.15s;
+  }
+  .icon-btn:hover {
+    color: var(--ink);
+  }
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 28px;
+    padding: 0 12px;
+    margin-left: 6px;
+    border: 1px solid var(--hairline);
+    border-radius: 999px;
+    font: 500 12px/1 var(--mono);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .status i {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    50% {
+      opacity: 0.35;
+    }
+  }
+
+  /* Menu button + panel (≤900px) */
+  .menu-btn {
+    display: none;
+    align-items: center;
+    height: 34px;
+    padding: 0 12px;
+    margin-left: 6px;
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-md);
+    background: none;
+    color: var(--ink);
+    cursor: pointer;
+    font: 500 13px/1 var(--sans);
+    transition: border-color 0.15s;
+  }
+  .menu-btn:hover {
+    border-color: var(--muted);
+  }
+  .menu-panel {
+    border-top: 1px solid var(--hairline);
+    background: var(--paper);
+  }
+  .menu-links {
+    display: grid;
+    gap: 4px;
+    padding-block: 12px 20px;
+  }
+  .menu-links a {
+    display: block;
+    padding: 12px 0;
+    font-size: 17px;
+  }
+  .menu-status {
+    display: none;
+    margin: 8px 0 0;
+    justify-self: start;
+  }
+
+  @media (max-width: 900px) {
+    .links {
+      display: none;
+    }
+    .menu-btn {
+      display: inline-flex;
+    }
+  }
+  @media (min-width: 901px) {
+    .menu-panel {
+      display: none !important;
+    }
+  }
+  /* ≤640px: the pill moves into the menu so logo, ES/EN, theme and Menu fit at 390px */
+  @media (max-width: 640px) {
+    .end > .status {
+      display: none;
+    }
+    .menu-status {
+      display: inline-flex;
+    }
+    .bar {
+      gap: 12px;
+    }
+  }
+</style>
