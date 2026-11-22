@@ -1,5 +1,5 @@
 ---
-import { globantClients, freelanceProjects } from '../data/experience'
+import { globantClients, valtreClients, freelanceProjects } from '../data/experience'
 import { stack } from '../data/stack'
 ---
 
@@ -23,6 +23,40 @@ import { stack } from '../data/stack'
           class="font-headline font-bold text-xl uppercase tracking-tighter mb-8 border-l-4 border-green pl-4 text-cream"
           data-i18n="exp.enterprise"
         >Enterprise</h3>
+
+        <div class="bg-elevated p-8 rounded-lg border border-outline-v/10 mb-6">
+          <!-- Valtre header -->
+          <div class="flex justify-between items-start mb-6">
+            <div>
+              <h4 class="text-2xl font-black font-headline text-cream">Valtre</h4>
+              <p class="text-xs font-mono text-green uppercase tracking-widest mt-1" data-i18n="exp.valtre-role">
+                DevCrossQA · Backend Engineer
+              </p>
+            </div>
+            <span class="text-xs font-mono text-outline uppercase tracking-tighter" data-i18n="exp.valtre-duration">
+              CURRENT
+            </span>
+          </div>
+
+          <p class="text-sm font-mono text-on-sv mb-8 leading-relaxed" data-i18n="exp.valtre-desc">
+            Building a .NET 10 API for OXXO with an AI-assisted workflow (GitHub Copilot, Claude, Codex): I own the backend code end to end, apply engineering best practices and test everything I ship to guarantee code and product quality.
+          </p>
+
+          <!-- Clients -->
+          <div>
+            <span class="text-[10px] font-bold text-muted tracking-widest block mb-4 uppercase font-mono" data-i18n="exp.clients-label">
+              Direct Clients Served
+            </span>
+            <div class="flex flex-wrap gap-3">
+              {valtreClients.map((client) => (
+                <div class="bg-base px-4 py-2 border border-outline-v/20 flex items-center gap-3">
+                  <span class="material-symbols-outlined text-sm text-brand">{client.icon}</span>
+                  <span class="text-xs font-mono text-cream">{client.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
 
         <div class="bg-elevated p-8 rounded-lg border border-outline-v/10">
           <!-- Globant header -->
