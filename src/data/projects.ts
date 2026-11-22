@@ -12,14 +12,25 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: 'shelfie',
-    title: 'Shelfie',
-    category: 'AI · SaaS',
+    id: 'grim-builds',
+    title: 'Grim Builds',
+    category: 'FULL-STACK · PLATFORM',
     description:
-      'AI SaaS that helps small businesses upgrade product photos using generative AI, with Stripe subscriptions and Supabase storage.',
-    stack: ['React', 'TypeScript', 'Supabase', 'Stripe', 'Tailwind CSS'],
-    accentColor: '#7F77DD',
-    url: 'https://shelfie.com.mx/',
+      'Build-guide platform for Grim Dawn: skills, devotions, gear, loot filters and a tier list with verifiable editorial provenance. pnpm monorepo with an Angular 21 SSR frontend, a Fastify + Drizzle API over PostgreSQL, a shared Zod domain, hardened Docker setup and CI with property-based, e2e, accessibility and Lighthouse checks.',
+    stack: ['Angular', 'TypeScript', 'Fastify', 'PostgreSQL', 'Drizzle', 'Zod', 'Docker', 'Playwright'],
+    accentColor: '#C8442F',
+    githubUrl: 'https://github.com/frxncismor/grim-dawn-builds',
+    wip: true,
+  },
+  {
+    id: 'regio-labs',
+    title: 'Regio Labs',
+    category: 'CLIENT · AI AUTOMATION',
+    description:
+      'AI WhatsApp bots and studio website for Regio Labs, a Monterrey automation studio. Bots answer, qualify leads and take orders 24/7; the site is a static Astro build with ~4KB of JavaScript, strict CSP, a Turnstile-protected contact API and local-SEO structured data.',
+    stack: ['Astro', 'TypeScript', 'WhatsApp Business API', 'Vercel', 'Cloudflare Turnstile'],
+    accentColor: '#25D366',
+    url: 'https://regiolabs.com.mx/',
   },
   {
     id: 'nox-coffee',

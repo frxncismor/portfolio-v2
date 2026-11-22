@@ -25,7 +25,7 @@ Astro 4 · TypeScript · Tailwind CSS v3 · Vanilla JS · Vercel
 
 ## About me
 
-Angular specialist and full-stack engineer based in Houston, TX. I've shipped production frontends, Node.js APIs, SQL databases, Docker infrastructure, and full observability stacks (Datadog, Sentry) for enterprise clients at Globant.
+Angular specialist and full-stack engineer based in Houston, TX. I've shipped production frontends, .NET and Node.js APIs, SQL databases, Docker infrastructure, and full observability stacks (Datadog, Sentry) for enterprise clients at Globant.
 
 Open to full-time roles and freelance projects in the US.
 
