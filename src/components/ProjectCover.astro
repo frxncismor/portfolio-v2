@@ -1,0 +1,207 @@
+---
+import type { ProjectId } from '../data/projects'
+
+interface Props {
+  id: ProjectId
+}
+
+const { id } = Astro.props
+const crossyRows = [1, 2, 3, 4, 5, 6, 7]
+---
+
+<!-- Cover artwork: decorative, built only from --art-* tokens (same in both themes). -->
+<div class={`cover cover-${id}`} aria-hidden="true">
+  {id === 'grim-builds' && (
+    <>
+      <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <g class="g-lines">
+          <path d="M92 132 150 98 214 124 262 86 318 120"></path>
+          <path d="M150 98 170 176 214 124"></path>
+          <path d="M170 176 236 214 300 190 318 120"></path>
+          <path d="M236 214 226 286"></path>
+          <path d="M110 250 170 176"></path>
+          <path d="M110 250 160 300 226 286 290 320"></path>
+        </g>
+        <g class="g-stars">
+          <circle cx="92" cy="132" r="3"></circle><circle cx="150" cy="98" r="4"></circle>
+          <circle cx="214" cy="124" r="3"></circle><circle cx="262" cy="86" r="3"></circle>
+          <circle cx="318" cy="120" r="4"></circle><circle cx="170" cy="176" r="5"></circle>
+          <circle cx="236" cy="214" r="4"></circle><circle cx="300" cy="190" r="3"></circle>
+          <circle cx="226" cy="286" r="3"></circle><circle cx="110" cy="250" r="3"></circle>
+          <circle cx="160" cy="300" r="4"></circle><circle cx="290" cy="320" r="3"></circle>
+        </g>
+        <circle class="g-halo" cx="170" cy="176" r="12"></circle>
+        <g class="g-dust">
+          <circle cx="40" cy="60" r="1.2"></circle><circle cx="360" cy="40" r="1"></circle>
+          <circle cx="380" cy="260" r="1.3"></circle><circle cx="30" cy="330" r="1"></circle>
+          <circle cx="340" cy="380" r="1.2"></circle><circle cx="70" cy="190" r="1"></circle>
+        </g>
+      </svg>
+      <div class="grim-title">
+        <b>Grim Builds</b>
+        <span>
+          <span class="lang-en">Community build library</span>
+          <span class="lang-es">Biblioteca de builds de la comunidad</span>
+        </span>
+      </div>
+    </>
+  )}
+
+  {id === 'nox-coffee' && (
+    <>
+      <b>Nox</b>
+      <span>
+        <span class="lang-en">Late-night coffee</span>
+        <span class="lang-es">Café nocturno</span>
+      </span>
+    </>
+  )}
+
+  {id === 'room-tour' && (
+    <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" focusable="false">
+      <path class="r-box" d="M200 140 340 220 340 380 200 460 60 380 60 220Z"></path>
+      <path class="r-ceiling" d="M200 140 340 220 200 300 60 220Z"></path>
+      <path class="r-wall-l" d="M60 220 200 300 200 460 60 380Z"></path>
+      <path class="r-wall-r" d="M200 300 340 220 340 380 200 460Z"></path>
+      <path class="r-door" d="M110 300 170 334 170 392 110 358Z"></path>
+      <path class="r-rug" d="M240 330 300 296 300 330 240 364Z"></path>
+      <circle class="r-lamp" cx="262" cy="250" r="16"></circle>
+    </svg>
+  )}
+
+  {id === 'crossy-road' && (
+    <>
+      {crossyRows.map((row) => <div class={`row row-${row}`}></div>)}
+      <span class="chick"></span>
+      <span class="car"></span>
+    </>
+  )}
+</div>
+
+<style>
+  .cover {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+  .cover svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Grim Builds: constellation */
+  .cover-grim-builds {
+    background: radial-gradient(90% 70% at 45% 35%, var(--art-ink-warm) 0%, var(--art-night) 70%);
+  }
+  .g-lines { stroke: var(--art-ember); stroke-opacity: .55; stroke-width: 1.2; fill: none; }
+  .g-stars { fill: var(--art-ink); }
+  .g-halo { fill: none; stroke: var(--art-ember); stroke-width: 1.2; }
+  .g-dust { fill: var(--art-ink); fill-opacity: .35; }
+  .grim-title {
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    bottom: 22px;
+    display: grid;
+    gap: 10px;
+    color: var(--art-cream);
+  }
+  .grim-title b {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(40px, 6vw, 64px);
+    line-height: .9;
+    letter-spacing: -.03em;
+    font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 144;
+  }
+  .grim-title span {
+    font: 500 11px/1 var(--mono);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--art-ember);
+  }
+
+  /* Nox Coffee: moon + wordmark */
+  .cover-nox-coffee {
+    background: var(--art-coal);
+    display: grid;
+    align-content: end;
+    padding: 26px;
+    color: var(--art-cream);
+  }
+  .cover-nox-coffee::before {
+    content: '';
+    position: absolute;
+    right: -15%;
+    top: 8%;
+    width: 70%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--art-ember);
+    opacity: .9;
+  }
+  .cover-nox-coffee b {
+    position: relative;
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(64px, 11vw, 132px);
+    line-height: .8;
+    letter-spacing: -.05em;
+    font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 144;
+  }
+  .cover-nox-coffee > span {
+    position: relative;
+    font: 500 11px/1 var(--mono);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-top: 14px;
+    opacity: .7;
+  }
+
+  /* Room Tour: isometric room */
+  .cover-room-tour { background: var(--art-mist); }
+  .r-box { fill: var(--art-paper); }
+  .r-ceiling { fill: var(--art-ceiling); }
+  .r-wall-l { fill: var(--art-wall-l); }
+  .r-wall-r { fill: var(--art-wall-r); }
+  .r-door { fill: var(--art-pine); }
+  .r-rug { fill: var(--art-ember); }
+  .r-lamp { fill: var(--art-pine); }
+
+  /* Crossy Road: seven lanes, a chick and a car */
+  .cover-crossy-road {
+    background: var(--art-pine-deep);
+    display: grid;
+    grid-template-rows: repeat(7, 1fr);
+  }
+  .row:nth-child(odd) { background: var(--art-pine); }
+  .row:nth-child(even) { background: var(--art-pine-dark); }
+  .row-4, .row-5 { background: var(--art-road); }
+  .chick {
+    position: absolute;
+    width: 9%;
+    aspect-ratio: 1;
+    background: var(--art-ink);
+    border-radius: 3px;
+    left: 46%;
+    top: 75%;
+  }
+  .car {
+    position: absolute;
+    height: 6%;
+    width: 22%;
+    background: var(--art-ember);
+    border-radius: 4px;
+    top: 47%;
+    left: 12%;
+    animation: drive 6s linear infinite;
+  }
+  @keyframes drive {
+    to { left: 100%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .car { animation: none; }
+  }
+</style>

@@ -56,15 +56,15 @@
 
 **Objetivo**: cuadrícula escalonada de proyectos con portadas ilustradas y la sección de método.
 
-- [ ] T-018 Modificar `src/data/projects.ts`: dejar solo `grim-builds`, `nox-coffee`, `room-tour`, `crossy-road` (quitar `regio-labs` y `caro-sweet-mua`); campos `category`/`description` como `Localized`; quitar `accentColor`; Grim Builds con stack Angular 21, Fastify, PostgreSQL, Drizzle, Zod, Docker. **Room Tour: descripción y título actuales sin cambios** (solo se añade su traducción ES literal del texto vigente).
-- [ ] T-019 Crear `src/components/ProjectCover.astro`: portadas por `id` con `--art-*` y `aria-hidden`: Grim (constelación + título), Nox (luna + "Nox"), Room (habitación isométrica), Crossy (7 filas con coche animado `drive`, desactivado con reduced-motion). Estilos en `<style>` con alcance; SOFT 100 en el título de Grim.
-- [ ] T-020 Reescribir `src/components/ProjectCard.astro`: enlace a la URL real (`url ?? githubUrl`), `.shot` 4:5 radio 16 con hairline, `.tag` con tokens, flecha ↗ SVG, descripción y stack (label mono); hover: sube 3px + `--shadow-sm` + flecha 2px; `aria-label` con nombre del proyecto.
-- [ ] T-021 Reescribir `src/components/Work.astro`: cabecera (label, h2 "Things I've built lately", nota), grid 2 columnas con `nth-child(even){margin-top:96px}`, 1 columna ≤640px; `.reveal` y escalonado.
-- [ ] T-022 [P] Crear `src/data/process.ts` (4 pasos con textos `Localized` y contenido de ventana) y `src/components/Process.astro`: 4 tarjetas (grid 4/2/1 col) con ventanas simuladas `aria-hidden` (spec.md, run #482, review PR 213, producción con sparkline SVG con `--accent`/`--accent-soft`).
-- [ ] T-023 Añadir a `Process.astro` el ciclo circular SVG (`role="img"`, `aria-label` traducido; nodos SPEC/BUILD/REVIEW/OBSERVE; el nodo SPEC con token, no `#ECEAE4`) + "Every release improves the next."
-- [ ] T-024 [P] Ampliar `src/i18n/translations.ts` con cabeceras de Work/Process; traducir al ES todas las descripciones, pasos y el texto del ciclo.
-- [ ] T-025 Modificar `src/pages/index.astro`: Hero → Clients → Work → Process.
-- [ ] T-026 Cierre: build verde; greps en `data/projects.ts, ProjectCover, ProjectCard, Work, Process`; 390px (1 columna, ventanas sin desborde); hover/foco; reduced-motion (coche de Crossy parado); ES/EN.
+- [x] T-018 Modificar `src/data/projects.ts`: dejar solo `grim-builds`, `nox-coffee`, `room-tour`, `crossy-road` (quitar `regio-labs` y `caro-sweet-mua`); campos `category`/`description` como `Localized`; quitar `accentColor`; Grim Builds con stack Angular 21, Fastify, PostgreSQL, Drizzle, Zod, Docker. **Room Tour: descripción y título actuales sin cambios** (solo se añade su traducción ES literal del texto vigente).
+- [x] T-019 Crear `src/components/ProjectCover.astro`: portadas por `id` con `--art-*` y `aria-hidden`: Grim (constelación + título), Nox (luna + "Nox"), Room (habitación isométrica), Crossy (7 filas con coche animado `drive`, desactivado con reduced-motion). Estilos en `<style>` con alcance; SOFT 100 en el título de Grim.
+- [x] T-020 Reescribir `src/components/ProjectCard.astro`: enlace a la URL real (`url ?? githubUrl`), `.shot` 4:5 radio 16 con hairline, `.tag` con tokens, flecha ↗ SVG, descripción y stack (label mono); hover: sube 3px + `--shadow-sm` + flecha 2px; `aria-label` con nombre del proyecto.
+- [x] T-021 Reescribir `src/components/Work.astro`: cabecera (label, h2 "Things I've built lately", nota), grid 2 columnas con `nth-child(even){margin-top:96px}`, 1 columna ≤640px; `.reveal` y escalonado.
+- [x] T-022 [P] Crear `src/data/process.ts` (4 pasos con textos `Localized` y contenido de ventana) y `src/components/Process.astro`: 4 tarjetas (grid 4/2/1 col) con ventanas simuladas `aria-hidden` (spec.md, run #482, review PR 213, producción con sparkline SVG con `--accent`/`--accent-soft`).
+- [x] T-023 Añadir a `Process.astro` el ciclo circular SVG (`role="img"`, `aria-label` traducido; nodos SPEC/BUILD/REVIEW/OBSERVE; el nodo SPEC con token, no `#ECEAE4`) + "Every release improves the next."
+- [x] T-024 [P] Ampliar `src/i18n/translations.ts` con cabeceras de Work/Process; traducir al ES todas las descripciones, pasos y el texto del ciclo.
+- [x] T-025 Modificar `src/pages/index.astro`: Hero → Clients → Work → Process.
+- [x] T-026 Cierre: build verde; greps en `data/projects.ts, ProjectCover, ProjectCard, Work, Process`; 390px (1 columna, ventanas sin desborde); hover/foco; reduced-motion (coche de Crossy parado); ES/EN.
 
 **Qué debe ver Paco en local**
 - `/#work` y `/#process` en **1280px** y **390px**, **oscuro y claro**, **ES y EN**.

@@ -92,6 +92,33 @@
     color: var(--muted);
   }
 
+  /* ── Sections (home) ── */
+  .section-block { padding-block: 112px 0; scroll-margin-top: 72px; }
+  @media (max-width: 640px) { .section-block { padding-block: 80px 0; } }
+
+  .section-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: end;
+    gap: 16px 40px;
+    margin-bottom: 48px;
+  }
+  .section-head h2 {
+    font-size: clamp(36px, 5vw, 52px);
+    line-height: 1.02;
+    margin: 12px 0 0;
+    letter-spacing: -.015em;
+    font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 72;
+  }
+  .section-head .note {
+    max-width: 26em;
+    color: var(--muted);
+    margin: 0;
+    font-size: 15px;
+    line-height: 24px;
+  }
+
   /* ── Buttons & links ── */
   .btn {
     display: inline-flex;
