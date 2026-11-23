@@ -2,7 +2,7 @@
 
 **Live:** [frxncismor.dev](https://frxncismor.dev)
 
-Personal portfolio for Francisco Moreno — Software Engineer with 6 years building production systems for Disney, Royal Caribbean, and United Airlines.
+Personal portfolio for Francisco Moreno — Full-Stack Software Engineer with 6 years building production systems for Disney, Royal Caribbean, United Airlines and OXXO.
 
 ---
 
@@ -11,7 +11,9 @@ Personal portfolio for Francisco Moreno — Software Engineer with 6 years build
 - **Zero-framework frontend** — built with Astro 4 SSG and vanilla TypeScript. No React, no Vue. Every kilobyte is intentional.
 - **Bilingual (EN/ES)** — client-side language toggle with `localStorage` persistence and zero flash on reload, implemented without a library.
 - **Performance-first** — targets Lighthouse 100 across all categories. Static output, optimized fonts, deferred scripts, auto-generated sitemap.
-- **Accessible markup** — semantic HTML, `aria-label` on all interactive elements, skip-nav link, fully keyboard navigable.
+- **Editorial design system** — dark by default with a light theme (`prefers-color-scheme` or the sun/moon toggle, saved in `localStorage`, applied before first paint). All colors live as tokens in `src/styles/tokens.css`; no hard-coded colors in components. Subtle motion (scroll reveal, hover) that switches off with `prefers-reduced-motion`.
+- **Accessible markup** — semantic HTML, accessible names on icon-only controls, skip-nav link, fully keyboard navigable, visible focus (also in Windows high-contrast mode).
+- **Language-aware metadata** — the tab title and meta description switch with the language toggle (`src/scripts/i18n.ts`). Open Graph tags and JSON-LD stay in English on purpose: the site is static, so crawlers and link previews get a single version.
 - **Blog with search** — Astro Content Collections, client-side keyword search and category filter, zero external dependencies.
 - **Clean architecture** — typed data layer, strict TypeScript, separation between data, layout, and i18n.
 
@@ -21,11 +23,31 @@ Personal portfolio for Francisco Moreno — Software Engineer with 6 years build
 
 Astro 4 · TypeScript · Tailwind CSS v3 · Vanilla JS · Vercel
 
+**Fonts** (Google Fonts): Fraunces (headlines, logo), Geist (text) and Geist Mono (labels, code).
+
+## Structure
+
+```
+src/components/   Astro sections (Hero, Work, Process, Experience, Toolkit, Writing, Templates, About, Contact…) and blog/ pieces
+src/data/         Typed content (projects, experience, process, toolkit, templates, about) and site.ts (email, social links, nav, clients)
+src/lib/          posts.ts (EN/ES post pairing; the build fails if a translation is missing), json.ts, readingTime.ts, rehype plugin for `es-` heading ids
+src/i18n/         EN/ES translations (translations.ts) and the Localized type
+src/content/      Blog posts: blog-en/ and blog-es/ (Astro Content Collections)
+src/styles/       tokens.css (design tokens, both themes) and global.css
+src/scripts/      Client scripts: theme, i18n, nav, animations, blog filters, article (TOC, progress, copy)
+docs/redesign/    Design handoff and the reference prototype
+```
+
+```bash
+npm run dev      # local dev server
+npm run build    # static build to dist/
+```
+
 ---
 
 ## About me
 
-Angular specialist and full-stack engineer based in Houston, TX. I've shipped production frontends, Node.js APIs, SQL databases, Docker infrastructure, and full observability stacks (Datadog, Sentry) for enterprise clients at Globant.
+Angular specialist and full-stack engineer based in Houston, TX. I've shipped production frontends, .NET and Node.js APIs, SQL databases, Docker infrastructure, and full observability stacks (Datadog, Sentry) for enterprise clients at Globant.
 
 Open to full-time roles and freelance projects in the US.
 

@@ -1,10 +1,10 @@
+import type { Localized } from '../i18n/types'
+
 export interface Template {
   id: string
-  title: string
-  category: string
-  description: string
-  features: string[]
-  accentColor: string
+  name: string
+  tag: Localized
+  description: Localized
   price: number
   url: string
 }
@@ -12,12 +12,12 @@ export interface Template {
 export const templates: Template[] = [
   {
     id: 'zoo-nova-html',
-    title: 'ZooNova — HTML + Tailwind CSS',
-    category: 'HTML · Template',
-    description:
-      'A complete, production-ready HTML template for zoos and wildlife parks. Six fully designed pages built with pure HTML5 and Tailwind CSS via CDN — no build tools, no dependencies. Open the file in a browser and start customizing. Perfect for freelancers, agencies, or anyone delivering a static website fast.',
-    features: ['HTML5', 'Tailwind CSS', 'CDN', '6 Pages', 'No build tools'],
-    accentColor: '#3D9A5C',
+    name: 'ZooNova',
+    tag: { en: 'HTML · Tailwind CSS · 6 pages', es: 'HTML · Tailwind CSS · 6 páginas' },
+    description: {
+      en: 'A complete template for zoos and wildlife parks. Six designed pages in plain HTML5 and Tailwind via CDN. Open the file and start customizing.',
+      es: 'Una plantilla completa para zoológicos y parques de vida silvestre. Seis páginas diseñadas en HTML5 puro y Tailwind por CDN. Abre el archivo y empieza a personalizar.',
+    },
     price: 25,
     url: 'https://frxncismor.gumroad.com/l/zoo-nova-html',
   },

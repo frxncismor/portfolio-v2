@@ -1,0 +1,74 @@
+---
+interface Props {
+  slug: string
+  titleEn: string
+  titleEs: string
+  descEn: string
+  descEs: string
+  category: string
+  date: Date
+}
+
+const { slug, titleEn, titleEs, descEn, descEs, category, date } = Astro.props
+
+// Dates come from `YYYY-MM-DD` front matter (UTC midnight): format in UTC to avoid off-by-one days.
+const short = (locale: string) =>
+  date.toLocaleDateString(locale, { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' })
+---
+
+<a class="post-row reveal" href={`/blog/${slug}`} data-post-slug={slug} data-topic={category}>
+  <span class="label">
+    <span class="lang-en">{short('en-US')}</span>
+    <span class="lang-es">{short('es-MX')}</span>
+  </span>
+  <div>
+    <h3 class="serif">
+      <span class="lang-en">{titleEn}</span>
+      <span class="lang-es">{titleEs}</span>
+    </h3>
+    <p>
+      <span class="lang-en">{descEn}</span>
+      <span class="lang-es">{descEs}</span>
+    </p>
+  </div>
+  <span class="topic">{category}</span>
+</a>
+
+<style>
+  .post-row {
+    display: grid;
+    grid-template-columns: 120px minmax(0, 1fr) auto;
+    gap: 8px 32px;
+    align-items: start;
+    padding-block: 28px;
+    border-top: 1px solid var(--hairline);
+    text-decoration: none;
+  }
+  .post-row:last-child { border-bottom: 1px solid var(--hairline); }
+  .post-row .label { padding-top: 8px; font-variant-numeric: tabular-nums; }
+  h3 {
+    margin: 0;
+    font-size: 26px;
+    line-height: 1.18;
+    letter-spacing: -.01em;
+    font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 48;
+    transition: color .15s;
+    text-wrap: balance;
+  }
+  p {
+    margin: 8px 0 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 24px;
+    max-width: 40em;
+  }
+  .topic { margin-top: 6px; }
+  .post-row:hover h3 { color: var(--accent); }
+
+  @media (max-width: 640px) {
+    .post-row { grid-template-columns: minmax(0, 1fr) auto; }
+    .post-row .label { grid-column: 1 / -1; padding-top: 0; }
+    .post-row > div { grid-column: 1; }
+    h3 { font-size: 22px; }
+  }
+</style>

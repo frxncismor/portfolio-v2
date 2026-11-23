@@ -1,0 +1,58 @@
+---
+interface Props {
+  /** Link target (defaults to the home page). The accessible name is fixed in the markup below. */
+  href?: string
+}
+
+const { href = '/' } = Astro.props
+---
+
+<a class="logo serif" href={href} aria-label="Francisco Moreno, home" data-i18n-aria="nav.home-aria">
+  <span class="logo__mark" aria-hidden="true">FM<span class="logo__dot"></span></span>
+  <span class="logo__rule" aria-hidden="true"></span>
+  <span class="logo__name" aria-hidden="true">Francisco<br />Moreno</span>
+</a>
+
+<style>
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--ink);
+    border-radius: var(--r-sm);
+  }
+  .logo__mark {
+    display: inline-flex;
+    align-items: baseline;
+    font-size: 30px;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 144;
+  }
+  .logo__dot {
+    width: 5px;
+    height: 5px;
+    margin-left: 2px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .logo__rule {
+    width: 1px;
+    height: 24px;
+    background: var(--hairline);
+  }
+  .logo__name {
+    font-size: 13px;
+    line-height: 14px;
+    font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 24;
+  }
+
+  /* ≤640px: monogram only */
+  @media (max-width: 640px) {
+    .logo__rule,
+    .logo__name {
+      display: none;
+    }
+  }
+</style>

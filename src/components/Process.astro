@@ -1,0 +1,268 @@
+---
+import { processLoop, processSteps } from '../data/process'
+
+const SPARK_WIDTH = 200
+const SPARK_HEIGHT = 64
+
+/** Builds the sparkline line and its filled area from y values in a 200×64 box. */
+function sparkPaths(points: number[]): { line: string; area: string } {
+  const step = SPARK_WIDTH / (points.length - 1)
+  const coords = points.map((y, i) => `${i === 0 ? 'M' : 'L'}${Math.round(i * step)} ${y}`)
+  const line = coords.join(' ')
+  return { line, area: `${line} L${SPARK_WIDTH} ${SPARK_HEIGHT} L0 ${SPARK_HEIGHT}Z` }
+}
+---
+
+<section id="process" class="section-block">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <p class="label" data-i18n="process.label">How I work</p>
+        <h2 class="serif" data-i18n="process.title">From spec to production</h2>
+      </div>
+      <p class="note" data-i18n="process.note">
+        AI agents write a lot of my code. Specs, guardrails and my own review decide what ships.
+      </p>
+    </div>
+
+    <ol class="steps">
+      {processSteps.map((step) => (
+        <li class="step reveal">
+          <div class="win" aria-hidden="true">
+            {step.win.map((line) => {
+              if (line.kind === 'blank') return <span class="ln">&nbsp;</span>
+              if (line.kind === 'check') return <span class="ln chk"><i></i>{line.text}</span>
+              if (line.kind === 'spark') {
+                const { line: d, area } = sparkPaths(line.points)
+                return (
+                  <svg viewBox={`0 0 ${SPARK_WIDTH} ${SPARK_HEIGHT}`} preserveAspectRatio="none" focusable="false">
+                    <path class="spark-area" d={area}></path>
+                    <path class="spark" d={d}></path>
+                  </svg>
+                )
+              }
+              return <span class="ln">{line.segments.map((s) => (s.tone ? <span class={`t-${s.tone}`}>{s.text}</span> : s.text))}</span>
+            })}
+          </div>
+          <div class="step-body">
+            <p class="label">
+              <span class="lang-en">{step.label.en}</span>
+              <span class="lang-es">{step.label.es}</span>
+            </p>
+            <h3 class="serif">
+              <span class="lang-en">{step.title.en}</span>
+              <span class="lang-es">{step.title.es}</span>
+            </h3>
+            <p class="text">
+              <span class="lang-en">{step.text.en}</span>
+              <span class="lang-es">{step.text.es}</span>
+            </p>
+          </div>
+        </li>
+      ))}
+    </ol>
+
+    <div class="loop reveal">
+      <svg
+        class="loop-art"
+        viewBox="0 0 300 300"
+        role="img"
+        aria-label="Spec, build, review, observe, and back to spec"
+        data-i18n-aria="process.loop-aria"
+      >
+        <circle class="lp-ring" cx="150" cy="150" r="104"></circle>
+        <path class="lp-arc" d="M150 46 A104 104 0 1 1 46 150"></path>
+        <path class="lp-head" d="M40 140 46 152 54 142"></path>
+        <g class="lp-node lp-first"><circle cx="150" cy="46" r="27" class="lp-fill"></circle><text x="150" y="50">SPEC</text></g>
+        <g class="lp-node"><circle cx="254" cy="150" r="27"></circle><text x="254" y="154">BUILD</text></g>
+        <g class="lp-node"><circle cx="150" cy="254" r="27"></circle><text x="150" y="258">REVIEW</text></g>
+        <g class="lp-node"><circle cx="46" cy="150" r="27"></circle><text x="46" y="154">OBSERVE</text></g>
+      </svg>
+      <div class="loop-text">
+        <p class="label">
+          <span class="lang-en">{processLoop.label.en}</span>
+          <span class="lang-es">{processLoop.label.es}</span>
+        </p>
+        <h3 class="serif">
+          <span class="lang-en">{processLoop.title.en}</span>
+          <span class="lang-es">{processLoop.title.es}</span>
+        </h3>
+        <p class="text">
+          <span class="lang-en">{processLoop.text.en}</span>
+          <span class="lang-es">{processLoop.text.es}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .step {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-width: 0;
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    background: var(--surface);
+    transition: transform .35s cubic-bezier(.2, .7, .2, 1), box-shadow .25s;
+  }
+  .step:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Simulated deliverable window */
+  .win {
+    height: 176px;
+    padding: 14px 16px;
+    background: var(--sunken);
+    border-bottom: 1px solid var(--hairline);
+    font: 500 12px/20px var(--mono);
+    color: var(--muted);
+    overflow: hidden;
+    white-space: pre;
+  }
+  .win .ln { display: block; }
+  .win .t-strong { color: var(--ink); }
+  .win .t-head { color: var(--ink); }
+  .win .t-add,
+  .win .t-ok { color: var(--syn-s); }
+  .win .t-del { color: var(--syn-k); }
+  .win .chk {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .win .chk i {
+    width: 13px;
+    height: 13px;
+    border-radius: 3px;
+    background: var(--accent);
+    flex: none;
+    position: relative;
+  }
+  .win .chk i::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    width: 3px;
+    height: 7px;
+    border: solid var(--on-accent);
+    border-width: 0 1.5px 1.5px 0;
+    transform: rotate(45deg);
+  }
+  .win svg {
+    display: block;
+    width: 100%;
+    height: 76px;
+    margin: 8px 0 6px;
+  }
+  .spark {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 2;
+    vector-effect: non-scaling-stroke;
+  }
+  .spark-area { fill: var(--accent-soft); }
+
+  .step-body {
+    display: grid;
+    gap: 8px;
+    align-content: start;
+    padding: 20px;
+  }
+  .step-body .label { color: var(--accent); }
+  .step-body h3 {
+    margin: 0;
+    font-size: 22px;
+    line-height: 1.15;
+    font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 48;
+  }
+  .step-body .text {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14.5px;
+    line-height: 23px;
+  }
+
+  /* Cycle */
+  .loop {
+    display: grid;
+    grid-template-columns: 300px minmax(0, 1fr);
+    gap: 56px;
+    align-items: center;
+    margin-top: 16px;
+    padding: 40px 48px;
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-lg);
+  }
+  .loop-art {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+  .lp-ring { fill: none; stroke: var(--hairline); stroke-width: 1.5; }
+  .lp-arc,
+  .lp-head {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .lp-node circle { fill: var(--surface); stroke: var(--hairline); stroke-width: 1.2; }
+  .lp-node circle.lp-fill { fill: var(--deep); stroke: var(--deep); }
+  .lp-node text {
+    font: 500 10px var(--mono);
+    letter-spacing: .1em;
+    text-anchor: middle;
+    fill: var(--ink);
+  }
+  /* SPEC sits on --deep (dark green in both themes): its label stays light */
+  .lp-first text { fill: var(--art-ink); }
+  .loop-text {
+    display: grid;
+    gap: 14px;
+  }
+  .loop-text h3 {
+    margin: 0;
+    font-size: clamp(30px, 3.6vw, 44px);
+    line-height: 1.08;
+    letter-spacing: -.015em;
+    text-wrap: balance;
+    font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 72;
+  }
+  .loop-text .text {
+    margin: 0;
+    color: var(--muted);
+    max-width: 34em;
+  }
+
+  @media (max-width: 1000px) {
+    .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .loop {
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 32px;
+      padding: 32px;
+    }
+  }
+  @media (max-width: 640px) {
+    .steps { grid-template-columns: 1fr; }
+    .loop {
+      grid-template-columns: 1fr;
+      padding: 24px;
+      justify-items: start;
+    }
+    .loop-art { max-width: 220px; }
+  }
+</style>

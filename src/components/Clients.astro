@@ -1,0 +1,39 @@
+---
+import { clients } from '../data/site'
+---
+
+<div class="clients">
+  <div class="wrap row">
+    <p class="label" data-i18n="clients.label">Shipped for</p>
+    <ul>
+      {clients.map((name) => <li>{name}</li>)}
+    </ul>
+  </div>
+</div>
+
+<style>
+  .clients {
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 40px;
+    padding-block: 22px;
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 36px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    font-family: var(--display);
+    font-size: 22px;
+    font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 36;
+  }
+</style>

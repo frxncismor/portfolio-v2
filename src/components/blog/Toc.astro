@@ -1,0 +1,54 @@
+---
+interface Heading {
+  slug: string
+  text: string
+}
+
+interface Props {
+  headingsEn: Heading[]
+  headingsEs: Heading[]
+}
+
+const { headingsEn, headingsEs } = Astro.props
+const lists = [
+  { lang: 'en', headings: headingsEn },
+  { lang: 'es', headings: headingsEs },
+]
+---
+
+<aside class="toc">
+  <p class="label" data-i18n="blog.toc">On this page</p>
+  {lists.map(({ lang, headings }) => (
+    <nav class={`toc-list lang-${lang}`} aria-label={lang === 'en' ? 'On this page' : 'En esta página'}>
+      {headings.map((h) => <a href={`#${h.slug}`} data-target={h.slug}>{h.text}</a>)}
+    </nav>
+  ))}
+</aside>
+
+<style>
+  .toc {
+    position: sticky;
+    top: 104px;
+    align-self: start;
+    display: grid;
+    gap: 12px;
+    max-height: calc(100vh - 128px);
+    overflow-y: auto;
+  }
+  .toc:not(:has(a)) { display: none; }
+  .toc-list { display: grid; gap: 12px; }
+  .toc-list:not(:has(a)) { display: none; }
+  a {
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--muted);
+    text-decoration: none;
+    padding-left: 12px;
+    border-left: 1px solid var(--hairline);
+    transition: color .15s, border-color .15s;
+  }
+  a:hover, a:global(.on) { color: var(--ink); border-color: var(--accent); }
+  @media (max-width: 900px) {
+    .toc { display: none; }
+  }
+</style>

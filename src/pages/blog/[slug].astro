@@ -1,27 +1,58 @@
 ---
-import { getCollection } from 'astro:content'
 import Layout from '../../layouts/Layout.astro'
 import Nav from '../../components/Nav.astro'
 import Footer from '../../components/Footer.astro'
+import Toc from '../../components/blog/Toc.astro'
+import { readingTime } from '../../lib/readingTime'
+import { getPosts } from '../../lib/posts'
+import { safeJson } from '../../lib/json'
+
+interface Neighbor {
+  slug: string
+  titleEn: string
+  titleEs: string
+  category: string
+}
 
 export async function getStaticPaths() {
-  const enPosts = await getCollection('blog-en', ({ data }) => !data.draft)
-  const esPosts = await getCollection('blog-es', ({ data }) => !data.draft)
-  const esMap   = new Map(esPosts.map((p) => [p.slug, p]))
+  // Newest first: index - 1 is the newer post ("Next"), index + 1 the older one ("Previous").
+  const posts = await getPosts()
+  const neighbor = (i: number): Neighbor | undefined => {
+    const post = posts[i]
+    if (!post) return undefined
+    return { slug: post.slug, titleEn: post.titleEn, titleEs: post.titleEs, category: post.category }
+  }
 
-  return enPosts.map((enPost) => ({
-    params: { slug: enPost.slug },
-    props:  { enPost, esPost: esMap.get(enPost.slug) ?? enPost },
+  return posts.map((post, i) => ({
+    params: { slug: post.slug },
+    props: {
+      enPost: post.en,
+      esPost: post.es,
+      next: neighbor(i - 1),
+      prev: neighbor(i + 1),
+    },
   }))
 }
 
-const { enPost, esPost } = Astro.props
+const { enPost, esPost, next, prev } = Astro.props
 
-const { Content: ContentEn } = await enPost.render()
-const { Content: ContentEs } = await esPost.render()
+const { Content: ContentEn, headings: allEn } = await enPost.render()
+const { Content: ContentEs, headings: allEs } = await esPost.render()
+const toc = (list: { depth: number; slug: string; text: string }[]) =>
+  list.filter((h) => h.depth === 2).map(({ slug, text }) => ({ slug, text }))
+const headingsEn = toc(allEn)
+const headingsEs = toc(allEs)
 
-const formattedEn = enPost.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
-const formattedEs = enPost.data.date.toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })
+// Dates come from `YYYY-MM-DD` front matter (UTC midnight): format in UTC to avoid off-by-one days.
+const long = (locale: string) =>
+  enPost.data.date.toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })
+const minEn = readingTime(enPost.body)
+const minEs = readingTime(esPost.body)
+
+const neighbors = [
+  next && { ...next, key: 'blog.next', label: 'Next' },
+  prev && { ...prev, key: 'blog.prev', label: 'Previous' },
+].filter((n): n is Neighbor & { key: string; label: string } => !!n)
 
 const postUrl = `https://frxncismor.dev/blog/${enPost.slug}`
 const blogPostingSchema = {
@@ -48,67 +79,153 @@ const blogPostingSchema = {
 <Layout
   title={`${enPost.data.title} — Francisco Moreno`}
   description={enPost.data.description}
+  titleEs={`${esPost.data.title} — Francisco Moreno`}
+  descriptionEs={esPost.data.description}
   keywords={`${enPost.data.category}, ${enPost.data.title}, Francisco Moreno, Angular, TypeScript, JavaScript, frontend development`}
 >
-  <script type="application/ld+json" set:html={JSON.stringify(blogPostingSchema)} />
+  <script type="application/ld+json" set:html={safeJson(blogPostingSchema)} />
   <Nav />
 
-  <main id="main-content" class="min-h-screen pt-32 pb-24 px-6 max-w-screen-lg mx-auto">
+  <main id="main-content">
+    <div class="progress" aria-hidden="true"><i id="progress-bar"></i></div>
 
-    <!-- Back link -->
-    <a
-      href="/blog"
-      title="Back to all blog posts"
-      class="inline-block text-[10px] font-mono text-muted hover:text-cream uppercase tracking-widest transition-colors mb-12 fade-in"
-      data-i18n="blog.back"
-    >← Back to Blog</a>
+    <article class="wrap article">
+      <header class="head">
+        <a class="back label" href="/blog" data-i18n="blog.back">← All posts</a>
+        <div class="meta">
+          <span class="topic">{enPost.data.category}</span>
+          <span class="label">
+            <span class="lang-en">{long('en-US')} · {minEn} min read</span>
+            <span class="lang-es">{long('es-MX')} · {minEs} min de lectura</span>
+          </span>
+        </div>
+        <h1 class="serif">
+          <span class="lang-en">{enPost.data.title}</span>
+          <span class="lang-es">{esPost.data.title}</span>
+        </h1>
+        <p class="dek">
+          <span class="lang-en">{enPost.data.description}</span>
+          <span class="lang-es">{esPost.data.description}</span>
+        </p>
+      </header>
 
-    <!-- Post header -->
-    <header class="mb-12 fade-in">
-      <span class="inline-block px-2 py-1 bg-white/5 border border-white/10 text-[9px] font-bold tracking-widest uppercase text-outline w-fit font-mono mb-4">
-        {enPost.data.category}
-      </span>
+      <div class="grid">
+        <Toc headingsEn={headingsEn} headingsEs={headingsEs} />
 
-      <h1 class="text-4xl md:text-5xl font-black font-headline text-cream leading-tight mb-4">
-        <span class="lang-en">{enPost.data.title}</span>
-        <span class="lang-es">{esPost.data.title}</span>
-      </h1>
+        <div class="body">
+          <div class="prose lang-en"><ContentEn /></div>
+          <div class="prose lang-es"><ContentEs /></div>
 
-      <p class="text-xs font-mono text-muted">
-        <span class="lang-en">{formattedEn}</span>
-        <span class="lang-es">{formattedEs}</span>
-      </p>
-
-      <div class="mt-6 border-b border-outline-v/20"></div>
-    </header>
-
-    <!-- Post content — bilingual blocks -->
-    <article>
-      <div class="prose lang-en">
-        <ContentEn />
-      </div>
-      <div class="prose lang-es">
-        <ContentEs />
+          {neighbors.length > 0 && (
+            <footer class="foot">
+              <p class="label" data-i18n="blog.keep-reading">Keep reading</p>
+              <div class={`next ${neighbors.length === 1 ? 'single' : ''}`}>
+                {neighbors.map((n) => (
+                  <a href={`/blog/${n.slug}`}>
+                    <span class="label"><span data-i18n={n.key}>{n.label}</span> · {n.category}</span>
+                    <span class="serif title">
+                      <span class="lang-en">{n.titleEn}</span>
+                      <span class="lang-es">{n.titleEs}</span>
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </footer>
+          )}
+        </div>
       </div>
     </article>
-
-    <!-- Footer nav -->
-    <div class="mt-16 pt-8 border-t border-outline-v/20 fade-in">
-      <a
-        href="/blog"
-        class="text-[10px] font-mono text-muted hover:text-brand uppercase tracking-widest transition-colors"
-        data-i18n="blog.back"
-      >← Back to Blog</a>
-    </div>
-
   </main>
 
   <Footer />
 </Layout>
+
+<style>
+  .progress {
+    position: sticky;
+    top: 64px;
+    z-index: 4;
+    height: 2px;
+  }
+  .progress i {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: var(--accent);
+  }
+
+  .head {
+    display: grid;
+    gap: 20px;
+    justify-items: start;
+    max-width: 860px;
+    padding-block: 72px 48px;
+  }
+  .back { text-decoration: none; transition: color .15s; }
+  .back:hover { color: var(--accent); }
+  .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+  h1 {
+    margin: 8px 0 0;
+    font-size: clamp(40px, 6.4vw, 80px);
+    line-height: 1.02;
+    letter-spacing: -.025em;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144;
+  }
+  .dek { margin: 0; font-size: 21px; line-height: 32px; color: var(--muted); max-width: 32em; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 680px);
+    gap: 72px;
+    padding-top: 40px;
+    border-top: 1px solid var(--hairline);
+  }
+  .body { min-width: 0; }
+
+  .foot {
+    display: grid;
+    gap: 16px;
+    margin-top: 72px;
+    padding-top: 32px;
+    border-top: 1px solid var(--hairline);
+  }
+  .next { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .next.single { grid-template-columns: minmax(0, 1fr); }
+  .next a {
+    display: grid;
+    align-content: start;
+    gap: 10px;
+    padding: 22px;
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-md);
+    text-decoration: none;
+    transition: border-color .15s, transform .15s cubic-bezier(.2, .7, .2, 1);
+  }
+  .next a:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .next .title { font-size: 20px; line-height: 1.25; }
+
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  }
+  @media (max-width: 640px) {
+    .head { padding-block: 48px 32px; }
+    .dek { font-size: 19px; line-height: 29px; }
+    .next { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .next a:hover { transform: none; }
+  }
+</style>
 
 <script>
   import '../../scripts/animations'
 </script>
 <script>
   import '../../scripts/i18n'
+</script>
+<script>
+  import '../../scripts/article'
 </script>
