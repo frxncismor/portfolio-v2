@@ -1,13 +1,17 @@
 ---
+import { t, type Lang } from '../i18n/translations'
+import { localePath } from '../i18n/routes'
+
 interface Props {
-  /** Link target (defaults to the home page). The accessible name is fixed in the markup below. */
+  lang: Lang
+  /** Link target (defaults to the home page of `lang`). */
   href?: string
 }
 
-const { href = '/' } = Astro.props
+const { lang, href = localePath(lang, '/') } = Astro.props
 ---
 
-<a class="logo serif" href={href} aria-label="Francisco Moreno, home" data-i18n-aria="nav.home-aria">
+<a class="logo serif" href={href} aria-label={t(lang, 'nav.home-aria')}>
   <span class="logo__mark" aria-hidden="true">FM<span class="logo__dot"></span></span>
   <span class="logo__rule" aria-hidden="true"></span>
   <span class="logo__name" aria-hidden="true">Francisco<br />Moreno</span>

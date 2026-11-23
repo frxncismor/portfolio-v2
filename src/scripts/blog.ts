@@ -2,25 +2,18 @@
  * Blog list interactivity: topic filter + text search over the featured post and the rows.
  *
  * - Items carry `data-post-slug` and `data-topic`; visibility uses the `hidden` attribute.
- * - Search runs against the manifest embedded in the page, in the active language
- *   (and re-runs when the language toggle flips `data-lang`, without a reload).
+ * - Search runs against the manifest embedded in the page (titles and descriptions in the page language).
  * - Both filters compose; the empty state offers a reset.
  */
 
 interface PostManifest {
   slug: string
-  titleEn: string
-  titleEs: string
-  descEn: string
-  descEs: string
+  title: string
+  desc: string
   category: string
 }
 
 const ALL = 'all'
-
-function getLang(): 'en' | 'es' {
-  return document.documentElement.getAttribute('data-lang') === 'es' ? 'es' : 'en'
-}
 
 function readManifest(): Map<string, PostManifest> {
   const el = document.getElementById('blog-search-index')
@@ -46,13 +39,12 @@ function initBlogFilters(): void {
 
   const apply = (): void => {
     const query = search.value.trim().toLowerCase()
-    const lang = getLang()
     let shown = 0
 
     items.forEach((item) => {
       const entry = manifest.get(item.dataset.postSlug ?? '')
-      const title = entry ? (lang === 'es' ? entry.titleEs : entry.titleEn) : ''
-      const desc = entry ? (lang === 'es' ? entry.descEs : entry.descEn) : ''
+      const title = entry?.title ?? ''
+      const desc = entry?.desc ?? ''
       const category = item.dataset.topic ?? ''
 
       const matchesTopic = topic === ALL || category === topic
@@ -78,12 +70,6 @@ function initBlogFilters(): void {
     search.value = ''
     setTopic(ALL)
     search.focus()
-  })
-
-  // Language toggle changes data-lang in place: re-run the search against the new language.
-  new MutationObserver(apply).observe(document.documentElement, {
-    attributes: true,
-    attributeFilter: ['data-lang'],
   })
 
   apply()

@@ -1,25 +1,29 @@
 ---
 import { toolkitGroups } from '../data/toolkit'
+import { t, type Lang } from '../i18n/translations'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
 ---
 
 <section id="stack" class="section-block">
   <div class="wrap">
     <div class="section-head reveal">
       <div>
-        <p class="label" data-i18n="toolkit.label">Toolkit</p>
-        <h2 class="serif" data-i18n="toolkit.title">What I work with</h2>
+        <p class="label">{t(lang, 'toolkit.label')}</p>
+        <h2 class="serif">{t(lang, 'toolkit.title')}</h2>
       </div>
-      <p class="note" data-i18n="toolkit.note">
-        Angular on the front, .NET and Node on the back, AI agents in the loop. The rest I use when a product needs it.
-      </p>
+      <p class="note">{t(lang, 'toolkit.note')}</p>
     </div>
 
     <div class="stackgrid reveal">
       {toolkitGroups.map((group) => (
         <div class="group">
           <p class="label">
-            <span class="lang-en">{group.label.en}</span>
-            <span class="lang-es">{group.label.es}</span>
+            {group.label[lang]}
           </p>
           <ul class="chips">
             {group.items.map((item) => <li class="chip">{item}</li>)}

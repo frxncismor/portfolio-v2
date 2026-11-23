@@ -1,13 +1,20 @@
 ---
 import { experience, freelance } from '../data/experience'
+import { t, type Lang } from '../i18n/translations'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
 ---
 
 <section id="experience" class="section-block">
   <div class="wrap">
     <div class="section-head reveal">
       <div>
-        <p class="label" data-i18n="exp.label">Experience</p>
-        <h2 class="serif" data-i18n="exp.title">Where I've worked</h2>
+        <p class="label">{t(lang, 'exp.label')}</p>
+        <h2 class="serif">{t(lang, 'exp.title')}</h2>
       </div>
     </div>
 
@@ -15,19 +22,17 @@ import { experience, freelance } from '../data/experience'
       {experience.map((item) => (
         <div class="exp reveal">
           <p class="label">
-            <span class="lang-en">{item.period.en}</span>
-            <span class="lang-es">{item.period.es}</span>
+            {item.period[lang]}
           </p>
           <div class="exp-body">
             <h3>
               {item.company}
               <span>
-                — <span class="lang-en">{item.role.en}</span><span class="lang-es">{item.role.es}</span>
+                — {item.role[lang]}
               </span>
             </h3>
             <p>
-              <span class="lang-en">{item.description.en}</span>
-              <span class="lang-es">{item.description.es}</span>
+              {item.description[lang]}
             </p>
             <p class="clients-line">{item.clients}</p>
           </div>
@@ -35,29 +40,27 @@ import { experience, freelance } from '../data/experience'
       ))}
     </div>
 
-    <p class="label sub reveal" data-i18n="exp.freelance">Freelance &amp; independent</p>
+    <p class="label sub reveal">{t(lang, 'exp.freelance')}</p>
 
     <div class="rows">
       {freelance.map((item) => (
         <div class="exp reveal">
-          <p class="label" data-i18n="exp.client">Client</p>
+          <p class="label">{t(lang, 'exp.client')}</p>
           <div class="exp-body">
             <h3>
               {item.name}
               <span>
-                — <span class="lang-en">{item.tagline.en}</span><span class="lang-es">{item.tagline.es}</span>
+                — {item.tagline[lang]}
               </span>
             </h3>
             <p>
-              <span class="lang-en">{item.description.en}</span>
-              <span class="lang-es">{item.description.es}</span>
+              {item.description[lang]}
             </p>
           </div>
           {item.url && item.openLabel && (
             <a class="ext" href={item.url} target="_blank" rel="noopener noreferrer">
               <span class="sr-only">
-                <span class="lang-en">{item.openLabel.en}</span>
-                <span class="lang-es">{item.openLabel.es}</span>
+                {item.openLabel[lang]}
               </span>
               <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" focusable="false">
                 <path d="M4 10 10 4M5 4h5v5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>

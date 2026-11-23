@@ -10,11 +10,14 @@ export default defineConfig({
   markdown: {
     // Colors come from --astro-code-* variables mapped to the --syn-* tokens (global.css).
     shikiConfig: { theme: 'css-variables' },
-    // Spanish posts get `es-` heading ids so EN and ES (both in the DOM) never share an id.
+    // Spanish posts get `es-` heading ids (stable anchors, distinct from the English ones).
     rehypePlugins: [rehypeDropTitleH1, rehypeEsHeadingIds],
   },
   integrations: [
     tailwind({ applyBaseStyles: false }),
-    sitemap(),
+    // English at the root, Spanish under /es/: each URL lists its other-language alternate.
+    sitemap({
+      i18n: { defaultLocale: 'en', locales: { en: 'en-US', es: 'es-MX' } },
+    }),
   ],
 })

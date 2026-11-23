@@ -2,36 +2,55 @@
 import Layout from '../layouts/Layout.astro'
 import Nav from '../components/Nav.astro'
 import Footer from '../components/Footer.astro'
+
+// One 404 for both languages (hosts serve a single /404.html). The shell is English; the message
+// switches to Spanish when the missing URL is under /es/ or the visitor chose Spanish before.
+const titleEs = 'Página no encontrada — Francisco Moreno'
 ---
 
 <Layout
+  lang="en"
   title="Page not found — Francisco Moreno"
   description="This page does not exist. Head back to the portfolio of Francisco Moreno or browse the blog."
-  titleEs="Página no encontrada — Francisco Moreno"
-  descriptionEs="Esta página no existe. Vuelve al portafolio de Francisco Moreno o explora el blog."
   noindex
 >
-  <Nav />
+  <script is:inline define:vars={{ titleEs }}>
+    ;(function () {
+      var es = /^\/es(\/|$)/.test(location.pathname)
+      try {
+        es = es || localStorage.getItem("lang") === "es"
+      } catch (e) {}
+      if (!es) return
+      document.documentElement.setAttribute("lang", "es")
+      document.documentElement.setAttribute("data-404-lang", "es")
+      document.title = titleEs
+    })()
+  </script>
+  <Nav lang="en" switchHref="/es/" />
 
   <main id="main-content">
     <section class="wrap lost">
       <p class="label">404</p>
       <h1 class="serif">
-        <span class="lang-en">This page doesn’t exist.</span>
-        <span class="lang-es">Esta página no existe.</span>
+        <span class="msg-en">This page doesn’t exist.</span>
+        <span class="msg-es" lang="es">Esta página no existe.</span>
       </h1>
       <p class="lead">
-        <span class="lang-en">The link may be old or mistyped.</span>
-        <span class="lang-es">Puede que el enlace sea antiguo o tenga un error.</span>
+        <span class="msg-en">The link may be old or mistyped.</span>
+        <span class="msg-es" lang="es">Puede que el enlace sea antiguo o tenga un error.</span>
       </p>
-      <div class="actions">
-        <a class="btn" href="/"><span class="lang-en">Back home</span><span class="lang-es">Volver al inicio</span></a>
-        <a class="btn ghost" href="/blog"><span class="lang-en">Read the blog</span><span class="lang-es">Leer el blog</span></a>
+      <div class="actions msg-en">
+        <a class="btn" href="/">Back home</a>
+        <a class="btn ghost" href="/blog">Read the blog</a>
+      </div>
+      <div class="actions msg-es" lang="es">
+        <a class="btn" href="/es/">Volver al inicio</a>
+        <a class="btn ghost" href="/es/blog">Leer el blog</a>
       </div>
     </section>
   </main>
 
-  <Footer />
+  <Footer lang="en" />
 </Layout>
 
 <style>
@@ -49,8 +68,8 @@ import Footer from '../components/Footer.astro'
   }
   .lead { margin: 0; color: var(--muted); font-size: 19px; }
   .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
-</style>
 
-<script>
-  import '../scripts/i18n'
-</script>
+  /* English unless the inline script picked Spanish (works without JS: English only). */
+  :global(html:not([data-404-lang="es"])) .msg-es,
+  :global(html[data-404-lang="es"]) .msg-en { display: none; }
+</style>

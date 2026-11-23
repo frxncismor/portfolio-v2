@@ -1,7 +1,14 @@
 ---
 import PostRow from './blog/PostRow.astro'
 import { getPosts } from '../lib/posts'
+import { t, type Lang } from '../i18n/translations'
+import { localePath } from '../i18n/routes'
 
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
 const latest = (await getPosts()).slice(0, 3)
 ---
 
@@ -9,11 +16,11 @@ const latest = (await getPosts()).slice(0, 3)
   <div class="wrap">
     <div class="section-head reveal">
       <div>
-        <p class="label" data-i18n="writing.label">Writing</p>
-        <h2 class="serif" data-i18n="writing.title">Latest from the blog</h2>
+        <p class="label">{t(lang, 'writing.label')}</p>
+        <h2 class="serif">{t(lang, 'writing.title')}</h2>
       </div>
-      <a class="link" href="/blog">
-        <span data-i18n="writing.all">All posts</span>
+      <a class="link" href={localePath(lang, '/blog')}>
+        <span>{t(lang, 'writing.all')}</span>
         <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
           <path d="M2 7h10M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
         </svg>
@@ -21,7 +28,7 @@ const latest = (await getPosts()).slice(0, 3)
     </div>
 
     <div class="posts">
-      {latest.map((post) => <PostRow {...post} />)}
+      {latest.map((post) => <PostRow post={post} lang={lang} />)}
     </div>
   </div>
 </section>

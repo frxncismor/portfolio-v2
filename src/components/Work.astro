@@ -1,22 +1,27 @@
 ---
 import { projects } from '../data/projects'
 import ProjectCard from './ProjectCard.astro'
+import { t, type Lang } from '../i18n/translations'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
 ---
 
 <section id="work" class="section-block">
   <div class="wrap">
     <div class="section-head reveal">
       <div>
-        <p class="label" data-i18n="work.label">Selected work</p>
-        <h2 class="serif" data-i18n="work.title">Things I've built lately</h2>
+        <p class="label">{t(lang, 'work.label')}</p>
+        <h2 class="serif">{t(lang, 'work.title')}</h2>
       </div>
-      <p class="note" data-i18n="work.note">
-        Products and a few experiments. Each one taught me something about speed, motion or detail.
-      </p>
+      <p class="note">{t(lang, 'work.note')}</p>
     </div>
 
     <div class="feed">
-      {projects.map((project) => <ProjectCard project={project} />)}
+      {projects.map((project) => <ProjectCard project={project} lang={lang} />)}
     </div>
   </div>
 </section>

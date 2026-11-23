@@ -2,7 +2,23 @@
  * Mobile menu (≤900px): a button toggles a panel with the same links as the navbar.
  * Closes on Esc (focus returns to the button), on link choice, on outside click and
  * when the viewport grows past 900px.
+ *
+ * Language switch: a plain link to the same page in the other language (`/…` ↔ `/es/…`).
+ * On click it keeps the current #hash and stores the choice under `lang`; nothing redirects on it.
  */
+
+const langSwitch = document.getElementById('lang-toggle') as HTMLAnchorElement | null
+
+if (langSwitch) {
+  langSwitch.addEventListener('click', () => {
+    try {
+      localStorage.setItem('lang', langSwitch.dataset.langSwitch ?? '')
+    } catch {
+      // storage unavailable: the choice just won't persist
+    }
+    if (location.hash) langSwitch.hash = location.hash
+  })
+}
 
 const button = document.getElementById('menu-toggle') as HTMLButtonElement | null
 const panel = document.getElementById('nav-menu')
