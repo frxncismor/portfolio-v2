@@ -141,9 +141,23 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"blog-en": {
+"angular-21-ssr-fastify-drizzle-monorepo.md": {
+	id: "angular-21-ssr-fastify-drizzle-monorepo.md";
+  slug: "angular-21-ssr-fastify-drizzle-monorepo";
+  body: string;
+  collection: "blog-en";
+  data: InferEntrySchema<"blog-en">
+} & { render(): Render[".md"] };
 "angular-signals.md": {
 	id: "angular-signals.md";
   slug: "angular-signals";
+  body: string;
+  collection: "blog-en";
+  data: InferEntrySchema<"blog-en">
+} & { render(): Render[".md"] };
+"dotnet-10-api-that-earns-trust.md": {
+	id: "dotnet-10-api-that-earns-trust.md";
+  slug: "dotnet-10-api-that-earns-trust";
   body: string;
   collection: "blog-en";
   data: InferEntrySchema<"blog-en">
@@ -185,9 +199,23 @@ declare module 'astro:content' {
 } & { render(): Render[".md"] };
 };
 "blog-es": {
+"angular-21-ssr-fastify-drizzle-monorepo.md": {
+	id: "angular-21-ssr-fastify-drizzle-monorepo.md";
+  slug: "angular-21-ssr-fastify-drizzle-monorepo";
+  body: string;
+  collection: "blog-es";
+  data: InferEntrySchema<"blog-es">
+} & { render(): Render[".md"] };
 "angular-signals.md": {
 	id: "angular-signals.md";
   slug: "angular-signals";
+  body: string;
+  collection: "blog-es";
+  data: InferEntrySchema<"blog-es">
+} & { render(): Render[".md"] };
+"dotnet-10-api-that-earns-trust.md": {
+	id: "dotnet-10-api-that-earns-trust.md";
+  slug: "dotnet-10-api-that-earns-trust";
   body: string;
   collection: "blog-es";
   data: InferEntrySchema<"blog-es">

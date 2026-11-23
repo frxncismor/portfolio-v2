@@ -39,8 +39,10 @@ Francisco Moreno is a full-stack software engineer with expertise in Angular, Ty
 
 ## Blog
 
-Technical writing on Angular, JavaScript, frontend architecture, and AI-assisted development. Available in English and Spanish.
+Technical writing on Angular, .NET, Node.js, JavaScript, frontend architecture, and AI-assisted development. Available in English and Spanish.
 
+- [Building a .NET 10 API You Can Trust: Minimal APIs, Validation, ProblemDetails and Real Tests](https://frxncismor.dev/blog/dotnet-10-api-that-earns-trust)
+- [One Monorepo, Full Stack: Angular 21 SSR, Fastify, Drizzle and PostgreSQL in Docker](https://frxncismor.dev/blog/angular-21-ssr-fastify-drizzle-monorepo)
 - [Angular Signals: A Practical Introduction](https://frxncismor.dev/blog/angular-signals)
 - [From Frontend to Full-Stack: What Actually Changes When You Own the Whole System](https://frxncismor.dev/blog/from-frontend-to-full-stack)
 - [How to Setup ESLint and Prettier in Angular 20 Projects](https://frxncismor.dev/blog/how-to-setup-eslint-and-prettier-in-angular-20-projects)

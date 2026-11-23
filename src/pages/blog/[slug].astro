@@ -61,6 +61,8 @@ const blogPostingSchema = {
   headline: enPost.data.title,
   description: enPost.data.description,
   datePublished: enPost.data.date.toISOString(),
+  inLanguage: 'en',
+  image: new URL('/og-image.png', Astro.site).href,
   url: postUrl,
   author: {
     '@type': 'Person',
@@ -81,6 +83,8 @@ const blogPostingSchema = {
   description={enPost.data.description}
   titleEs={`${esPost.data.title} — Francisco Moreno`}
   descriptionEs={esPost.data.description}
+  ogType="article"
+  publishedTime={enPost.data.date.toISOString()}
   keywords={`${enPost.data.category}, ${enPost.data.title}, Francisco Moreno, Angular, TypeScript, JavaScript, frontend development`}
 >
   <script type="application/ld+json" set:html={safeJson(blogPostingSchema)} />

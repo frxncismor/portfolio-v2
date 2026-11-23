@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Nav from '../components/Nav.astro'
+import Footer from '../components/Footer.astro'
+---
+
+<Layout
+  title="Page not found — Francisco Moreno"
+  description="This page does not exist. Head back to the portfolio of Francisco Moreno or browse the blog."
+  titleEs="Página no encontrada — Francisco Moreno"
+  descriptionEs="Esta página no existe. Vuelve al portafolio de Francisco Moreno o explora el blog."
+  noindex
+>
+  <Nav />
+
+  <main id="main-content">
+    <section class="wrap lost">
+      <p class="label">404</p>
+      <h1 class="serif">
+        <span class="lang-en">This page doesn’t exist.</span>
+        <span class="lang-es">Esta página no existe.</span>
+      </h1>
+      <p class="lead">
+        <span class="lang-en">The link may be old or mistyped.</span>
+        <span class="lang-es">Puede que el enlace sea antiguo o tenga un error.</span>
+      </p>
+      <div class="actions">
+        <a class="btn" href="/"><span class="lang-en">Back home</span><span class="lang-es">Volver al inicio</span></a>
+        <a class="btn ghost" href="/blog"><span class="lang-en">Read the blog</span><span class="lang-es">Leer el blog</span></a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .lost {
+    display: grid;
+    gap: 20px;
+    justify-items: start;
+    padding-block: 96px;
+  }
+  h1 {
+    margin: 0;
+    font-size: clamp(40px, 6.4vw, 80px);
+    line-height: 1.02;
+    letter-spacing: -.025em;
+  }
+  .lead { margin: 0; color: var(--muted); font-size: 19px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+</style>
+
+<script>
+  import '../scripts/i18n'
+</script>
