@@ -114,13 +114,13 @@
 
 ## Parada 5 — Blog: lista
 
-- [ ] T-042 Crear `src/components/blog/FeaturedPost.astro` (tarjeta 2 columnas con diagrama SVG CLIENT/API/DATA de tokens `--deep`/`--art-*`, tema, fecha larga, título, resumen, "Read post →"; 1 columna ≤900px).
-- [ ] T-043 Reescribir `src/pages/blog/index.astro`: cabecera (label, h1 "Notes on Angular, backend and building with AI", lead), buscador `type="search"` con icono lupa, filtros `role="group"` generados con las **categorías reales** + "All", destacado = el más reciente, filas con `PostRow`, estado vacío con botón "All topics"; JSON-LD y manifiesto de búsqueda conservados; footer de sitio.
-- [ ] T-044 Reescribir `src/scripts/blog.ts`: filtro por tema + texto sobre destacado y filas (`data-topic`, `data-text`), uso de `hidden`, `aria-pressed` en filtros, estado vacío, reset; búsqueda sobre el idioma activo.
-- [ ] T-045 Reescribir `src/components/Footer.astro` como footer de sitio (Logo, GitHub, LinkedIn, Contact, © dinámico) y usarlo en `/blog` y `/blog/[slug]`; la home conserva el pie dentro de Contact.
-- [ ] T-046 [P] Ampliar `src/i18n/translations.ts` (blog: label, titular, lead, placeholder, filtros, vacío, "Read post", "All posts") y traducir; las categorías se muestran con su nombre (Angular, Backend, JavaScript, AI).
-- [ ] T-047 Eliminar `src/components/BlogCard.astro` y limpiar estilos `.filter-active`/pills antiguos.
-- [ ] T-048 Cierre: build verde; greps; 390px (filtros hacen wrap, filas en 2 columnas); búsqueda y cada filtro; estado vacío; ES/EN.
+- [x] T-042 Crear `src/components/blog/FeaturedPost.astro` (tarjeta 2 columnas con diagrama SVG CLIENT/API/DATA de tokens `--deep`/`--art-*`, tema, fecha larga, título, resumen, "Read post →"; 1 columna ≤900px).
+- [x] T-043 Reescribir `src/pages/blog/index.astro`: cabecera (label, h1 "Notes on Angular, backend and building with AI", lead), buscador `type="search"` con icono lupa, filtros `role="group"` generados con las **categorías reales** + "All", destacado = el más reciente, filas con `PostRow`, estado vacío con botón "All topics"; JSON-LD y manifiesto de búsqueda conservados; footer de sitio.
+- [x] T-044 Reescribir `src/scripts/blog.ts`: filtro por tema + texto sobre destacado y filas (`data-topic`, `data-text`), uso de `hidden`, `aria-pressed` en filtros, estado vacío, reset; búsqueda sobre el idioma activo.
+- [x] T-045 Reescribir `src/components/Footer.astro` como footer de sitio (Logo, GitHub, LinkedIn, Contact, © dinámico) y usarlo en `/blog` y `/blog/[slug]`; la home conserva el pie dentro de Contact.
+- [x] T-046 [P] Ampliar `src/i18n/translations.ts` (blog: label, titular, lead, placeholder, filtros, vacío, "Read post", "All posts") y traducir; las categorías se muestran con su nombre (Angular, Backend, JavaScript, AI).
+- [x] T-047 Eliminar `src/components/BlogCard.astro` y limpiar estilos `.filter-active`/pills antiguos.
+- [x] T-048 Cierre: build verde; greps; 390px (filtros hacen wrap, filas en 2 columnas); búsqueda y cada filtro; estado vacío; ES/EN.
 
 **Qué debe ver Paco en local**
 - `/blog` en **1280px/390px**, **oscuro/claro**, **ES/EN**.

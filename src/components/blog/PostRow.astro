@@ -16,7 +16,7 @@ const short = (locale: string) =>
   date.toLocaleDateString(locale, { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' })
 ---
 
-<a class="post-row reveal" href={`/blog/${slug}`} data-topic={category}>
+<a class="post-row reveal" href={`/blog/${slug}`} data-post-slug={slug} data-topic={category}>
   <span class="label">
     <span class="lang-en">{short('en-US')}</span>
     <span class="lang-es">{short('es-MX')}</span>
