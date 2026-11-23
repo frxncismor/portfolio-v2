@@ -139,8 +139,8 @@
 - [x] T-053 Reescribir `src/pages/blog/[slug].astro`: "← All posts", tema, fecha, "N min read" (readingTime), h1 Fraunces, dek (= `description`), grid `200px | 680px`, contenido EN/ES con `.lang-*`, `headings` para el índice de cada idioma, JSON-LD conservado, footer de sitio.
 - [x] T-054 Añadir pie "Keep reading" con tarjetas **Anterior (más antiguo)** y **Siguiente (más nuevo)** por fecha; se omite la que no exista; títulos por idioma.
 - [x] T-055 [P] Ampliar `src/i18n/translations.ts` ("← All posts", "On this page", "min read", "Keep reading", "Next", "Previous", "Copy", "Copied", "Select to copy") y traducir.
-- [ ] T-056 Cierre — `public/llms.txt`: correo `frxncismor@gmail.com`; título "Full-Stack Software Engineer"; experiencia y proyectos alineados con los datos actuales; los 6 posts.
-- [ ] T-057 Cierre — `public/og-image.svg` nueva con la marca (lockup, `paper` oscuro, acento verde, sin morado); actualizar `Layout.astro` (`og:image`, `twitter:image`, `theme-color`).
+- [x] T-056 Cierre — `public/llms.txt`: correo `frxncismor@gmail.com`; título "Full-Stack Software Engineer"; experiencia y proyectos alineados con los datos actuales; los 6 posts.
+- [x] T-057 Cierre — `public/og-image.svg` nueva con la marca (lockup, `paper` oscuro, acento verde, sin morado); actualizar `Layout.astro` (`og:image`, `twitter:image`, `theme-color`).
 - [ ] T-058 Cierre — barrido global: `rg -n "#[0-9a-fA-F]{3,8}\b|rgba?\(|slate-|white/|\[#" src` → solo `tokens.css`; `rg -n "material-symbols|Epilogue|DM Mono|hello@frxncismor|fade-in|grain" src public` → 0; sin imports/variables sin usar.
 - [ ] T-059 Cierre — auditoría de i18n: recorrer `/`, `/blog` y los 6 artículos en ES y confirmar 0 textos de interfaz en inglés.
 - [ ] T-060 Cierre — auditoría de accesibilidad y criterios de terminado del handoff: foco/teclado en todo, contraste ≥ 4.5:1 en los dos temas (tabla con valores), 0 scroll horizontal a 390px en `/`, `/blog` y los 6 artículos, reduced-motion, `lang` de `<html>` correcto.
