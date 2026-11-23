@@ -1,6 +1,6 @@
 # Francisco Moreno — Full-Stack Software Engineer
 
-> Full-stack software engineer based in Houston, TX. 6 years building production systems for Disney, Royal Caribbean, United Airlines, and more — Angular frontends, .NET and Node.js APIs, PostgreSQL. Currently building a .NET 10 API for OXXO at Valtre. Available for freelance projects and full-time opportunities in the US.
+> Full-stack software engineer based in Houston, TX. 6 years building production systems for Disney, Royal Caribbean, United Airlines, and more — Angular frontends, .NET and Node.js APIs, PostgreSQL. Currently a Backend Engineer at Valtre, building a .NET 10 API for OXXO. Available for freelance projects and full-time opportunities in the US.
 
 ## About
 
@@ -20,30 +20,34 @@ Francisco Moreno is a full-stack software engineer with expertise in Angular, Ty
 
 ## Work Experience
 
-- **Valtre** (current) — DevCrossQA (backend). Building a .NET 10 API for OXXO with an AI-assisted workflow (GitHub Copilot, Claude, Codex), owning code quality and testing.
-- **Globant** (5 years) — Senior Software Engineer. Clients: Disney, Royal Caribbean, United Airlines, Dick's Sporting Goods, Gannett
-- **Freelance & Independent**: Regio Labs (client — AI WhatsApp bots & website), Vaneybr Portfolio (Angular), Caro Sweet MUA (brand & booking site), Nox Coffee (motion-driven brand experience)
+- **Valtre** (current) — DevCrossQA · Backend Engineer. Building a .NET 10 API for OXXO with an AI-assisted workflow (GitHub Copilot, Claude, Codex); owns the backend code end to end, applies engineering best practices and tests everything shipped.
+- **Globant** (5 years) — Senior Software Engineer. Production-grade frontends for Disney, Royal Caribbean, United Airlines, Dick's Sporting Goods and Gannett.
+- **Freelance & Independent**:
+  - RegioLabs (client project) — AI WhatsApp bots and website for a Monterrey automation studio. https://regiolabs.com.mx/
+  - Caro Sweet MUA — Brand and booking site for a professional makeup artist. https://caro-sweet-mua.vercel.app/
+  - Vaneybr — Custom Angular portfolio built for a client. https://www.vaneybr.com/home
 
 ## Selected Projects
 
-- **Grim Builds** (WIP) — Full-stack build-guide platform for Grim Dawn: Angular 21 SSR, Fastify + Drizzle API, PostgreSQL, shared Zod domain, Docker, CI with Playwright, axe and Lighthouse. https://github.com/frxncismor/grim-dawn-builds
-- **Regio Labs** (client) — AI WhatsApp bots and website for a Monterrey automation studio (Astro, Vercel, Turnstile). https://regiolabs.com.mx/
-- **Nox Coffee** — Scroll-driven brand experience (Astro, GSAP). https://nox-coffee.vercel.app/
+- **Grim Builds** (WIP) — Build-guide platform for Grim Dawn: Angular 21 SSR, Fastify + Drizzle API, PostgreSQL, shared Zod domain, hardened Docker setup, CI with property-based, e2e, accessibility and Lighthouse checks. https://github.com/frxncismor/grim-dawn-builds
+- **Nox Coffee** — Scroll-driven brand experience for a fictional coffee company (Astro, GSAP, Lenis). https://nox-coffee.vercel.app/
 - **Room Tour & Descriptions** — Interactive 3D room viewer with orbit controls, teleportation navigation and object interaction (Angular, Three.js). https://room-tour-and-descriptions.vercel.app/
+- **Mega Basic Crossy Road** — Browser-based 3D Crossy Road clone (TypeScript, Three.js, Vite). https://mega-basic-crossy-road.vercel.app/
 
 ## Blog
 
-Technical writing on Angular, JavaScript, frontend architecture, and AI-assisted development.
+Technical writing on Angular, JavaScript, frontend architecture, and AI-assisted development. Available in English and Spanish.
 
-- /blog/angular-signals — Angular Signals: A Practical Introduction
-- /blog/values-vs-references-in-javascript — Values vs References in JavaScript
-- /blog/wtf-is-inmutability-in-js — WTF Is Immutability in JavaScript?
-- /blog/how-to-setup-eslint-and-prettier-in-angular-20-projects — How to Setup ESLint and Prettier in Angular 20 Projects
-- /blog/web-dev-in-2026-with-ai — What It's Like to Be a Web Developer in 2026
+- [Angular Signals: A Practical Introduction](https://frxncismor.dev/blog/angular-signals)
+- [From Frontend to Full-Stack: What Actually Changes When You Own the Whole System](https://frxncismor.dev/blog/from-frontend-to-full-stack)
+- [How to Setup ESLint and Prettier in Angular 20 Projects](https://frxncismor.dev/blog/how-to-setup-eslint-and-prettier-in-angular-20-projects)
+- [Values vs References in JavaScript](https://frxncismor.dev/blog/values-vs-references-in-javascript)
+- [What It's Like to Be a Web Developer in 2026](https://frxncismor.dev/blog/web-dev-in-2026-with-ai)
+- [WTF Is Immutability in JavaScript?](https://frxncismor.dev/blog/wtf-is-inmutability-in-js)
 
 ## Contact
 
-- Email: hello@frxncismor.dev
+- Email: frxncismor@gmail.com
 - GitHub: https://github.com/frxncismor
 - LinkedIn: https://linkedin.com/in/frxncismor
 - Website: https://frxncismor.dev

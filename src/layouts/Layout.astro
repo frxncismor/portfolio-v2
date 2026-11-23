@@ -12,7 +12,7 @@ interface Props {
 const {
   title       = 'Francisco Moreno — Software Engineer',
   description = 'Full-stack software engineer based in Houston, TX. 6 years building production systems for Disney, Royal Caribbean, United Airlines & more. Angular frontends and .NET/Node.js APIs, with experience in Express, Supabase, Firebase, PostgreSQL, and Docker infrastructure.',
-  ogImage     = '/og-image.svg',
+  ogImage     = '/og-image.png',
   keywords    = 'Software Engineer, Angular developer, TypeScript, React, Next.js, Astro, Node.js, .NET, C#, ASP.NET Core, PostgreSQL, Fastify, Express, Firebase, Docker, Full-stack Engineer, Frontend Engineer, Houston TX, freelance developer, JavaScript, Angular specialist, Datadog, Sentry',
 } = Astro.props
 
@@ -110,6 +110,10 @@ const websiteSchema = {
     <meta property="og:title"       content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image"       content={ogImageURL} />
+    <meta property="og:image:type"   content="image/png" />
+    <meta property="og:image:width"  content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt"    content="Francisco Moreno — Full-Stack Software Engineer · Houston, TX" />
     <meta property="og:site_name"   content="frxncismor.dev" />
     <meta property="og:locale"      content="en_US" />
 
@@ -121,6 +125,7 @@ const websiteSchema = {
     <meta name="twitter:title"       content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image"       content={ogImageURL} />
+    <meta name="twitter:image:alt"   content="Francisco Moreno — Full-Stack Software Engineer · Houston, TX" />
 
     <!-- JSON-LD Person + WebSite schemas -->
     <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
