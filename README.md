@@ -15,6 +15,7 @@ Personal portfolio for Francisco Moreno — Full-Stack Software Engineer with 6 
 - **Accessible markup** — semantic HTML, accessible names on icon-only controls, skip-nav link, fully keyboard navigable, visible focus (also in Windows high-contrast mode).
 - **Language-aware metadata** — title, meta description, Open Graph tags and JSON-LD are rendered per language in the static HTML. Each blog post gets its own Open Graph image (EN/ES), generated at build time (`src/lib/og.ts`).
 - **Blog with search** — Astro Content Collections, client-side keyword search and category filter, zero external dependencies.
+- **Paginated blog** — 9 posts per page (`BLOG_PAGE_SIZE` in `src/lib/posts.ts`): `/blog`, `/blog/page/2`, … and `/es/blog/…`. Page 1 is `/blog` (there is no `/blog/page/1`); the featured post only appears there and counts as one of its 9. Each page has its own canonical, hreflang pair, `rel=prev/next` and a " — Page N" title. Search and topic filters query an index of *every* post of the language, embedded as small JSON (`#blog-search-index`: title, summary, date, topic, slug, href; it replaces the old per-page manifest, no extra request). While a search or filter is active the matches replace the paginated list and the pager is hidden; without JS the filters are hidden and the pagination works as plain links.
 - **Clean architecture** — typed data layer, strict TypeScript, separation between data, layout, and i18n.
 
 ---

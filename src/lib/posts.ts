@@ -60,3 +60,16 @@ export async function getPostPaths() {
     },
   }))
 }
+
+/** Posts per blog listing page. On page 1 the featured post counts as one of them. */
+export const BLOG_PAGE_SIZE = 9
+
+export function blogPageCount(total: number): number {
+  return Math.max(1, Math.ceil(total / BLOG_PAGE_SIZE))
+}
+
+/** Static paths for `/blog/page/N` and `/es/blog/page/N`: page 1 is `/blog`, so N starts at 2. */
+export async function getBlogPagePaths() {
+  const pages = blogPageCount((await getPosts()).length)
+  return Array.from({ length: Math.max(0, pages - 1) }, (_, i) => ({ params: { page: String(i + 2) } }))
+}

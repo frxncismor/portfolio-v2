@@ -1,0 +1,9 @@
+---
+import BlogIndexPage from '../../../../components/pages/BlogIndexPage.astro'
+import { getBlogPagePaths } from '../../../../lib/posts'
+
+export const getStaticPaths = getBlogPagePaths
+const { page } = Astro.params
+---
+
+<BlogIndexPage lang="es" page={Number(page)} />
