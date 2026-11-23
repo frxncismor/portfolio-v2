@@ -1,8 +1,9 @@
 /**
- * Blog list interactivity: topic filter + text search over the featured post and the rows.
+ * Blog list interactivity: topic filter + text search over the whole language manifest.
  *
- * - Items carry `data-post-slug` and `data-topic`; visibility uses the `hidden` attribute.
- * - Search runs against the manifest embedded in the page (titles and descriptions in the page language).
+ * - The manifest embedded in the page lists every post (not just the current page).
+ * - While a search or topic filter is active, matches render in `#blog-results` and the
+ *   paginated list (featured post, rows, pager) is hidden; clearing both brings it back.
  * - Both filters compose; the empty state offers a reset.
  */
 
@@ -11,51 +12,74 @@ interface PostManifest {
   title: string
   desc: string
   category: string
+  date: string
+  href: string
 }
 
 const ALL = 'all'
 
-function readManifest(): Map<string, PostManifest> {
+function readManifest(): PostManifest[] {
   const el = document.getElementById('blog-search-index')
-  if (!el) return new Map()
+  if (!el) return []
   try {
-    const list = JSON.parse(el.textContent || '[]') as PostManifest[]
-    return new Map(list.map((p) => [p.slug, p]))
+    return JSON.parse(el.textContent || '[]') as PostManifest[]
   } catch {
-    return new Map()
+    return []
   }
+}
+
+function buildRow(template: HTMLTemplateElement, post: PostManifest): HTMLElement | null {
+  const row = (template.content.firstElementChild?.cloneNode(true) as HTMLAnchorElement | null) ?? null
+  if (!row) return null
+  row.href = post.href
+  row.dataset.postSlug = post.slug
+  row.dataset.topic = post.category
+  row.classList.remove('reveal')
+  const set = (selector: string, text: string): void => {
+    const node = row.querySelector(selector)
+    if (node) node.textContent = text
+  }
+  set('.label', post.date)
+  set('h3', post.title)
+  set('p', post.desc)
+  set('.topic', post.category)
+  return row
 }
 
 function initBlogFilters(): void {
   const search = document.getElementById('blog-search') as HTMLInputElement | null
+  const page = document.getElementById('blog-page')
+  const results = document.getElementById('blog-results')
+  const template = document.getElementById('blog-row-template') as HTMLTemplateElement | null
   const empty = document.getElementById('blog-empty')
   const reset = document.getElementById('blog-reset')
   const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>('button[data-filter]'))
-  const items = Array.from(document.querySelectorAll<HTMLElement>('[data-post-slug]'))
-  if (!search || items.length === 0) return
+  if (!search || !page || !results || !template) return
 
   const manifest = readManifest()
   let topic = ALL
 
   const apply = (): void => {
     const query = search.value.trim().toLowerCase()
-    let shown = 0
+    const active = query !== '' || topic !== ALL
+    page.hidden = active
+    results.hidden = !active
+    results.replaceChildren()
+    if (!active) {
+      if (empty) empty.hidden = true
+      return
+    }
 
-    items.forEach((item) => {
-      const entry = manifest.get(item.dataset.postSlug ?? '')
-      const title = entry?.title ?? ''
-      const desc = entry?.desc ?? ''
-      const category = item.dataset.topic ?? ''
-
-      const matchesTopic = topic === ALL || category === topic
-      const matchesText = !query || `${title} ${desc} ${category}`.toLowerCase().includes(query)
-
-      const visible = matchesTopic && matchesText
-      item.hidden = !visible
-      if (visible) shown++
+    const matches = manifest.filter(
+      (p) =>
+        (topic === ALL || p.category === topic) &&
+        (!query || `${p.title} ${p.desc} ${p.category}`.toLowerCase().includes(query)),
+    )
+    matches.forEach((p) => {
+      const row = buildRow(template, p)
+      if (row) results.appendChild(row)
     })
-
-    if (empty) empty.hidden = shown > 0
+    if (empty) empty.hidden = matches.length > 0
   }
 
   const setTopic = (next: string): void => {
