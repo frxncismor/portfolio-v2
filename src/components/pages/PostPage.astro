@@ -6,6 +6,7 @@ import Toc from '../blog/Toc.astro'
 import { readingTime } from '../../lib/readingTime'
 import type { Post } from '../../lib/posts'
 import { safeJson } from '../../lib/json'
+import { ogImagePath } from '../../lib/og'
 import { t, type Lang } from '../../i18n/translations'
 import { dateLocale, localePath } from '../../i18n/routes'
 
@@ -42,6 +43,7 @@ const neighbors = [
     label,
   }))
 
+const ogImage = ogImagePath(post.slug, lang)
 const postUrl = new URL(localePath(lang, `/blog/${post.slug}/`), Astro.site).href
 const blogPostingSchema = {
   '@context': 'https://schema.org',
@@ -50,7 +52,7 @@ const blogPostingSchema = {
   description,
   datePublished: date.toISOString(),
   inLanguage: lang,
-  image: new URL('/og-image.png', Astro.site).href,
+  image: new URL(ogImage, Astro.site).href,
   url: postUrl,
   author: {
     '@type': 'Person',
@@ -71,6 +73,8 @@ const blogPostingSchema = {
   title={`${title} — Francisco Moreno`}
   description={description}
   ogType="article"
+  ogImage={ogImage}
+  ogImageAlt={title}
   publishedTime={date.toISOString()}
   keywords={`${category}, ${title}, Francisco Moreno, Angular, TypeScript, JavaScript, frontend development`}
 >
