@@ -4,25 +4,21 @@ interface Heading {
   text: string
 }
 
+import { t, type Lang } from '../../i18n/translations'
+
 interface Props {
-  headingsEn: Heading[]
-  headingsEs: Heading[]
+  headings: Heading[]
+  lang: Lang
 }
 
-const { headingsEn, headingsEs } = Astro.props
-const lists = [
-  { lang: 'en', headings: headingsEn },
-  { lang: 'es', headings: headingsEs },
-]
+const { headings, lang } = Astro.props
 ---
 
 <aside class="toc">
-  <p class="label" data-i18n="blog.toc">On this page</p>
-  {lists.map(({ lang, headings }) => (
-    <nav class={`toc-list lang-${lang}`} aria-label={lang === 'en' ? 'On this page' : 'En esta página'}>
-      {headings.map((h) => <a href={`#${h.slug}`} data-target={h.slug}>{h.text}</a>)}
-    </nav>
-  ))}
+  <p class="label">{t(lang, 'blog.toc')}</p>
+  <nav class="toc-list" aria-label={t(lang, 'blog.toc')}>
+    {headings.map((h) => <a href={`#${h.slug}`} data-target={h.slug}>{h.text}</a>)}
+  </nav>
 </aside>
 
 <style>

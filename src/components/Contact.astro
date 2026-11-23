@@ -1,22 +1,30 @@
 ---
-const year = new Date().getFullYear()
 import { email, social } from '../data/site'
+import { t, type Lang } from '../i18n/translations'
+import { localePath } from '../i18n/routes'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+const year = new Date().getFullYear()
 
 const socials = [
-  ...social.map((s) => ({ href: s.href, key: `contact.${s.id}`, label: s.label, external: true })),
-  { href: '/blog', key: 'contact.blog', label: 'Blog', external: false },
+  ...social.map((s) => ({ href: s.href, label: t(lang, `contact.${s.id}`), external: true })),
+  { href: localePath(lang, '/blog'), label: t(lang, 'contact.blog'), external: false },
 ]
 ---
 
 <section id="contact" class="contact">
   <div class="wrap inner">
-    <p class="label reveal" data-i18n="contact.label">Contact</p>
-    <h2 class="serif reveal" data-i18n="contact.title">Let's build something good.</h2>
-    <p class="lead reveal" data-i18n="contact.lead">Open to full-time roles and selected freelance projects.</p>
+    <p class="label reveal">{t(lang, 'contact.label')}</p>
+    <h2 class="serif reveal">{t(lang, 'contact.title')}</h2>
+    <p class="lead reveal">{t(lang, 'contact.lead')}</p>
 
     <div class="mail reveal">
       <code id="email">{email}</code>
-      <button class="copy" type="button" id="copy-btn" data-i18n="contact.copy">Copy email</button>
+      <button class="copy" type="button" id="copy-btn">{t(lang, 'contact.copy')}</button>
       <span id="copy-status" class="sr-only" role="status" aria-live="polite"></span>
     </div>
 
@@ -28,7 +36,7 @@ const socials = [
           target={s.external ? '_blank' : undefined}
           rel={s.external ? 'noopener noreferrer' : undefined}
         >
-          <span data-i18n={s.key}>{s.label}</span>
+          <span>{s.label}</span>
           <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
             <path d="M4 10 10 4M5 4h5v5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
           </svg>
@@ -38,7 +46,7 @@ const socials = [
 
     <div class="foot">
       <p class="label">© {year} Francisco Moreno</p>
-      <p class="label" data-i18n="contact.foot">Houston, TX · Built with care</p>
+      <p class="label">{t(lang, 'contact.foot')}</p>
     </div>
   </div>
 </section>

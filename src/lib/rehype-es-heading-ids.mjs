@@ -1,7 +1,7 @@
 /**
  * Rehype plugin: prefixes the heading ids of the Spanish posts (src/content/blog-es/) with `es-`.
- * An article page renders both languages in the DOM, so without a prefix the same heading
- * would get the same id twice.
+ * Each language now has its own route (`/blog/<slug>` and `/es/blog/<slug>`); the prefix stays so
+ * Spanish section anchors keep the ids they already had and never collide with the English ones.
  *
  * Astro keeps ids that already exist, so setting them here (before its own heading-id pass)
  * is enough; the table of contents reads the final ids back from `render().headings`.

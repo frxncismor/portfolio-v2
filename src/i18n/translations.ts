@@ -79,6 +79,10 @@ export const translations: Translations = {
     'meta.desc':             'Full-stack software engineer in Houston, TX. 6 years shipping production systems for Disney, Royal Caribbean and United Airlines. Angular, .NET, Node.js.',
     'meta.blog-title':       'Blog — Francisco Moreno',
     'meta.blog-desc':        'Technical writing on Angular, .NET and Node.js backends, frontend architecture and building things on the web with AI-assisted workflows.',
+    'meta.og-alt':           'Francisco Moreno — Full-Stack Software Engineer · Houston, TX',
+    'blog.min-read':         'min read',
+    'work.wip':              'WIP',
+    'work.github-hint':      'source code on GitHub',
   },
   es: {
     'nav.work':              'Trabajo',
@@ -156,5 +160,14 @@ export const translations: Translations = {
     'meta.desc':             'Ingeniero de software full-stack en Houston, TX. 6 años en sistemas de producción para Disney, Royal Caribbean y United Airlines. Angular, .NET y Node.js.',
     'meta.blog-title':       'Blog — Francisco Moreno',
     'meta.blog-desc':        'Artículos técnicos sobre Angular, backends en .NET y Node.js, arquitectura frontend y cómo construir en la web con flujos asistidos por IA.',
+    'meta.og-alt':           'Francisco Moreno — Ingeniero de Software Full-Stack · Houston, TX',
+    'blog.min-read':         'min de lectura',
+    'work.wip':              'En desarrollo',
+    'work.github-hint':      'código fuente en GitHub',
   },
+}
+
+/** Server-side lookup: the page language first, English as fallback, the key itself as a last resort. */
+export function t(lang: Lang, key: string): string {
+  return translations[lang][key] ?? translations.en[key] ?? key
 }

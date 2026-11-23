@@ -15,7 +15,7 @@ export interface Post {
 /**
  * Published posts (newest first), each paired with its Spanish translation.
  * The build fails if a published English post has no Spanish counterpart,
- * so the EN/ES toggle can never silently show the wrong language.
+ * so `/es/blog/<slug>` always exists for every `/blog/<slug>`.
  */
 export async function getPosts(): Promise<Post[]> {
   const enPosts = await getCollection('blog-en', ({ data }) => !data.draft)
@@ -46,4 +46,17 @@ export async function getPosts(): Promise<Post[]> {
       }
     })
     .sort((a, b) => b.date.getTime() - a.date.getTime())
+}
+
+/** Static paths for `/blog/[slug]` and `/es/blog/[slug]`: each post with its newer ("next") and older ("prev") neighbor. */
+export async function getPostPaths() {
+  const posts = await getPosts()
+  return posts.map((post, i) => ({
+    params: { slug: post.slug },
+    props: {
+      post,
+      next: i > 0 ? posts[i - 1] : undefined,
+      prev: i < posts.length - 1 ? posts[i + 1] : undefined,
+    },
+  }))
 }

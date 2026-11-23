@@ -251,16 +251,6 @@
   }
   .skip-link:focus { top: 16px; }
 
-  /* ── i18n ── */
-  html[data-lang="en"] .lang-es { display: none; }
-  html[data-lang="es"] .lang-en { display: none; }
-
-  /* Avoid an EN flash for stored ES: hide only translatable fragments until i18n.ts has run. */
-  html[data-lang="es"]:not([data-i18n-ready]) [data-i18n] { visibility: hidden; }
-  @media (scripting: none) {
-    html[data-lang="es"]:not([data-i18n-ready]) [data-i18n] { visibility: visible; }
-  }
-
   /* ── Blog prose (article body, rendered from markdown) ── */
   .prose { font-size: 18px; line-height: 31px; min-width: 0; overflow-wrap: break-word; }
   /* The page <h1> is the title; the markdown's own leading <h1> would repeat it. */

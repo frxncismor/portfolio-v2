@@ -1,20 +1,25 @@
 ---
 import { templates } from '../data/templates'
 import TemplateCard from './TemplateCard.astro'
+import { t, type Lang } from '../i18n/translations'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
 ---
 
 <section id="templates" class="section-block">
   <div class="wrap">
     <div class="section-head reveal">
       <div>
-        <p class="label" data-i18n="templates.label">Templates</p>
-        <h2 class="serif" data-i18n="templates.title">Ready-made sites</h2>
+        <p class="label">{t(lang, 'templates.label')}</p>
+        <h2 class="serif">{t(lang, 'templates.title')}</h2>
       </div>
-      <p class="note" data-i18n="templates.note">
-        Production-ready HTML and CSS. No frameworks, no build tools. Buy once, own forever.
-      </p>
+      <p class="note">{t(lang, 'templates.note')}</p>
     </div>
 
-    {templates.map((template) => <TemplateCard template={template} />)}
+    {templates.map((template) => <TemplateCard template={template} lang={lang} />)}
   </div>
 </section>

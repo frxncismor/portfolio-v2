@@ -1,5 +1,12 @@
 ---
+import { t, type Lang } from '../i18n/translations'
+
 // Headline is marked up per language (spans per word, accent marks) — see plan.md "i18n".
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
 ---
 
 <section id="hero" class="hero">
@@ -7,11 +14,12 @@
     <div class="who">
       <p class="label name">Francisco Moreno</p>
       <span class="sep" aria-hidden="true"></span>
-      <p class="label" data-i18n="hero.role">Full-Stack Software Engineer · Houston, TX</p>
+      <p class="label">{t(lang, 'hero.role')}</p>
     </div>
 
     <h1 class="serif">
-      <span class="lang-en">
+      {lang === 'en' ? (
+        <>
         <span class="w" style="animation-delay:0ms">I</span>
         <span class="w" style="animation-delay:50ms">build</span>
         <span class="w" style="animation-delay:100ms">software</span>
@@ -21,8 +29,9 @@
         <span class="w br" style="animation-delay:300ms">United Airlines</span>
         <span class="w" style="animation-delay:350ms">and</span>
         <span class="nw"><span class="w br" style="animation-delay:400ms">OXXO</span>.</span>
-      </span>
-      <span class="lang-es">
+        </>
+      ) : (
+        <>
         <span class="w" style="animation-delay:0ms">Construyo</span>
         <span class="w" style="animation-delay:50ms">software</span>
         <span class="w" style="animation-delay:100ms">para</span>
@@ -31,13 +40,14 @@
         <span class="w br" style="animation-delay:250ms">United Airlines</span>
         <span class="w" style="animation-delay:300ms">y</span>
         <span class="nw"><span class="w br" style="animation-delay:350ms">OXXO</span>.</span>
-      </span>
+        </>
+      )}
     </h1>
 
     <div class="actions">
-      <a class="btn" href="#work" data-i18n="hero.cta-work">See my work</a>
-      <a class="btn ghost" href="#experience" data-i18n="hero.cta-exp">View experience</a>
-      <p class="label stack" data-i18n="hero.stack">Angular · .NET &amp; Node · AI-assisted, human-reviewed</p>
+      <a class="btn" href="#work">{t(lang, 'hero.cta-work')}</a>
+      <a class="btn ghost" href="#experience">{t(lang, 'hero.cta-exp')}</a>
+      <p class="label stack">{t(lang, 'hero.stack')}</p>
     </div>
   </div>
 </section>
