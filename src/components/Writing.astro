@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content'
+import PostRow from './blog/PostRow.astro'
+
+const enPosts = await getCollection('blog-en', ({ data }) => !data.draft)
+const esPosts = await getCollection('blog-es', ({ data }) => !data.draft)
+const esBySlug = new Map(esPosts.map((p) => [p.slug, p]))
+
+const latest = enPosts
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3)
+  .map((en) => {
+    const es = esBySlug.get(en.slug)
+    return {
+      slug: en.slug,
+      titleEn: en.data.title,
+      titleEs: es?.data.title ?? en.data.title,
+      descEn: en.data.description,
+      descEs: es?.data.description ?? en.data.description,
+      category: en.data.category,
+      date: en.data.date,
+    }
+  })
+---
+
+<section id="writing" class="section-block">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <p class="label" data-i18n="writing.label">Writing</p>
+        <h2 class="serif" data-i18n="writing.title">Latest from the blog</h2>
+      </div>
+      <a class="link" href="/blog">
+        <span data-i18n="writing.all">All posts</span>
+        <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+          <path d="M2 7h10M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+    </div>
+
+    <div class="posts">
+      {latest.map((post) => <PostRow {...post} />)}
+    </div>
+  </div>
+</section>

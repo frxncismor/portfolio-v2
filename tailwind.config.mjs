@@ -38,27 +38,22 @@ export default {
           ink:        tok('art-ink'),
           coal:       tok('art-coal'),
         },
-        // TEMPORAL (paradas 1–4): alias de la paleta antigua → tokens nuevos, para que las
-        // secciones aún no migradas compilen y se lean. Se eliminan al migrar cada sección.
+        // TEMPORAL (quitar en parada 5/6): alias de la paleta antigua, solo para las páginas del
+        // blog (src/pages/blog/*, BlogCard.astro) hasta que se rehagan.
         brand:        tok('accent'),
-        'brand-h':    tok('ink'),
-        green:        tok('accent'),
         cream:        tok('ink'),
-        base:         tok('paper'),
         card:         tok('surface'),
         elevated:     tok('surface'),
         border:       tok('hairline'),
         outline:      tok('muted'),
         'outline-v':  tok('hairline'),
         'on-sv':      tok('muted'),
-        glass:        'color-mix(in srgb, var(--ink) 5%, transparent)',
-        'glass-line': 'color-mix(in srgb, var(--ink) 10%, transparent)',
       },
       fontFamily: {
         display:  'var(--display)',
         sans:     'var(--sans)',
         mono:     'var(--mono)',
-        headline: 'var(--display)', // TEMPORAL: alias antiguo
+        headline: 'var(--display)', // TEMPORAL (quitar en parada 5/6): blog
       },
       borderRadius: {
         sm: 'var(--r-sm)',

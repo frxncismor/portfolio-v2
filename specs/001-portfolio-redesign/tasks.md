@@ -94,15 +94,15 @@
 
 ## Parada 4 — Writing + Templates + About + Contact (+ pie de la home)
 
-- [ ] T-033 Crear `src/lib/readingTime.ts` (`Math.max(1, Math.ceil(words/200))`).
-- [ ] T-034 Crear `src/components/blog/PostRow.astro` (fila `120px | título+resumen | tema`; fecha corta, h3 Fraunces 26px; hover cambia el color del título). Se reutiliza en lista y en Writing.
-- [ ] T-035 Crear `src/components/Writing.astro`: carga `blog-en` y `blog-es` sin borradores, **ordena por fecha desc**, toma 3; enlace "All posts" → `/blog`; títulos/resúmenes en ambos idiomas (`.lang-*`) con fallback EN.
-- [ ] T-036 Modificar `src/data/templates.ts` (ZooNova, `$25`, Gumroad `https://frxncismor.gumroad.com/l/zoo-nova-html`, etiqueta "HTML · Tailwind CSS · 6 pages", texto `Localized`) y reescribir `Templates.astro` + `TemplateCard.astro`: tarjeta 2 columnas con portada `--art-*` y "ZooNova" como texto real; "Buy on Gumroad →". Una columna ≤900px.
-- [ ] T-037 [P] Crear `src/data/about.ts` (cifras: 6 years in production, 6 global brands, 20+ tools in production, `Localized`) y reescribir `About.astro`: cita con `<em>` (acento) en bloques `.lang-en/.lang-es`, 3 párrafos, `.facts` con borde superior y números Fraunces 40px (30px ≤640px).
-- [ ] T-038 [P] Crear `src/scripts/contact.ts` (copia el correo con `navigator.clipboard`, fallback `Selected`, 1600ms) y reescribir `Contact.astro`: fondo `sunken`, titular "Let's build something good.", `frxncismor@gmail.com` (Fraunces, acento, `user-select:all`), botón "Copy email", enlaces GitHub `https://github.com/frxncismor`, LinkedIn `https://linkedin.com/in/frxncismor` y Blog; pie "© {año} Francisco Moreno" · "Houston, TX · Built with care" (sin "© 2024" fijo).
-- [ ] T-039 [P] Ampliar `src/i18n/translations.ts` con Writing/Templates/About/Contact y todos los textos ES (incluidos estados Copied/Selected).
-- [ ] T-040 Modificar `src/pages/index.astro`: … Toolkit → Writing → Templates → About → Contact (sin Footer separado: el pie va dentro de Contact).
-- [ ] T-041 Cierre: build verde; greps; 390px; ES/EN; copiar correo con teclado; Writing muestra los 3 más recientes (Apr 5, Apr 4, Apr 1 de 2026) y no los del prototipo.
+- [x] T-033 Crear `src/lib/readingTime.ts` (`Math.max(1, Math.ceil(words/200))`).
+- [x] T-034 Crear `src/components/blog/PostRow.astro` (fila `120px | título+resumen | tema`; fecha corta, h3 Fraunces 26px; hover cambia el color del título). Se reutiliza en lista y en Writing.
+- [x] T-035 Crear `src/components/Writing.astro`: carga `blog-en` y `blog-es` sin borradores, **ordena por fecha desc**, toma 3; enlace "All posts" → `/blog`; títulos/resúmenes en ambos idiomas (`.lang-*`) con fallback EN.
+- [x] T-036 Modificar `src/data/templates.ts` (ZooNova, `$25`, Gumroad `https://frxncismor.gumroad.com/l/zoo-nova-html`, etiqueta "HTML · Tailwind CSS · 6 pages", texto `Localized`) y reescribir `Templates.astro` + `TemplateCard.astro`: tarjeta 2 columnas con portada `--art-*` y "ZooNova" como texto real; "Buy on Gumroad →". Una columna ≤900px.
+- [x] T-037 [P] Crear `src/data/about.ts` (cifras: 6 years in production, 7 global brands, 20+ tools in production, `Localized`) y reescribir `About.astro`: cita con `<em>` (acento) en bloques `.lang-en/.lang-es`, 3 párrafos, `.facts` con borde superior y números Fraunces 40px (30px ≤640px).
+- [x] T-038 [P] Crear `src/scripts/contact.ts` (copia el correo con `navigator.clipboard`, fallback `Selected`, 1600ms) y reescribir `Contact.astro`: fondo `sunken`, titular "Let's build something good.", `frxncismor@gmail.com` (Fraunces, acento, `user-select:all`), botón "Copy email", enlaces GitHub `https://github.com/frxncismor`, LinkedIn `https://linkedin.com/in/frxncismor` y Blog; pie "© {año} Francisco Moreno" · "Houston, TX · Built with care" (sin "© 2024" fijo).
+- [x] T-039 [P] Ampliar `src/i18n/translations.ts` con Writing/Templates/About/Contact y todos los textos ES (incluidos estados Copied/Selected).
+- [x] T-040 Modificar `src/pages/index.astro`: … Toolkit → Writing → Templates → About → Contact (sin Footer separado: el pie va dentro de Contact).
+- [x] T-041 Cierre: build verde; greps; 390px; ES/EN; copiar correo con teclado; Writing muestra los 3 más recientes (Apr 5, Apr 4, Apr 1 de 2026) y no los del prototipo.
 
 **Qué debe ver Paco en local**
 - La home completa de arriba abajo en **1280px/390px**, **oscuro/claro**, **ES/EN**.

@@ -1,37 +1,81 @@
 ---
+import { aboutFacts, aboutParagraphs, aboutQuote } from '../data/about'
 ---
 
-<section id="about" class="py-32 px-6 max-w-screen-xl mx-auto">
-
-  <div class="mb-16">
-    <span class="section-label" data-i18n="about.label">ABOUT</span>
-  </div>
-
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-
-    <!-- Decorative type element — large text clips to create editorial effect -->
-    <div class="relative overflow-hidden flex items-center justify-center py-10 fade-in">
-      <span
-        class="text-[10rem] md:text-[14rem] font-black font-headline leading-none select-none"
-        style="color: #474552;"
-        aria-hidden="true"
-      >About</span>
+<section id="about" class="section-block">
+  <div class="wrap about">
+    <div class="reveal">
+      <p class="label" data-i18n="about.label">About</p>
+      <blockquote class="serif">
+        <span class="lang-en">{aboutQuote.pre.en}<em>{aboutQuote.em.en}</em>{aboutQuote.post.en}</span>
+        <span class="lang-es">{aboutQuote.pre.es}<em>{aboutQuote.em.es}</em>{aboutQuote.post.es}</span>
+      </blockquote>
     </div>
 
-    <!-- Bio text -->
-    <div class="fade-in">
-      <p
-        class="font-mono text-sm md:text-base leading-relaxed"
-        style="color: #e8e4dc;"
-        data-i18n="about.bio"
-      >
-        Angular engineer by trade, builder by nature. I've shipped production-grade frontends
-        for Disney, Royal Caribbean, and United Airlines — and I bring that same standard to
-        every freelance project I take on. Originally from Monterrey, now based in Houston.
-        When I'm not coding, I'm gaming, learning something new, or prototyping the next idea.
-      </p>
+    <div class="text reveal">
+      {aboutParagraphs.map((p) => (
+        <p>
+          <span class="lang-en">{p.en}</span>
+          <span class="lang-es">{p.es}</span>
+        </p>
+      ))}
+      <ul class="facts">
+        {aboutFacts.map((fact) => (
+          <li>
+            <b>{fact.value}</b>
+            <span>
+              <span class="lang-en">{fact.label.en}</span>
+              <span class="lang-es">{fact.label.es}</span>
+            </span>
+          </li>
+        ))}
+      </ul>
     </div>
-
   </div>
-
 </section>
+
+<style>
+  .about {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: 64px;
+  }
+  blockquote {
+    margin: 16px 0 0;
+    font-size: clamp(28px, 3.6vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -.01em;
+    font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 72;
+  }
+  blockquote em { color: var(--accent); font-style: normal; }
+  .text { display: grid; gap: 18px; color: var(--muted); }
+  .text p { margin: 0; }
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin: 12px 0 0;
+    padding: 24px 0 0;
+    list-style: none;
+    border-top: 1px solid var(--hairline);
+  }
+  .facts b {
+    display: block;
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 1;
+    color: var(--ink);
+    font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 72;
+    font-variant-numeric: tabular-nums;
+  }
+  .facts span { font-size: 13px; line-height: 20px; }
+
+  @media (max-width: 900px) {
+    .about { grid-template-columns: 1fr; gap: 32px; }
+  }
+  @media (max-width: 640px) {
+    .facts { gap: 12px; }
+    .facts b { font-size: 30px; }
+  }
+</style>
