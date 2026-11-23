@@ -1,6 +1,6 @@
 ---
 title: "Angular Signals: Introducción Práctica"
-description: "Qué son los signals, por qué Angular los agregó, y cómo empezar a usarlos en tus componentes hoy."
+description: "Qué son los signals, por qué Angular los agregó y cómo empezar a usarlos hoy en tus componentes, con ejemplos prácticos que puedes seguir paso a paso."
 date: 2026-04-01
 category: "Angular"
 draft: false

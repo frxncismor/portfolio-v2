@@ -1,26 +1,38 @@
 ---
 import '../styles/global.css'
 import tokensCss from '../styles/tokens.css?raw'
-import { translations } from '../i18n/translations'
+import { t, type Lang } from '../i18n/translations'
+import { basePath, localePath, ogLocale, withSlash } from '../i18n/routes'
 import { social } from '../data/site'
 import { safeJson } from '../lib/json'
 
 interface Props {
+  /** Page language, fixed by the route (`/es/...` is Spanish). */
+  lang: Lang
+  /** Defaults to the home title / description of `lang`. */
   title?: string
   description?: string
-  /** Spanish tab title / meta description, applied by i18n.ts when the language is ES. */
-  titleEs?: string
-  descriptionEs?: string
   ogImage?: string
+  /** Alt text of `ogImage`; defaults to the generic portfolio alt. */
+  ogImageAlt?: string
   keywords?: string
+  /** Open Graph type: `article` for blog posts (adds article:published_time). */
+  ogType?: 'website' | 'article'
+  /** ISO date, only used when ogType is `article`. */
+  publishedTime?: string
+  /** Keeps utility pages (404) out of search results. */
+  noindex?: boolean
 }
 
 const {
-  title         = translations.en['meta.title'],
-  description   = translations.en['meta.desc'],
-  titleEs       = translations.es['meta.title'],
-  descriptionEs = translations.es['meta.desc'],
+  lang,
+  title       = t(lang, 'meta.title'),
+  description = t(lang, 'meta.desc'),
   ogImage     = '/og-image.png',
+  ogImageAlt  = t(lang, 'meta.og-alt'),
+  ogType      = 'website',
+  publishedTime,
+  noindex     = false,
   keywords    = 'Software Engineer, Angular developer, TypeScript, React, Next.js, Astro, Node.js, .NET, C#, ASP.NET Core, PostgreSQL, Fastify, Express, Firebase, Docker, Full-stack Engineer, Frontend Engineer, Houston TX, freelance developer, JavaScript, Angular specialist, Datadog, Sentry',
 } = Astro.props
 
@@ -32,6 +44,17 @@ const [paperDark = '', paperLight = ''] = [...tokensCss.matchAll(/--paper:\s*(#[
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 const ogImageURL   = new URL(ogImage, Astro.site)
+const otherLang: Lang = lang === 'en' ? 'es' : 'en'
+
+// Every indexable page exists in both languages at the same path (Spanish under /es/): hreflang pairs them.
+const enPath = withSlash(basePath(Astro.url.pathname))
+const alternates = noindex
+  ? []
+  : [
+      { hreflang: 'en', href: new URL(enPath, Astro.site) },
+      { hreflang: 'es', href: new URL(localePath('es', enPath), Astro.site) },
+      { hreflang: 'x-default', href: new URL(enPath, Astro.site) },
+    ]
 
 const personSchema = {
   '@context': 'https://schema.org',
@@ -55,30 +78,23 @@ const websiteSchema = {
   '@type': 'WebSite',
   name: 'Francisco Moreno',
   url: 'https://frxncismor.dev',
-  description: 'Portfolio of Francisco Moreno — Software Engineer based in Houston, TX.',
+  description: t(lang, 'meta.desc'),
+  inLanguage: lang,
   author: { '@type': 'Person', name: 'Francisco Moreno', url: 'https://frxncismor.dev' },
   publisher: { '@type': 'Person', name: 'Francisco Moreno', url: 'https://frxncismor.dev' },
 }
 ---
 
 <!doctype html>
-<html
-  lang="en"
-  data-lang="en"
-  data-title-en={title}
-  data-title-es={titleEs}
-  data-desc-en={description}
-  data-desc-es={descriptionEs}
->
+<html lang={lang} data-lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="dark light" />
 
     <!--
-      Theme + language init: runs before the stylesheets and the first paint.
-      - Theme: applies the saved choice (fm-theme) as data-theme; without one, CSS follows prefers-color-scheme.
-      - Language: applies the saved lang so .lang-en / .lang-es blocks switch with no flash.
+      Theme init: runs before the stylesheets and the first paint. Applies the saved choice (fm-theme)
+      as data-theme; without one, CSS follows prefers-color-scheme. The language comes from the route.
     -->
     <script is:inline define:vars={{ paperDark, paperLight }}>
       ;(function () {
@@ -100,13 +116,6 @@ const websiteSchema = {
             })
           }
         } catch (e) {}
-        try {
-          var lang = localStorage.getItem("lang")
-          if (lang === "es" || lang === "en") {
-            root.setAttribute("data-lang", lang)
-            root.setAttribute("lang", lang)
-          }
-        } catch (e) {}
       })()
     </script>
 
@@ -126,11 +135,12 @@ const websiteSchema = {
     <meta name="author"       content="Francisco Moreno" />
     <meta name="publisher"    content="Francisco Moreno" />
     <link rel="canonical"     href={canonicalURL} />
-    <meta name="robots"       content="index, follow" />
+    <meta name="robots"       content={noindex ? 'noindex, follow' : 'index, follow'} />
     <meta name="generator"    content={Astro.generator} />
+    {alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
 
     <!-- Open Graph -->
-    <meta property="og:type"        content="website" />
+    <meta property="og:type"        content={ogType} />
     <meta property="og:url"         content={canonicalURL} />
     <meta property="og:title"       content={title} />
     <meta property="og:description" content={description} />
@@ -138,9 +148,12 @@ const websiteSchema = {
     <meta property="og:image:type"   content="image/png" />
     <meta property="og:image:width"  content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt"    content="Francisco Moreno — Full-Stack Software Engineer · Houston, TX" />
+    <meta property="og:image:alt"    content={ogImageAlt} />
     <meta property="og:site_name"   content="frxncismor.dev" />
-    <meta property="og:locale"      content="en_US" />
+    <meta property="og:locale"      content={ogLocale[lang]} />
+    <meta property="og:locale:alternate" content={ogLocale[otherLang]} />
+    {ogType === 'article' && publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {ogType === 'article' && <meta property="article:author" content="Francisco Moreno" />}
 
     <!-- Twitter Card -->
     <meta name="twitter:card"        content="summary_large_image" />
@@ -150,7 +163,7 @@ const websiteSchema = {
     <meta name="twitter:title"       content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image"       content={ogImageURL} />
-    <meta name="twitter:image:alt"   content="Francisco Moreno — Full-Stack Software Engineer · Houston, TX" />
+    <meta name="twitter:image:alt"   content={ogImageAlt} />
 
     <!-- JSON-LD Person + WebSite schemas -->
     <script type="application/ld+json" set:html={safeJson(personSchema)} />
@@ -162,7 +175,7 @@ const websiteSchema = {
     <meta name="theme-color" content={paperLight} media="(prefers-color-scheme: light)" />
   </head>
   <body>
-    <a href="#main-content" class="skip-link" data-i18n="nav.skip">Skip to content</a>
+    <a href="#main-content" class="skip-link">{t(lang, 'nav.skip')}</a>
     <slot />
   </body>
 </html>

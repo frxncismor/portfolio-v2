@@ -20,7 +20,18 @@ export const toolkitGroups: ToolkitGroup[] = [
   {
     id: 'ai',
     label: { en: 'AI workflow', es: 'Flujo con IA' },
-    items: ['Claude Code', 'MCP servers', 'Agent skills', 'Spec-driven dev', 'Harness engineering', 'Human-in-the-loop'],
+    items: [
+      'Claude Code',
+      'GitHub Copilot',
+      'Codex',
+      'MCP servers',
+      'Agent skills',
+      'Agent orchestration',
+      'Herdr',
+      'Spec-driven dev',
+      'Harness engineering',
+      'Human-in-the-loop',
+    ],
   },
   {
     id: 'ship',

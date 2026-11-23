@@ -1,21 +1,28 @@
 ---
 import Logo from './Logo.astro'
 import { social } from '../data/site'
+import { t, type Lang } from '../i18n/translations'
+import { localePath } from '../i18n/routes'
 
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
 const year = new Date().getFullYear()
 ---
 
 <footer class="site-foot">
   <div class="wrap inner">
-    <Logo />
-    <nav class="socials" aria-label="Footer" data-i18n-aria="footer.nav-aria">
+    <Logo lang={lang} />
+    <nav class="socials" aria-label={t(lang, 'footer.nav-aria')}>
       {social.map((s) => (
         <a class="link" href={s.href} target="_blank" rel="noopener noreferrer">
-          <span data-i18n={`footer.${s.id}`}>{s.label}</span>
+          <span>{t(lang, `footer.${s.id}`)}</span>
         </a>
       ))}
-      <a class="link" href="/#contact">
-        <span data-i18n="footer.contact">Contact</span>
+      <a class="link" href={localePath(lang, '/#contact')}>
+        <span>{t(lang, 'footer.contact')}</span>
       </a>
     </nav>
     <p class="label">© {year} Francisco Moreno · Houston, TX</p>

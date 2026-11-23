@@ -2,25 +2,38 @@
 import Logo from './Logo.astro'
 import ThemeToggle from './ThemeToggle.astro'
 import { nav } from '../data/site'
+import { t, type Lang } from '../i18n/translations'
+import { basePath, localePath, withSlash } from '../i18n/routes'
 
-const inBlog = Astro.url.pathname.startsWith('/blog')
+interface Props {
+  lang: Lang
+  /** Target of the language switch; defaults to this page in the other language. */
+  switchHref?: string
+}
+
+const { lang, switchHref: switchOverride } = Astro.props
+const otherLang: Lang = lang === 'en' ? 'es' : 'en'
+
+const path = basePath(Astro.url.pathname)
+const inBlog = path.startsWith('/blog')
+// Same page in the other language; nav.ts keeps the current #hash when it is followed.
+const switchHref = switchOverride ?? localePath(otherLang, withSlash(path))
 
 const links = nav.map((item) => ({
-  href: item.href,
-  key: `nav.${item.id}`,
-  label: item.label,
+  href: localePath(lang, item.href),
+  label: t(lang, `nav.${item.id}`),
   current: item.id === 'blog' && inBlog,
 }))
 ---
 
 <header class="nav">
   <div class="wrap bar">
-    <Logo />
+    <Logo lang={lang} />
 
-    <nav class="links" aria-label="Primary" data-i18n-aria="nav.primary-aria">
+    <nav class="links" aria-label={t(lang, 'nav.primary-aria')}>
       {
         links.map((link) => (
-          <a href={link.href} data-i18n={link.key} aria-current={link.current ? 'page' : undefined}>
+          <a href={link.href} aria-current={link.current ? 'page' : undefined}>
             {link.label}
           </a>
         ))
@@ -28,38 +41,37 @@ const links = nav.map((item) => ({
     </nav>
 
     <div class="end">
-      <button
+      <a
         id="lang-toggle"
         class="icon-btn lang"
-        type="button"
-        aria-label="ES — Switch language to Spanish"
-        data-i18n-aria="nav.lang-aria"
-      >
-        <span data-i18n="nav.toggle">ES</span>
-      </button>
-      <ThemeToggle />
-      <span class="status"><i aria-hidden="true"></i><span data-i18n="nav.available">Open to full-time</span></span>
+        href={switchHref}
+        hreflang={otherLang}
+        lang={otherLang}
+        data-lang-switch={otherLang}
+        aria-label={t(lang, 'nav.lang-aria')}
+      >{t(lang, 'nav.toggle')}</a>
+      <ThemeToggle lang={lang} />
+      <span class="status"><i aria-hidden="true"></i><span>{t(lang, 'nav.available')}</span></span>
       <button
         id="menu-toggle"
         class="menu-btn"
         type="button"
         aria-expanded="false"
         aria-controls="nav-menu"
-        data-i18n="nav.menu"
-      >Menu</button>
+      >{t(lang, 'nav.menu')}</button>
     </div>
   </div>
 
   <div id="nav-menu" class="menu-panel" hidden>
-    <nav class="wrap menu-links" aria-label="Primary" data-i18n-aria="nav.primary-aria">
+    <nav class="wrap menu-links" aria-label={t(lang, 'nav.primary-aria')}>
       {
         links.map((link) => (
-          <a href={link.href} data-i18n={link.key} aria-current={link.current ? 'page' : undefined}>
+          <a href={link.href} aria-current={link.current ? 'page' : undefined}>
             {link.label}
           </a>
         ))
       }
-      <span class="status menu-status"><i aria-hidden="true"></i><span data-i18n="nav.available">Open to full-time</span></span>
+      <span class="status menu-status"><i aria-hidden="true"></i><span>{t(lang, 'nav.available')}</span></span>
     </nav>
   </div>
 </header>
@@ -125,6 +137,9 @@ const links = nav.map((item) => ({
   }
   .icon-btn:hover {
     color: var(--ink);
+  }
+  .lang {
+    text-decoration: none;
   }
   .status {
     display: inline-flex;

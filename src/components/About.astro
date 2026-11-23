@@ -1,22 +1,27 @@
 ---
 import { aboutFacts, aboutParagraphs, aboutQuote } from '../data/about'
+import { t, type Lang } from '../i18n/translations'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
 ---
 
 <section id="about" class="section-block">
   <div class="wrap about">
     <div class="reveal">
-      <p class="label" data-i18n="about.label">About</p>
+      <p class="label">{t(lang, 'about.label')}</p>
       <blockquote class="serif">
-        <span class="lang-en">{aboutQuote.pre.en}<em>{aboutQuote.em.en}</em>{aboutQuote.post.en}</span>
-        <span class="lang-es">{aboutQuote.pre.es}<em>{aboutQuote.em.es}</em>{aboutQuote.post.es}</span>
+        {aboutQuote.pre[lang]}<em>{aboutQuote.em[lang]}</em>{aboutQuote.post[lang]}
       </blockquote>
     </div>
 
     <div class="text reveal">
       {aboutParagraphs.map((p) => (
         <p>
-          <span class="lang-en">{p.en}</span>
-          <span class="lang-es">{p.es}</span>
+          {p[lang]}
         </p>
       ))}
       <ul class="facts">
@@ -24,8 +29,7 @@ import { aboutFacts, aboutParagraphs, aboutQuote } from '../data/about'
           <li>
             <b>{fact.value}</b>
             <span>
-              <span class="lang-en">{fact.label.en}</span>
-              <span class="lang-es">{fact.label.es}</span>
+              {fact.label[lang]}
             </span>
           </li>
         ))}

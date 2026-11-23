@@ -1,0 +1,42 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../Nav.astro'
+import Hero from '../Hero.astro'
+import Clients from '../Clients.astro'
+import Work from '../Work.astro'
+import Process from '../Process.astro'
+import Experience from '../Experience.astro'
+import Toolkit from '../Toolkit.astro'
+import Writing from '../Writing.astro'
+import Templates from '../Templates.astro'
+import About from '../About.astro'
+import Contact from '../Contact.astro'
+import type { Lang } from '../../i18n/translations'
+
+/** Home page body, shared by `/` (EN) and `/es/` (ES). */
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+---
+
+<Layout lang={lang}>
+  <Nav lang={lang} />
+  <main id="main-content">
+    <Hero lang={lang} />
+    <Clients lang={lang} />
+    <Work lang={lang} />
+    <Process lang={lang} />
+    <Experience lang={lang} />
+    <Toolkit lang={lang} />
+    <Writing lang={lang} />
+    <Templates lang={lang} />
+    <About lang={lang} />
+    <Contact lang={lang} />
+  </main>
+</Layout>
+
+<script>
+  import '../../scripts/animations'
+</script>

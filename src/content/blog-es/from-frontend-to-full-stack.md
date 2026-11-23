@@ -1,6 +1,6 @@
 ---
-title: "De Frontend a Full-Stack: Lo Que Cambia de Verdad Cuando Eres Dueño de Todo el Sistema"
-description: "Pasé años como especialista en Angular. Después empecé a shipper sistemas completos. Esto es lo que nadie te cuenta sobre el salto — las decisiones de infraestructura, los modos de falla, y por qué el mindset de frontend a veces ayuda y a veces te juega en contra."
+title: "De Frontend a Full-Stack: Lo Que Cambia de Verdad"
+description: "Tras años como especialista en Angular, empecé a shipper sistemas completos. Qué cambia: infraestructura, modos de falla y el mindset de frontend."
 date: 2026-04-05
 category: "Backend"
 draft: false

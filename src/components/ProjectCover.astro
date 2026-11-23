@@ -1,11 +1,17 @@
 ---
 import type { ProjectId } from '../data/projects'
+import type { Lang } from '../i18n/translations'
 
 interface Props {
   id: ProjectId
+  lang: Lang
 }
 
-const { id } = Astro.props
+const { id, lang } = Astro.props
+const coverText = {
+  grim: { en: 'Community build library', es: 'Biblioteca de builds de la comunidad' },
+  nox: { en: 'Late-night coffee', es: 'Café nocturno' },
+}
 const crossyRows = [1, 2, 3, 4, 5, 6, 7]
 ---
 
@@ -39,10 +45,7 @@ const crossyRows = [1, 2, 3, 4, 5, 6, 7]
       </svg>
       <div class="grim-title">
         <b>Grim Builds</b>
-        <span>
-          <span class="lang-en">Community build library</span>
-          <span class="lang-es">Biblioteca de builds de la comunidad</span>
-        </span>
+        <span>{coverText.grim[lang]}</span>
       </div>
     </>
   )}
@@ -50,10 +53,7 @@ const crossyRows = [1, 2, 3, 4, 5, 6, 7]
   {id === 'nox-coffee' && (
     <>
       <b>Nox</b>
-      <span>
-        <span class="lang-en">Late-night coffee</span>
-        <span class="lang-es">Café nocturno</span>
-      </span>
+      <span>{coverText.nox[lang]}</span>
     </>
   )}
 

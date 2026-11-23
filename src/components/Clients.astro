@@ -1,10 +1,17 @@
 ---
 import { clients } from '../data/site'
+import { t, type Lang } from '../i18n/translations'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
 ---
 
 <div class="clients">
   <div class="wrap row">
-    <p class="label" data-i18n="clients.label">Shipped for</p>
+    <p class="label">{t(lang, 'clients.label')}</p>
     <ul>
       {clients.map((name) => <li>{name}</li>)}
     </ul>

@@ -1,5 +1,12 @@
 ---
 import { processLoop, processSteps } from '../data/process'
+import { t, type Lang } from '../i18n/translations'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
 
 const SPARK_WIDTH = 200
 const SPARK_HEIGHT = 64
@@ -17,12 +24,10 @@ function sparkPaths(points: number[]): { line: string; area: string } {
   <div class="wrap">
     <div class="section-head reveal">
       <div>
-        <p class="label" data-i18n="process.label">How I work</p>
-        <h2 class="serif" data-i18n="process.title">From spec to production</h2>
+        <p class="label">{t(lang, 'process.label')}</p>
+        <h2 class="serif">{t(lang, 'process.title')}</h2>
       </div>
-      <p class="note" data-i18n="process.note">
-        AI agents write a lot of my code. Specs, guardrails and my own review decide what ships.
-      </p>
+      <p class="note">{t(lang, 'process.note')}</p>
     </div>
 
     <ol class="steps">
@@ -46,16 +51,13 @@ function sparkPaths(points: number[]): { line: string; area: string } {
           </div>
           <div class="step-body">
             <p class="label">
-              <span class="lang-en">{step.label.en}</span>
-              <span class="lang-es">{step.label.es}</span>
+              {step.label[lang]}
             </p>
             <h3 class="serif">
-              <span class="lang-en">{step.title.en}</span>
-              <span class="lang-es">{step.title.es}</span>
+              {step.title[lang]}
             </h3>
             <p class="text">
-              <span class="lang-en">{step.text.en}</span>
-              <span class="lang-es">{step.text.es}</span>
+              {step.text[lang]}
             </p>
           </div>
         </li>
@@ -67,8 +69,7 @@ function sparkPaths(points: number[]): { line: string; area: string } {
         class="loop-art"
         viewBox="0 0 300 300"
         role="img"
-        aria-label="Spec, build, review, observe, and back to spec"
-        data-i18n-aria="process.loop-aria"
+        aria-label={t(lang, 'process.loop-aria')}
       >
         <circle class="lp-ring" cx="150" cy="150" r="104"></circle>
         <path class="lp-arc" d="M150 46 A104 104 0 1 1 46 150"></path>
@@ -80,16 +81,13 @@ function sparkPaths(points: number[]): { line: string; area: string } {
       </svg>
       <div class="loop-text">
         <p class="label">
-          <span class="lang-en">{processLoop.label.en}</span>
-          <span class="lang-es">{processLoop.label.es}</span>
+          {processLoop.label[lang]}
         </p>
         <h3 class="serif">
-          <span class="lang-en">{processLoop.title.en}</span>
-          <span class="lang-es">{processLoop.title.es}</span>
+          {processLoop.title[lang]}
         </h3>
         <p class="text">
-          <span class="lang-en">{processLoop.text.en}</span>
-          <span class="lang-es">{processLoop.text.es}</span>
+          {processLoop.text[lang]}
         </p>
       </div>
     </div>

@@ -1,12 +1,14 @@
 ---
 import type { Project } from '../data/projects'
 import ProjectCover from './ProjectCover.astro'
+import { t, type Lang } from '../i18n/translations'
 
 interface Props {
   project: Project
+  lang: Lang
 }
 
-const { project } = Astro.props
+const { project, lang } = Astro.props
 
 // Cards without a website (Grim Builds) link to the source code on GitHub.
 const href = project.url ?? project.githubUrl
@@ -26,16 +28,10 @@ const hintId = `project-${project.id}-hint`
 >
   <div class="shot">
     <span class="tag">
-      <span class="lang-en">{project.category.en}</span>
-      <span class="lang-es">{project.category.es}</span>
-      {project.wip && (
-        <span class="wip">
-          <span class="lang-en"> · WIP</span>
-          <span class="lang-es"> · En desarrollo</span>
-        </span>
-      )}
+      {project.category[lang]}
+      {project.wip && <span class="wip"> · {t(lang, 'work.wip')}</span>}
     </span>
-    <ProjectCover id={project.id} />
+    <ProjectCover id={project.id} lang={lang} />
   </div>
 
   <div class="meta">
@@ -50,14 +46,12 @@ const hintId = `project-${project.id}-hint`
 
   {isGithubOnly && (
     <span class="sr-only" id={hintId}>
-      <span class="lang-en">source code on GitHub</span>
-      <span class="lang-es">código fuente en GitHub</span>
+      {t(lang, 'work.github-hint')}
     </span>
   )}
 
   <p class="desc">
-    <span class="lang-en">{project.description.en}</span>
-    <span class="lang-es">{project.description.es}</span>
+    {project.description[lang]}
   </p>
   <p class="label stack">{project.stack.join(' · ')}</p>
 </a>

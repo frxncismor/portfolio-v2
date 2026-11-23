@@ -1,12 +1,18 @@
 ---
+import { t, type Lang } from '../i18n/translations'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
 ---
 
 <button
   class="icon-btn"
   type="button"
   data-theme-toggle
-  aria-label="Toggle light and dark theme"
-  data-i18n-aria="nav.theme-aria"
+  aria-label={t(lang, 'nav.theme-aria')}
 >
   <svg class="theme-sun" width="17" height="17" viewBox="0 0 16 16" aria-hidden="true">
     <circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.4"></circle>
