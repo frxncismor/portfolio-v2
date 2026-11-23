@@ -24,6 +24,12 @@ Personal portfolio for Francisco Moreno — Full-Stack Software Engineer with 6 
 
 Astro 4 · TypeScript · Tailwind CSS v3 · Vanilla JS · Vercel
 
+## Analytics
+
+Vercel Web Analytics (`@vercel/analytics`) and Speed Insights (`@vercel/speed-insights`), added once in `src/layouts/Layout.astro` so every EN/ES page carries them. Cookie-free, no custom events.
+
+They only report once enabled in the Vercel dashboard: project → **Analytics** → **Enable**, and project → **Speed Insights** → **Enable**, then redeploy. Until then the scripts request `/_vercel/insights/*` and `/_vercel/speed-insights/*` and get a 404, with no other effect. Locally (`npm run dev`) the scripts load in debug mode and send nothing.
+
 **Fonts** (Google Fonts): Fraunces (headlines, logo), Geist (text) and Geist Mono (labels, code).
 
 ## Structure
