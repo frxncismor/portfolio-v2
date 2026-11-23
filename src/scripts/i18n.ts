@@ -34,7 +34,21 @@ function applyTranslations(lang: Lang): void {
     if (value !== undefined) el.setAttribute('aria-label', value)
   })
 
+  applyDocumentMeta(lang)
   document.documentElement.setAttribute('data-i18n-ready', '')
+}
+
+/**
+ * Tab title and meta description follow the language. Layout.astro puts both versions on <html>
+ * (data-title-en/es, data-desc-en/es). Open Graph and JSON-LD stay in English on purpose:
+ * the site is static, so crawlers and link previews get one version.
+ */
+function applyDocumentMeta(lang: Lang): void {
+  const data = document.documentElement.dataset
+  const title = lang === 'es' ? data.titleEs : data.titleEn
+  const desc = lang === 'es' ? data.descEs : data.descEn
+  if (title) document.title = title
+  if (desc) document.querySelector('meta[name="description"]')?.setAttribute('content', desc)
 }
 
 function toggleLang(): void {

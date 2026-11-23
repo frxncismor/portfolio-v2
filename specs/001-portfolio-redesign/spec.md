@@ -19,7 +19,7 @@ Valtre, posicionamiento full-stack, Shelfie fuera). **Donde el handoff choque co
 ### User Story 1 - Home: primera impresión y navegación (Priority: P1)
 
 Un reclutador abre `/` y ve una navbar fija (logo `FM. │ Francisco Moreno`, 4 enlaces, ES/EN, sol/luna, píldora
-"Open to full-time"), un hero con el titular "I build software for Disney, Royal Caribbean, United Airlines and OXXO."
+"Open to full-time"; a ≤640px la píldora pasa al menú), un hero con el titular "I build software for Disney, Royal Caribbean, United Airlines and OXXO."
 entrando palabra por palabra, dos CTAs y la franja "Shipped for".
 
 **Why this priority**: es lo primero que se ve y fija tokens, fuentes, tema e i18n de todo lo demás.
@@ -28,7 +28,7 @@ entrando palabra por palabra, dos CTAs y la franja "Shipped for".
 **Acceptance Scenarios**:
 1. **Given** la home a 1280px, **When** carga, **Then** se ven los 4 enlaces (Work, Experience, Blog, Contact), ES/EN, sol/luna y la píldora con punto que late.
 2. **Given** ≤900px, **When** se carga la home, **Then** los enlaces se sustituyen por un botón "Menu" que abre los 4 enlaces, y ES/EN sigue visible.
-3. **Given** ≤640px, **When** se ve la navbar, **Then** el logo se reduce a `FM.`, y ES/EN, sol/luna y píldora caben sin scroll horizontal a 390px.
+3. **Given** ≤640px, **When** se ve la navbar, **Then** el logo se reduce a `FM.`, ES/EN, sol/luna y el botón Menu caben sin scroll horizontal a 390px, y la píldora "Open to full-time" aparece dentro del menú (desvío aceptado en la parada 1).
 4. **Given** el hero, **When** carga, **Then** el titular entra palabra a palabra (50ms) con las marcas en acento y cada coma pegada a su marca.
 
 ### User Story 2 - Home: trabajo y método (Priority: P1)
@@ -44,7 +44,7 @@ portadas ilustradas con tokens) y **How I work** (4 tarjetas Spec/Harness/Review
 
 ### User Story 3 - Home: experiencia y toolkit (Priority: P2)
 
-Filas de experiencia (Valtre "Now", Globant "5 years", y "Freelance & independent": RegioLabs, Caro Sweet MUA, Vaneybr) y
+Filas de experiencia (Valtre "Now", Globant "5 years", y "Freelance & independent": RegioLabs y Caro Sweet MUA) y
 Toolkit en 4 grupos de chips.
 
 **Acceptance Scenarios**:
@@ -130,9 +130,9 @@ Con `prefers-reduced-motion: reduce` no hay animaciones ni transiciones, `scroll
 - **FR-008**: Espaciado: 96–112px entre secciones (80px a ≤640px), contenedor 1120px y margen lateral ≥16px en móvil.
 
 **Navegación**
-- **FR-010**: Navbar fija de 64px con 4 enlaces (Work, Experience, Blog, Contact), ES/EN, sol/luna y píldora "Open to full-time" con punto que late (2.4s).
+- **FR-010**: Navbar fija de 64px con 4 enlaces (Work, Experience, Blog, Contact), ES/EN, sol/luna y píldora "Open to full-time" con punto que late (2.4s); a ≤640px la píldora se muestra dentro del menú.
 - **FR-011**: A ≤900px los enlaces pasan a un botón "Menu" (`aria-expanded`, cierra con Esc y al elegir) con los mismos 4 enlaces.
-- **FR-012**: A ≤640px el logo se reduce a `FM.`; el botón ES/EN **permanece visible**.
+- **FR-012**: A ≤640px el logo se reduce a `FM.`; el botón ES/EN **permanece visible** y la píldora "Open to full-time" pasa al menú.
 - **FR-013**: En `/blog` y artículo, el enlace Blog queda marcado como actual (`aria-current`).
 
 **Home**
@@ -143,11 +143,11 @@ Con `prefers-reduced-motion: reduce` no hay animaciones ni transiciones, `scroll
 - **FR-024**: Cada tarjeta de Work enlaza a su URL real (`projects.ts`); Grim Builds a su GitHub y muestra stack Angular 21, Fastify, PostgreSQL, Drizzle, Zod, Docker.
 - **FR-025**: **El texto de Room Tour no se modifica** (hay un to-do aparte); solo cambia el diseño de su tarjeta.
 - **FR-026**: How I work: 4 tarjetas (Spec, Harness, Review, Observe) con "ventana" de entregable simulado (`aria-hidden`) y el ciclo circular con "Every release improves the next.", con textos del prototipo traducidos.
-- **FR-027**: Experience: filas separadas por línea: Valtre ("Now", DevCrossQA · Backend Engineer, OXXO), Globant ("5 years", Senior Software Engineer, 5 clientes) y "Freelance & independent": RegioLabs (con enlace), Caro Sweet MUA y Vaneybr.
+- **FR-027**: Experience: filas separadas por línea: Valtre ("Now", DevCrossQA · Backend Engineer, OXXO), Globant ("5 years", Senior Software Engineer, 5 clientes) y "Freelance & independent": RegioLabs (con enlace) y Caro Sweet MUA.
 - **FR-028**: Toolkit: 4 grupos de chips (Frontend; Backend & data con .NET 10, Prisma, Oracle; AI workflow; Ship & observe con ARO) en `src/data/toolkit.ts`; sustituye a `stack.ts`.
 - **FR-029**: Writing: los 3 posts más recientes **por fecha** de la colección real, con fecha, título, resumen y tema, y enlace "All posts".
 - **FR-030**: Templates: ZooNova, $25, enlace real a Gumroad; portada con texto real ("ZooNova"), no en `::after`.
-- **FR-031**: About: cita, párrafos y 3 cifras (6 years in production, 6 global brands, 20+ tools in production), traducidos.
+- **FR-031**: About: cita, párrafos y 3 cifras (6 years in production, 7 global brands, 20+ tools in production), traducidos.
 - **FR-032**: Contact: titular grande, `frxncismor@gmail.com` (único correo del sitio) con botón Copy email (estados Copied/Selected, 1600ms), enlaces a `github.com/frxncismor` y `linkedin.com/in/frxncismor` (+ Blog), y pie "© año actual Francisco Moreno · Houston, TX".
 
 **Blog**
@@ -218,7 +218,7 @@ Con `prefers-reduced-motion: reduce` no hay animaciones ni transiciones, `scroll
 
 - Datos ya resueltos con Paco: puesto en Valtre "DevCrossQA · Backend Engineer"; stack de Grim Builds Angular 21, Fastify, PostgreSQL, Drizzle, Zod, Docker; GitHub `github.com/frxncismor`, LinkedIn `linkedin.com/in/frxncismor`, Gumroad `frxncismor.gumroad.com/l/zoo-nova-html`; URLs de proyectos de `projects.ts`.
 - El ES de las ~120 cadenas nuevas lo redacta implementación y lo revisa Paco en cada parada.
-- Las URLs de Vaneybr y Caro Sweet son las de `experience.ts` (`vaneybr.com/home`, `caro-sweet-mua.vercel.app`).
+- Las URLs de RegioLabs y Caro Sweet son las de `experience.ts` (`caro-sweet-mua.vercel.app`).
 - La paleta `--art-*` reutiliza los hex de las ilustraciones del prototipo como tokens nombrados.
 - El prototipo es la referencia visual; donde contradiga el HANDOFF o los criterios de terminado, se corrige (ver plan.md, "Correcciones al prototipo").
 - Idiomas: el sitio sigue siendo una sola URL por página (sin rutas `/es`), como hoy.

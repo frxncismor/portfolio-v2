@@ -1,17 +1,25 @@
 ---
 import '../styles/global.css'
 import tokensCss from '../styles/tokens.css?raw'
+import { translations } from '../i18n/translations'
+import { social } from '../data/site'
+import { safeJson } from '../lib/json'
 
 interface Props {
   title?: string
   description?: string
+  /** Spanish tab title / meta description, applied by i18n.ts when the language is ES. */
+  titleEs?: string
+  descriptionEs?: string
   ogImage?: string
   keywords?: string
 }
 
 const {
-  title       = 'Francisco Moreno — Software Engineer',
-  description = 'Full-stack software engineer based in Houston, TX. 6 years building production systems for Disney, Royal Caribbean, United Airlines & more. Angular frontends and .NET/Node.js APIs, with experience in Express, Supabase, Firebase, PostgreSQL, and Docker infrastructure.',
+  title         = translations.en['meta.title'],
+  description   = translations.en['meta.desc'],
+  titleEs       = translations.es['meta.title'],
+  descriptionEs = translations.es['meta.desc'],
   ogImage     = '/og-image.png',
   keywords    = 'Software Engineer, Angular developer, TypeScript, React, Next.js, Astro, Node.js, .NET, C#, ASP.NET Core, PostgreSQL, Fastify, Express, Firebase, Docker, Full-stack Engineer, Frontend Engineer, Houston TX, freelance developer, JavaScript, Angular specialist, Datadog, Sentry',
 } = Astro.props
@@ -31,18 +39,15 @@ const personSchema = {
   name: 'Francisco Moreno',
   url: 'https://frxncismor.dev',
   jobTitle: 'Full-Stack Software Engineer',
-  description: 'Full-stack software engineer based in Houston, TX. 6 years building production systems for Disney, Royal Caribbean, United Airlines & more.',
-  knowsAbout: ['Angular', 'TypeScript', 'React', 'Next.js', 'Astro', 'JavaScript', 'Node.js', 'Express', 'Supabase', 'Firebase', 'Docker', 'SQL Server', 'MySQL', 'Frontend Architecture', 'Backend Development', 'DevOps', 'Datadog', 'Sentry'],
+  description: 'Full-stack software engineer based in Houston, TX. 6 years building production systems for Disney, Royal Caribbean, United Airlines & more, from Angular frontends to .NET and Node.js backends.',
+  knowsAbout: ['Angular', 'TypeScript', 'React', 'Next.js', 'Astro', 'JavaScript', '.NET', 'C#', 'ASP.NET Core', 'Node.js', 'Fastify', 'Express', 'PostgreSQL', 'Drizzle ORM', 'Supabase', 'Firebase', 'Docker', 'REST APIs', 'Frontend Architecture', 'Backend Development', 'Automated Testing', 'AI-assisted Development', 'Datadog', 'Sentry'],
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Houston',
     addressRegion: 'TX',
     addressCountry: 'US',
   },
-  sameAs: [
-    'https://github.com/frxncismor',
-    'https://linkedin.com/in/frxncismor',
-  ],
+  sameAs: social.map((s) => s.href),
 }
 
 const websiteSchema = {
@@ -57,7 +62,14 @@ const websiteSchema = {
 ---
 
 <!doctype html>
-<html lang="en" data-lang="en">
+<html
+  lang="en"
+  data-lang="en"
+  data-title-en={title}
+  data-title-es={titleEs}
+  data-desc-en={description}
+  data-desc-es={descriptionEs}
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -128,8 +140,8 @@ const websiteSchema = {
     <meta name="twitter:image:alt"   content="Francisco Moreno — Full-Stack Software Engineer · Houston, TX" />
 
     <!-- JSON-LD Person + WebSite schemas -->
-    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    <script type="application/ld+json" set:html={safeJson(personSchema)} />
+    <script type="application/ld+json" set:html={safeJson(websiteSchema)} />
 
     <link rel="icon" type="image/svg+xml" href="/brand/avatar-dark.svg" media="(prefers-color-scheme: dark)" />
     <link rel="icon" type="image/svg+xml" href="/brand/avatar-light.svg" media="(prefers-color-scheme: light)" />

@@ -1,26 +1,8 @@
 ---
-import { getCollection } from 'astro:content'
 import PostRow from './blog/PostRow.astro'
+import { getPosts } from '../lib/posts'
 
-const enPosts = await getCollection('blog-en', ({ data }) => !data.draft)
-const esPosts = await getCollection('blog-es', ({ data }) => !data.draft)
-const esBySlug = new Map(esPosts.map((p) => [p.slug, p]))
-
-const latest = enPosts
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .slice(0, 3)
-  .map((en) => {
-    const es = esBySlug.get(en.slug)
-    return {
-      slug: en.slug,
-      titleEn: en.data.title,
-      titleEs: es?.data.title ?? en.data.title,
-      descEn: en.data.description,
-      descEs: es?.data.description ?? en.data.description,
-      category: en.data.category,
-      date: en.data.date,
-    }
-  })
+const latest = (await getPosts()).slice(0, 3)
 ---
 
 <section id="writing" class="section-block">

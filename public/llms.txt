@@ -33,6 +33,10 @@ Francisco Moreno is a full-stack software engineer with expertise in Angular, Ty
 - **Room Tour & Descriptions** — Interactive 3D room viewer with orbit controls, teleportation navigation and object interaction (Angular, Three.js). https://room-tour-and-descriptions.vercel.app/
 - **Mega Basic Crossy Road** — Browser-based 3D Crossy Road clone (TypeScript, Three.js, Vite). https://mega-basic-crossy-road.vercel.app/
 
+## Templates
+
+- **ZooNova** ($25) — Complete HTML5 + Tailwind CSS template for zoos and wildlife parks, six designed pages. https://frxncismor.gumroad.com/l/zoo-nova-html
+
 ## Blog
 
 Technical writing on Angular, JavaScript, frontend architecture, and AI-assisted development. Available in English and Spanish.

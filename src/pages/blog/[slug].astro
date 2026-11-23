@@ -1,10 +1,11 @@
 ---
-import { getCollection } from 'astro:content'
 import Layout from '../../layouts/Layout.astro'
 import Nav from '../../components/Nav.astro'
 import Footer from '../../components/Footer.astro'
 import Toc from '../../components/blog/Toc.astro'
 import { readingTime } from '../../lib/readingTime'
+import { getPosts } from '../../lib/posts'
+import { safeJson } from '../../lib/json'
 
 interface Neighbor {
   slug: string
@@ -14,28 +15,19 @@ interface Neighbor {
 }
 
 export async function getStaticPaths() {
-  const enPosts = await getCollection('blog-en', ({ data }) => !data.draft)
-  const esPosts = await getCollection('blog-es', ({ data }) => !data.draft)
-  const esMap = new Map(esPosts.map((p) => [p.slug, p]))
-
   // Newest first: index - 1 is the newer post ("Next"), index + 1 the older one ("Previous").
-  const sorted = [...enPosts].sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  const posts = await getPosts()
   const neighbor = (i: number): Neighbor | undefined => {
-    const en = sorted[i]
-    if (!en) return undefined
-    return {
-      slug: en.slug,
-      titleEn: en.data.title,
-      titleEs: esMap.get(en.slug)?.data.title ?? en.data.title,
-      category: en.data.category,
-    }
+    const post = posts[i]
+    if (!post) return undefined
+    return { slug: post.slug, titleEn: post.titleEn, titleEs: post.titleEs, category: post.category }
   }
 
-  return sorted.map((enPost, i) => ({
-    params: { slug: enPost.slug },
+  return posts.map((post, i) => ({
+    params: { slug: post.slug },
     props: {
-      enPost,
-      esPost: esMap.get(enPost.slug) ?? enPost,
+      enPost: post.en,
+      esPost: post.es,
       next: neighbor(i - 1),
       prev: neighbor(i + 1),
     },
@@ -87,9 +79,11 @@ const blogPostingSchema = {
 <Layout
   title={`${enPost.data.title} — Francisco Moreno`}
   description={enPost.data.description}
+  titleEs={`${esPost.data.title} — Francisco Moreno`}
+  descriptionEs={esPost.data.description}
   keywords={`${enPost.data.category}, ${enPost.data.title}, Francisco Moreno, Angular, TypeScript, JavaScript, frontend development`}
 >
-  <script type="application/ld+json" set:html={JSON.stringify(blogPostingSchema)} />
+  <script type="application/ld+json" set:html={safeJson(blogPostingSchema)} />
   <Nav />
 
   <main id="main-content">
