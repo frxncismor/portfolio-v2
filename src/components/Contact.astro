@@ -1,54 +1,103 @@
 ---
+const year = new Date().getFullYear()
+const email = 'frxncismor@gmail.com'
+
+const socials = [
+  { href: 'https://github.com/frxncismor', key: 'contact.github', label: 'GitHub', external: true },
+  { href: 'https://linkedin.com/in/frxncismor', key: 'contact.linkedin', label: 'LinkedIn', external: true },
+  { href: '/blog', key: 'contact.blog', label: 'Blog', external: false },
+]
 ---
 
-<section id="contact" class="relative py-[120px] px-6 overflow-hidden">
+<section id="contact" class="contact">
+  <div class="wrap inner">
+    <p class="label reveal" data-i18n="contact.label">Contact</p>
+    <h2 class="serif reveal" data-i18n="contact.title">Let's build something good.</h2>
+    <p class="lead reveal" data-i18n="contact.lead">Open to full-time roles and selected freelance projects.</p>
 
-  <!-- Background decorative text -->
-  <div
-    class="absolute inset-0 flex items-center justify-center pointer-events-none z-0"
-    aria-hidden="true"
-  >
-    <span class="text-[8rem] md:text-[16rem] font-black font-headline text-card leading-none whitespace-nowrap select-none">
-      LET'S BUILD.
-    </span>
-  </div>
-
-  <!-- Content -->
-  <div class="relative z-10 max-w-screen-xl mx-auto text-center">
-
-    <div class="mb-8">
-      <span class="section-label" data-i18n="contact.label">CONTACT</span>
+    <div class="mail reveal">
+      <code id="email">{email}</code>
+      <button class="copy" type="button" id="copy-btn" data-i18n="contact.copy">Copy email</button>
+      <span id="copy-status" class="sr-only" role="status" aria-live="polite"></span>
     </div>
 
-    <h2
-      class="text-5xl md:text-8xl font-black font-headline text-cream mb-4 fade-in"
-      data-i18n="contact.title"
-    >Let's Work Together</h2>
-
-    <p
-      class="font-mono text-sm text-muted mb-12 fade-in"
-      data-i18n="contact.subtitle"
-    >Open to freelance projects &amp; full-time roles in the US.</p>
-
-    <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16 fade-in">
-      <a
-        href="mailto:frxncismor@gmail.com"
-        title="Send an email to Francisco Moreno"
-        class="bg-brand text-[#2a1c84] font-bold py-4 px-10 tracking-widest text-xs hover:bg-brand-h transition-all font-mono"
-        data-i18n="contact.email"
-      >SEND AN EMAIL</a>
-      <a
-        href="https://github.com/frxncismor"
-        title="Francisco Moreno on GitHub"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="border border-outline-v/40 text-cream font-bold py-4 px-10 tracking-widest text-xs hover:border-brand transition-all font-mono"
-        data-i18n="contact.github"
-      >GITHUB</a>
+    <div class="socials reveal">
+      {socials.map((s) => (
+        <a
+          class="link"
+          href={s.href}
+          target={s.external ? '_blank' : undefined}
+          rel={s.external ? 'noopener noreferrer' : undefined}
+        >
+          <span data-i18n={s.key}>{s.label}</span>
+          <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+            <path d="M4 10 10 4M5 4h5v5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </a>
+      ))}
     </div>
 
-    <p class="font-mono text-[11px] text-muted tracking-widest uppercase">frxncismor.dev</p>
-
+    <div class="foot">
+      <p class="label">© {year} Francisco Moreno</p>
+      <p class="label" data-i18n="contact.foot">Houston, TX · Built with care</p>
+    </div>
   </div>
-
 </section>
+
+<script>
+  import '../scripts/contact'
+</script>
+
+<style>
+  .contact {
+    margin-top: 128px;
+    background: var(--sunken);
+    border-top: 1px solid var(--hairline);
+  }
+  .inner { padding-block: 112px 48px; display: grid; gap: 28px; }
+  h2 {
+    margin: 0;
+    font-size: clamp(48px, 8vw, 104px);
+    line-height: .95;
+    letter-spacing: -.025em;
+    font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144;
+    text-wrap: balance;
+  }
+  .lead { margin: 0; color: var(--muted); max-width: 34em; }
+  .mail { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+  code {
+    font: 400 clamp(20px, 3vw, 30px)/1.2 var(--display);
+    font-variation-settings: "SOFT" 100, "WONK" 1;
+    color: var(--accent);
+    user-select: all;
+    word-break: break-all;
+  }
+  .copy {
+    height: 36px;
+    padding: 0 14px;
+    border-radius: var(--r-md);
+    border: 1px solid var(--hairline);
+    background: none;
+    color: var(--ink);
+    font: 500 13px/1 var(--sans);
+    cursor: pointer;
+    transition: border-color .15s;
+  }
+  .copy:hover { border-color: var(--muted); }
+  .socials { display: flex; flex-wrap: wrap; gap: 28px; }
+  .foot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--hairline);
+  }
+
+  @media (max-width: 640px) {
+    .contact { margin-top: 96px; }
+    .inner { padding-block: 80px 40px; }
+    .foot { margin-top: 56px; }
+  }
+</style>

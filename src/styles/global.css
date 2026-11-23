@@ -84,7 +84,7 @@
     margin: 0;
   }
 
-  /* Legacy section label (secciones antiguas, hasta migrarlas en las paradas 2–4) */
+  /* TEMPORAL (quitar en parada 5): label antiguo, solo lo usa /blog */
   .section-label {
     font: 500 12px/16px var(--mono);
     letter-spacing: .08em;
@@ -244,8 +244,8 @@
     html[data-lang="es"]:not([data-i18n-ready]) [data-i18n] { visibility: visible; }
   }
 
-  /* TEMPORAL (paradas 2–4): Material Symbols ya no se carga y las secciones antiguas aún
-     lo referencian. Se ocultan para que no salgan nombres de ligadura como texto. */
+  /* TEMPORAL (quitar en parada 5/6): Material Symbols ya no se carga y BlogCard aún
+     lo referencia. Se oculta para que no salgan nombres de ligadura como texto. */
   .material-symbols-outlined { display: none; }
 
   /* ── Blog prose (se rehace en la parada 6; ahora solo con tokens) ── */
