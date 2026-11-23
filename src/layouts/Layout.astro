@@ -5,6 +5,8 @@ import { t, type Lang } from '../i18n/translations'
 import { basePath, localePath, ogLocale, withSlash } from '../i18n/routes'
 import { social } from '../data/site'
 import { safeJson } from '../lib/json'
+import Analytics from '@vercel/analytics/astro'
+import SpeedInsights from '@vercel/speed-insights/astro'
 
 interface Props {
   /** Page language, fixed by the route (`/es/...` is Spanish). */
@@ -184,5 +186,7 @@ const websiteSchema = {
   <body>
     <a href="#main-content" class="skip-link">{t(lang, 'nav.skip')}</a>
     <slot />
+    <Analytics />
+    <SpeedInsights />
   </body>
 </html>
