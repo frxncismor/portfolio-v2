@@ -1,4 +1,33 @@
-# Francisco Moreno — Full-Stack Software Engineer
+import type { APIRoute } from 'astro'
+import { getPosts } from '../lib/posts'
+
+const SITE = 'https://frxncismor.dev'
+
+/** Hand-written entries the file shipped with: their order and labels are kept as-is. */
+const CURATED: ReadonlyArray<readonly [slug: string, label: string]> = [
+  ['dotnet-10-api-that-earns-trust', 'Building a .NET 10 API You Can Trust: Minimal APIs, Validation, ProblemDetails and Real Tests'],
+  ['angular-21-ssr-fastify-drizzle-monorepo', 'One Monorepo, Full Stack: Angular 21 SSR, Fastify, Drizzle and PostgreSQL in Docker'],
+  ['angular-signals', 'Angular Signals: A Practical Introduction'],
+  ['from-frontend-to-full-stack', 'From Frontend to Full-Stack: What Actually Changes When You Own the Whole System'],
+  ['how-to-setup-eslint-and-prettier-in-angular-20-projects', 'How to Setup ESLint and Prettier in Angular 20 Projects'],
+  ['values-vs-references-in-javascript', 'Values vs References in JavaScript'],
+  ['web-dev-in-2026-with-ai', "What It's Like to Be a Web Developer in 2026"],
+  ['wtf-is-inmutability-in-js', 'WTF Is Immutability in JavaScript?'],
+]
+
+export const GET: APIRoute = async () => {
+  const posts = await getPosts()
+  const curated = new Map(CURATED)
+  const line = (slug: string, label: string) => `- [${label}](${SITE}/blog/${slug})`
+  const added = posts.filter((p) => !curated.has(p.slug)).map((p) => line(p.slug, p.titleEn))
+  const legacy = CURATED.filter(([slug]) => posts.some((p) => p.slug === slug)).map(([slug, label]) => line(slug, label))
+  return new Response(body([...added, ...legacy].join('\n')), {
+    headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+  })
+}
+
+const body = (blogList: string): string =>
+  `# Francisco Moreno — Full-Stack Software Engineer
 
 > Full-stack software engineer based in Houston, TX. 6 years building production systems for Disney, Royal Caribbean, United Airlines, and more — Angular frontends, .NET and Node.js APIs, PostgreSQL. Currently a Backend Engineer at Valtre, building a .NET 10 API for OXXO. Available for freelance projects and full-time opportunities in the US.
 
@@ -43,14 +72,7 @@ Technical writing on Angular, .NET, Node.js, JavaScript, frontend architecture, 
 
 A Spanish version of the whole site lives under https://frxncismor.dev/es/ (same paths, e.g. https://frxncismor.dev/es/blog/angular-signals).
 
-- [Building a .NET 10 API You Can Trust: Minimal APIs, Validation, ProblemDetails and Real Tests](https://frxncismor.dev/blog/dotnet-10-api-that-earns-trust)
-- [One Monorepo, Full Stack: Angular 21 SSR, Fastify, Drizzle and PostgreSQL in Docker](https://frxncismor.dev/blog/angular-21-ssr-fastify-drizzle-monorepo)
-- [Angular Signals: A Practical Introduction](https://frxncismor.dev/blog/angular-signals)
-- [From Frontend to Full-Stack: What Actually Changes When You Own the Whole System](https://frxncismor.dev/blog/from-frontend-to-full-stack)
-- [How to Setup ESLint and Prettier in Angular 20 Projects](https://frxncismor.dev/blog/how-to-setup-eslint-and-prettier-in-angular-20-projects)
-- [Values vs References in JavaScript](https://frxncismor.dev/blog/values-vs-references-in-javascript)
-- [What It's Like to Be a Web Developer in 2026](https://frxncismor.dev/blog/web-dev-in-2026-with-ai)
-- [WTF Is Immutability in JavaScript?](https://frxncismor.dev/blog/wtf-is-inmutability-in-js)
+${blogList}
 
 ## Contact
 
@@ -58,3 +80,4 @@ A Spanish version of the whole site lives under https://frxncismor.dev/es/ (same
 - GitHub: https://github.com/frxncismor
 - LinkedIn: https://linkedin.com/in/frxncismor
 - Website: https://frxncismor.dev
+`
