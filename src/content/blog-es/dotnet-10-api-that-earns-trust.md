@@ -1,6 +1,6 @@
 ---
-title: "Cómo Construir una API en .NET 10 en la que Puedas Confiar: Minimal APIs, Validación, ProblemDetails y Pruebas Reales"
-description: "Cómo estructuro una API moderna en .NET 10 viniendo de Node y Angular: Minimal APIs agrupadas por feature, validación integrada, ProblemDetails, opciones tipadas y pruebas de integración con una base de datos real."
+title: "Una API en .NET 10 de Confianza: Minimal APIs y Pruebas"
+description: "Cómo estructuro una API en .NET 10 viniendo de Node y Angular: Minimal APIs, validación integrada, ProblemDetails y pruebas con una base de datos real."
 date: 2026-11-22
 category: "Backend"
 draft: false
