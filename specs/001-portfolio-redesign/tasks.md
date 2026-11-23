@@ -132,15 +132,15 @@
 
 ## Parada 6 — Blog: artículo + cierre
 
-- [x] T-049 Modificar `astro.config.mjs`: `markdown.shikiConfig.theme = 'css-variables'`.
-- [x] T-050 Reescribir `.prose` en `src/styles/global.css`: 18px/31px, 680px, h2 Fraunces 32px (`scroll-margin-top:96px`), `strong` 500, `code` en línea con `accent-soft`, `blockquote` como `.callout` (acento suave, Fraunces 23px), `figure.code` (hairline, radio 10, `--code-bg`, `figcaption` mono, `pre` 14.5px/1.75), mapeo `--astro-code-token-*` → `--syn-*`; ajustes ≤640px.
-- [x] T-051 [P] Crear `src/components/blog/Toc.astro` (aside "On this page", sticky `top:104px`, oculto ≤900px, vacío si no hay h2).
-- [x] T-052 Crear `src/scripts/article.ts`: progreso (barra 2px bajo la navbar), scroll-spy (último h2 con `top<140`), clic del índice con `scrollIntoView` (instantáneo con reduced-motion), envoltura `pre` → `figure.code` con lenguaje + botón Copy (Copied / Select to copy, 1500ms).
-- [x] T-053 Reescribir `src/pages/blog/[slug].astro`: "← All posts", tema, fecha, "N min read" (readingTime), h1 Fraunces, dek (= `description`), grid `200px | 680px`, contenido EN/ES con `.lang-*`, `headings` para el índice de cada idioma, JSON-LD conservado, footer de sitio.
-- [x] T-054 Añadir pie "Keep reading" con tarjetas **Anterior (más antiguo)** y **Siguiente (más nuevo)** por fecha; se omite la que no exista; títulos por idioma.
-- [x] T-055 [P] Ampliar `src/i18n/translations.ts` ("← All posts", "On this page", "min read", "Keep reading", "Next", "Previous", "Copy", "Copied", "Select to copy") y traducir.
-- [x] T-056 Cierre — `public/llms.txt`: correo `frxncismor@gmail.com`; título "Full-Stack Software Engineer"; experiencia y proyectos alineados con los datos actuales; los 6 posts.
-- [x] T-057 Cierre — `public/og-image.svg` nueva con la marca (lockup, `paper` oscuro, acento verde, sin morado); actualizar `Layout.astro` (`og:image`, `twitter:image`, `theme-color`).
+- [ ] T-049 Modificar `astro.config.mjs`: `markdown.shikiConfig.theme = 'css-variables'`.
+- [ ] T-050 Reescribir `.prose` en `src/styles/global.css`: 18px/31px, 680px, h2 Fraunces 32px (`scroll-margin-top:96px`), `strong` 500, `code` en línea con `accent-soft`, `blockquote` como `.callout` (acento suave, Fraunces 23px), `figure.code` (hairline, radio 10, `--code-bg`, `figcaption` mono, `pre` 14.5px/1.75), mapeo `--astro-code-token-*` → `--syn-*`; ajustes ≤640px.
+- [ ] T-051 [P] Crear `src/components/blog/Toc.astro` (aside "On this page", sticky `top:104px`, oculto ≤900px, vacío si no hay h2).
+- [ ] T-052 Crear `src/scripts/article.ts`: progreso (barra 2px bajo la navbar), scroll-spy (último h2 con `top<140`), clic del índice con `scrollIntoView` (instantáneo con reduced-motion), envoltura `pre` → `figure.code` con lenguaje + botón Copy (Copied / Select to copy, 1500ms).
+- [ ] T-053 Reescribir `src/pages/blog/[slug].astro`: "← All posts", tema, fecha, "N min read" (readingTime), h1 Fraunces, dek (= `description`), grid `200px | 680px`, contenido EN/ES con `.lang-*`, `headings` para el índice de cada idioma, JSON-LD conservado, footer de sitio.
+- [ ] T-054 Añadir pie "Keep reading" con tarjetas **Anterior (más antiguo)** y **Siguiente (más nuevo)** por fecha; se omite la que no exista; títulos por idioma.
+- [ ] T-055 [P] Ampliar `src/i18n/translations.ts` ("← All posts", "On this page", "min read", "Keep reading", "Next", "Previous", "Copy", "Copied", "Select to copy") y traducir.
+- [ ] T-056 Cierre — `public/llms.txt`: correo `frxncismor@gmail.com`; título "Full-Stack Software Engineer"; experiencia y proyectos alineados con los datos actuales; los 6 posts.
+- [ ] T-057 Cierre — `public/og-image.svg` nueva con la marca (lockup, `paper` oscuro, acento verde, sin morado); actualizar `Layout.astro` (`og:image`, `twitter:image`, `theme-color`).
 - [ ] T-058 Cierre — barrido global: `rg -n "#[0-9a-fA-F]{3,8}\b|rgba?\(|slate-|white/|\[#" src` → solo `tokens.css`; `rg -n "material-symbols|Epilogue|DM Mono|hello@frxncismor|fade-in|grain" src public` → 0; sin imports/variables sin usar.
 - [ ] T-059 Cierre — auditoría de i18n: recorrer `/`, `/blog` y los 6 artículos en ES y confirmar 0 textos de interfaz en inglés.
 - [ ] T-060 Cierre — auditoría de accesibilidad y criterios de terminado del handoff: foco/teclado en todo, contraste ≥ 4.5:1 en los dos temas (tabla con valores), 0 scroll horizontal a 390px en `/`, `/blog` y los 6 artículos, reduced-motion, `lang` de `<html>` correcto.
