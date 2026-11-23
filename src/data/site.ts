@@ -28,5 +28,5 @@ export const nav: NavItem[] = [
   { id: 'contact', label: 'Contact', href: '/#contact' },
 ]
 
-/** "Shipped for" row: the 6 enterprise brands plus RegioLabs (freelance client). */
-export const clients = ['Disney', 'Royal Caribbean', 'United Airlines', 'OXXO', "Dick's Sporting Goods", 'Gannett', 'RegioLabs']
+/** "Shipped for" row: the 6 enterprise brands. */
+export const clients = ['Disney', 'Royal Caribbean', 'United Airlines', 'OXXO', "Dick's Sporting Goods", 'Gannett']

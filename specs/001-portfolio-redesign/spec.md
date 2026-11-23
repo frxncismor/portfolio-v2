@@ -137,7 +137,7 @@ Con `prefers-reduced-motion: reduce` no hay animaciones ni transiciones, `scroll
 
 **Home**
 - **FR-020**: Hero sin foto: etiqueta "Francisco Moreno — Software Engineer · Houston, TX", titular con marcas en acento y comas pegadas, botones "See my work" / "View experience" y línea "Angular · .NET & Node · AI-assisted, human-reviewed". Sin grano ni orbes.
-- **FR-021**: Franja "Shipped for": Disney, Royal Caribbean, United Airlines, OXXO, Dick's Sporting Goods, Gannett y RegioLabs, en Fraunces.
+- **FR-021**: Franja "Shipped for": Disney, Royal Caribbean, United Airlines, OXXO, Dick's Sporting Goods y Gannett, en Fraunces (RegioLabs solo en Experience, decisión de Paco 2026-11-23).
 - **FR-022**: Work: cuadrícula de 2 columnas con portadas 4:5 y columna derecha 96px más baja; proyectos **Grim Builds, Nox Coffee, Room Tour, Mega Basic Crossy Road**. RegioLabs y Caro Sweet MUA **no** están en Work.
 - **FR-023**: Portadas ilustradas en CSS/SVG con tokens `--art-*` (sin capturas); cada una `aria-hidden`; el título visible va como texto real en la tarjeta.
 - **FR-024**: Cada tarjeta de Work enlaza a su URL real (`projects.ts`); Grim Builds a su GitHub y muestra stack Angular 21, Fastify, PostgreSQL, Drizzle, Zod, Docker.
