@@ -49,8 +49,8 @@ export const freelance: FreelanceEntry[] = [
     name: 'RegioLabs',
     tagline: { en: 'regiolabs.com.mx', es: 'regiolabs.com.mx' },
     description: {
-      en: 'Client project: I built the AI WhatsApp bots and the website for this Monterrey automation studio.',
-      es: 'Proyecto para cliente: desarrollé los bots de WhatsApp con IA y el sitio web de este estudio de automatización de Monterrey.',
+      en: 'Client project: I built the AI WhatsApp bots and the website for this automation studio in Monterrey, Mexico.',
+      es: 'Proyecto para cliente: desarrollé los bots de WhatsApp con IA y el sitio web de este estudio de automatización de Monterrey, México.',
     },
     url: 'https://regiolabs.com.mx/',
     openLabel: { en: 'Open RegioLabs (opens in a new tab)', es: 'Abrir RegioLabs (se abre en una pestaña nueva)' },
@@ -64,15 +64,5 @@ export const freelance: FreelanceEntry[] = [
     },
     url: 'https://caro-sweet-mua.vercel.app/',
     openLabel: { en: 'Open Caro Sweet MUA (opens in a new tab)', es: 'Abrir Caro Sweet MUA (se abre en una pestaña nueva)' },
-  },
-  {
-    name: 'Vaneybr',
-    tagline: { en: 'Portfolio', es: 'Portafolio' },
-    description: {
-      en: 'Custom Angular portfolio built for a client.',
-      es: 'Portafolio a medida en Angular, hecho para un cliente.',
-    },
-    url: 'https://www.vaneybr.com/home',
-    openLabel: { en: 'Open Vaneybr portfolio (opens in a new tab)', es: 'Abrir el portafolio de Vaneybr (se abre en una pestaña nueva)' },
   },
 ]

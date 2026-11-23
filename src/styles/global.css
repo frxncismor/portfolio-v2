@@ -160,10 +160,15 @@
   .topic {
     display: inline-flex;
     align-items: center;
-    font: 500 12px/1 var(--mono);
+    height: 24px;
+    padding: 0 9px;
+    border-radius: var(--r-sm);
+    background: var(--accent-soft);
+    color: var(--ink);
+    font: 500 11px/1 var(--mono);
     letter-spacing: .06em;
     text-transform: uppercase;
-    color: var(--accent);
+    white-space: nowrap;
   }
 
   /* ── Motion: scroll reveal (see src/scripts/animations.ts) ── */
@@ -173,6 +178,11 @@
   .reveal.pending {
     opacity: 0;
     transform: translateY(10px);
+  }
+
+  /* Theme switch: colours ease for ~350ms (class set by scripts/theme.ts), colour properties only. */
+  .theme-switching, .theme-switching *, .theme-switching *::before, .theme-switching *::after {
+    transition: background-color .3s ease, border-color .3s ease, color .3s ease, fill .3s ease, stroke .3s ease !important;
   }
 
   /* No-JS: content always visible */

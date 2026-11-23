@@ -23,9 +23,8 @@ Francisco Moreno is a full-stack software engineer with expertise in Angular, Ty
 - **Valtre** (current) — DevCrossQA · Backend Engineer. Building a .NET 10 API for OXXO with an AI-assisted workflow (GitHub Copilot, Claude, Codex); owns the backend code end to end, applies engineering best practices and tests everything shipped.
 - **Globant** (5 years) — Senior Software Engineer. Production-grade frontends for Disney, Royal Caribbean, United Airlines, Dick's Sporting Goods and Gannett.
 - **Freelance & Independent**:
-  - RegioLabs (client project) — AI WhatsApp bots and website for a Monterrey automation studio. https://regiolabs.com.mx/
+  - RegioLabs (client project) — AI WhatsApp bots and website for an automation studio in Monterrey, Mexico. https://regiolabs.com.mx/
   - Caro Sweet MUA — Brand and booking site for a professional makeup artist. https://caro-sweet-mua.vercel.app/
-  - Vaneybr — Custom Angular portfolio built for a client. https://www.vaneybr.com/home
 
 ## Selected Projects
 
