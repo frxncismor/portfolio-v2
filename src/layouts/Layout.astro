@@ -22,6 +22,9 @@ interface Props {
   publishedTime?: string
   /** Keeps utility pages (404) out of search results. */
   noindex?: boolean
+  /** Paginated listings: absolute-path URLs for `<link rel="prev|next">`. */
+  prevHref?: string
+  nextHref?: string
 }
 
 const {
@@ -33,6 +36,8 @@ const {
   ogType      = 'website',
   publishedTime,
   noindex     = false,
+  prevHref,
+  nextHref,
   keywords    = 'Software Engineer, Angular developer, TypeScript, React, Next.js, Astro, Node.js, .NET, C#, ASP.NET Core, PostgreSQL, Fastify, Express, Firebase, Docker, Full-stack Engineer, Frontend Engineer, Houston TX, freelance developer, JavaScript, Angular specialist, Datadog, Sentry',
 } = Astro.props
 
@@ -135,6 +140,8 @@ const websiteSchema = {
     <meta name="author"       content="Francisco Moreno" />
     <meta name="publisher"    content="Francisco Moreno" />
     <link rel="canonical"     href={canonicalURL} />
+    {prevHref && <link rel="prev" href={new URL(prevHref, Astro.site)} />}
+    {nextHref && <link rel="next" href={new URL(nextHref, Astro.site)} />}
     <meta name="robots"       content={noindex ? 'noindex, follow' : 'index, follow'} />
     <meta name="generator"    content={Astro.generator} />
     {alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}

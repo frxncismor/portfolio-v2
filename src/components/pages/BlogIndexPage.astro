@@ -4,28 +4,44 @@ import Nav from '../Nav.astro'
 import Footer from '../Footer.astro'
 import FeaturedPost from '../blog/FeaturedPost.astro'
 import PostRow from '../blog/PostRow.astro'
-import { getPosts } from '../../lib/posts'
+import { BLOG_PAGE_SIZE, blogPageCount, getPosts } from '../../lib/posts'
 import { safeJson } from '../../lib/json'
 import { t, type Lang } from '../../i18n/translations'
-import { localePath } from '../../i18n/routes'
+import { dateLocale, localePath } from '../../i18n/routes'
 
 /** Blog listing body, shared by `/blog` (EN) and `/es/blog` (ES). */
 interface Props {
   lang: Lang
+  /** 1-based page; page 1 is `/blog`, the rest `/blog/page/N`. */
+  page?: number
 }
 
-const { lang } = Astro.props
+const { lang, page = 1 } = Astro.props
 const posts = await getPosts()
+const totalPages = blogPageCount(posts.length)
 
-const [featured, ...rest] = posts
+// Page 1 opens with the featured post, which counts toward its BLOG_PAGE_SIZE posts.
+const pagePosts = posts.slice((page - 1) * BLOG_PAGE_SIZE, page * BLOG_PAGE_SIZE)
+const [first, ...others] = pagePosts
+const featured = page === 1 ? first : undefined
+const rest = page === 1 ? others : pagePosts
 const categories = [...new Set(posts.map((p) => p.category))]
 
-// The search runs on the visible language only, so the manifest carries just that one.
+const pageHref = (n: number) => localePath(lang, n === 1 ? '/blog/' : `/blog/page/${n}/`)
+const prevHref = page > 1 ? pageHref(page - 1) : undefined
+const nextHref = page < totalPages ? pageHref(page + 1) : undefined
+const fill = (key: string, n = page) =>
+  t(lang, key).replace('{n}', String(n)).replace('{total}', String(totalPages))
+const title = page > 1 ? `${t(lang, 'meta.blog-title')} — ${fill('blog.page-suffix')}` : t(lang, 'meta.blog-title')
+
+// Search and filters query every post of the language, not just this page. Dates are preformatted.
 const searchManifest = posts.map((p) => ({
   slug: p.slug,
   title: lang === 'es' ? p.titleEs : p.titleEn,
   desc: lang === 'es' ? p.descEs : p.descEn,
   category: p.category,
+  date: p.date.toLocaleDateString(dateLocale[lang], { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' }),
+  href: localePath(lang, `/blog/${p.slug}`),
 }))
 
 const absolute = (path: string) => new URL(localePath(lang, path), Astro.site).href
@@ -33,11 +49,11 @@ const blogSchema = {
   '@context': 'https://schema.org',
   '@type': 'Blog',
   name: 'Francisco Moreno — Blog',
-  url: absolute('/blog/'),
+  url: absolute(page === 1 ? '/blog/' : `/blog/page/${page}/`),
   description: t(lang, 'meta.blog-desc'),
   inLanguage: lang,
   author: { '@type': 'Person', name: 'Francisco Moreno', url: 'https://frxncismor.dev' },
-  blogPost: posts.map((p) => ({
+  blogPost: pagePosts.map((p) => ({
     '@type': 'BlogPosting',
     headline: lang === 'es' ? p.titleEs : p.titleEn,
     description: lang === 'es' ? p.descEs : p.descEn,
@@ -50,7 +66,9 @@ const blogSchema = {
 
 <Layout
   lang={lang}
-  title={t(lang, 'meta.blog-title')}
+  title={title}
+  prevHref={prevHref}
+  nextHref={nextHref}
   description={t(lang, 'meta.blog-desc')}
   keywords="Angular blog, TypeScript tutorials, JavaScript fundamentals, frontend development, web development 2026, Angular signals, ESLint Prettier Angular"
 >
@@ -90,11 +108,31 @@ const blogSchema = {
     </section>
 
     <section class="wrap listing">
-      {featured && <FeaturedPost post={featured} lang={lang} />}
+      <div id="blog-page">
+        {featured && <FeaturedPost post={featured} lang={lang} />}
 
-      <div class="posts">
-        {rest.map((post) => <PostRow post={post} lang={lang} />)}
+        <div class="posts">
+          {rest.map((post) => <PostRow post={post} lang={lang} />)}
+        </div>
+
+        {totalPages > 1 && (
+          <nav class="pager" aria-label={t(lang, 'blog.pager-aria')}>
+            {prevHref ? <a class="pager__link" href={prevHref} rel="prev">{t(lang, 'blog.newer')}</a> : <span class="pager__link" aria-hidden="true"></span>}
+            <ol class="pager__pages">
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
+                <li>
+                  <a href={pageHref(n)} aria-current={n === page ? 'page' : undefined} aria-label={fill('blog.page-of', n)}>{n}</a>
+                </li>
+              ))}
+            </ol>
+            {nextHref ? <a class="pager__link pager__link--next" href={nextHref} rel="next">{t(lang, 'blog.older')}</a> : <span class="pager__link" aria-hidden="true"></span>}
+            <p class="label pager__status">{fill('blog.page-of')}</p>
+          </nav>
+        )}
       </div>
+
+      <div id="blog-results" class="posts" hidden></div>
+      <template id="blog-row-template"><PostRow post={posts[0]} lang={lang} /></template>
 
       <p class="empty" id="blog-empty" role="status" hidden>
         <span>{t(lang, 'blog.empty')}</span>
@@ -181,6 +219,46 @@ const blogSchema = {
   /* The closing rule belongs to the list, so it survives when the last row is filtered out. */
   .posts :global(.post-row:last-child) { border-bottom: 0; }
   .posts:not(:has(.post-row:not([hidden]))) { border-bottom: 0; margin-top: 0; }
+
+  .pager {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 16px;
+    align-items: center;
+    padding-block: 32px 0;
+  }
+  .pager__link {
+    justify-self: start;
+    font: 500 14px/1 var(--sans);
+    color: var(--ink);
+    text-decoration: none;
+    padding: 10px 0;
+    border-radius: var(--r-sm);
+    transition: color .15s;
+  }
+  .pager__link--next { justify-self: end; }
+  a.pager__link:hover { color: var(--accent); }
+  .pager__pages { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; }
+  .pager__pages a {
+    display: grid;
+    place-items: center;
+    min-width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    color: var(--muted);
+    font: 500 13px/1 var(--mono);
+    text-decoration: none;
+  }
+  .pager__pages a:hover { color: var(--ink); border-color: var(--hairline); }
+  .pager__pages a[aria-current="page"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+  .pager__status { grid-column: 1 / -1; text-align: center; }
+
+  @media (max-width: 640px) {
+    .pager { grid-template-columns: 1fr 1fr; }
+    .pager__pages { display: none; }
+    .pager__link--next { grid-column: 2; }
+  }
 
   .empty { color: var(--muted); padding-block: 40px; margin: 0; }
   .empty button {
