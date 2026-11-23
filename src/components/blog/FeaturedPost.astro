@@ -68,9 +68,9 @@ const long = (locale: string) =>
     overflow: hidden;
     text-decoration: none;
     background: var(--surface);
-    transition: box-shadow .25s, border-color .25s;
+    transition: box-shadow .25s, border-color .25s, opacity .5s cubic-bezier(.2, .7, .2, 1), transform .5s cubic-bezier(.2, .7, .2, 1);
   }
-  .feature:hover { box-shadow: var(--shadow-sm); border-color: var(--muted); }
+  .feature:hover { box-shadow: var(--shadow-sm); border-color: var(--muted); transform: translateY(-3px); }
   .feature:hover .arrow { transform: translateX(3px); }
   .feature:focus-visible { border-color: var(--accent); }
 

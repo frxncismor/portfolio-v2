@@ -22,7 +22,12 @@ function syncThemeColor(): void {
 
 function toggleTheme(): void {
   const next: Theme = effectiveTheme() === 'dark' ? 'light' : 'dark'
-  document.documentElement.setAttribute('data-theme', next)
+  const root = document.documentElement
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    root.classList.add('theme-switching')
+    window.setTimeout(() => root.classList.remove('theme-switching'), 400)
+  }
+  root.setAttribute('data-theme', next)
   try {
     localStorage.setItem('fm-theme', next)
   } catch {

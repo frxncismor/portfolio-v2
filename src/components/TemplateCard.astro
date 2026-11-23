@@ -43,7 +43,9 @@ const { template } = Astro.props
     border-radius: var(--r-lg);
     overflow: hidden;
     background: var(--surface);
+    transition: box-shadow .25s, border-color .25s, opacity .5s cubic-bezier(.2, .7, .2, 1), transform .5s cubic-bezier(.2, .7, .2, 1);
   }
+  .tpl:hover { box-shadow: var(--shadow-sm); border-color: var(--muted); transform: translateY(-3px); }
   .art {
     position: relative;
     overflow: hidden;

@@ -24,8 +24,8 @@
 
 /* Syntax highlighting */
 :root { --syn-k:#D9926D; --syn-s:#B7D3C7; --syn-n:#E6C27A; --syn-f:#8CB8A8; --syn-c:#7C807A; --code-bg:#0F100E; }
-@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) { --syn-k:#9A4A26; --syn-s:#2F5D50; --syn-n:#8A6414; --syn-f:#25584A; --syn-c:#6F736D; --code-bg:#EFECE5; } }
-:root[data-theme="light"] { --syn-k:#9A4A26; --syn-s:#2F5D50; --syn-n:#8A6414; --syn-f:#25584A; --syn-c:#6F736D; --code-bg:#EFECE5; }
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) { --syn-k:#9A4A26; --syn-s:#2F5D50; --syn-n:#8A6414; --syn-f:#25584A; --syn-c:#666A64; --code-bg:#EFECE5; } }
+:root[data-theme="light"] { --syn-k:#9A4A26; --syn-s:#2F5D50; --syn-n:#8A6414; --syn-f:#25584A; --syn-c:#666A64; --code-bg:#EFECE5; }
 
 /* Illustration palette (--art-*): project covers and diagrams are artwork, identical in both themes. */
 :root {
