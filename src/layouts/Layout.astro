@@ -13,6 +13,8 @@ interface Props {
   title?: string
   description?: string
   ogImage?: string
+  /** Alt text of `ogImage`; defaults to the generic portfolio alt. */
+  ogImageAlt?: string
   keywords?: string
   /** Open Graph type: `article` for blog posts (adds article:published_time). */
   ogType?: 'website' | 'article'
@@ -27,6 +29,7 @@ const {
   title       = t(lang, 'meta.title'),
   description = t(lang, 'meta.desc'),
   ogImage     = '/og-image.png',
+  ogImageAlt  = t(lang, 'meta.og-alt'),
   ogType      = 'website',
   publishedTime,
   noindex     = false,
@@ -41,7 +44,6 @@ const [paperDark = '', paperLight = ''] = [...tokensCss.matchAll(/--paper:\s*(#[
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 const ogImageURL   = new URL(ogImage, Astro.site)
-const ogImageAlt   = t(lang, 'meta.og-alt')
 const otherLang: Lang = lang === 'en' ? 'es' : 'en'
 
 // Every indexable page exists in both languages at the same path (Spanish under /es/): hreflang pairs them.
