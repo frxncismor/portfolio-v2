@@ -16,7 +16,7 @@ Francisco Moreno is a full-stack software engineer with expertise in Angular, Ty
 - Tailwind CSS, SCSS, CSS-in-JS
 - Testing: Jest, Cypress, Playwright
 - Quality & DevOps: automated testing (Vitest, Playwright), CI with GitHub Actions, Docker
-- AI-assisted development: Claude Code, SDD workflow, MCP servers
+- AI-assisted development: Claude Code, GitHub Copilot, Codex, MCP servers, agent skills, agent orchestration (Herdr), spec-driven development, harness engineering, human-in-the-loop review
 
 ## Work Experience
 
