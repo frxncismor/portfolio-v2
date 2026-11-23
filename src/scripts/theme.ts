@@ -20,20 +20,53 @@ function syncThemeColor(): void {
   })
 }
 
+function syncFavicon(theme: Theme): void {
+  document.querySelectorAll<HTMLLinkElement>('link[rel="icon"]').forEach((link) => {
+    const isLight = link.href.includes('avatar-light')
+    const isDark = link.href.includes('avatar-dark')
+    if (!isLight && !isDark) return
+    // Keep only the icon matching the chosen theme: drop the media query on it, disable the other.
+    link.media = (theme === 'light') === isLight ? 'all' : 'not all'
+  })
+}
+
+function applyTheme(next: Theme): void {
+  document.documentElement.setAttribute('data-theme', next)
+  syncThemeColor()
+  syncFavicon(next)
+}
+
+/** Theme being applied (may be ahead of the DOM while a view transition is pending), so rapid clicks alternate. */
+let pending: Theme | null = null
+
 function toggleTheme(): void {
-  const next: Theme = effectiveTheme() === 'dark' ? 'light' : 'dark'
-  const root = document.documentElement
-  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    root.classList.add('theme-switching')
-    window.setTimeout(() => root.classList.remove('theme-switching'), 400)
-  }
-  root.setAttribute('data-theme', next)
+  const next: Theme = (pending ?? effectiveTheme()) === 'dark' ? 'light' : 'dark'
+  pending = next
   try {
     localStorage.setItem('fm-theme', next)
   } catch {
     // storage unavailable: the choice just won't persist
   }
-  syncThemeColor()
+
+  const root = document.documentElement
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (!reduced && typeof document.startViewTransition === 'function') {
+    // Compositor cross-fade of the whole page (see ::view-transition rules in global.css).
+    const transition = document.startViewTransition(() => applyTheme(next))
+    void transition.finished.finally(() => {
+      if (pending === next) pending = null
+    })
+    return
+  }
+
+  // Instant, clean swap: suspend every transition for one frame so none is caught half-way.
+  root.classList.add('theme-instant')
+  applyTheme(next)
+  void root.offsetWidth
+  requestAnimationFrame(() => {
+    root.classList.remove('theme-instant')
+    if (pending === next) pending = null
+  })
 }
 
 document.querySelectorAll<HTMLElement>('[data-theme-toggle]').forEach((btn) => {

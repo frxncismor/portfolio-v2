@@ -68,12 +68,25 @@ const websiteSchema = {
       - Theme: applies the saved choice (fm-theme) as data-theme; without one, CSS follows prefers-color-scheme.
       - Language: applies the saved lang so .lang-en / .lang-es blocks switch with no flash.
     -->
-    <script is:inline>
+    <script is:inline define:vars={{ paperDark, paperLight }}>
       ;(function () {
         var root = document.documentElement
         try {
           var theme = localStorage.getItem("fm-theme")
-          if (theme === "light" || theme === "dark") root.setAttribute("data-theme", theme)
+          if (theme === "light" || theme === "dark") {
+            root.setAttribute("data-theme", theme)
+            // Metas/icons are parsed after this script: sync theme-color and favicon with the saved theme.
+            document.addEventListener("DOMContentLoaded", function () {
+              document.querySelectorAll('meta[name="theme-color"]').forEach(function (m) {
+                m.removeAttribute("media")
+                m.setAttribute("content", theme === "light" ? paperLight : paperDark)
+              })
+              document.querySelectorAll('link[rel="icon"]').forEach(function (l) {
+                var isLight = l.getAttribute("href").indexOf("avatar-light") !== -1
+                l.media = (theme === "light") === isLight ? "all" : "not all"
+              })
+            })
+          }
         } catch (e) {}
         try {
           var lang = localStorage.getItem("lang")

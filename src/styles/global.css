@@ -180,9 +180,17 @@
     transform: translateY(10px);
   }
 
-  /* Theme switch: colours ease for ~350ms (class set by scripts/theme.ts), colour properties only. */
-  .theme-switching, .theme-switching *, .theme-switching *::before, .theme-switching *::after {
-    transition: background-color .3s ease, border-color .3s ease, color .3s ease, fill .3s ease, stroke .3s ease !important;
+  /* Theme switch (scripts/theme.ts): View Transitions cross-fade (compositor only); without them, an instant swap. */
+  .theme-instant, .theme-instant *, .theme-instant *::before, .theme-instant *::after {
+    transition: none !important;
+  }
+  ::view-transition-old(root), ::view-transition-new(root) {
+    animation-duration: .28s;
+    animation-timing-function: ease;
+    mix-blend-mode: normal;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
   }
 
   /* No-JS: content always visible */
