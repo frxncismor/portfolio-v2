@@ -38,17 +38,11 @@ export default {
           ink:        tok('art-ink'),
           coal:       tok('art-coal'),
         },
-        // TEMPORAL (quitar en parada 6): alias de la paleta antigua que aún usa src/pages/blog/[slug].astro.
-        brand:        tok('accent'),
-        cream:        tok('ink'),
-        outline:      tok('muted'),
-        'outline-v':  tok('hairline'),
       },
       fontFamily: {
         display:  'var(--display)',
         sans:     'var(--sans)',
         mono:     'var(--mono)',
-        headline: 'var(--display)', // TEMPORAL (quitar en parada 6): [slug].astro
       },
       borderRadius: {
         sm: 'var(--r-sm)',
