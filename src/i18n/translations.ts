@@ -76,9 +76,9 @@ export const translations: Translations = {
     'blog.copied':           'Copied',
     'blog.copy-fail':        'Select to copy',
     'meta.title':            'Francisco Moreno — Software Engineer',
-    'meta.desc':             'Full-stack software engineer based in Houston, TX. 6 years building production systems for Disney, Royal Caribbean, United Airlines & more. Angular frontends and .NET, Node.js and PostgreSQL backends.',
+    'meta.desc':             'Full-stack software engineer in Houston, TX. 6 years shipping production systems for Disney, Royal Caribbean and United Airlines. Angular, .NET, Node.js.',
     'meta.blog-title':       'Blog — Francisco Moreno',
-    'meta.blog-desc':        'Technical writing on Angular, backend, frontend architecture and building things on the web with AI.',
+    'meta.blog-desc':        'Technical writing on Angular, .NET and Node.js backends, frontend architecture and building things on the web with AI-assisted workflows.',
   },
   es: {
     'nav.work':              'Trabajo',
@@ -153,8 +153,8 @@ export const translations: Translations = {
     'blog.copied':           'Copiado',
     'blog.copy-fail':        'Selecciona para copiar',
     'meta.title':            'Francisco Moreno — Ingeniero de software',
-    'meta.desc':             'Ingeniero de software full-stack en Houston, TX. 6 años construyendo sistemas en producción para Disney, Royal Caribbean, United Airlines y más. Frontends en Angular y backends en .NET, Node.js y PostgreSQL.',
+    'meta.desc':             'Ingeniero de software full-stack en Houston, TX. 6 años en sistemas de producción para Disney, Royal Caribbean y United Airlines. Angular, .NET y Node.js.',
     'meta.blog-title':       'Blog — Francisco Moreno',
-    'meta.blog-desc':        'Artículos técnicos sobre Angular, backend, arquitectura frontend y cómo construir en la web con IA.',
+    'meta.blog-desc':        'Artículos técnicos sobre Angular, backends en .NET y Node.js, arquitectura frontend y cómo construir en la web con flujos asistidos por IA.',
   },
 }
