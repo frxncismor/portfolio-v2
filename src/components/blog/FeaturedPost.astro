@@ -1,0 +1,102 @@
+---
+interface Props {
+  slug: string
+  titleEn: string
+  titleEs: string
+  descEn: string
+  descEs: string
+  category: string
+  date: Date
+}
+
+const { slug, titleEn, titleEs, descEn, descEs, category, date } = Astro.props
+
+// Dates come from `YYYY-MM-DD` front matter (UTC midnight): format in UTC to avoid off-by-one days.
+const long = (locale: string) =>
+  date.toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })
+---
+
+<a class="feature reveal" href={`/blog/${slug}`} data-post-slug={slug} data-topic={category}>
+  <div class="feature__art" aria-hidden="true">
+    <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" focusable="false">
+      <rect width="400" height="300" class="fa-bg"></rect>
+      <g class="fa-line" fill="none" stroke-width="1.5">
+        <rect x="60" y="60" width="110" height="56" rx="10"></rect>
+        <rect x="230" y="60" width="110" height="56" rx="10"></rect>
+        <rect x="145" y="190" width="110" height="56" rx="10"></rect>
+        <path d="M115 116v38h85v36M285 116v38h-85"></path>
+      </g>
+      <circle cx="200" cy="154" r="6" class="fa-dot"></circle>
+      <g class="fa-txt" font-family="Geist Mono, monospace" font-size="12" letter-spacing="1">
+        <text x="84" y="93">CLIENT</text>
+        <text x="261" y="93">API</text>
+        <text x="176" y="223">DATA</text>
+      </g>
+    </svg>
+  </div>
+  <div class="feature__body">
+    <div class="post-meta">
+      <span class="topic">{category}</span>
+      <span class="label">
+        <span class="lang-en">{long('en-US')}</span>
+        <span class="lang-es">{long('es-MX')}</span>
+      </span>
+    </div>
+    <h2 class="serif">
+      <span class="lang-en">{titleEn}</span>
+      <span class="lang-es">{titleEs}</span>
+    </h2>
+    <p>
+      <span class="lang-en">{descEn}</span>
+      <span class="lang-es">{descEs}</span>
+    </p>
+    <span class="link">
+      <span data-i18n="blog.read">Read post</span>
+      <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+        <path d="M2 7h10M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </span>
+  </div>
+</a>
+
+<style>
+  .feature {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    text-decoration: none;
+    background: var(--surface);
+    transition: box-shadow .25s, border-color .25s;
+  }
+  .feature:hover { box-shadow: var(--shadow-sm); border-color: var(--muted); }
+  .feature:hover .arrow { transform: translateX(3px); }
+  .feature:focus-visible { border-color: var(--accent); }
+
+  .feature__art { position: relative; min-height: 300px; }
+  .feature__art svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .fa-bg { fill: var(--deep); }
+  .fa-line { stroke: var(--art-wall-l); }
+  .fa-dot { fill: var(--art-ember); }
+  .fa-txt { fill: var(--art-mist); }
+
+  .feature__body { display: grid; gap: 18px; align-content: center; padding: 40px; }
+  .post-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+  h2 {
+    margin: 0;
+    font-size: clamp(26px, 3vw, 36px);
+    line-height: 1.12;
+    letter-spacing: -.01em;
+    text-wrap: balance;
+    font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 72;
+  }
+  p { margin: 0; color: var(--muted); font-size: 16px; line-height: 26px; }
+  .link { justify-self: start; }
+
+  @media (max-width: 900px) {
+    .feature { grid-template-columns: 1fr; }
+    .feature__art { min-height: 200px; }
+    .feature__body { padding: 28px; }
+  }
+</style>

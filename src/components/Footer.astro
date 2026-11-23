@@ -1,46 +1,40 @@
 ---
+import Logo from './Logo.astro'
+
+const year = new Date().getFullYear()
 ---
 
-<footer class="w-full py-12 px-8 border-t border-hairline bg-sunken">
-  <div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-screen-2xl mx-auto">
-
-    <!-- Brand -->
-    <div class="flex flex-col gap-1 items-center md:items-start">
-      <span class="font-mono font-medium text-ink tracking-tighter uppercase text-sm">
-        FRXNCISMOR
-      </span>
-      <span class="font-mono text-[10px] tracking-widest uppercase text-muted" data-i18n="footer.tagline">
-        Software Engineer // Francisco Moreno
-      </span>
-    </div>
-
-    <!-- Links -->
-    <div class="flex gap-8">
-      <a
-        href="https://github.com/frxncismor"
-        title="Francisco Moreno on GitHub"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="font-mono text-[10px] tracking-widest uppercase text-muted hover:text-accent transition-colors duration-200"
-        data-i18n="footer.github"
-      >GitHub</a>
-      <a
-        href="https://linkedin.com/in/frxncismor"
-        title="Francisco Moreno on LinkedIn"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="font-mono text-[10px] tracking-widest uppercase text-muted hover:text-accent transition-colors duration-200"
-        data-i18n="footer.linkedin"
-      >LinkedIn</a>
-    </div>
-
-    <!-- Copyright -->
-    <p
-      class="font-mono text-[10px] tracking-widest uppercase text-muted text-center md:text-right"
-      data-i18n="footer.copy"
-    >
-      © 2024 FRANCISCO MORENO. ENGINEERED WITH PRECISION.
-    </p>
-
+<footer class="site-foot">
+  <div class="wrap inner">
+    <Logo />
+    <nav class="socials" aria-label="Footer" data-i18n-aria="footer.nav-aria">
+      <a class="link" href="https://github.com/frxncismor" target="_blank" rel="noopener noreferrer">
+        <span data-i18n="footer.github">GitHub</span>
+      </a>
+      <a class="link" href="https://linkedin.com/in/frxncismor" target="_blank" rel="noopener noreferrer">
+        <span data-i18n="footer.linkedin">LinkedIn</span>
+      </a>
+      <a class="link" href="/#contact">
+        <span data-i18n="footer.contact">Contact</span>
+      </a>
+    </nav>
+    <p class="label">© {year} Francisco Moreno · Houston, TX</p>
   </div>
 </footer>
+
+<style>
+  .site-foot {
+    margin-top: 128px;
+    border-top: 1px solid var(--hairline);
+    background: var(--sunken);
+  }
+  .inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding-block: 40px;
+  }
+  .socials { display: flex; flex-wrap: wrap; gap: 8px 28px; }
+</style>

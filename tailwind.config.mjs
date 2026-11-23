@@ -38,22 +38,17 @@ export default {
           ink:        tok('art-ink'),
           coal:       tok('art-coal'),
         },
-        // TEMPORAL (quitar en parada 5/6): alias de la paleta antigua, solo para las páginas del
-        // blog (src/pages/blog/*, BlogCard.astro) hasta que se rehagan.
+        // TEMPORAL (quitar en parada 6): alias de la paleta antigua que aún usa src/pages/blog/[slug].astro.
         brand:        tok('accent'),
         cream:        tok('ink'),
-        card:         tok('surface'),
-        elevated:     tok('surface'),
-        border:       tok('hairline'),
         outline:      tok('muted'),
         'outline-v':  tok('hairline'),
-        'on-sv':      tok('muted'),
       },
       fontFamily: {
         display:  'var(--display)',
         sans:     'var(--sans)',
         mono:     'var(--mono)',
-        headline: 'var(--display)', // TEMPORAL (quitar en parada 5/6): blog
+        headline: 'var(--display)', // TEMPORAL (quitar en parada 6): [slug].astro
       },
       borderRadius: {
         sm: 'var(--r-sm)',
