@@ -12,14 +12,43 @@ export interface Post {
   date: Date
 }
 
+const SCHEDULE_TIME_ZONE = 'America/Chicago'
+
+/** Calendar day (`YYYY-MM-DD`) in Chicago; `BUILD_NOW=YYYY-MM-DD` overrides it to simulate another date. */
+function todayInChicago(): string {
+  const override = process.env.BUILD_NOW
+  if (override) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(override)) {
+      throw new Error(`BUILD_NOW must be YYYY-MM-DD, got "${override}".`)
+    }
+    return override
+  }
+  return new Intl.DateTimeFormat('en-CA', { timeZone: SCHEDULE_TIME_ZONE }).format(new Date())
+}
+
 /**
- * Published posts (newest first), each paired with its Spanish translation.
- * The build fails if a published English post has no Spanish counterpart,
+ * Whether future-dated posts are included: always in dev and on Vercel previews,
+ * or anywhere with `SHOW_SCHEDULED=1`. Production (`VERCEL_ENV=production`, or a
+ * local build with no `VERCEL_ENV`) only shows posts dated today (Chicago) or earlier.
+ */
+function showScheduled(): boolean {
+  return import.meta.env.DEV || process.env.VERCEL_ENV === 'preview' || process.env.SHOW_SCHEDULED === '1'
+}
+
+/** Single visibility filter: not a draft and, unless scheduled posts are shown, dated on or before today. */
+function isVisible({ data }: { data: { draft: boolean; date: Date } }): boolean {
+  if (data.draft) return false
+  return showScheduled() || data.date.toISOString().slice(0, 10) <= todayInChicago()
+}
+
+/**
+ * Visible posts (newest first), each paired with its Spanish translation.
+ * The build fails if a visible English post has no Spanish counterpart,
  * so `/es/blog/<slug>` always exists for every `/blog/<slug>`.
  */
 export async function getPosts(): Promise<Post[]> {
-  const enPosts = await getCollection('blog-en', ({ data }) => !data.draft)
-  const esPosts = await getCollection('blog-es', ({ data }) => !data.draft)
+  const enPosts = await getCollection('blog-en', isVisible)
+  const esPosts = await getCollection('blog-es', isVisible)
   const esBySlug = new Map(esPosts.map((p) => [p.slug, p]))
 
   const missing = enPosts.filter((p) => !esBySlug.has(p.slug)).map((p) => p.slug)

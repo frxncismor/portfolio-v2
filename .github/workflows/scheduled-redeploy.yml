@@ -1,0 +1,24 @@
+name: Scheduled redeploy
+
+# Posts dated in the future are hidden at build time; a weekly redeploy publishes the one due that Monday.
+on:
+  schedule:
+    - cron: '0 14 * * 1' # Mondays 14:00 UTC = 08:00 in Chicago (CST) / 09:00 (CDT)
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Trigger Vercel deploy hook
+        env:
+          VERCEL_DEPLOY_HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$VERCEL_DEPLOY_HOOK_URL" ]; then
+            echo "::error::Secret VERCEL_DEPLOY_HOOK_URL is empty or missing. Add it in GitHub: Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+          curl -fsS -X POST "$VERCEL_DEPLOY_HOOK_URL"
