@@ -1,10 +1,9 @@
 ---
 const year = new Date().getFullYear()
-const email = 'frxncismor@gmail.com'
+import { email, social } from '../data/site'
 
 const socials = [
-  { href: 'https://github.com/frxncismor', key: 'contact.github', label: 'GitHub', external: true },
-  { href: 'https://linkedin.com/in/frxncismor', key: 'contact.linkedin', label: 'LinkedIn', external: true },
+  ...social.map((s) => ({ href: s.href, key: `contact.${s.id}`, label: s.label, external: true })),
   { href: '/blog', key: 'contact.blog', label: 'Blog', external: false },
 ]
 ---

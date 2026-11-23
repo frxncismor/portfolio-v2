@@ -119,7 +119,12 @@ function initTocClicks(): void {
       event.preventDefault()
       const id = a.dataset.target
       const target = id ? activeProse()?.querySelector<HTMLElement>(`[id="${CSS.escape(id)}"]`) : null
-      target?.scrollIntoView({ behavior: reducedMotion() ? 'auto' : 'smooth' })
+      if (!id || !target) return
+      target.scrollIntoView({ behavior: reducedMotion() ? 'auto' : 'smooth' })
+      // Keep the URL shareable and move focus to the section for keyboard and screen-reader users.
+      history.replaceState(null, '', `#${id}`)
+      target.tabIndex = -1
+      target.focus({ preventScroll: true })
     })
   })
 }

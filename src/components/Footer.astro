@@ -1,5 +1,6 @@
 ---
 import Logo from './Logo.astro'
+import { social } from '../data/site'
 
 const year = new Date().getFullYear()
 ---
@@ -8,12 +9,11 @@ const year = new Date().getFullYear()
   <div class="wrap inner">
     <Logo />
     <nav class="socials" aria-label="Footer" data-i18n-aria="footer.nav-aria">
-      <a class="link" href="https://github.com/frxncismor" target="_blank" rel="noopener noreferrer">
-        <span data-i18n="footer.github">GitHub</span>
-      </a>
-      <a class="link" href="https://linkedin.com/in/frxncismor" target="_blank" rel="noopener noreferrer">
-        <span data-i18n="footer.linkedin">LinkedIn</span>
-      </a>
+      {social.map((s) => (
+        <a class="link" href={s.href} target="_blank" rel="noopener noreferrer">
+          <span data-i18n={`footer.${s.id}`}>{s.label}</span>
+        </a>
+      ))}
       <a class="link" href="/#contact">
         <span data-i18n="footer.contact">Contact</span>
       </a>

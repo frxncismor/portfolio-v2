@@ -10,6 +10,7 @@ const { project } = Astro.props
 
 // Cards without a website (Grim Builds) link to the source code on GitHub.
 const href = project.url ?? project.githubUrl
+if (!href) throw new Error(`Project "${project.id}" needs a url or a githubUrl`)
 const isGithubOnly = !project.url && Boolean(project.githubUrl)
 const titleId = `project-${project.id}-title`
 const hintId = `project-${project.id}-hint`
@@ -27,7 +28,12 @@ const hintId = `project-${project.id}-hint`
     <span class="tag">
       <span class="lang-en">{project.category.en}</span>
       <span class="lang-es">{project.category.es}</span>
-      {project.wip && <span class="wip"> · WIP</span>}
+      {project.wip && (
+        <span class="wip">
+          <span class="lang-en"> · WIP</span>
+          <span class="lang-es"> · En desarrollo</span>
+        </span>
+      )}
     </span>
     <ProjectCover id={project.id} />
   </div>

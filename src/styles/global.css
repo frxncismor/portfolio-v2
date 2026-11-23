@@ -52,6 +52,13 @@
     outline: none;
     box-shadow: var(--focus);
   }
+  /* Windows high contrast removes box-shadows: fall back to a real outline. */
+  @media (forced-colors: active) {
+    :focus-visible {
+      outline: 2px solid CanvasText;
+      outline-offset: 2px;
+    }
+  }
 }
 
 @layer components {

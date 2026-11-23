@@ -1,15 +1,16 @@
 ---
 import Logo from './Logo.astro'
 import ThemeToggle from './ThemeToggle.astro'
+import { nav } from '../data/site'
 
 const inBlog = Astro.url.pathname.startsWith('/blog')
 
-const links = [
-  { href: '/#work', key: 'nav.work', label: 'Work', current: false },
-  { href: '/#experience', key: 'nav.experience', label: 'Experience', current: false },
-  { href: '/blog', key: 'nav.blog', label: 'Blog', current: inBlog },
-  { href: '/#contact', key: 'nav.contact', label: 'Contact', current: false },
-]
+const links = nav.map((item) => ({
+  href: item.href,
+  key: `nav.${item.id}`,
+  label: item.label,
+  current: item.id === 'blog' && inBlog,
+}))
 ---
 
 <header class="nav">
@@ -31,7 +32,7 @@ const links = [
         id="lang-toggle"
         class="icon-btn lang"
         type="button"
-        aria-label="Switch language"
+        aria-label="ES — Switch language to Spanish"
         data-i18n-aria="nav.lang-aria"
       >
         <span data-i18n="nav.toggle">ES</span>
