@@ -1,6 +1,6 @@
 ---
-title: "Building a .NET 10 API You Can Trust: Minimal APIs, Validation, ProblemDetails and Real Tests"
-description: "How I structure a modern .NET 10 API coming from a Node/Angular background: feature-grouped Minimal APIs, built-in validation, ProblemDetails, typed options and integration tests against a real database."
+title: "A .NET 10 API You Can Trust: Minimal APIs and Real Tests"
+description: "How I structure a .NET 10 API coming from Node and Angular: Minimal APIs, built-in validation, ProblemDetails and integration tests on a real database."
 date: 2026-11-22
 category: "Backend"
 draft: false

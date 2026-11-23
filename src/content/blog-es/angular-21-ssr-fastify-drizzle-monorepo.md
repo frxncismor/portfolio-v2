@@ -1,6 +1,6 @@
 ---
-title: "Un Monorepo, Full Stack: Angular 21 SSR, Fastify, Drizzle y PostgreSQL en Docker"
-description: "La arquitectura de Grim Builds, un proyecto personal en desarrollo: un monorepo con pnpm, Angular 21 con prerender, una API en Fastify, migraciones con Drizzle, PostgreSQL en Docker Compose y un paquete de dominio compartido."
+title: "Angular 21 SSR, Fastify, Drizzle y Postgres en un Monorepo"
+description: "Cómo está armado Grim Builds: monorepo con pnpm, Angular 21 con prerender, API en Fastify, migraciones con Drizzle, Docker Compose y dominio compartido."
 date: 2026-11-18
 category: "Angular"
 draft: false
