@@ -3,6 +3,7 @@ title: "Valores vs Referencias en JavaScript"
 description: "Uno de los conceptos más malentendidos en JS. Entender cómo funcionan los valores y las referencias te va a salvar de bugs que no puedes explicar."
 date: 2026-03-20
 category: "JavaScript"
+cover: "refs"
 draft: false
 ---
 

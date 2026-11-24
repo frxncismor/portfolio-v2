@@ -3,6 +3,7 @@ title: "Una API en .NET 10 de Confianza: Minimal APIs y Pruebas"
 description: "Cómo estructuro una API en .NET 10 viniendo de Node y Angular: Minimal APIs, validación integrada, ProblemDetails y pruebas con una base de datos real."
 date: 2026-11-22
 category: "Backend"
+cover: "api"
 draft: false
 ---
 

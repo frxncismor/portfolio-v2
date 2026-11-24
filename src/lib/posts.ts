@@ -1,4 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content'
+import { defaultCover, type Cover } from './covers'
 
 export interface Post {
   slug: string
@@ -9,17 +10,49 @@ export interface Post {
   descEn: string
   descEs: string
   category: string
+  cover: Cover
   date: Date
+  /** Dated after today (Chicago); only possible where scheduled posts are shown (dev, preview, `SHOW_SCHEDULED=1`). */
+  scheduled: boolean
+}
+
+const SCHEDULE_TIME_ZONE = 'America/Chicago'
+
+/** Calendar day (`YYYY-MM-DD`) in Chicago; `BUILD_NOW=YYYY-MM-DD` overrides it to simulate another date. */
+function todayInChicago(): string {
+  const override = process.env.BUILD_NOW
+  if (override) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(override)) {
+      throw new Error(`BUILD_NOW must be YYYY-MM-DD, got "${override}".`)
+    }
+    return override
+  }
+  return new Intl.DateTimeFormat('en-CA', { timeZone: SCHEDULE_TIME_ZONE }).format(new Date())
 }
 
 /**
- * Published posts (newest first), each paired with its Spanish translation.
- * The build fails if a published English post has no Spanish counterpart,
+ * Whether future-dated posts are included: always in dev and on Vercel previews,
+ * or anywhere with `SHOW_SCHEDULED=1`. Production (`VERCEL_ENV=production`, or a
+ * local build with no `VERCEL_ENV`) only shows posts dated today (Chicago) or earlier.
+ */
+function showScheduled(): boolean {
+  return import.meta.env.DEV || process.env.VERCEL_ENV === 'preview' || process.env.SHOW_SCHEDULED === '1'
+}
+
+/** Single visibility filter: not a draft and, unless scheduled posts are shown, dated on or before today. */
+function isVisible({ data }: { data: { draft: boolean; date: Date } }): boolean {
+  if (data.draft) return false
+  return showScheduled() || data.date.toISOString().slice(0, 10) <= todayInChicago()
+}
+
+/**
+ * Visible posts: published ones newest first, then scheduled ones soonest first. Each is paired with its Spanish translation.
+ * The build fails if a visible English post has no Spanish counterpart,
  * so `/es/blog/<slug>` always exists for every `/blog/<slug>`.
  */
 export async function getPosts(): Promise<Post[]> {
-  const enPosts = await getCollection('blog-en', ({ data }) => !data.draft)
-  const esPosts = await getCollection('blog-es', ({ data }) => !data.draft)
+  const enPosts = await getCollection('blog-en', isVisible)
+  const esPosts = await getCollection('blog-es', isVisible)
   const esBySlug = new Map(esPosts.map((p) => [p.slug, p]))
 
   const missing = enPosts.filter((p) => !esBySlug.has(p.slug)).map((p) => p.slug)
@@ -30,7 +63,15 @@ export async function getPosts(): Promise<Post[]> {
     )
   }
 
-  return enPosts
+  const today = todayInChicago()
+  const mismatched = enPosts
+    .filter((en) => en.data.cover !== esBySlug.get(en.slug)!.data.cover)
+    .map((p) => p.slug)
+  if (mismatched.length > 0) {
+    throw new Error(`The EN and ES versions of these posts have a different \`cover\`: ${mismatched.join(', ')}.`)
+  }
+
+  const posts = enPosts
     .map((en) => {
       const es = esBySlug.get(en.slug)!
       return {
@@ -42,15 +83,26 @@ export async function getPosts(): Promise<Post[]> {
         descEn: en.data.description,
         descEs: es.data.description,
         category: en.data.category,
+        cover: en.data.cover ?? defaultCover(en.data.category),
         date: en.data.date,
+        scheduled: en.data.date.toISOString().slice(0, 10) > today,
       }
     })
-    .sort((a, b) => b.date.getTime() - a.date.getTime())
+
+  const published = posts.filter((p) => !p.scheduled).sort((a, b) => b.date.getTime() - a.date.getTime())
+  const scheduled = posts.filter((p) => p.scheduled).sort((a, b) => a.date.getTime() - b.date.getTime())
+  return [...published, ...scheduled]
+}
+
+/** Published posts only, newest first: the featured post and the home "Writing" list come from here. */
+export async function getPublishedPosts(): Promise<Post[]> {
+  return (await getPosts()).filter((p) => !p.scheduled)
 }
 
 /** Static paths for `/blog/[slug]` and `/es/blog/[slug]`: each post with its newer ("next") and older ("prev") neighbor. */
 export async function getPostPaths() {
-  const posts = await getPosts()
+  // Neighbors follow chronology, so a scheduled post is only ever "next" (newer) of a published one.
+  const posts = (await getPosts()).sort((a, b) => b.date.getTime() - a.date.getTime())
   return posts.map((post, i) => ({
     params: { slug: post.slug },
     props: {
@@ -59,4 +111,17 @@ export async function getPostPaths() {
       prev: i < posts.length - 1 ? posts[i + 1] : undefined,
     },
   }))
+}
+
+/** Posts per blog listing page. On page 1 the featured post counts as one of them. */
+export const BLOG_PAGE_SIZE = 9
+
+export function blogPageCount(total: number): number {
+  return Math.max(1, Math.ceil(total / BLOG_PAGE_SIZE))
+}
+
+/** Static paths for `/blog/page/N` and `/es/blog/page/N`: page 1 is `/blog`, so N starts at 2. */
+export async function getBlogPagePaths() {
+  const pages = blogPageCount((await getPosts()).length)
+  return Array.from({ length: Math.max(0, pages - 1) }, (_, i) => ({ params: { page: String(i + 2) } }))
 }

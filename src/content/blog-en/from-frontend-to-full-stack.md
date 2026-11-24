@@ -3,6 +3,7 @@ title: "From Frontend to Full-Stack: What Actually Changes"
 description: "After years as an Angular specialist, I shipped full systems. What changes: infrastructure, failure modes, and how the frontend mindset helps and hurts."
 date: 2026-04-05
 category: "Backend"
+cover: "layers"
 draft: false
 ---
 
