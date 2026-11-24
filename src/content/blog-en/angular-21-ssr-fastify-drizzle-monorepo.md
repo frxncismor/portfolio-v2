@@ -3,6 +3,7 @@ title: "Angular 21 SSR, Fastify and Drizzle in One Monorepo"
 description: "How Grim Builds is structured: a pnpm monorepo with Angular 21 prerendering, a Fastify API, Drizzle migrations, Docker Compose and shared domain code."
 date: 2026-11-18
 category: "Angular"
+cover: "monorepo"
 draft: false
 ---
 

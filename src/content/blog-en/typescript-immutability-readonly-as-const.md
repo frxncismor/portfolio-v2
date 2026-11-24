@@ -3,6 +3,7 @@ title: "Immutability in TypeScript: readonly, as const, Readonly"
 description: "How readonly, as const and Readonly<T> make the compiler enforce immutability, where they stop, and how to write a DeepReadonly type of your own."
 date: 2026-12-28
 category: "JavaScript"
+cover: "frozen"
 draft: false
 ---
 

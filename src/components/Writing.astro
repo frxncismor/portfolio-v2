@@ -1,6 +1,6 @@
 ---
 import PostRow from './blog/PostRow.astro'
-import { getPosts } from '../lib/posts'
+import { getPublishedPosts } from '../lib/posts'
 import { t, type Lang } from '../i18n/translations'
 import { localePath } from '../i18n/routes'
 
@@ -9,7 +9,7 @@ interface Props {
 }
 
 const { lang } = Astro.props
-const latest = (await getPosts()).slice(0, 3)
+const latest = (await getPublishedPosts()).slice(0, 3)
 ---
 
 <section id="writing" class="section-block">

@@ -29,6 +29,7 @@ const headings = all.filter((h) => h.depth === 2).map(({ slug, text }) => ({ slu
 
 // Dates come from `YYYY-MM-DD` front matter (UTC midnight): format in UTC to avoid off-by-one days.
 const published = date.toLocaleDateString(dateLocale[lang], { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })
+const when = post.scheduled ? t(lang, 'blog.scheduled').replace('{date}', published) : published
 const minutes = readingTime(entry.body)
 
 const neighbors = [
@@ -89,7 +90,7 @@ const blogPostingSchema = {
         <a class="back label" href={localePath(lang, '/blog')}>{t(lang, 'blog.back')}</a>
         <div class="meta">
           <span class="topic">{category}</span>
-          <span class="label">{published} · {minutes} {t(lang, 'blog.min-read')}</span>
+          <span class:list={['label', { scheduled: post.scheduled }]}>{when} · {minutes} {t(lang, 'blog.min-read')}</span>
         </div>
         <h1 class="serif">{title}</h1>
         <p class="dek">{description}</p>
@@ -145,6 +146,7 @@ const blogPostingSchema = {
   }
   .back { text-decoration: none; transition: color .15s; }
   .back:hover { color: var(--accent); }
+  .meta .scheduled { color: var(--clay); }
   .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
   h1 {
     margin: 8px 0 0;

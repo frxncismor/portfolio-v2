@@ -13,6 +13,7 @@ interface PostManifest {
   desc: string
   category: string
   date: string
+  scheduled: boolean
   href: string
 }
 
@@ -40,6 +41,7 @@ function buildRow(template: HTMLTemplateElement, post: PostManifest): HTMLElemen
     if (node) node.textContent = text
   }
   set('.label', post.date)
+  row.querySelector('.label')?.classList.toggle('scheduled', post.scheduled)
   set('h3', post.title)
   set('p', post.desc)
   set('.topic', post.category)

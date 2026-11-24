@@ -3,6 +3,7 @@ title: "Tests como contrato: que la IA no reescriba tus pruebas"
 description: "Evita que un agente debilite tus tests: reglas deny y hook PreToolUse en Claude Code, CODEOWNERS y un guardia en GitHub Actions que revisa el diff del PR."
 date: 2027-01-18
 category: "Testing"
+cover: "contract"
 draft: false
 ---
 

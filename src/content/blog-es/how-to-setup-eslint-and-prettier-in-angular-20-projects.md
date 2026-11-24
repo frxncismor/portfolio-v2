@@ -3,6 +3,7 @@ title: "Cómo Configurar ESLint y Prettier en Proyectos Angular 20"
 description: "Guía completa y actualizada para configurar ESLint y Prettier en un proyecto Angular 20 nuevo, incluyendo las partes que la mayoría de las guías se saltan."
 date: 2026-03-01
 category: "Angular"
+cover: "lint"
 draft: false
 ---
 

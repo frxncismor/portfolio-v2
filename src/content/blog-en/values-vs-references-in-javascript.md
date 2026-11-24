@@ -3,6 +3,7 @@ title: "Values vs References in JavaScript"
 description: "One of the most misunderstood concepts in JS. Understanding how values and references work will save you from bugs you can't explain."
 date: 2026-03-20
 category: "JavaScript"
+cover: "refs"
 draft: false
 ---
 

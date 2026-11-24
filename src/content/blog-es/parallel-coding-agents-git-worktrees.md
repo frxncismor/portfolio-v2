@@ -3,6 +3,7 @@ title: "Agentes de código en paralelo con git worktrees"
 description: "Un worktree y una rama por agente, rama de integración, merges --no-ff, un techo de paralelismo razonable y limpieza. El patrón con git, paso a paso."
 date: 2027-02-22
 category: "AI"
+cover: "worktrees"
 draft: false
 ---
 

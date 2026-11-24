@@ -3,6 +3,7 @@ title: "Drizzle Migrations: Expand, Migrate, Contract"
 description: "How I run Drizzle migrations in production: versioned SQL, reviewed diffs, expand/contract for zero-downtime changes, a locked one-shot migrator and a CI check."
 date: 2026-12-14
 category: "Backend"
+cover: "expand"
 draft: false
 ---
 

@@ -3,6 +3,7 @@ title: "Angular Signals más allá de lo básico: linkedSignal"
 description: "Signal inputs, model(), linkedSignal, resource y httpResource en Angular 21: para qué sirve cada uno, qué es estable y dónde RxJS sigue ganando."
 date: 2026-11-30
 category: "Angular"
+cover: "signals"
 draft: false
 ---
 

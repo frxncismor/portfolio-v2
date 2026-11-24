@@ -3,6 +3,7 @@ title: "WTF Is Immutability in JavaScript?"
 description: "Stop mutating your state. Here's what immutability actually means in JavaScript and why it matters more than you think."
 date: 2026-03-10
 category: "JavaScript"
+cover: "frozen"
 draft: false
 ---
 

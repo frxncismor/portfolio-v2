@@ -3,6 +3,7 @@ title: "Cómo Es Ser Desarrollador Web en 2026"
 description: "Las herramientas cambiaron. Los fundamentos, no. Así trabajo realmente en 2026 usando Claude Code, MCPs, skills y el stack de Gentle AI."
 date: 2026-04-04
 category: "AI"
+cover: "devai"
 draft: false
 ---
 

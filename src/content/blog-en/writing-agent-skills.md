@@ -3,6 +3,7 @@ title: "Writing Agent Skills That Actually Get Used"
 description: "How to write a SKILL.md that triggers when it should: the description that decides activation, progressive disclosure, a full example and how to test it."
 date: 2027-01-04
 category: "AI"
+cover: "skills"
 draft: false
 ---
 

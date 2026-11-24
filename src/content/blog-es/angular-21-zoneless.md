@@ -3,6 +3,7 @@ title: "Angular 21 sin Zone.js: qué cambia y cómo migrar"
 description: "Zoneless es el default en Angular 21. Qué dispara la detección de cambios, cómo quitar zone.js, qué se rompe y cómo se comportan SSR y las pruebas."
 date: 2027-01-11
 category: "Angular"
+cover: "zoneless"
 draft: false
 ---
 

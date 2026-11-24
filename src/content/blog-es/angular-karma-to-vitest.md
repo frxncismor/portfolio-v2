@@ -3,6 +3,7 @@ title: "Migrar las Pruebas Unitarias de Angular a Vitest"
 description: "Guía paso a paso para pasar un proyecto Angular de Karma y Jasmine a Vitest: builder, schematic, spies, TestBed, cobertura y CI."
 date: 2027-02-08
 category: "Angular"
+cover: "migration"
 draft: false
 ---
 
