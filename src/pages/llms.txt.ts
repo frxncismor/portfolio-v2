@@ -58,7 +58,7 @@ Francisco Moreno is a full-stack software engineer with expertise in Angular, Ty
 ## Selected Projects
 
 - **Grim Builds** (WIP) — Build-guide platform for Grim Dawn: Angular 21 SSR, Fastify + Drizzle API, PostgreSQL, shared Zod domain, hardened Docker setup, CI with property-based, e2e, accessibility and Lighthouse checks. https://github.com/frxncismor/grim-dawn-builds
-- **DevDeck** — Lightweight desktop companion for developers juggling many repos and git worktrees: worktree status, listening ports, a streaming JSON viewer for huge files and a Hidden Costs cleanup scan (Tauri 2, Rust, Svelte, TypeScript). https://github.com/frxncismor/devdeck
+- **DevDeck** (WIP) — Lightweight desktop companion for developers juggling many repos and git worktrees: worktree status, listening ports, a streaming JSON viewer for huge files and a Hidden Costs cleanup scan (Tauri 2, Rust, Svelte, TypeScript). https://github.com/frxncismor/devdeck
 - **Nox Coffee** — Scroll-driven brand experience for a fictional coffee company (Astro, GSAP, Lenis). https://nox-coffee.vercel.app/
 - **Room Tour & Descriptions** — Interactive 3D room viewer with orbit controls, teleportation navigation and object interaction (Angular, Three.js). https://room-tour-and-descriptions.vercel.app/
 - **Mega Basic Crossy Road** — Browser-based 3D Crossy Road clone (TypeScript, Three.js, Vite). https://mega-basic-crossy-road.vercel.app/
