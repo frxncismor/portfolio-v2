@@ -1,6 +1,6 @@
 import type { Localized } from '../i18n/types'
 
-export type ProjectId = 'grim-builds' | 'nox-coffee' | 'room-tour' | 'crossy-road'
+export type ProjectId = 'grim-builds' | 'devdeck' | 'nox-coffee' | 'room-tour' | 'crossy-road'
 
 export interface Project {
   id: ProjectId
@@ -25,6 +25,17 @@ export const projects: Project[] = [
     stack: ['Angular 21', 'Fastify', 'PostgreSQL', 'Drizzle', 'Zod', 'Docker'],
     githubUrl: 'https://github.com/frxncismor/grim-dawn-builds',
     wip: true,
+  },
+  {
+    id: 'devdeck',
+    title: 'DevDeck',
+    category: { en: 'Desktop · Developer tools', es: 'Escritorio · Herramientas para devs' },
+    description: {
+      en: 'Lightweight desktop companion for developers juggling many repos and git worktrees. Four tools in one sidebar: worktree status with one-click open or remove, listening ports mapped to processes and worktrees, a streaming JSON viewer for files of hundreds of MB, and a Hidden Costs scan for forgotten worktrees and regenerable folders. Every cleanup asks first. Tauri 2, Rust and Svelte, with EN/ES UI.',
+      es: 'Compañero de escritorio ligero para devs que manejan muchos repos y git worktrees. Cuatro herramientas en una barra lateral: estado de worktrees con abrir o eliminar en un clic, puertos en escucha ligados a procesos y worktrees, visor JSON en streaming para archivos de cientos de MB y un escaneo de costos ocultos con worktrees olvidados y carpetas regenerables. Toda limpieza pide confirmación. Tauri 2, Rust y Svelte, con interfaz EN/ES.',
+    },
+    stack: ['Tauri 2', 'Rust', 'Svelte', 'TypeScript'],
+    githubUrl: 'https://github.com/frxncismor/devdeck',
   },
   {
     id: 'nox-coffee',

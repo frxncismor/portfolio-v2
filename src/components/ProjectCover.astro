@@ -50,6 +50,58 @@ const crossyRows = [1, 2, 3, 4, 5, 6, 7]
     </>
   )}
 
+  {id === 'devdeck' && (
+    <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" focusable="false">
+      <rect class="d-win" x="40" y="110" width="320" height="280" rx="10"></rect>
+      <path class="d-bar" d="M40 120a10 10 0 0 1 10-10h300a10 10 0 0 1 10 10v18H40Z"></path>
+      <circle class="d-dot" cx="58" cy="124" r="3.5"></circle>
+      <circle class="d-dot" cx="72" cy="124" r="3.5"></circle>
+      <circle class="d-dot" cx="86" cy="124" r="3.5"></circle>
+      <path class="d-side" d="M40 138h64v252H50a10 10 0 0 1-10-10Z"></path>
+      <rect class="d-tab d-tab-on" x="50" y="150" width="44" height="40" rx="6"></rect>
+      <rect class="d-tab" x="50" y="198" width="44" height="40" rx="6"></rect>
+      <rect class="d-tab" x="50" y="246" width="44" height="40" rx="6"></rect>
+      <rect class="d-tab" x="50" y="294" width="44" height="40" rx="6"></rect>
+      <!-- tab 1: worktree tree -->
+      <g class="d-glyph d-tree">
+        <path d="M63 160v20M63 164h10M63 176h10"></path>
+        <circle cx="63" cy="161" r="2"></circle><circle cx="75" cy="164" r="2"></circle><circle cx="75" cy="176" r="2"></circle>
+      </g>
+      <!-- tab 2: ports -->
+      <g class="d-glyph">
+        <path d="M60 218h30M60 226h30M60 210h30"></path>
+      </g>
+      <!-- tab 3: json braces -->
+      <g class="d-glyph">
+        <path d="M68 254c-4 0-5 2-5 5v3c0 3-2 4-4 4 2 0 4 1 4 4v3c0 3 1 5 5 5M82 254c4 0 5 2 5 5v3c0 3 2 4 4 4-2 0-4 1-4 4v3c0 3-1 5-5 5"></path>
+      </g>
+      <!-- tab 4: meter -->
+      <g class="d-glyph">
+        <path d="M59 322a15 15 0 0 1 30 0"></path>
+        <path class="d-needle" d="M74 322 82 311"></path>
+      </g>
+      <!-- main pane: worktree tree -->
+      <g class="d-rows">
+        <circle class="d-node d-node-hot" cx="130" cy="170" r="4.5"></circle>
+        <rect class="d-line" x="144" y="166" width="110" height="8" rx="4"></rect>
+        <path class="d-link" d="M130 176v100M130 206h18M130 242h18M130 276h18"></path>
+        <circle class="d-node" cx="148" cy="206" r="3.5"></circle>
+        <rect class="d-line d-line-dim" x="160" y="202" width="86" height="8" rx="4"></rect>
+        <rect class="d-chip" x="302" y="200" width="34" height="14" rx="7"></rect>
+        <circle class="d-node" cx="148" cy="242" r="3.5"></circle>
+        <rect class="d-line d-line-dim" x="160" y="238" width="104" height="8" rx="4"></rect>
+        <rect class="d-chip d-chip-hot" x="302" y="236" width="34" height="14" rx="7"></rect>
+        <circle class="d-node" cx="148" cy="276" r="3.5"></circle>
+        <rect class="d-line d-line-dim" x="160" y="272" width="72" height="8" rx="4"></rect>
+      </g>
+      <!-- disk / RAM meters -->
+      <rect class="d-track" x="120" y="322" width="224" height="8" rx="4"></rect>
+      <rect class="d-fill" x="120" y="322" width="150" height="8" rx="4"></rect>
+      <rect class="d-track" x="120" y="346" width="224" height="8" rx="4"></rect>
+      <rect class="d-fill d-fill-hot" x="120" y="346" width="96" height="8" rx="4"></rect>
+    </svg>
+  )}
+
   {id === 'nox-coffee' && (
     <>
       <b>Nox</b>
@@ -122,6 +174,30 @@ const crossyRows = [1, 2, 3, 4, 5, 6, 7]
     text-transform: uppercase;
     color: var(--art-ember);
   }
+
+  /* DevDeck: desktop window with four-tool sidebar */
+  .cover-devdeck {
+    background: radial-gradient(90% 70% at 50% 40%, var(--art-pine-dark) 0%, var(--art-pine-deep) 80%);
+  }
+  .d-win { fill: var(--art-night); stroke: var(--art-pine); stroke-width: 1.5; }
+  .d-bar { fill: var(--art-ink-warm); }
+  .d-dot { fill: var(--art-ink); fill-opacity: .4; }
+  .d-side { fill: var(--art-coal); }
+  .d-tab { fill: var(--art-ink-warm); }
+  .d-tab-on { fill: var(--art-ember); fill-opacity: .25; stroke: var(--art-ember); stroke-width: 1; }
+  .d-glyph { fill: none; stroke: var(--art-cream); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .d-tree circle { fill: var(--art-ember); stroke: none; }
+  .d-needle { stroke: var(--art-ember); }
+  .d-link { fill: none; stroke: var(--art-pine); stroke-width: 1.5; }
+  .d-node { fill: var(--art-cream); }
+  .d-node-hot { fill: var(--art-ember); }
+  .d-line { fill: var(--art-cream); fill-opacity: .8; }
+  .d-line-dim { fill-opacity: .4; }
+  .d-chip { fill: var(--art-pine); }
+  .d-chip-hot { fill: var(--art-ember); }
+  .d-track { fill: var(--art-ink-warm); }
+  .d-fill { fill: var(--art-pine); }
+  .d-fill-hot { fill: var(--art-ember); }
 
   /* Nox Coffee: moon + wordmark */
   .cover-nox-coffee {
