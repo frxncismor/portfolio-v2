@@ -3,6 +3,7 @@ title: "End-to-End Tests for Angular SSR with Playwright"
 description: "Set up Playwright for an Angular SSR app: webServer with API and SSR, accessible locators, fixtures, storageState, hydration checks and stable CI runs."
 date: 2026-12-21
 category: "Testing"
+cover: "e2e"
 draft: false
 ---
 

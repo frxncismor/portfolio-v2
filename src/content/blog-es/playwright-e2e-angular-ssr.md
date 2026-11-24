@@ -3,6 +3,7 @@ title: "Pruebas E2E para Angular SSR con Playwright"
 description: "Configura Playwright en una app Angular SSR: webServer con API y SSR, locators accesibles, fixtures, storageState, chequeo de hidratación y CI estable."
 date: 2026-12-21
 category: "Testing"
+cover: "e2e"
 draft: false
 ---
 

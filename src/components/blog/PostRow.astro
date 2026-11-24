@@ -1,6 +1,6 @@
 ---
 import type { Post } from '../../lib/posts'
-import type { Lang } from '../../i18n/translations'
+import { t, type Lang } from '../../i18n/translations'
 import { dateLocale, localePath } from '../../i18n/routes'
 
 interface Props {
@@ -9,18 +9,19 @@ interface Props {
 }
 
 const { post, lang } = Astro.props
-const { slug, category, date } = post
+const { slug, category, date, scheduled } = post
 const title = lang === 'es' ? post.titleEs : post.titleEn
 const desc = lang === 'es' ? post.descEs : post.descEn
 
 // Dates come from `YYYY-MM-DD` front matter (UTC midnight): format in UTC to avoid off-by-one days.
 const short = (locale: string) =>
   date.toLocaleDateString(locale, { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' })
+const when = scheduled ? t(lang, 'blog.scheduled').replace('{date}', short(dateLocale[lang])) : short(dateLocale[lang])
 ---
 
 <a class="post-row reveal" href={localePath(lang, `/blog/${slug}`)} data-post-slug={slug} data-topic={category}>
-  <span class="label">
-    {short(dateLocale[lang])}
+  <span class:list={['label', { scheduled }]}>
+    {when}
   </span>
   <div>
     <h3 class="serif">
@@ -61,6 +62,7 @@ const short = (locale: string) =>
     line-height: 24px;
     max-width: 40em;
   }
+  .post-row .label.scheduled { color: var(--clay); }
   .topic { margin-top: 6px; }
   .post-row:hover h3 { color: var(--accent); }
 

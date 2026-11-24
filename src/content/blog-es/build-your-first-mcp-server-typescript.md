@@ -3,6 +3,7 @@ title: "Construye tu primer servidor MCP en TypeScript"
 description: "Guía paso a paso de un servidor MCP de solo lectura en TypeScript: tools con input validado, stdio, Claude Code, MCP Inspector y seguridad básica."
 date: 2026-12-07
 category: "AI"
+cover: "mcp"
 draft: false
 ---
 

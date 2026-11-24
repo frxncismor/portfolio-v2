@@ -23,8 +23,9 @@ const totalPages = blogPageCount(posts.length)
 // Page 1 opens with the featured post, which counts toward its BLOG_PAGE_SIZE posts.
 const pagePosts = posts.slice((page - 1) * BLOG_PAGE_SIZE, page * BLOG_PAGE_SIZE)
 const [first, ...others] = pagePosts
-const featured = page === 1 ? first : undefined
-const rest = page === 1 ? others : pagePosts
+// Published posts come first, so the featured post is never a scheduled one.
+const featured = page === 1 && first && !first.scheduled ? first : undefined
+const rest = page === 1 && featured ? others : pagePosts
 const categories = [...new Set(posts.map((p) => p.category))]
 
 const pageHref = (n: number) => localePath(lang, n === 1 ? '/blog/' : `/blog/page/${n}/`)
@@ -40,7 +41,11 @@ const searchManifest = posts.map((p) => ({
   title: lang === 'es' ? p.titleEs : p.titleEn,
   desc: lang === 'es' ? p.descEs : p.descEn,
   category: p.category,
-  date: p.date.toLocaleDateString(dateLocale[lang], { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' }),
+  date: (() => {
+    const d = p.date.toLocaleDateString(dateLocale[lang], { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' })
+    return p.scheduled ? t(lang, 'blog.scheduled').replace('{date}', d) : d
+  })(),
+  scheduled: p.scheduled,
   href: localePath(lang, `/blog/${p.slug}`),
 }))
 

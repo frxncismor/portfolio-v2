@@ -3,6 +3,7 @@ title: "Tests as a Contract: Stop AI Rewriting Your Tests"
 description: "Stop coding agents from weakening your tests: Claude Code deny rules and a PreToolUse hook, CODEOWNERS, and a GitHub Actions guard that inspects the PR diff."
 date: 2027-01-18
 category: "Testing"
+cover: "contract"
 draft: false
 ---
 

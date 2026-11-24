@@ -3,6 +3,7 @@ title: "What It's Like to Be a Web Developer in 2026"
 description: "The tools changed. The fundamentals didn't. Here's how I actually work in 2026 using Claude Code, MCPs, skills, and the Gentle AI stack."
 date: 2026-04-04
 category: "AI"
+cover: "devai"
 draft: false
 ---
 

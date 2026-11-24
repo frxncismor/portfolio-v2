@@ -3,6 +3,7 @@ title: "How to Setup ESLint and Prettier in Angular 20 Projects"
 description: "A complete, up-to-date guide to wiring ESLint and Prettier into a fresh Angular 20 project — including the parts most guides skip."
 date: 2026-03-01
 category: "Angular"
+cover: "lint"
 draft: false
 ---
 

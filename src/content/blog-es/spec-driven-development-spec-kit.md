@@ -3,6 +3,7 @@ title: "Desarrollo guiado por especificaciones con Spec Kit"
 description: "Cómo uso Spec Kit de GitHub para convertir una petición vaga en spec, plan y tareas pequeñas antes de que el agente escriba código, y dónde falla."
 date: 2027-02-01
 category: "AI"
+cover: "spec"
 draft: false
 ---
 

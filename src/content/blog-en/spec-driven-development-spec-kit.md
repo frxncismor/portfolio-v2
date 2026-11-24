@@ -3,6 +3,7 @@ title: "Spec-Driven Development with Spec Kit"
 description: "How I use GitHub's Spec Kit to turn a vague request into a spec, a plan and small tasks before an agent writes code, and where the flow breaks."
 date: 2027-02-01
 category: "AI"
+cover: "spec"
 draft: false
 ---
 

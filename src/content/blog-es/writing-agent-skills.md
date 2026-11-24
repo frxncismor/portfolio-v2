@@ -3,6 +3,7 @@ title: "Cómo escribir agent skills que de verdad se usen"
 description: "Cómo escribir un SKILL.md que se active cuando debe: la description que decide, revelación progresiva, un ejemplo completo y cómo probarlo."
 date: 2027-01-04
 category: "AI"
+cover: "skills"
 draft: false
 ---
 

@@ -3,6 +3,7 @@ title: "Testing adversarial con IA: uno construye, otro rompe"
 description: "Un agente de IA construye y otro rompe: un breaker que solo ve la spec, propiedades con fast-check y el mutation score de Stryker en vez de la cobertura."
 date: 2027-02-15
 category: "Testing"
+cover: "adversarial"
 draft: false
 ---
 

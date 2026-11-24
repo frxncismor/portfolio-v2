@@ -1,0 +1,215 @@
+---
+import type { Cover } from '../../lib/covers'
+
+interface Props {
+  cover: Cover
+  label?: string
+}
+
+const { cover, label } = Astro.props
+---
+
+<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" focusable="false">
+  <rect width="400" height="300" class="bg"></rect>
+  <g class="l" fill="none" stroke-width="1.5">
+    {cover === 'worktrees' && (
+      <>
+        <path d="M60 150h280"></path>
+        <path d="M120 150c20 0 20-60 50-60h110c20 0 30 30 60 60"></path>
+        <path d="M120 150c20 0 20 60 50 60h110c20 0 30-30 60-60"></path>
+      </>
+    )}
+    {cover === 'mcp' && (
+      <>
+        <circle cx="200" cy="150" r="30"></circle>
+        <path d="M172 138 128 100M172 162l-44 38M228 138l44-38M228 162l44 38"></path>
+        <rect x="64" y="72" width="64" height="40" rx="8"></rect>
+        <rect x="64" y="188" width="64" height="40" rx="8"></rect>
+        <rect x="272" y="72" width="64" height="40" rx="8"></rect>
+        <rect x="272" y="188" width="64" height="40" rx="8"></rect>
+      </>
+    )}
+    {cover === 'adversarial' && (
+      <>
+        <rect x="50" y="110" width="100" height="80" rx="10"></rect>
+        <rect x="250" y="110" width="100" height="80" rx="10"></rect>
+        <path d="M160 130h80M240 130l-12-8M240 130l-12 8M240 170h-80M160 170l12-8M160 170l12 8"></path>
+      </>
+    )}
+    {cover === 'contract' && (
+      <>
+        <rect x="110" y="55" width="180" height="190" rx="10"></rect>
+        <path d="M140 120l10 10 18-20M140 165l10 10 18-20M190 120h70M190 165h70M190 210h70"></path>
+      </>
+    )}
+    {cover === 'signals' && (
+      <>
+        <circle cx="90" cy="100" r="22"></circle>
+        <circle cx="90" cy="200" r="22"></circle>
+        <circle cx="220" cy="150" r="22"></circle>
+        <path d="M110 108l90 32M110 192l90-32M242 150h60"></path>
+        <rect x="302" y="128" width="50" height="44" rx="8"></rect>
+      </>
+    )}
+    {cover === 'zoneless' && (
+      <>
+        <rect x="80" y="80" width="240" height="140" rx="12" stroke-dasharray="6 6"></rect>
+        <path d="M80 220 320 80"></path>
+      </>
+    )}
+    {cover === 'migration' && (
+      <>
+        <rect x="50" y="105" width="100" height="90" rx="10"></rect>
+        <rect x="250" y="105" width="100" height="90" rx="10"></rect>
+        <path d="M165 150h70M235 150l-12-9M235 150l-12 9"></path>
+      </>
+    )}
+    {cover === 'expand' && (
+      <>
+        <rect x="60" y="80" width="80" height="140" rx="8"></rect>
+        <rect x="160" y="80" width="80" height="140" rx="8"></rect>
+        <rect x="260" y="80" width="80" height="140" rx="8"></rect>
+        <path d="M60 130h80M60 175h80M160 130h80M260 130h80M260 175h80"></path>
+      </>
+    )}
+    {cover === 'columns' && (
+      <>
+        <rect x="55" y="70" width="120" height="160" rx="10"></rect>
+        <rect x="225" y="70" width="120" height="160" rx="10"></rect>
+        <path d="M75 115h80M75 150h80M75 185h80M245 115h80M245 150h80M245 185h80M180 115h40M180 150h40M180 185h40"></path>
+      </>
+    )}
+    {cover === 'frozen' && (
+      <>
+        <rect x="140" y="140" width="120" height="90" rx="10"></rect>
+        <path d="M165 140v-28a35 35 0 0 1 70 0v28"></path>
+      </>
+    )}
+    {cover === 'refs' && (
+      <>
+        <rect x="55" y="90" width="110" height="70" rx="8"></rect>
+        <rect x="235" y="90" width="110" height="70" rx="8"></rect>
+        <rect x="235" y="190" width="110" height="46" rx="8"></rect>
+        <path d="M110 160v36M285 160v30M285 190l-6-10M285 190l6-10"></path>
+      </>
+    )}
+    {cover === 'spec' && (
+      <>
+        <rect x="40" y="110" width="90" height="80" rx="10"></rect>
+        <rect x="155" y="110" width="90" height="80" rx="10"></rect>
+        <rect x="270" y="110" width="90" height="80" rx="10"></rect>
+        <path d="M130 150h25M245 150h25"></path>
+      </>
+    )}
+    {cover === 'skills' && (
+      <>
+        <circle cx="200" cy="200" r="28"></circle>
+        <rect x="52" y="60" width="80" height="60" rx="8"></rect>
+        <rect x="160" y="60" width="80" height="60" rx="8"></rect>
+        <rect x="268" y="60" width="80" height="60" rx="8"></rect>
+        <path d="M92 120v30h80l16 24M200 120v52M308 120v30h-80l-16 24"></path>
+      </>
+    )}
+    {cover === 'e2e' && (
+      <>
+        <rect x="50" y="55" width="300" height="190" rx="12"></rect>
+        <path d="M50 95h300"></path>
+        <path d="M90 190h60l30-50h60l30 50h40"></path>
+      </>
+    )}
+    {cover === 'api' && (
+      <>
+        <rect x="40" y="115" width="90" height="70" rx="10"></rect>
+        <rect x="155" y="115" width="90" height="70" rx="10"></rect>
+        <rect x="270" y="115" width="90" height="70" rx="10"></rect>
+        <path d="M130 150h25M245 150h25"></path>
+      </>
+    )}
+    {cover === 'monorepo' && (
+      <>
+        <rect x="35" y="45" width="330" height="210" rx="14"></rect>
+        <rect x="60" y="75" width="110" height="56" rx="10"></rect>
+        <rect x="230" y="75" width="110" height="56" rx="10"></rect>
+        <rect x="145" y="175" width="110" height="56" rx="10"></rect>
+        <path d="M115 131v22h85v22M285 131v22h-85"></path>
+      </>
+    )}
+    {cover === 'layers' && (
+      <>
+        <path d="M200 70 330 120 200 170 70 120Z"></path>
+        <path d="M70 160l130 50 130-50M70 200l130 50 130-50"></path>
+      </>
+    )}
+    {cover === 'lint' && (
+      <>
+        <path d="M70 90h130M100 130h190M100 170h110M70 210h150"></path>
+        <path d="M250 165l10 10M260 165l-10 10"></path>
+      </>
+    )}
+    {cover === 'devai' && (
+      <>
+        <circle cx="110" cy="150" r="42"></circle>
+        <rect x="236" y="108" width="84" height="84" rx="14"></rect>
+        <path d="M160 140h70M230 160h-70"></path>
+      </>
+    )}
+    {cover === 'generic' && (
+      <>
+        <rect x="90" y="75" width="220" height="150" rx="12"></rect>
+        <path d="M120 120h160M120 150h110M120 180h140"></path>
+      </>
+    )}
+  </g>
+
+  {cover === 'worktrees' && <circle cx="340" cy="150" r="6" class="e"></circle>}
+  {cover === 'mcp' && <circle cx="200" cy="150" r="7" class="e"></circle>}
+  {cover === 'adversarial' && <circle cx="200" cy="150" r="6" class="e"></circle>}
+  {cover === 'contract' && <path d="M140 210l10 10 18-20" class="es" fill="none" stroke-width="1.5"></path>}
+  {cover === 'signals' && <circle cx="277" cy="150" r="6" class="e"></circle>}
+  {cover === 'zoneless' && <circle cx="200" cy="150" r="6" class="e"></circle>}
+  {cover === 'migration' && <circle cx="200" cy="150" r="6" class="e"></circle>}
+  {cover === 'expand' && <path d="M160 175h80" class="es" fill="none" stroke-width="3"></path>}
+  {cover === 'columns' && <circle cx="200" cy="150" r="6" class="e"></circle>}
+  {cover === 'frozen' && <circle cx="200" cy="185" r="9" class="e"></circle>}
+  {cover === 'refs' && <circle cx="110" cy="196" r="6" class="e"></circle>}
+  {cover === 'spec' && <circle cx="257" cy="150" r="6" class="e"></circle>}
+  {cover === 'skills' && <circle cx="200" cy="172" r="6" class="e"></circle>}
+  {cover === 'e2e' && <circle cx="330" cy="190" r="7" class="e"></circle>}
+  {cover === 'api' && <circle cx="257" cy="150" r="6" class="e"></circle>}
+  {cover === 'monorepo' && <circle cx="200" cy="153" r="6" class="e"></circle>}
+  {cover === 'layers' && <circle cx="330" cy="120" r="7" class="e"></circle>}
+  {cover === 'lint' && <path d="M215 208q8 8 16 0t16 0t16 0" class="es" fill="none" stroke-width="1.5"></path>}
+  {cover === 'devai' && <circle cx="195" cy="150" r="6" class="e"></circle>}
+  {cover === 'generic' && <circle cx="300" cy="215" r="5" class="e"></circle>}
+
+  <g class="t" font-family="Geist Mono, monospace" font-size="12" letter-spacing="1" text-anchor="middle">
+    {cover === 'worktrees' && (<><text x="70" y="140" text-anchor="start">MAIN</text><text x="225" y="82">FEATURE</text><text x="225" y="226">FIX</text></>)}
+    {cover === 'mcp' && (<><text x="200" y="104">AGENT</text><text x="96" y="96">TOOL</text><text x="96" y="212">DB</text><text x="304" y="96">API</text><text x="304" y="212">FS</text></>)}
+    {cover === 'adversarial' && (<><text x="100" y="155">BUILDER</text><text x="300" y="155">BREAKER</text></>)}
+    {cover === 'contract' && (<text x="200" y="82">CONTRACT</text>)}
+    {cover === 'signals' && (<><text x="90" y="104">A</text><text x="90" y="204">B</text><text x="220" y="154">SUM</text><text x="327" y="154">UI</text></>)}
+    {cover === 'zoneless' && (<text x="200" y="70">ZONE.JS</text>)}
+    {cover === 'migration' && (<><text x="100" y="154">KARMA</text><text x="300" y="154">VITEST</text></>)}
+    {cover === 'expand' && (<><text x="100" y="70">EXPAND</text><text x="200" y="70">MIGRATE</text><text x="300" y="70">CONTRACT</text></>)}
+    {cover === 'columns' && (<><text x="115" y="62">TS</text><text x="285" y="62">C#</text></>)}
+    {cover === 'frozen' && (<text x="200" y="262">READONLY</text>)}
+    {cover === 'refs' && (<><text x="110" y="132">42</text><text x="290" y="118">PTR</text><text x="290" y="218">OBJ</text></>)}
+    {cover === 'spec' && (<><text x="85" y="154">SPEC</text><text x="200" y="154">PLAN</text><text x="315" y="154">TASKS</text></>)}
+    {cover === 'skills' && (<><text x="92" y="95">SKILL</text><text x="200" y="95">SKILL</text><text x="308" y="95">SKILL</text><text x="200" y="204">AGENT</text></>)}
+    {cover === 'e2e' && (<text x="70" y="80" text-anchor="start">/SSR</text>)}
+    {cover === 'api' && (<><text x="85" y="154">REQUEST</text><text x="200" y="154">VALIDATE</text><text x="315" y="154">PROBLEM</text></>)}
+    {cover === 'monorepo' && (<><text x="115" y="107">CLIENT</text><text x="285" y="107">API</text><text x="200" y="207">DATA</text></>)}
+    {cover === 'layers' && (<><text x="200" y="124">UI</text><text x="200" y="174">API</text><text x="200" y="224">DATA</text></>)}
+    {cover === 'lint' && (<text x="285" y="214" text-anchor="start">LINT</text>)}
+    {cover === 'devai' && (<><text x="110" y="154">DEV</text><text x="278" y="154">AI</text></>)}
+    {label && <text x="40" y="274" text-anchor="start">{label}</text>}
+  </g>
+</svg>
+
+<style>
+  .bg { fill: var(--deep); }
+  .l { stroke: var(--art-wall-l); }
+  .e { fill: var(--art-ember); }
+  .es { stroke: var(--art-ember); }
+  .t { fill: var(--art-mist); }
+</style>

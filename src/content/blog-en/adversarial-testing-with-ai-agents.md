@@ -3,6 +3,7 @@ title: "Adversarial Testing with AI Agents: One Builds, One Breaks"
 description: "Use one AI agent to build and another to break it: a breaker with only the spec, fast-check properties, and Stryker mutation score instead of coverage."
 date: 2027-02-15
 category: "Testing"
+cover: "adversarial"
 draft: false
 ---
 

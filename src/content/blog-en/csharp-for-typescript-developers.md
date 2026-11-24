@@ -3,6 +3,7 @@ title: "C# for TypeScript Developers: A Translation Guide"
 description: "A practical map from TypeScript to C# 14 and .NET 10: types, records, nullable reference types, LINQ, Task and dependency injection, plus the traps."
 date: 2027-01-25
 category: "Backend"
+cover: "columns"
 draft: false
 ---
 

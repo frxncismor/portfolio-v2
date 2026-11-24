@@ -3,6 +3,7 @@ title: "Migraciones con Drizzle: expandir, migrar, contraer"
 description: "Cómo corro migraciones de Drizzle en producción: SQL versionado, diff revisado, expandir/contraer sin downtime, migrador one-shot con lock y un check en CI."
 date: 2026-12-14
 category: "Backend"
+cover: "expand"
 draft: false
 ---
 

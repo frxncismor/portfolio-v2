@@ -3,6 +3,7 @@ title: "De Frontend a Full-Stack: Lo Que Cambia de Verdad"
 description: "Tras años como especialista en Angular, empecé a shipper sistemas completos. Qué cambia: infraestructura, modos de falla y el mindset de frontend."
 date: 2026-04-05
 category: "Backend"
+cover: "layers"
 draft: false
 ---
 

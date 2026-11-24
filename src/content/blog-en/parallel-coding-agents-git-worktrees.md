@@ -3,6 +3,7 @@ title: "Parallel Coding Agents with Git Worktrees"
 description: "One worktree and one branch per agent, an integration branch, --no-ff merges, a sane parallelism ceiling and cleanup. The git pattern, step by step."
 date: 2027-02-22
 category: "AI"
+cover: "worktrees"
 draft: false
 ---
 

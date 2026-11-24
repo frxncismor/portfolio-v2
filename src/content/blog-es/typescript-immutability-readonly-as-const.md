@@ -3,6 +3,7 @@ title: "Inmutabilidad en TypeScript: readonly, as const, Readonly"
 description: "Cómo readonly, as const y Readonly<T> hacen que el compilador exija inmutabilidad, dónde se quedan cortos y cómo escribir tu propio DeepReadonly."
 date: 2026-12-28
 category: "JavaScript"
+cover: "frozen"
 draft: false
 ---
 

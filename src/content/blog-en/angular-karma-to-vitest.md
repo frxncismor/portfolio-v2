@@ -3,6 +3,7 @@ title: "Migrate Angular Unit Tests from Karma to Vitest"
 description: "Step-by-step guide to move an Angular project from Karma and Jasmine to Vitest: builder, schematic, spies, TestBed, coverage and CI."
 date: 2027-02-08
 category: "Angular"
+cover: "migration"
 draft: false
 ---
 

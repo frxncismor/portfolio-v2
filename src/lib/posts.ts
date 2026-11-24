@@ -1,4 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content'
+import { defaultCover, type Cover } from './covers'
 
 export interface Post {
   slug: string
@@ -9,7 +10,10 @@ export interface Post {
   descEn: string
   descEs: string
   category: string
+  cover: Cover
   date: Date
+  /** Dated after today (Chicago); only possible where scheduled posts are shown (dev, preview, `SHOW_SCHEDULED=1`). */
+  scheduled: boolean
 }
 
 const SCHEDULE_TIME_ZONE = 'America/Chicago'
@@ -42,7 +46,7 @@ function isVisible({ data }: { data: { draft: boolean; date: Date } }): boolean 
 }
 
 /**
- * Visible posts (newest first), each paired with its Spanish translation.
+ * Visible posts: published ones newest first, then scheduled ones soonest first. Each is paired with its Spanish translation.
  * The build fails if a visible English post has no Spanish counterpart,
  * so `/es/blog/<slug>` always exists for every `/blog/<slug>`.
  */
@@ -59,7 +63,15 @@ export async function getPosts(): Promise<Post[]> {
     )
   }
 
-  return enPosts
+  const today = todayInChicago()
+  const mismatched = enPosts
+    .filter((en) => en.data.cover !== esBySlug.get(en.slug)!.data.cover)
+    .map((p) => p.slug)
+  if (mismatched.length > 0) {
+    throw new Error(`The EN and ES versions of these posts have a different \`cover\`: ${mismatched.join(', ')}.`)
+  }
+
+  const posts = enPosts
     .map((en) => {
       const es = esBySlug.get(en.slug)!
       return {
@@ -71,15 +83,26 @@ export async function getPosts(): Promise<Post[]> {
         descEn: en.data.description,
         descEs: es.data.description,
         category: en.data.category,
+        cover: en.data.cover ?? defaultCover(en.data.category),
         date: en.data.date,
+        scheduled: en.data.date.toISOString().slice(0, 10) > today,
       }
     })
-    .sort((a, b) => b.date.getTime() - a.date.getTime())
+
+  const published = posts.filter((p) => !p.scheduled).sort((a, b) => b.date.getTime() - a.date.getTime())
+  const scheduled = posts.filter((p) => p.scheduled).sort((a, b) => a.date.getTime() - b.date.getTime())
+  return [...published, ...scheduled]
+}
+
+/** Published posts only, newest first: the featured post and the home "Writing" list come from here. */
+export async function getPublishedPosts(): Promise<Post[]> {
+  return (await getPosts()).filter((p) => !p.scheduled)
 }
 
 /** Static paths for `/blog/[slug]` and `/es/blog/[slug]`: each post with its newer ("next") and older ("prev") neighbor. */
 export async function getPostPaths() {
-  const posts = await getPosts()
+  // Neighbors follow chronology, so a scheduled post is only ever "next" (newer) of a published one.
+  const posts = (await getPosts()).sort((a, b) => b.date.getTime() - a.date.getTime())
   return posts.map((post, i) => ({
     params: { slug: post.slug },
     props: {

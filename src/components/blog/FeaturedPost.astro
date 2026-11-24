@@ -1,5 +1,6 @@
 ---
 import type { Post } from '../../lib/posts'
+import PostCover from './PostCover.astro'
 import { t, type Lang } from '../../i18n/translations'
 import { dateLocale, localePath } from '../../i18n/routes'
 
@@ -9,38 +10,25 @@ interface Props {
 }
 
 const { post, lang } = Astro.props
-const { slug, category, date } = post
+const { slug, category, date, scheduled, cover } = post
 const title = lang === 'es' ? post.titleEs : post.titleEn
 const desc = lang === 'es' ? post.descEs : post.descEn
 
 // Dates come from `YYYY-MM-DD` front matter (UTC midnight): format in UTC to avoid off-by-one days.
 const long = (locale: string) =>
   date.toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })
+const when = scheduled ? t(lang, 'blog.scheduled').replace('{date}', long(dateLocale[lang])) : long(dateLocale[lang])
 ---
 
 <a class="feature reveal" href={localePath(lang, `/blog/${slug}`)} data-post-slug={slug} data-topic={category}>
   <div class="feature__art" aria-hidden="true">
-    <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" focusable="false">
-      <rect width="400" height="300" class="fa-bg"></rect>
-      <g class="fa-line" fill="none" stroke-width="1.5">
-        <rect x="60" y="60" width="110" height="56" rx="10"></rect>
-        <rect x="230" y="60" width="110" height="56" rx="10"></rect>
-        <rect x="145" y="190" width="110" height="56" rx="10"></rect>
-        <path d="M115 116v38h85v36M285 116v38h-85"></path>
-      </g>
-      <circle cx="200" cy="154" r="6" class="fa-dot"></circle>
-      <g class="fa-txt" font-family="Geist Mono, monospace" font-size="12" letter-spacing="1">
-        <text x="84" y="93">CLIENT</text>
-        <text x="261" y="93">API</text>
-        <text x="176" y="223">DATA</text>
-      </g>
-    </svg>
+    <PostCover cover={cover} />
   </div>
   <div class="feature__body">
     <div class="post-meta">
       <span class="topic">{category}</span>
-      <span class="label">
-        {long(dateLocale[lang])}
+      <span class:list={['label', { scheduled }]}>
+        {when}
       </span>
     </div>
     <h2 class="serif">
@@ -74,11 +62,8 @@ const long = (locale: string) =>
   .feature:focus-visible { border-color: var(--accent); }
 
   .feature__art { position: relative; min-height: 300px; }
-  .feature__art svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-  .fa-bg { fill: var(--deep); }
-  .fa-line { stroke: var(--art-wall-l); }
-  .fa-dot { fill: var(--art-ember); }
-  .fa-txt { fill: var(--art-mist); }
+  .feature__art :global(svg) { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .scheduled { color: var(--clay); }
 
   .feature__body { display: grid; gap: 18px; align-content: center; padding: 40px; }
   .post-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
