@@ -36,6 +36,7 @@ export const projects: Project[] = [
     },
     stack: ['Tauri 2', 'Rust', 'Svelte', 'TypeScript'],
     githubUrl: 'https://github.com/frxncismor/devdeck',
+    wip: true,
   },
   {
     id: 'nox-coffee',
